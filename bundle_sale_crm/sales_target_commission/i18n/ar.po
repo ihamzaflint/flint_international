@@ -1,0 +1,680 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sales_target_commission
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20220325\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-29 08:26+0000\n"
+"PO-Revision-Date: 2022-09-29 08:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__achievement_percent
+msgid "Achievement (%)"
+msgstr "إنجاز (٪)"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__achievement_amount
+msgid "Achievement (Amount)"
+msgstr "الإنجاز (المبلغ)"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__active
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__commission_policy__state__active
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_form_view
+msgid "Active"
+msgstr "نشيط"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,help:sales_target_commission.field_sales_team_target__member_ids
+msgid ""
+"Add members to automatically assign their documents to this sales team. You "
+"can only be member of one team."
+msgstr ""
+"أضف الأعضاء لتعيين مستنداتهم تلقائيًا إلى فريق المبيعات هذا. يمكنك فقط أن "
+"تكون عضوًا في فريق واحد."
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__target_calc_based_on__all_product
+msgid "All Product"
+msgstr "كل المنتج"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__amount
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__commission_policy__target_type__amount
+msgid "Amount"
+msgstr "مقدار"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__amount_in_company_currency
+msgid "Amount in company currency"
+msgstr "المبلغ بعملة الشركة"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_form_view
+msgid "Archive"
+msgstr "أرشيف"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "At least one details line shall be recorded"
+msgstr "يجب تسجيل خط تفاصيل واحد على الأقل"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_target_target_form
+msgid "Cancel"
+msgstr "يلغي"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__state__canceled
+msgid "Canceled"
+msgstr "ألغيت"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__member_ids
+msgid "Channel Members"
+msgstr "أعضاء القناة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__check_close_date
+msgid "Check Close Date"
+msgstr "تحقق من تاريخ الإغلاق"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_target_target_form
+msgid "Close"
+msgstr "قريب"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__commission
+msgid "Commission %"
+msgstr "عمولة ٪"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__amount
+msgid "Commission Amount"
+msgstr "مبلغ العمولة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__commission_date
+msgid "Commission Date"
+msgstr "تاريخ اللجنة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__commission_percentage
+msgid "Commission Percentage"
+msgstr "نسبة العمولة"
+
+#. module: sales_target_commission
+#: model:ir.actions.act_window,name:sales_target_commission.commission_policy_act_window
+#: model:ir.model,name:sales_target_commission.model_commission_policy
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__commission_policy
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__policy_id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__policy_id
+#: model:ir.ui.menu,name:sales_target_commission.commission_policy_menu
+#: model:res.groups,name:sales_target_commission.group_commission_policy
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_search_view
+msgid "Commission Policy"
+msgstr "سياسة اللجنة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__state
+msgid "Commission Policy Status"
+msgstr "وضع سياسة اللجنة"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Commission must be greater or equal to zero and less or equal to 100"
+msgstr "يجب أن تكون العمولة أكبر أو تساوي الصفر وأقل أو تساوي 100"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__is_commission
+msgid "Commissioned"
+msgstr "بتكليف"
+
+#. module: sales_target_commission
+#: model:ir.ui.menu,name:sales_target_commission.commission_menu
+msgid "Commissions"
+msgstr "اللجان"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__target_achievement__confirmed_sale
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target_commissions__target_achievement__confirmed_sale
+msgid "Confirmed Sales Order"
+msgstr "أمر مبيعات مؤكد"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__create_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__create_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__create_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__create_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__create_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__create_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__create_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__create_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__currency_id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__currency_id
+msgid "Currency"
+msgstr "عملة"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_search
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__date_from
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__date_to
+msgid "Date To"
+msgstr "تاريخ ل"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid "Date to must be greater than date from"
+msgstr "يجب أن يكون تاريخ أكبر من التاريخ"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__name
+msgid "Description"
+msgstr "وصف"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Description is unique"
+msgstr "الوصف فريد من نوعه"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_form_view
+msgid "Detailed"
+msgstr "مفصلة"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_form
+msgid "Details"
+msgstr "تفاصيل"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__display_name
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__display_name
+#: model:ir.model.fields,field_description:sales_target_commission.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__display_name
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__display_name
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__commission_policy__state__draft
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__fixed_payroll
+msgid "Fixed payroll (%)"
+msgstr "كشوف المرتبات الثابتة (٪)"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Fixed payroll (%) must be greater zero and less than or equal to 100"
+msgstr ""
+"يجب أن تكون كشوف المرتبات الثابتة (٪) أكبر من الصفر وأقل من أو تساوي 100"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_search_view
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_search
+msgid "Group By"
+msgstr "مجموعة من"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__id
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sale_order__id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__commission_policy__state__in_active
+msgid "In-Active"
+msgstr "غير نشط"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy____last_update
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details____last_update
+#: model:ir.model.fields,field_description:sales_target_commission.field_sale_order____last_update
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines____last_update
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target____last_update
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل على"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__write_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__write_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__write_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__write_uid
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__write_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__write_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__write_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__write_date
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث على"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__account_move_line_id
+msgid "Move Line"
+msgstr "خط التحرك"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__sale_order_line_id
+msgid "Order Line"
+msgstr "خط النظام"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__commission_policy__target_type__percentage
+msgid "Percentage"
+msgstr "نسبة مئوية"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_target_target_form
+msgid "Period"
+msgstr "فترة"
+
+#. module: sales_target_commission
+#: model:ir.model,name:sales_target_commission.model_policy_details
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__details_ids
+msgid "Policy Details"
+msgstr "تفاصيل السياسة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__price_subtotal
+msgid "Price Subtotal"
+msgstr "السعر الفرعي"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__product_categ_ids
+msgid "Product Categories"
+msgstr "فئات المنتجات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__target_calc_based_on__product_category
+msgid "Product Category"
+msgstr "فئة المنتج"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__product_desc
+msgid "Product Description"
+msgstr "وصف المنتج"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__product_id
+msgid "Product Name"
+msgstr "اسم المنتج"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__quantity
+msgid "Quantity"
+msgstr "كمية"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_target_target_form
+msgid "Run"
+msgstr "يجري"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__sales_team_target__state__running
+msgid "Running"
+msgstr "ادارة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__sale_id
+msgid "Sale Order"
+msgstr "أمر البيع"
+
+#. module: sales_target_commission
+#: model:res.groups,name:sales_target_commission.group_sale_team_target
+msgid "Sale Team Target"
+msgstr "هدف فريق البيع"
+
+#. module: sales_target_commission
+#: model:ir.actions.act_window,name:sales_target_commission.action_view_sales_commissions_lines_view
+#: model:ir.ui.menu,name:sales_target_commission.menu_sales_commission_lines_view
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_form
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_search
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_tree
+msgid "Sales Commission Lines"
+msgstr "خطوط لجنة المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__sales_commission_line_id
+msgid "Sales Commissions"
+msgstr "لجان المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__commission_lines_ids
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_form
+msgid "Sales Commissions Lines"
+msgstr "خطوط لجان المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model,name:sales_target_commission.model_sale_order
+msgid "Sales Order"
+msgstr "طلب المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__user_id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__sales_person_id
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_search
+msgid "Sales Person"
+msgstr "مندوب مبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__state
+msgid "Sales Target Status"
+msgstr "حالة هدف المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__sales_team_id
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__team_id
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_commissions_lines_search
+msgid "Sales Team"
+msgstr "فريق المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.actions.act_window,name:sales_target_commission.action_sales_target_target
+#: model:ir.model,name:sales_target_commission.model_sales_team_target
+#: model:ir.ui.menu,name:sales_target_commission.menu_sales_target_target
+msgid "Sales Team Target"
+msgstr "هدف فريق المبيعات"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.sales_team_target_view_pivot
+msgid "Sales Team Target Analysis"
+msgstr "تحليل هدف فريق المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__target_commission_line_ids
+msgid "Sales Team Target Commission"
+msgstr "لجنة فريق المبيعات المستهدفة"
+
+#. module: sales_target_commission
+#: model:ir.actions.server,name:sales_target_commission.sales_team_target_cron_id_ir_actions_server
+#: model:ir.cron,cron_name:sales_target_commission.sales_team_target_cron_id
+#: model:ir.cron,name:sales_target_commission.sales_team_target_cron_id
+#: model:ir.model,name:sales_target_commission.model_sales_team_target_commissions
+msgid "Sales Team Target Commissions"
+msgstr "مستهدف فريق المبيعات"
+
+#. module: sales_target_commission
+#: model:ir.actions.act_window,name:sales_target_commission.action_sales_team_target_view
+#: model:ir.ui.menu,name:sales_target_commission.menu_sales_team_target_view
+msgid "Sales Team Target Report"
+msgstr "تقرير فريق المبيعات المستهدف"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__sales_commission_reference
+msgid "Sales commission reference"
+msgstr "مرجع لجنة المبيعات"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_form_view
+msgid "Set to draft"
+msgstr "ضبط على المسودة"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid ""
+"Sorry, the commission policy cannot be archived due to it is set to a "
+"running target {}"
+msgstr ""
+"عذرًا ، لا يمكن أرشفة سياسة اللجنة بسبب تعيينها على هدف قيد التشغيل {}"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid "Sorry, the selected sales person has a target at the same period ({})"
+msgstr "عذرًا ، لدى شخص المبيعات المحدد هدفًا في نفس الفترة ({})"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid ""
+"Sorry, the selected sales person has a target at the same period ({}) and "
+"({}) Category is duplicated"
+msgstr "عذرًا ، يتم تكرار هدف المبيعات المحدد هدفًا في نفس الفترة ({}) و ({})"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid ""
+"Sorry, the selected sales person has a target at the same period ({}) and "
+"({}) Product in period category products"
+msgstr ""
+"عذرًا ، لدى شخص المبيعات المحدد هدفًا في نفس الفترة ({}) و ({}) المنتج في "
+"منتجات الفئة الفترة"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid ""
+"Sorry, the selected sales person has a target at the same period ({}) and "
+"({}) Product is duplicated"
+msgstr ""
+"عذرًا ، يتم تكرار شخص مبيعات محدد هدف في نفس الفترة ({}) و ({}) المنتج"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__name
+msgid "Source Document"
+msgstr "مصدر وثائق"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__target_id
+msgid "Target"
+msgstr "استهداف"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__target_achievement
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__target_achievement
+msgid "Target Achievement"
+msgstr "تحقيق الهدف بناءاً على"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__target_amount
+msgid "Target Amount"
+msgstr "المبلغ المستهدف"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__target_calc_based_on
+msgid "Target Calculation Based on"
+msgstr "الحساب المستهدف على أساس"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__target_commission_id
+msgid "Target Commissions"
+msgstr "اللجان المستهدفة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__target_from
+msgid "Target From"
+msgstr "الهدف من"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target__name
+msgid "Target Sequence"
+msgstr "تسلسل الهدف"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_policy_details__target_to
+msgid "Target To"
+msgstr "الهدف ل"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target To must be equal to target from at next line at line"
+msgstr "يجب أن يكون الهدف مساوياً للهدف من السطر التالي في السطر"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target To must be equal to target from at next line at line {}"
+msgstr "يجب أن يكون الهدف يساوي الهدف من السطر التالي في السطر {}"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__target_type
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.commission_policy_search_view
+msgid "Target Type"
+msgstr "نوع الهدف"
+
+#. module: sales_target_commission
+#: model:ir.model.fields.selection,name:sales_target_commission.selection__commission_policy__commission_policy__amount_based
+msgid "Target amount based"
+msgstr "المبلغ المستهدف"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target from must be equal to {}"
+msgstr "يجب أن يكون الهدف من {}"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target from must be equal to {} at line {}"
+msgstr "يجب أن يكون الهدف من {} في السطر {}"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target from must be greater or equal to zero and less or equal to 100"
+msgstr "يجب أن يكون الهدف من أكبر أو يساوي الصفر وأقل أو يساوي 100"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target to must be greater than Target from"
+msgstr "يجب أن يكون الهدف أكبر من الهدف من"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid "Target to must be greater than Target from at line {}"
+msgstr "يجب أن يكون الهدف أكبر من الهدف من السطر {}"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid ""
+"Target to must be greater than or equal to zero and less than or equal to "
+"100"
+msgstr "يجب أن يكون الهدف أكبر من أو يساوي صفرًا وأقل من أو يساوي 100"
+
+#. module: sales_target_commission
+#: model_terms:ir.ui.view,arch_db:sales_target_commission.view_sales_target_target_form
+msgid "The closing date is less than the End date"
+msgstr "تاريخ الإغلاق أقل من تاريخ الانتهاء"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid ""
+"The commission of the next line shall be greater than the previous line(more"
+" than {})"
+msgstr "يجب أن تكون ارتكاب السطر التالي أكبر من السطر السابق (أكثر من {})"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#, python-format
+msgid ""
+"The commission of the previous line shall be less than the commission of the"
+" next line"
+msgstr "يجب أن تكون ارتكاب السطر السابق أقل من ارتكاب السطر التالي"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__amount_total
+msgid "Total"
+msgstr "المجموع"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__uom_id
+msgid "Unit Of Measure"
+msgstr "وحدة القياس"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_team_target_commissions__price
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_commission_policy__variable_payroll
+msgid "Variable Payroll (%)"
+msgstr "كشوف المرتبات المتغيرة (٪)"
+
+#. module: sales_target_commission
+#: code:addons/sales_target_commission/models/commission_policy.py:0
+#: code:addons/sales_target_commission/models/sales_team_target.py:0
+#, python-format
+msgid "You can't delete this record"
+msgstr "لا يمكنك حذف هذا السجل"
+
+#. module: sales_target_commission
+#: model:ir.model.fields,field_description:sales_target_commission.field_sales_commission_lines__commission_percentage
+msgid "commission Percentage"
+msgstr "نسبة العمولة"
+
+#. module: sales_target_commission
+#: model:ir.model,name:sales_target_commission.model_sales_commission_lines
+msgid "sales.commission.lines"
+msgstr "Sales.Commission.lines"

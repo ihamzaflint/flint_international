@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_asset_handover,access_employee_asset_handover,model_employee_asset_handover,,1,1,1,1
+access_employee_asset_handover_line,access_employee_asset_handover_line,model_employee_asset_handover_line,,1,1,1,1

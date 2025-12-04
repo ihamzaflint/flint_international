@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saudi_culture_office_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+
+                    <style>
+                        @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                        }
+
+                        body {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            font-size: 13px;
+                            line-height: 1.7;
+                        }
+
+                        .report-box {
+                            border: 1px solid #000;
+                            margin: 30px auto;
+                            width: 95%;
+                            padding: 20px;
+                            border-radius: 6px;
+                        }
+
+                        .rtl { direction: rtl; text-align: right; }
+                        .ltr { direction: ltr; text-align: left; }
+                        .fw-bold { font-weight: bold; }
+                        .mb-3 { margin-bottom: 1rem; }
+                        .mt-3 { margin-top: 1rem; }
+                        .text-center { text-align: center; }
+                        .border-end { border-inline-end: 1px solid #000; }
+                        .row {
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                        .col-half {
+                            flex: 0 0 50%;
+                            max-width: 50%;
+                            padding: 15px;
+                        }
+                    </style>
+
+                    <div class="report-box">
+                        <div class="row">
+
+                            <!-- Arabic Section -->
+                            <div class="col-half rtl border-end">
+                                <p>الرقم: .......................</p>
+                                <p>التاريخ: <span t-esc="o.create_date.strftime('%d-%m-%Y') if o.create_date else ''"/></p>
+                                <p>رقم الملف: <span t-esc="o.file_number or ''"/></p>
+
+                                <p class="fw-bold mt-3">
+                                    السيد / الملحق الثقافي لسفارة المملكة العربية السعودية – باكستان المحترم
+                                </p>
+
+                                <p>السلام عليكم ورحمة الله وبركاته،</p>
+
+                                <p>
+                                    نفيدكم بأن السيد / <span t-esc="o.name_ar"/> ، الجنسية
+                                    <span t-esc="o.nationality.name"/> ، يحمل جواز سفر رقم
+                                    (<span t-esc="o.passport_number"/>) ، ورقم هوية مقيم
+                                    (<span t-esc="o.id_number"/>) ، يعمل لدينا بوظيفة
+                                    <span t-esc="o.actual_job_role.name"/> منذ تاريخ
+                                    <span t-esc="o.start_date"/> حتى تاريخه
+                                    (<span t-esc="o.end_date"/>).
+                                </p>
+
+                                <p>
+                                    وقد منح هذا الخطاب بناءً على طلبه لغرض تصديق شهاداته الجامعية،
+                                    والشكر لكم مسبقاً على حسن تعاونكم معنا.
+                                </p>
+
+                                <p class="text-center mt-3">وتفضلوا بقبول فائق تحياتنا وتقديرنا،</p>
+                            </div>
+
+                            <!-- English Section -->
+                            <div class="col-half ltr">
+                                <p><strong>To: Saudi Culture Office – Pakistan</strong></p>
+                                <p>Dear Excellency,</p>
+
+                                <p>
+                                    This is to certify that Mr. <span t-esc="o.name"/>,
+                                    a <span t-esc="o.nationality.name"/> national,
+                                    holding Passport number (<span t-esc="o.passport_number"/>)
+                                    and Resident ID number (<span t-esc="o.id_number"/>)
+                                    has been working with us as a
+                                    (<span t-esc="o.actual_job_role.name"/>)
+                                    since <span t-esc="o.start_date"/> until
+                                    <span t-esc="o.end_date"/>.
+                                </p>
+
+                                <p>
+                                    This certificate is issued upon his request
+                                    to have his academic certificates attested.
+                                    Kindly provide him with your approval.
+                                </p>
+
+                                <p><strong>Thanks and Regards,</strong></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Insurance Class Tree View -->
+    <record id="insurance_class_tree_view" model="ir.ui.view">
+        <field name="name">insurance.class.tree</field>
+        <field name="model">insurance.class</field>
+        <field name="arch" type="xml">
+            <tree string="Insurance Classes">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="employee_cost"/>
+                <field name="spouse_cost"/>
+                <field name="child_cost"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Insurance Class Form View -->
+    <record id="insurance_class_form_view" model="ir.ui.view">
+        <field name="name">insurance.class.form</field>
+        <field name="model">insurance.class</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Class">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="is_active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="e.g., Class A"/>
+                            <field name="code" placeholder="e.g., A"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="employee_cost" widget="monetary"/>
+                            <field name="spouse_cost" widget="monetary"/>
+                            <field name="child_cost" widget="monetary"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Description of this insurance class..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Insurance Class Action -->
+    <record id="action_insurance_class" model="ir.actions.act_window">
+        <field name="name">Insurance Classes</field>
+        <field name="res_model">insurance.class</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first insurance class!
+            </p>
+            <p>
+                Insurance classes define different levels of coverage with their associated costs.
+                You can set different rates for employees, spouses, and children.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_insurance_class" 
+              name="Insurance Classes" 
+              parent="scs_operation.root_operation_configration"
+              action="action_insurance_class" 
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payslip_run_form_waiting_approval" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form.waiting.approval</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_validate']" position="replace">
+                <button class="oe_highlight" invisible="state not in ['verify']" name="action_send_for_approval"
+                        string="Send For Approval" type="object"/>
+                <button class="oe_highlight"
+                        groups="hr_payroll_approver.group_payroll_hr_approval"
+                        invisible="state not in ['hr_approval']" name="action_approve_hr" string="Hr Approval"
+                        type="object"/>
+                <button class="oe_highlight"
+                        groups="hr_payroll_approver.group_payroll_bank_auditor"
+                        invisible="state not in ['auditor_approval']" name="action_approve_auditor" string="Auditor Approval"
+                        type="object"/>
+                <button class="btn btn-danger"
+                        groups="hr_payroll_approver.group_payroll_hr_approval"
+                        invisible="state not in ['hr_approval']" name="action_reject_hr" string="Hr Reject"
+                        type="object"/>
+                <button class="oe_highlight" groups="hr_payroll_approver.group_payroll_finance_approval"
+                        invisible="state not in ['finance_approval']" name="action_approve_finance" string="Finance Approval"
+                        type="object"/>
+                <button class="btn btn-danger"
+                        groups="hr_payroll_approver.group_payroll_finance_approval"
+                        invisible="state not in ['finance_approval']" name="action_reject_finance" string="Reject"
+                        type="object"/>
+                <button class="oe_highlight" groups="hr_payroll_approver.group_payroll_approval_ceo"
+                        invisible="state not in ['ceo_approval']" name="action_approve_ceo" string="CEO Approval"
+                        type="object"/>
+                <button class="btn btn-danger"
+                        groups="hr_payroll_approver.group_payroll_approval_ceo"
+                        invisible="state not in ['ceo_approval']" name="action_reject_ceo" string="Reject"
+                        type="object"/>
+                <button class="oe_highlight"
+                        context="{'payslip_generate_pdf': True}" invisible="state not in ['approved']"
+                        name="action_validate" string="Create Draft Entry" type="object"/>
+            </xpath>
+            <xpath expr="//button[@name='action_draft']" position="replace">
+                <button invisible="state not in ['verify','close','hr_approval','auditor_approval','finance_approval','ceo_approval','approved','hr_rejected','finance_rejected','ceo_rejected']"
+                        name="action_draft" string="Set to Draft" type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

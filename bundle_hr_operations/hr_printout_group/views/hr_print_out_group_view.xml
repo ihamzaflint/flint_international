@@ -1,0 +1,43 @@
+<odoo>
+     <record id="hr_print_out_group_form_view" model="ir.ui.view">
+        <field name="name">print.out.group</field>
+        <field name="model">print.out.group</field>
+        <field name="arch" type="xml">
+            <form string="Print Out Group" duplicate="false">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="salary_rule_ids" widget="many2many_tags"
+                               domain="[('print_out_group_id', '=', False)]"
+                               options="{'no_create': True,'no_edit': True}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+     <record id="itq_hr_print_out_group_tree_view" model="ir.ui.view">
+        <field name="name">itq.print.out.group</field>
+        <field name="model">print.out.group</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false">
+                <field name="name"/>
+                <field name="salary_rule_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+     <record id="itq_hr_print_out_group_action" model="ir.actions.act_window">
+        <field name="name">Print Out Group</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">print.out.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_manpower_request_action"
+              name="Print Out Groups"
+              parent="hr_work_entry_contract_enterprise.menu_hr_payroll_configuration"
+              groups="hr.group_hr_manager"
+              action="itq_hr_print_out_group_action"/>
+</odoo>

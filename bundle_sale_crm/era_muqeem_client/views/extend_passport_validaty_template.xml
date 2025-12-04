@@ -1,0 +1,74 @@
+<odoo>
+    <template id="extend_passport_template">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <!-- <t t-call="report.external_layout"> -->
+                <div class="page">
+                    <t t-set="errorMessage" t-value=""/>
+                    <t t-foreach="data" t-as="datas">
+                        <t t-set="errorMessage" t-value="datas.get('en', '')"/>
+                    </t>
+
+                    <t t-if="errorMessage == 'Error in input data '">
+                        <table style="text-align:center; width:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="padding: 10px;">Language</th>
+                                    <th style="padding: 10px;">Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-if="datas.get('user_lang') == 'ar_001'">
+                                    <tr>
+                                        <td style="padding: 10px;">Arabic</td>
+                                        <td style="padding: 10px;">
+                                            <t t-esc="datas.get('ar', '')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="datas.get('user_lang') == 'en_US'">
+                                    <tr>
+                                        <td style="padding: 10px;">English</td>
+                                        <td style="padding: 10px;">
+                                            <t t-esc="datas.get('en', '')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+
+                    <t t-else="">
+                        <div style="margin-bottom: 20px;">
+                                <table style="text-align:center; width:100%;">
+
+                                    <tbody>
+                                        <t t-foreach="data" t-as="datas">
+                                            <tr>
+                                                <td style="padding: 10px;">
+                                                    <t t-esc="datas.get('message', '')"/>
+                                                </td>
+
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </t>
+                </div>
+
+            </t>
+        </t>
+    </template>
+
+
+    <record id="extend_passport_report_id" model="ir.actions.report">
+        <field name="name">Print extend passport wizard</field>
+        <field name="model">extend.passport.validaty</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">era_muqeem_client.extend_passport_template</field>
+        <field name="report_file">era_muqeem_client.extend_passport_template</field>
+        <field name="binding_model_id" ref="model_extend_passport_validaty"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

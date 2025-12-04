@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_employee_view_form_inherit_visa" model="ir.ui.view">
+            <field name="name">hr.employee.view.form.inherit.visa</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='work_email']" position="before">
+                    <field name="is_admin" invisible="1"/>
+
+                    <field name="iqama_number" placeholder="'2123123123' for success and '2138453036' for fail"
+                           invisible="is_admin == False"/>
+                    <field name="iqama_number" placeholder="" invisible="is_admin == True"/>
+                    <field name="passportNumber" placeholder="'F45646567' for success " invisible="is_admin == False"/>
+                    <field name="passportNumber" placeholder="" invisible="is_admin == True"/>
+<!--                    <field name="last_visa_number"/>-->
+                    <field name="borderNumber"/>
+                    <field name="expiry_pass_date"/>
+                    <field name="expiry_date_iqama"/>
+                </xpath>
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <field name="country_id" groups="" invisible="1"/>
+                    <page string="Muqeem services"     groups="era_muqeem_client.group_muqeem_user" invisible="country_id.code == 'SA'">
+>
+                        <!--                        <div class="header">-->
+                        <!--                            <img src="/era_muqeem_client/static/description/icon2.jpeg" alt="Header Image"-->
+                        <!--                                 class="img-fluid" style="width: 100%; height: auto;"/>-->
+                        <!--                        </div>-->
+                        <div class="container with-background">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="action" name="%(iqama_exit_entry)d"
+                                            class="btn text-nowrap me-1 my-2 btn-info w-100"
+string="Issuing Exit Return visa" >
+                                    </button>
+                                    <button type="action" name="%(final_exit_action)d"
+                                            class="btn text-nowrap me-1 my-2 btn-info w-100"  string="Final Exit Visa">
+                                                                        </button>
+                                    <button type="action" name="%(renew_iqama_action)d"
+                                            class="btn text-nowrap me-1 my-2 btn-info w-100" string="Renew Iqama" >                                      Renew Iqama
+
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="action" name="%(extend_exit_entry)d"
+                                            class="btn text-nowrap me-1 my-2 btn-warning w-100"
+                                       string=" Extending an exit and return visa">
+                                    </button>
+                                    <button type="action" name="%(transfer_iqama_action)d"
+                                            class="btn text-nowrap me-1 my-2 btn-warning w-100">
+                                        Transfer Iqama
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="action" name="%(cancell_exit_entry)d"
+                                            class="btn text-nowrap me-1 my-2 btn-danger w-100" string="Cancelling an exit and return visa">
+                                    </button>
+                                    <button type="action" name="%(cancel_final_exit_action)d"
+                                            class="btn text-nowrap me-1 my-2 btn-danger w-100" string="Cancel Final exit visa">
+
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="action" name="%(reprint_exit_entry)d"
+                                            class="btn text-nowrap me-1 my-2 btn-primary w-100" string="Reprinting an exit and return visa">
+
+                                    </button>
+                                    <button type="action" name="%(print_muqeem_report_action)d"
+                                            class="btn text-nowrap me-1 my-2 btn-primary w-100" string="Print Muqeem Report">
+
+                                    </button>
+                                    <button type="action" name="%(today_request_action)d"
+                                            class="btn text-nowrap me-1 my-2 btn-primary w-100" string="Today Requests Report">
+
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="footer">
+                            <img src="/era_muqeem_client/static/description/icon2.jpeg" alt="Header Image"
+                                 class="img-fluid" style="width: 100%; height: auto;"/>
+                        </div>
+                    </page>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

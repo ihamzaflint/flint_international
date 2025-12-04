@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Form View -->
+    <record id="view_job_offer_letter_form" model="ir.ui.view">
+        <field name="name">job.offer.letter.form</field>
+        <field name="model">job.offer.letter</field>
+        <field name="arch" type="xml">
+            <form string="Job Offer Letter">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success" invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary" invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <!-- Employee Information -->
+                        <group string="Employee Information">
+                            <field name="employee_name" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="resident_id" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="joining_date" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="job_title" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <!-- Salary Details -->
+                        <group string="Salary Details">
+                            <field name="basic_salary" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+                    <notebook string="Salary Details" name="salary_details">
+                        <page string="Salary Lines" name="salary_lines">
+                            <field name="job_offer_letter_line_ids" force_save="1" readonly="state in ['confirm']">
+                                <tree editable="bottom">
+                                    <field name="allowance_name_en"/>
+                                    <field name="allowance_amount" sum="Total"/>
+                                    <field name="allowance_name_ar"/>
+                                    <!--                                    <field name="total" sum="Total" readonly="1"/>-->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_job_offer_letter_tree" model="ir.ui.view">
+        <field name="name">job.offer.letter.tree</field>
+        <field name="model">job.offer.letter</field>
+        <field name="arch" type="xml">
+            <tree string="Job Offer Letters">
+                <field name="employee_name"/>
+                <field name="resident_id"/>
+                <field name="joining_date"/>
+                <field name="job_title"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_job_offer_letter" model="ir.actions.act_window">
+        <field name="name">Job Offer Letters</field>
+        <field name="res_model">job.offer.letter</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

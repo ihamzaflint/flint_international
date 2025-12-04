@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_order_service_line_sale_order_form_view" model="ir.ui.view">
+        <field name="name">sale.order.service.line.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="attributes">
+                <attribute name="string">Service</attribute>
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+                <attribute name="string">Service</attribute>
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/control/create[@name='add_product_control']"
+                   position="attributes">
+                <attribute name="string">Add Service</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                <attribute name="create">false</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']" position="before">
+                <button name="action_add_service" string="Add Service" type="object" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree" position="inside">
+                <button name="edit_line_control" string="Edit Service" type="object" class="btn-primary"/>
+                <button type="action" name="%(flint_sale_management.action_report_service_line)d"
+                        string="Print" class="btn-primary"/>]
+            </xpath>
+        </field>
+
+    </record>
+</odoo>

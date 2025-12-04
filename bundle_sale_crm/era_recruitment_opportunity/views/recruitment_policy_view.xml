@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_recruitment_policy_tree" model="ir.ui.view">
+            <field name="name">recruitment.policy.tree</field>
+            <field name="model">recruitment.policy</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="stage"/>
+                    <field name="max_days"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_recruitment_policy_form" model="ir.ui.view">
+            <field name="name">recruitment.policy.form</field>
+            <field name="model">recruitment.policy</field>
+            <field name="arch" type="xml">
+                <form string="Recruitment Policy">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="stage"/>
+                            <field name="max_days"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_recruitment_policy" model="ir.actions.act_window">
+            <field name="name">Recruitment Policies</field>
+            <field name="res_model">recruitment.policy</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_recruitment_root" name="Recruitment" sequence="10"/>
+
+        <menuitem id="menu_recruitment_policy"
+                  name="Recruitment Policies"
+                  parent="hr_recruitment.menu_hr_recruitment_configuration"
+                  action="action_recruitment_policy"
+                  sequence="20"/>
+    </data>
+</odoo>

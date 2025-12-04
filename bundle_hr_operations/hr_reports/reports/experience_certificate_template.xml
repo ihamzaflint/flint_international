@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="experience_certificate_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                            }
+                            [dir="rtl"], .arabic-text {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            }
+                        </style>
+                        <div class="page" style="font-family: Arial, sans-serif; font-size: 12px;">
+                            <h4 class="text-center fs-3 fw-bold ">Experience Certificate</h4>
+                            <h6>Ref No File Number / <span t-field="doc.file_number"/> </h6>
+                            <!-- Table 1: Personal Details -->
+                            <table class="table table-bordered w-100 mb-4">
+                                <tr class="bg-light text-dark text-center fw-bold">
+                                    <td colspan="4">Personal Details / المعلومات الشخصية</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Name:</td>
+                                    <td>
+                                        <span t-field="doc.name"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.name_ar"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">الاسم :</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Nationality:</td>
+                                    <td>
+                                        <span t-field="doc.nationality"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.nationality"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">الجنسية :</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">ID No.:</td>
+                                    <td>
+                                        <span t-field="doc.id_number"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.id_number"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">رقم الهوية :</td>
+                                </tr>
+                            </table>
+
+                            <!-- Table 2: Employment Details -->
+                            <table class="table table-bordered w-100 mb-4">
+                                <tr class="bg-light text-dark text-center fw-bold">
+                                    <td colspan="4">Employment Details / المعلومات الوظيفة</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Professions as per Iqama:</td>
+                                    <td>
+                                        <span t-field="doc.iqama_profession"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.iqama_profession"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">المسمى حسب الأقامة :</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Actual Job Role:</td>
+                                    <td>
+                                        <span t-field="doc.actual_job_role"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.actual_job_role"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">الدور الوظيفي :</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Project:</td>
+                                    <td>
+                                        <span t-field="doc.project_id"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.project_id"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">المشروع :</td>
+                                </tr>
+                            </table>
+
+                            <!-- Table 3: Service Details -->
+                            <table class="table table-bordered w-100 mb-4">
+                                <tr class="bg-light text-dark text-center fw-bold">
+                                    <td colspan="4">Service Details / معلومات الخدمة</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Joining Date:</td>
+                                    <td>
+                                        <span t-field="doc.joining_date"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.joining_date"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">تاريخ التعيين :</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Last Date:</td>
+                                    <td>
+                                        <span t-field="doc.last_date"/>
+                                    </td>
+                                    <td>
+                                        <span dir="rtl" t-field="doc.last_date"/>
+                                    </td>
+                                    <td class="fw-bold arabic-text text-end" dir="rtl">اخر يوم عمل :</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

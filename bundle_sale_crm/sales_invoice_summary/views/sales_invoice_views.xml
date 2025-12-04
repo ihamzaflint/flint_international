@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_sale_invoice" model="ir.ui.view">
+        <field name="name">sale.order.form.salesinvoice.module</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_invoice']" position="after">
+                <button class="oe_stat_button " icon="fa-pencil-square-o" invisible="invoice_count == 0" name="action_amount_paid" type="object">
+                    <field name="amount_paid_percent" string="Amount Paid Percent" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='note']" position="after">
+                <group>
+                    <group class="oe_subtotal_footer oe_left">
+                        <field invisible="1" name="currency_id"/>
+                        <field name="amount_untaxed" options="{'currency_field': 'currency_id'}" readonly="1" string="Project Sale Order Value" widget="monetary"/>
+                        <field name="invoiced_amount" options="{'currency_field': 'currency_id'}" readonly="1" widget="monetary"/>
+                        <field name="remaining_value" options="{'currency_field': 'currency_id'}" readonly="1" widget="monetary"/>
+                        <field name="invoiced_amount_due" options="{'currency_field': 'currency_id'}" readonly="1" widget="monetary"/>
+                        <field name="paid_amount" options="{'currency_field': 'currency_id'}" readonly="1" widget="monetary"/>
+                    </group>
+                </group>
+            </xpath></field>
+    </record>
+</odoo>

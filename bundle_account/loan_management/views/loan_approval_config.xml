@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_loan_approval_config_tree" model="ir.ui.view">
+        <field name="name">loan.approval.config.tree</field>
+        <field name="model">loan.approval.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_loan_approval_config_form" model="ir.ui.view">
+        <field name="name">loan.approval.config.form</field>
+        <field name="model">loan.approval.config</field>
+        <field name="arch" type="xml">
+            <form string="Loan Approval Configuration">
+                <header>
+                    <button name="button_confirm" type="object" class="btn-primary" string="Confirm"
+                            invisible="state == 'confirm'"/>
+                    <button name="button_draft" type="object" class="btn-secondary" string="Reset to Draft"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" force_save="1" readonly="state == 'confirm'"/>
+                            <field name="code" force_save="1" readonly="state == 'confirm'"/>
+                        </group>
+                        <group>
+                            <field name="journal_id" force_save="1" readonly="state == 'confirm'"/>
+                            <field name="debit_account_id" force_save="1" readonly="state == 'confirm'"/>
+                            <field name="credit_account_id" force_save="1" readonly="state == 'confirm'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Approval Lines">
+                            <field name="loan_approval_line_ids" readonly="state == 'confirm'">
+                                <tree editable="bottom">
+                                    <field name="approver_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_loan_approval_config" model="ir.actions.act_window">
+        <field name="name">Loan Approval Config</field>
+        <field name="res_model">loan.approval.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

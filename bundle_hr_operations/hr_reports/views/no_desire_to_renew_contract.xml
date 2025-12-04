@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Form View-->
+    <record id="view_no_desire_to_renew_contract_form" model="ir.ui.view">
+        <field name="name">no.desire.to.renew.contract.form</field>
+        <field name="model">no.desire.to.renew.contract</field>
+        <field name="arch" type="xml">
+            <form string="No Desire to Renew Contract">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="employee_id" force_save="1" readonly="state in ['confirm']"/>
+                    </group>
+
+                    <group name="dual_language_section" colspan="2">
+                        <group string="English Section" name="english_section">
+                            <field name="name" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <group string="Arabic Section" name="arabic_section">
+                            <field name="name_ar" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+
+                    <group colspan="2">
+                        <group string="Common Information" name="common_info">
+                            <field name="company_id" force_save="1" readonly="state in ['confirm']"/>
+
+                        </group>
+
+                        <group string="Contract Dates" name="contract_dates">
+                            <field name="current_date" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="start_date" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="end_date" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_no_desire_to_renew_contract_tree" model="ir.ui.view">
+        <field name="name">no.desire.to.renew.contract.tree</field>
+        <field name="model">no.desire.to.renew.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="name"/>
+                <field name="name_ar"/>
+                <field name="company_id"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_no_desire_to_renew_contract" model="ir.actions.act_window">
+        <field name="name">No Desire to Renew Contract</field>
+        <field name="res_model">no.desire.to.renew.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

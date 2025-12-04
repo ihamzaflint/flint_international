@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_payroll_create_entries" model="res.groups">
+        <field name="name">Payroll Create Draft Entries</field>
+        <field name="category_id" ref="base.module_category_human_resources_payroll"/>
+    </record>
+    
+
+    
+
+</odoo>

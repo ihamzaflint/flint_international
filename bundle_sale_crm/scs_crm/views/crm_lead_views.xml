@@ -1,0 +1,36 @@
+<odoo>
+	<record id="crm_lead_view_form_scs_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+        	<field name="tag_ids" position="after">
+                <label for="contract_number" string="Duration"/>
+                <div class="o_row">
+                    <field name="contract_number" required="True"/>
+                    <field name="contract_period" required="True" nolabel="1"/>
+                </div>
+            </field>
+            <field name="company_id" position="before">
+                <field name="contract_type"/>
+                <field name="margin_amount"/>
+                <field name="margin_percentage"/>
+                <field name="convert_amount"/>
+                <field name="usd_margin_amount"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="crm_case_tree_view_oppor_scs_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.tree</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+            <field name="expected_revenue" position="after">
+                <field name="convert_amount"/>
+                <field name="margin_amount"/>
+                <field name="usd_margin_amount"/>
+            </field>
+        </field>
+    </record>
+</odoo>

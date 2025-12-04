@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_default_government_payment_journal" model="ir.ui.view">
+        <field name="name">res.config.settings.default.government.payment.journal</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='print_vendor_checks_setting_container']" position="after">
+                <block title="Default Journal Government Payment" id="default_journal_government_payment_setting_container">
+                    <setting id="default_journal_setting_tag" groups="account.group_account_user" string="Government Payment Journal" company_dependent="1"
+                             help="Default journal for government payment requests">
+                        <field name="gov_pay_default_journal_id"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

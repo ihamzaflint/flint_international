@@ -1,0 +1,6 @@
+<odoo>
+	<record id="group_contract_update_access" model="res.groups">
+        <field name="name">Contract Update Access</field>
+        <field name="comment">Update Running Contract</field>
+    </record>
+</odoo>

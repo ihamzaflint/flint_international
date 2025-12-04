@@ -1,0 +1,31 @@
+{
+    'name': 'Payroll Extended',
+    'version': '1.0',
+    'summary': '',
+    'description': '',
+    'category': 'Base',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': '',
+    'license': 'AGPL-3',
+    'depends': [
+        'hr_payroll_account',
+        'l10n_sa_hr_payroll',
+        'hr_allowance_deduction',
+        'report_xlsx',
+        'saudi_hr'],
+    'data': [
+        'wizard/wizard_export_contract_expiry_view.xml',
+        'wizard/wizard_export_iqama_view.xml',
+        'data/ir_cron.xml',
+        'data/email_template.xml',
+        'report/employee_iqama_details_template.xml',
+        'security/ir.model.access.csv',
+        'security/res_groups.xml',
+        'report/report_contract_template.xml',
+        'report/payslip_report.xml',
+        'views/res_users_view.xml',
+        'views/hr_contract_view.xml',
+        'views/hr_employee_view.xml',
+        'views/hr_payslip_run_views.xml'],
+    'installable': True
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_requisition_form_parent" name="Requisition Form"
+                  web_icon="requisition_form,static/description/icon.png"/>
+        <menuitem id="menu_requisition_form_child" name="Requisition Form" parent="menu_requisition_form_parent"
+                  action="action_requisition_form"/>
+        <menuitem id="menu_configuration" name="Configuration" parent="menu_requisition_form_parent"
+                  groups="requisition_form.group_purchase_approval_manager"/>
+        <menuitem id="menu_purchase_approval" name="Purchase Approval" parent="menu_configuration"
+                  action="action_purchase_approval_config"/>
+    </data>
+</odoo>

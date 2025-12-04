@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_requisition_form,access_requisition_form,model_requisition_form,base.group_user,1,1,1,1
+access_requisition_form_line,access_requisition_form_line,model_requisition_form_line,base.group_user,1,1,1,1
+access_requisition_approval_line,access_requisition_approval_line,model_requisition_approval_line,base.group_user,1,1,1,1
+access_purchase_approval_config,access_purchase_approval_config,model_purchase_approval_config,base.group_user,1,1,1,1
+access_purchase_approval_line,access_purchase_approval_line,model_purchase_approval_line,base.group_user,1,1,1,1

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Email template for ticket closure -->
+        <record id="email_template_helpdesk_ticket_close" model="mail.template">
+            <field name="name">Helpdesk Ticket: Closure Notification</field>
+            <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+            <field name="subject">Ticket #${object.name} - Service Request Completed</field>
+            <field name="email_from">${user.email_formatted | safe}</field>
+            <field name="partner_to">${object.employee_id.address_id.id}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear ${object.employee_id.name},
+                        <br/><br/>
+                        We are pleased to inform you that your service request ticket <strong>#${object.name}</strong> has been successfully completed.
+                        <br/><br/>
+                        <strong>Ticket Details:</strong>
+                        <ul>
+                            <li>Service Category: ${object.ticket_type_id.name}</li>
+                            <li>Service Type: ${', '.join([service.name for service in object.service_type_ids])}</li>
+                            <li>Description: ${object.description or ''}</li>
+                        </ul>
+                        % if object.is_logistics and object.service_logistic_order_type == 'flight':
+                        <p>Please find attached your flight ticket documents.</p>
+                        % endif
+                        % if object.is_operation and object.government_payment_id:
+                        <p>Please find attached the relevant government documents.</p>
+                        % endif
+                        <br/>
+                        If you have any questions or need further assistance, please don't hesitate to contact us.
+                        <br/><br/>
+                        Best regards,<br/>
+                        ${user.name}
+                    </p>
+                </div>
+            </field>
+            <field name="lang">${object.employee_id.address_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

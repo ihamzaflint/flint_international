@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="flint_helpdesk_portal.HelpdeskPortalForm" owl="1">
+        <form class="o_helpdesk_portal_form">
+            <div class="form-group mb-3">
+                <label class="form-label">Service Types</label>
+                <div class="position-relative">
+                    <!-- Hidden select for form submission -->
+                    <select t-att-name="props.name" class="d-none" multiple="multiple">
+                        <t t-foreach="state.selectedTypes" t-as="type" t-key="type.id">
+                            <option t-att-value="type.id" selected="selected">
+                                <t t-esc="type.name"/>
+                            </option>
+                        </t>
+                    </select>
+
+                    <!-- Custom Tags Input -->
+                    <div class="o_tags_input" t-att-class="{ 'is-invalid': !state.isValid }">
+                        <div class="o_tags_section">
+                            <t t-foreach="state.selectedTypes" t-as="type" t-key="type.id">
+                                <span class="badge">
+                                    <t t-esc="type.name"/>
+                                    <i class="fa fa-times" t-on-click="() => this.removeType(type)"/>
+                                </span>
+                            </t>
+                        </div>
+                        <input type="text" 
+                               class="o_tags_search" 
+                               t-model="state.searchText"
+                               t-on-input="(ev) => this.updateSearch(ev)"
+                               t-on-focus="() => this.showDropdown()"
+                               placeholder="Search and select service types..."
+                               autocomplete="off"/>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="o_tags_dropdown" t-att-class="{ 'd-block': state.dropdownVisible }">
+                        <t t-if="state.filteredTypes.length === 0">
+                            <div class="dropdown-item text-muted">
+                                <t t-if="state.searchText">No matching service types found</t>
+                                <t t-else="">No service types available</t>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <t t-foreach="state.filteredTypes" t-as="type" t-key="type.id">
+                                <div class="dropdown-item" t-on-click="() => this.addType(type)">
+                                    <t t-esc="type.name"/>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+
+                    <!-- Validation Message -->
+                    <div t-if="!state.isValid" class="invalid-feedback d-block">
+                        Please select at least one service type.
+                    </div>
+                </div>
+            </div>
+        </form>
+    </t>
+</templates>

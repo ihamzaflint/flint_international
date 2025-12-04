@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <!--
+            <record model="ir.ui.view" id="era_recruitment_opportunity.list">
+              <field name="name">era_recruitment_opportunity list</field>
+              <field name="model">era_recruitment_opportunity.era_recruitment_opportunity</field>
+              <field name="arch" type="xml">
+                <tree>
+                  <field name="name"/>
+                  <field name="value"/>
+                  <field name="value2"/>
+                </tree>
+              </field>
+            </record>
+        -->
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="era_recruitment_opportunity.action_window">
+              <field name="name">era_recruitment_opportunity window</field>
+              <field name="res_model">era_recruitment_opportunity.era_recruitment_opportunity</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="era_recruitment_opportunity.action_server">
+              <field name="name">era_recruitment_opportunity server</field>
+              <field name="model_id" ref="model_era_recruitment_opportunity_era_recruitment_opportunity"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="era_recruitment_opportunity" id="era_recruitment_opportunity.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="era_recruitment_opportunity.menu_1" parent="era_recruitment_opportunity.menu_root"/>
+            <menuitem name="Menu 2" id="era_recruitment_opportunity.menu_2" parent="era_recruitment_opportunity.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="era_recruitment_opportunity.menu_1_list" parent="era_recruitment_opportunity.menu_1"
+                      action="era_recruitment_opportunity.action_window"/>
+            <menuitem name="Server to list" id="era_recruitment_opportunity" parent="era_recruitment_opportunity.menu_2"
+                      action="era_recruitment_opportunity.action_server"/>
+        -->
+    </data>
+</odoo>

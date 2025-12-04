@@ -1,0 +1,18 @@
+{
+    'name': 'Contract Benefits',
+    'version': '17.0',
+    'summary': '',
+    'description': '',
+    'category': 'Uncategorized',
+    'author': 'Omar Abodeif',
+    'license': 'AGPL-3',
+    'depends': ['contract_base',
+                'itq_hr_benefits',
+                'hr_contract_template'],
+    'data': ['views/itq_hr_benefit_integration_views.xml',
+             'views/hr_contract_views.xml',
+             'views/hr_contract_template_views.xml',
+             'security/ir.model.access.csv'],
+    'installable': True,
+    'auto_install': False,
+}

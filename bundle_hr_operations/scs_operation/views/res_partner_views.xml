@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+<record id="operation_vendor_company_type" model="ir.ui.view">
+    <field name="name">operation.vendor.company.type.form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+            <field name="vendor_type" string="Vendor Type" widget="selection"/>
+        </xpath>
+        <xpath expr="//field[@name='name']" position="attributes">
+            <attribute name="help">Partner Name cannot exceed 35 characters.</attribute>
+        </xpath>
+    </field>
+</record>
+    </data>
+</odoo>

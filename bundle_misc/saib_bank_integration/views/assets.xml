@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="saib_bank_integration_js_assets" model="ir.asset">
+            <field name="name">SAIB Bank Integration JS Assets</field>
+            <field name="bundle">web.assets_backend</field>
+            <field name="path">/saib_bank_integration/static/src/js/pem_key_field.js</field>
+        </record>
+        
+        <record id="saib_bank_integration_xml_assets" model="ir.asset">
+            <field name="name">SAIB Bank Integration XML Assets</field>
+            <field name="bundle">web.assets_backend</field>
+            <field name="path">/saib_bank_integration/static/src/xml/pem_key_field.xml</field>
+        </record>
+    </data>
+</odoo>

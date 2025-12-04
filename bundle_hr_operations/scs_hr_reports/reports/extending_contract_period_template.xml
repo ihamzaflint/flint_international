@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_extending_contract_period_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td style="text-align:center;">
+                                    <h2><u>إشعار بتمديد فترة العقد</u></h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">
+                                    <h2><u>Extending the Contract period</u></h2>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="paddin-left:5px;" colspan="4" class="border_top border_left border_right border_bottom">
+                                    ..................Ref: HR- 211/2023    Date ………… FN: …………..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right"><br/></td>
+                                <td width="50%" colspan="2" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                     Dear. <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    السيد /  <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                    Regarding,
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    تحية طيبة وبعد،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    In accordance with the employment contract between you and the Group, Which was renewed on ............, and ends on ............, we would like to inform you that our approval to extend the contract to another specified period.
+Therefore the contract will be valid for a period that ends on .................., for the same previous Conditions, this is for information and to take the necessary.
+We thank you for your cooperation, and we wish you success.
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    طبقا لعقد العمل المبرم فيما بينكم وبين المجموعة والذي تم تجديده بتاريخ ................ والمحدد بتاريخ انتهاء في .............، نفيدكم علي موافقتنا لتجديد العقد الي فترة محددة اخري.
+عليه سيصبح العقد ساري المفعول لمدة تنتهي في ..........، وفقا لاحكام وشروط العقد السابق ، هذا للعلم وإتخاذ اللازم.
+
+ونشكر لكم حسن تعاونكم متمنين لكم التوفيق .   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="text-align:center" class="border_left border_right">
+                                    <u><h4>HR Department</h4></u>
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:center" class="border_right">
+                                    <u><h4>إدارة الموارد البشرية</h4></u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Name : </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>التاريخ:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Signature : </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>التوقيع :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Date : </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>التاريخ:</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_action_extending_contract_period" model="ir.actions.report">
+        <field name="name">Extending Contract Period</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_extending_contract_period_template</field>
+        <field name="print_report_name">'Extending Contract Period'</field>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

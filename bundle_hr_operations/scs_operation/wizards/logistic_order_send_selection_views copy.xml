@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="logistic_order_send_selection_view_form" model="ir.ui.view">
+        <field name="name">logistic.order.send.selection.form</field>
+        <field name="model">logistic.order.send.selection</field>
+        <field name="arch" type="xml">
+            <form string="Send Selection">
+                <group>
+                    <field name="subject"/>
+                    <field name="template_id" options="{'no_create': True, 'no_edit': True}"/>
+                </group>
+                <footer>
+                    <button name="action_send_selection" string="Send" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_logistic_order_send_selection" model="ir.actions.act_window">
+        <field name="name">Send Selection</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logistic.order.send.selection</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_logistic_order"/>
+    </record>
+</odoo>

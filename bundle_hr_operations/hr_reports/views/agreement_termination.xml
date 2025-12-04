@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_agreement_termination_form" model="ir.ui.view">
+        <field name="name">agreement.termination.form</field>
+        <field name="model">agreement.termination</field>
+        <field name="arch" type="xml">
+            <form string="Agreement Termination">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+
+                </header>
+                <sheet>
+
+                    <group>
+                        <field name="state" invisible="1"/>
+                        <field name="employee_id" force_save="1" readonly="state in ['confirm']" />
+                    </group>
+
+
+                    <group name="dual_language_section" colspan="2">
+
+                        <group string="English Section" name="english_section">
+                            <field name="name" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+
+                        <!-- Arabic Section -->
+                        <group string="Arabic Section" name="arabic_section">
+                            <field name="name_ar" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                    </group>
+
+                    <group colspan="2">
+                        <group string="Common Information" name="common_info">
+                            <field name="company_id" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="id_number" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="iqama_number" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                        <group string="Contract Dates" name="contract_dates">
+                            <field name="issue_date" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="agreement_date" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="termination_date" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                    </group>
+
+                    <!-- HR Department Notebook -->
+                    <notebook>
+                        <page string="HR Department">
+                            <field name="agreement_termination_line_ids" readonly="state in ['confirm']">
+                                <tree editable="bottom">
+                                    <field name="name" readonly="parent.state in ['confirm']" force_save="1"/>
+                                    <field name="name_ar" readonly="parent.state in ['confirm']" force_save="1"/>
+                                    <field name="signature" readonly="parent.state in ['confirm']" force_save="1"/>
+                                    <field name="date" readonly="parent.state in ['confirm']" force_save="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_agreement_termination_tree" model="ir.ui.view">
+        <field name="name">agreement.termination.tree</field>
+        <field name="model">agreement.termination</field>
+        <field name="arch" type="xml">
+            <tree string="Agreement Terminations">
+                <field name="name"/>
+                <field name="name_ar"/>
+                <field name="company_id"/>
+                <field name="iqama_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_agreement_termination" model="ir.actions.act_window">
+        <field name="name">Agreement Terminations</field>
+        <field name="res_model">agreement.termination</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

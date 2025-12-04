@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_hotel_location_tree" model="ir.ui.view">
+        <field name="name">hotel.location.tree</field>
+        <field name="model">hotel.location</field>
+        <field name="arch" type="xml">
+            <tree string="Hotel Locations">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="address"/>
+                <field name="latitude"/>
+                <field name="longitude"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_hotel_location_form" model="ir.ui.view">
+        <field name="name">hotel.location.form</field>
+        <field name="model">hotel.location</field>
+        <field name="arch" type="xml">
+            <form string="Hotel Location">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="location_link" widget="url"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hotel_location_search" model="ir.ui.view">
+        <field name="name">hotel.location.search</field>
+        <field name="model">hotel.location</field>
+        <field name="arch" type="xml">
+            <search string="Hotel Locations">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="address"/>
+                <group expand="0" string="Group By">
+                    <filter string="Hotel Partner" name="group_by_partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hotel_location" model="ir.actions.act_window">
+        <field name="name">Hotel Locations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hotel.location</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hotel_location_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first hotel location!
+            </p>
+            <p>
+                Create hotel locations to manage accommodation locations for your operations.
+            </p>
+        </field>
+    </record>
+
+
+
+</odoo>

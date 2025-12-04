@@ -1,0 +1,31 @@
+<odoo>
+    <record id="wiz_update_iban_form" model="ir.ui.view">
+        <field name="name">wiz.update.iban.form</field>
+        <field name="model">wiz.update.iban</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="excel_file"/>
+                </group>
+                 <footer>
+                    <button name="read_excel_file" string="Update IBAN" type="object" class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+
+            </form>
+        </field>
+      </record>
+
+      <record id="act_wiz_update_iban" model="ir.actions.act_window">
+        <field name="name">Update IBAN</field>
+        <field name="res_model">wiz.update.iban</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+     <menuitem id="menu_wiz_update_iban"
+        name="UPDATE IBAN" action="act_wiz_update_iban"
+        parent="contacts.res_partner_menu_config"
+        sequence="5"/>
+</odoo>

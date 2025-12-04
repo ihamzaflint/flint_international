@@ -1,0 +1,39 @@
+<odoo>
+
+    <record id="inherit_hr_template_view_employee_form" model="ir.ui.view">
+        <field name="name">inherit.hr.template.view.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="passport_id" position="after">
+                <field name="passport_id_arabic"/>
+            </field>
+            <field name="visa_no" position="after">
+                <field name="visa_no_arabic"/>
+            </field>
+            <xpath expr="//page[@name='hr_settings']" position="after">
+                <page name="other_details" string="Other Details">
+                    <group>
+                        <group>
+                            <field name="warning_letter_sequence"/>
+                            <field name="bank_loan_req_sequence"/>
+                            <field name="crops_eng_registartion_seq"/>
+                            <field name="stc_entry_permit_sequence"/>
+                            <field name="salary_transfer_form_seq"/>
+                            <field name="sal_intorduction_letter_seq"/>
+                        </group>
+                        <group>
+                            <field name="extend_probation_sequence"/>
+                            <field name="attestation_certificate_3_seq"/>
+                            <field name="attestation_certificate_1_seq"/>
+                            <field name="liter_embassies_sequence"/>
+                            <field name="disclaimer_sequence"/>
+                            <field name="employment_letter_seq"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

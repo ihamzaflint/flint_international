@@ -1,0 +1,65 @@
+<odoo>
+    <record model="ir.ui.view" id="client_req_form_view">
+        <field name="name">client.requests.form</field>
+        <field name="model">client.requests</field>
+        <field name="arch" type="xml">
+            <form string="Client Requests">
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="user"/>
+                            <field name="employee"/>
+                            <field name="date"/>
+                            <field name="des"/>
+                        </group>
+                        </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="client_req_tree_view">
+        <field name="name">name.tree</field>
+        <field name="model">client.requests</field>
+        <field name="arch" type="xml">
+            <tree string="Client Requests">
+                            <field name="name"/>
+                            <field name="user"/>
+                            <field name="employee"/>
+                            <field name="date"/>
+                            <field name="des"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_view_client_requirements" model="ir.actions.act_window">
+        <field name="name">Client Requests</field>
+        <field name="res_model">client.requests</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_view_client_requirements_tree" model="ir.actions.act_window.view">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="client_req_tree_view"/>
+        <field name="act_window_id" ref="action_view_client_requirements"/>
+    </record>
+
+    <record id="action_view_client_requirements_form" model="ir.actions.act_window.view">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="client_req_form_view"/>
+        <field name="act_window_id" ref="action_view_client_requirements"/>
+    </record>
+
+    <menuitem
+        id="client_requirement_config"
+        name="Muqeem Log"
+        parent="base.menu_users"
+        action="action_view_client_requirements"
+        sequence="5"/>
+</odoo>

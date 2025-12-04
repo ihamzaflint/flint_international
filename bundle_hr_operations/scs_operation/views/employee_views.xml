@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_filter_employee_operation" model="ir.ui.view">
+        <field name="name">hr.employee.search.employee.operation</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_id']" position="after">
+                <field name="ar_name"/>
+                <field name="pin"/>
+                <field name="identification_id"/>
+                <field name="passport_id" invisible="True"/>
+                <field name="accommodation_no"/>
+                <filter domain="[('is_citizen', '=', True), ('id_exp_date', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        name="citizen_exp_id" string="Citizen Expired ID "/>
+                <filter domain="[('is_citizen', '=', False), ('accommodation_exp_date', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        name="accommodation_exp_date" string="Non Citizen Residence Permit Expiration"/>
+            </xpath>
+            <xpath expr="//filter[@name='group_job']" position="after">
+                <filter context="{'group_by': 'sponsor'}" domain="[]" name="group_sponsor" string="Sponsor"/>
+                <filter context="{'group_by': 'salary_payment'}" domain="[]" name="group_salary_payment"
+                        string="Salary payment method" invisible="1"/>
+                <filter context="{'group_by': 'state'}" domain="[]" name="group_state" string="Status"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="filter_domain">['|', ('name', 'ilike', self),
+                    ('identification_id', 'ilike', self)]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_employee_public_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form2</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_form"/>
+        <field name="arch" type="xml">
+            <field name="department_id" position="before">
+                <field name="employee_assigned_to"/>
+            </field>
+            <xpath expr="//page[@name='public']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.view.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                <h1 class="d-flex">
+                    <field name="ar_name" placeholder="Employee's Arabic Name"/>
+                </h1>
+            </xpath>
+            <header position="inside">
+                <button invisible="user_id != False" name="action_create_user" string="Create User" type="object"
+                        groups="base.group_erp_manager"/>
+                <button name="action_fix_attachments" string="Fix Attachments" type="object" groups="hr.group_hr_user"/>
+                <field name="state" widget="statusbar"/>
+            </header>
+            <xpath expr="//page[@name='public']/div/div/group[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='%(hr.plan_wizard_action)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='birthday']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <field name="pin" position="attributes">
+                <attribute name="string">Employee Code</attribute>
+            </field>
+            <field name="department_id" position="before">
+                <field name="employee_assigned_to"/>
+            </field>
+            <field name="identification_id" position="attributes">
+                <attribute name="invisible">is_citizen == False</attribute>
+                <attribute name="required">is_citizen == True</attribute>
+            </field>
+
+            <field name="gender" position="replace"/>
+            <field name="birthday" position="replace"/>
+            <field name="country_of_birth" position="replace"/>
+            <field name="place_of_birth" position="replace"/>
+            <xpath expr="//field[@name='company_country_code']" position="before">
+                <field name="ar_first_name"/>
+                <field name="ar_second_name"/>
+                <field name="ar_grandfather_name"/>
+                <field name="ar_family_name"/>
+                <field name="address_id"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group/field[@name='bank_account_id']"
+                   position="replace"/>
+            <field name="job_id" position="after">
+                <field invisible="1" name="contract_id"/>
+                <field invisible="1" name="current_open_contract"/>
+                <field name="salary_payment" invisible="1"/>
+                <field context="{'default_partner_id': address_id}" force_save="1" name="bank_account_id" readonly="1"/>
+            </field>
+            <field name="country_id" position="after">
+                <field name="is_citizen" readonly="False"/>
+            </field>
+            <field name="passport_id" position="after">
+                <field name="passport_copy" widget="many2many_binary" required="is_citizen == False"/>
+                <field name="id_issue_date" required="is_citizen == True" invisible="is_citizen == False"/>
+                <field name="id_issue_location" required="is_citizen == True" invisible="is_citizen == False"/>
+                <field name="id_exp_date" required="is_citizen == True" invisible="is_citizen == False"/>
+                <field name="id_exp_date_hijri" invisible="is_citizen == False" required="is_citizen == True"/>
+            </field>
+            <xpath expr="//page[@name='hr_settings']/group" position="inside">
+                <group string="Duration of Service">
+                    <field force_save="1" name="initial_employment_date" readonly="1"/>
+                    <field name="length_of_service"/>
+                    <field name="length_of_service_days"/>
+                </group>
+                <group string="Other system info">
+                    <field name="wfm_user"/>
+                    <field name="hrfd_support"/>
+                </group>
+                <group string="Insurance Information">
+                    <field name="insurance_class_id" options="{'no_create': True}"/>
+                    <field name="sponsor_no"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='country_id']" position="attributes">
+                <attribute name="required">is_citizen == False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='visa_no']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group" position="inside">
+                <group name="private_info" string="Private information">
+                    <field name="gender"/>
+                    <field name="birthday"/>
+                    <field name="age"/>
+                    <field name="country_of_birth"/>
+                </group>
+                <!--                <group invisible="country_id == False or is_citizen == True" name="accommodationdetails"-->
+                <!--                       string="Residence Permit Details">-->
+                <!--                    <field name="accommodation_provided"/>-->
+                <!--                    <field name="insurance_id" readonly="1"/>-->
+                <!--                    <field name="insurance_id" readonly="1"/>-->
+                <!--                    <field name="accommodation_no"/>-->
+                <!--                    <field name="accommodation_issue_date"/>-->
+                <!--                    <field name="accommodation_issue_location"/>-->
+                <!--                    <field name="accommodation_exp_date"/>-->
+                <!--                    <field name="accommodation_exp_date_hijri"/>-->
+                <!--                </group>-->
+                <group name="sponsorship" string="Sponsorship" invisible="is_citizen != False">
+                    <field invisible="1" name="contract_state"/>
+                    <field name="sponsor"
+                           invisible="is_citizen != False"/>
+                    <field invisible="sponsor != 'free'" name="sponsor_name"
+                           required="sponsor in ['free']"/>
+                    <field invisible="sponsor != 'free'" name="sponsor_contact_name"
+                           required="sponsor in ['free']"/>
+                    <field invisible="sponsor != 'free'" name="sponsor_contact_no"
+                           required="sponsor in ['free']"/>
+                </group>
+                <group>
+                    <field name="passport_id" invisible="True"/>
+                    <field name="passport_exp_date" invisible="True"/>
+                    <field name="other_id" invisible="True"/>
+                </group>
+            </xpath>
+            <notebook position="inside">
+                <page name="contracts" string="Contracts">
+                    <field name="contract_ids" readonly="1">
+                        <tree create="0" delete="0" edit="0">
+                            <field name="name"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Bank Accounts">
+                    <field context="{'default_partner_id': address_id,'default_action_type': 'hr','default_is_create_from_employee':True}"
+                           name="bank_account_ids">
+                        <tree>
+                            <field invisible="1" name="action_type"/>
+                            <field name="bank_id" options="{'no_create':true, 'no_open':true}" required="True"/>
+                            <field name="acc_number"/>
+                            <field domain="[('id','=',parent.address_id)]" name="partner_id"
+                                   options="{'no_create':true, 'no_open':true}"/>
+                            <field name="is_default_account"/>
+                            <field invisible="1" name="is_create_from_employee"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <field name="bank_id" options="{'no_create':true, 'no_open':true}" required="True"/>
+                                    <field name="acc_number"/>
+                                    <field domain="[('id','=',parent.address_id)]" name="partner_id"
+                                           options="{'no_create':true, 'no_open':true}"/>
+                                    <field name="is_default_account"/>
+                                    <field invisible="1" name="is_create_from_employee"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+                <page string="Employee Family">
+                    <field name="family_ids">
+                        <tree>
+                            <field name="family_type" optional="show"/>
+                            <field name="name" optional="show"/>
+                            <field name="ar_name" optional="show"/>
+                            <field name="gender" optional="show"/>
+                            <field name="passport_id" optional="show"/>
+                            <field name="passport_copy" optional="show" widget="many2many_binary"/>
+                            <field name="passport_exp_date" optional="show"/>
+                            <field name="border_number" optional="show"/>
+                            <field name="identification_id" optional="show"/>
+                            <field name="sponsor_no" optional="show"/>
+                            <field name="phone" optional="show"/>
+                            <field name="birthday" optional="show"/>
+                            <field name="employer" optional="show"/>
+                            <field name="insurance_class_id" optional="show"/>
+                            <field name="accommodation_no" optional="show"/>
+                            <field name="accommodation_exp_date" optional="show"/>
+                            <field name="insurance_id" optional="show"/>
+                            <field name="employee_id" optional="show"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="family_type" force_save="1"/>
+                                        <field name="name" force_save="1"/>
+                                        <field name="birthday" force_save="1"/>
+                                        <field name="gender" force_save="1"/>
+                                        <field name="passport_id" force_save="1"/>
+                                        <field name="identification_id" force_save="1"/>
+                                        <field name="accommodation_no" force_save="1"/>
+                                        <field name="insurance_id" force_save="1"/>
+                                        <field name="border_number" force_save="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="employer" readonly="1" force_save="1"/>
+                                        <field name="ar_name" force_save="1"/>
+                                        <field name="ar_name" force_save="1"/>
+                                        <field name="sponsor_no" force_save="1"/>
+                                        <field name="passport_exp_date" force_save="1"/>
+                                        <field name="passport_copy" widget="many2many_binary" force_save="1"/>
+                                        <field name="accommodation_exp_date" force_save="1"/>
+                                        <field name="insurance_class_id" force_save="1"/>
+                                    </group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

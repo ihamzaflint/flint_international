@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_ticket_portal_user,helpdesk.ticket.portal.user,flint_helpdesk.model_helpdesk_ticket,base.group_portal,1,1,1,0
+access_service_type_portal_user,service.type.portal.user,scs_operation.model_service_type,base.group_portal,1,0,0,0
+access_helpdesk_type_portal_user,helpdesk.ticket.type.portal.user,flint_helpdesk.model_helpdesk_ticket_type,base.group_portal,1,0,0,0
+access_service_type_portal,service.type.portal,flint_helpdesk.model_service_type,base.group_portal,1,0,0,0
+access_service_type_user,service.type.user,flint_helpdesk.model_service_type,helpdesk.group_helpdesk_user,1,1,1,1

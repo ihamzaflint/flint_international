@@ -1,0 +1,44 @@
+<odoo>
+
+    <record id="client_client_tree_view" model="ir.ui.view">
+        <field name="name">client.client.tree.view</field>
+        <field name="model">client.client</field>
+        <field name="arch" type="xml">
+            <tree string="Client">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="client_client_form_view" model="ir.ui.view">
+        <field name="name">client.client.form.view</field>
+        <field name="model">client.client</field>
+        <field name="arch" type="xml">
+            <form string="Client" name="client_client">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="client_client_action" model="ir.actions.act_window">
+        <field name="name">Client</field>
+        <field name="res_model">client.client</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="client_client_menu_item"
+            name="Client"
+            parent="hr.menu_human_resources_configuration"
+            action="client_client_action"/>
+
+</odoo>

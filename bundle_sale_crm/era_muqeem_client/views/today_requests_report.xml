@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form View Definition -->
+    <record id="today_requests_report_form_view" model="ir.ui.view">
+        <field name="name">today.request.form.view</field>
+        <field name="model">today.request.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="employee_id" invisible="1"/>
+<!--                        <field name="user_id"/>-->
+                        <field name="date_from"/>
+
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+
+                    </group>
+                    <group>
+                        <field name="fromDate" invisible="1"/>
+                        <field name="toDate" invisible="1"/>
+
+                    </group>
+                </group>
+
+
+                <footer>
+                    <button string="Print Pdf" type="object" class="btn btn-outline-success"
+                            name="request_report"/>
+<!--                    <button string="Download Xlsx" type="object" class="btn btn-outline-success"-->
+<!--                            name="request_report_xlsx"/>-->
+<!--                    <button string="Cancel" special="cancel" class="btn btn-outline-danger"/>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Window Definition -->
+    <record id="today_request_action" model="ir.actions.act_window">
+        <field name="name">Fetch Operations From Muqeem</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">today.request.report.wizard</field>
+        <field name="view_id" ref="today_requests_report_form_view"/>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_employee_id': active_id}</field>
+    </record>
+
+
+
+</odoo>

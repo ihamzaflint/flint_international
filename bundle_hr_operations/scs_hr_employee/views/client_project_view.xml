@@ -1,0 +1,55 @@
+<odoo>
+
+    <record id="client_project_tree_view" model="ir.ui.view">
+        <field name="name">client.project.tree.view</field>
+        <field name="model">client.project</field>
+        <field name="arch" type="xml">
+            <tree string="Client Project">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="partner_id"/>
+                <field name="project_location"/>
+                <field name="project_latitude"/>
+                <field name="project_longitude"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="client_project_form_view" model="ir.ui.view">
+        <field name="name">client.project.form.view</field>
+        <field name="model">client.project</field>
+        <field name="arch" type="xml">
+            <form string="Client Project" name="client_project">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="True"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="partner_id"/>
+                            <field name="analytic_account_id"/>
+                        </group>
+                        <group string="Location Details">
+                            <field name="project_location" placeholder="Enter project location..."/>
+                            <field name="project_latitude"/>
+                            <field name="project_longitude"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="client_project_action" model="ir.actions.act_window">
+        <field name="name">Project</field>
+        <field name="res_model">client.project</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="client_project_menu_item"
+            name="Project"
+            parent="hr.menu_human_resources_configuration"
+            action="client_project_action"/>
+
+</odoo>

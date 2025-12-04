@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ticket Creation Form -->
+    <template id="portal_create_ticket" name="Create Ticket">
+        <t t-call="portal.portal_layout">
+            <div id="ticket-container" class="container">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="card-title mb-0">Create Support Ticket</h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- Error Message Display -->
+                                <div t-if="error_message" class="alert alert-danger" role="alert">
+                                    <t t-esc="error_message"/>
+                                </div>
+
+                                <form action="/helpdesk/ticket/submit" method="post" enctype="multipart/form-data" class="mt-4">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <!-- Service Category Selection -->
+                                    <div class="form-group mb-3">
+                                        <label for="ticket_type_id" class="form-label">Service Category</label>
+                                        <select name="ticket_type_id" class="form-select" required="required">
+                                            <option value="">Select Service Category</option>
+                                            <t t-foreach="ticket_types" t-as="ticket_type">
+                                                <option t-att-value="ticket_type.id">
+                                                    <t t-esc="ticket_type.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <!-- Service Type Selection -->
+                                    <div class="form-group mb-3">
+                                        <label for="service_type_ids" class="form-label">Service Types</label>
+                                        <div class="position-relative">
+                                            <select name="service_type_ids" class="d-none" multiple="multiple">
+                                                <t t-foreach="service_types" t-as="service_type">
+                                                    <option t-att-value="service_type.id" 
+                                                            t-att-data-is-logistics="service_type.is_logistics"
+                                                            t-att-data-logistic-type="service_type.logistic_order_type">
+                                                        <t t-esc="service_type.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <div class="o_tags_input">
+                                                <div class="o_tags_section">
+                                                    <!-- Tags will be dynamically added here -->
+                                                </div>
+                                                <input type="text" class="o_tags_search" 
+                                                       placeholder="Search and select service types..."
+                                                       autocomplete="off"/>
+                                            </div>
+                                            <div class="o_tags_dropdown" style="display: none;">
+                                                <!-- Dropdown options will be dynamically populated -->
+                                            </div>
+                                            <div class="invalid-feedback">Please select at least one service type.</div>
+                                        </div>
+                                    </div>
+                                    <!-- Description -->
+                                    <div class="form-group mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea class="form-control" name="description" rows="4" required="required"></textarea>
+                                    </div>
+
+                                    <!-- Logistics Section -->
+                                    <div id="logistics_section" class="d-none">
+                                        <!-- Add logistics fields here -->
+                                    </div>
+
+                                    <!-- File Upload -->
+                                    <div class="form-group mb-3">
+                                        <label for="attachment" class="form-label">Attachments</label>
+                                        <input type="file" class="form-control" name="attachment" multiple="true"/>
+                                    </div>
+
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <a href="/my/tickets" class="btn btn-secondary me-md-2">Cancel</a>
+                                        <button type="submit" class="btn btn-primary">Submit Ticket</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Inherit Ticket Portal View to Add Service Information -->
+    <template id="portal_ticket_page_inherit" inherit_id="helpdesk.tickets_followup" name="Helpdesk Ticket Inherit">
+        <xpath expr="//div[@id='ticket_content']" position="inside">
+            <!-- Add service type information here -->
+            <div t-if="ticket.service_type_ids" class="row mb-4">
+                <div class="col-12">
+                    <strong>Service Type:</strong>
+                    <span t-field="ticket.service_type_ids"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

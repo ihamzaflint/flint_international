@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_delivery_note_qweb">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                        @font-face { font-family: 'DroidKufiRegular';
+                        src: url('/odoo15e_flint/addons_account/account_invoice_qweb/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');}
+                    </style>
+                    <t t-set="o" t-value="o.with_context(lang=lang)"/>
+                    <t t-set="o_ar" t-value="o.with_context(lang='ar_001')"/>
+                    <div class="page">
+                        <div style="text-align:right;font-size:20px;" class="col-4">
+                            <span style="font-family:DroidKufiRegular">:الرقم</span>
+                            <br/>
+                            <span style="font-family:DroidKufiRegular">:التاريخ</span>
+                            <br/>
+                            <span style="font-family:DroidKufiRegular">:رقم الملف</span>
+                        </div>
+                        <table style="width:100%">
+                            <tr style=";font-size:20px;text-align:left;">
+                                <span>The Honorable Ambassadors,</span>
+                            </tr>
+                            <br/>
+                            <tr style=";font-size:20px;text-align:left;">
+                                <span>--------- Embassy</span>
+                            </tr>
+                            <br/>
+                            <tr style=";font-size:20px;text-align:left;">
+                                <span>---------, Saudi Arabia.</span>
+                            </tr>
+
+                        </table>
+                        <br/>
+                        <table style="width:100%">
+                            <tr style=";font-size:20px;text-align:left;">
+                                <span>His Excellency,</span>
+                            </tr>
+                            <br/>
+                            <div style="font-size:20px;">
+                                This is to certify that Mr. <span t-field="o.employee_id.name"/>, <span t-field="o.employee_id.country_id.name"/> national,
+                                passport No <span t-field="o.employee_id.passport_id"/> and ID No <span t-field="o.employee_id.identification_id"/> has
+                                been working with us as (<span t-field="o.employee_id.contract_id.job_id"/>) since <span t-field="o.employee_id.first_contract_date"/> until the date and drawing monthly salary (SR <span t-field="o.employee_id.contract_id.wage"/>).
+                                This certificate is issued upon his request to apply for <span t-field="o.employee_id.visa_no"/>Visa, by stating it does not constitute any legal or financial liability on us, and we wish him good luck!
+                            </div>
+                        </table>
+                        <div style="text-align:right;font-size:22px;" class="col-4">
+                            <span style="font-family:DroidKufiRegular">السادة / ------------ ------ الموقرين</span>
+                        </div>
+                        <div style="text-align:center;font-size:22px;" class="col-4">
+                            <span style="font-family:DroidKufiRegular">،،،السلام عليكم ورحمة الله وبركاته</span>
+                        </div>
+                        <div style="font-size:15px;font-family:DroidKufiRegular;">
+                            نفيدكم بأن السيد / <span style="font-family:DroidKufiRegular;"
+                                              t-field="o_ar.employee_id.name"/>، <span style="font-family:DroidKufiRegular;"
+                                              t-field="o_ar.employee_id.country_id.name"/> الجنسية، يحمل جواز سفر رقم (<span style="font-family:DroidKufiRegular;"
+                                              t-field="o_ar.employee_id.passport_id"/>) وهوية مقيم رقم ( <span style="font-family:DroidKufiRegular;"
+                                              t-field="o_ar.employee_id.identification_id"/>) يعمل لدينا بوظيفة <span style="font-family:DroidKufiRegular;" t-field="o_ar.employee_id.contract_id.job_id"/> )  منذ تاريخ <span style="font-family:DroidKufiRegular;"
+                                              t-field="o_ar.employee_id.first_contract_date"/> وحتى تاريخه براتب شهري وقدره الاجمالي (------------ ر . س ) <span style="font-family:DroidKufiRegular;"
+                                              t-field="o_ar.employee_id.visa_no"/> ريال سعودي فقط لاغير وقد تم اعطاءه هذا الخطاب من أجل الحصول على تأشيرة سفر ،من دون ادنى مسؤولية علينا في ذلك . وقد تم اغلاق الخطاب قبل علامة الفاصلة ، الشكر لكم مسبقاً على حسن تعاونكم معنا
+                        </div>
+                        <br/>
+                        <div style="text-align:center;font-size:20px;font-family:DroidKufiRegular;" class="col-4">
+                            ،،، وتفضلوا بقبول فائق تحياتنا وتقديرنا
+                        </div>
+                        <div style="text-align:center;font-size:22px;font-family:DroidKufiRegular;" class="col-4">
+                            إدارة الموارد البشرية
+                        </div>
+                        <div style="text-align:center;font-size:20px;" class="col-4">
+                                H.R.Department
+                        </div>
+
+
+
+                        <!--                    <br/>-->
+                        <!--                    <table style="width:100%;font-size:15px;margin-bottom: 7px;">-->
+                        <!--                        <tr width="100%">-->
+                        <!--                            <td style="text-align:left;" width="25%">-->
+                        <!--                                <span>Del.Note No.</span>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="border:1px solid;text-align:center;background-color:#EAEAEA;" width="25%"-->
+                        <!--                                height="40pt">-->
+                        <!--                                <t t-esc="o.name"/>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="text-align:center;" width="25%">-->
+                        <!--                                <span>Your Ref.</span>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="border:1px solid;text-align:center;background-color:#EAEAEA;" width="25%"-->
+                        <!--                                height="40pt">-->
+                        <!--                                <t t-esc="o.partner_id.ref"/>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                    </table>-->
+                        <!--                    <table style="width:100%;font-size:15px;margin-bottom: 7px;">-->
+                        <!--                        <tr width="100%" style="margin-bottom: -18px;">-->
+                        <!--                            <td style="text-align:left;" width="25%">-->
+                        <!--                                <span>Delivered to</span>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="border:1px solid;text-align:center;background-color:#EAEAEA;" width="25%"-->
+                        <!--                                height="40pt">-->
+                        <!--                                <t t-esc="o.partner_id.name"/>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="text-align:center;" width="25%">-->
+                        <!--                                <span>Date</span>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="border:1px solid;text-align:center;background-color:#EAEAEA;" width="25%"-->
+                        <!--                                height="40pt">-->
+                        <!--                                <p t-field="o.scheduled_date" t-options='{"format": "dd/MM/yyyy"}'/>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                    </table>-->
+                        <!--                    <table style="width:100%;font-size:15px;margin-bottom: 7px;">-->
+                        <!--                        <tr width="100%" style="margin-bottom: -18px;">-->
+                        <!--                            <td style="text-align:left;" width="25%">-->
+                        <!--                                <span>Freight</span>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="border:1px solid;text-align:center;background-color:#EAEAEA;" width="25%"-->
+                        <!--                                height="40pt">-->
+                        <!--                                <t t-esc="o.partner_id.ref"/>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="text-align:center;" width="25%">-->
+                        <!--                                <span>Contact:</span>-->
+                        <!--                            </td>-->
+                        <!--                            <td style="border:1px solid;text-align:center;background-color:#EAEAEA;" width="25%"-->
+                        <!--                                height="40pt">-->
+                        <!--                                <t t-esc="o.company_id.partner_id"/>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                    </table>-->
+<!--                                            <table style="width:100%">-->
+<!--                                                <tr style=";font-size:15px;text-align:left;">-->
+<!--                                                    <span>Dear Sir,</span>-->
+<!--                                                </tr>-->
+<!--                                                <br/>-->
+<!--                                                <tr style=";font-size:15px;text-align:left;">-->
+<!--                                                    <span>Kindly acknowledge the receipt of the following items from our-->
+<!--                                                        Warehouse:-->
+<!--                                                    </span>-->
+<!--                                                </tr>-->
+<!--                                            </table>-->
+                        <!--                    <table class="table table-sm o_main_table" name="stock_line_table">-->
+                        <!--                        <thead>-->
+                        <!--                            <tr>-->
+                        <!--                                <td style="border: 1px solid black; text-align:left; padding:4px;width:5%"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span style="font-family:DroidKufiRegular">رقم</span>-->
+                        <!--                                    <br/>-->
+                        <!--                                    <span>No.</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td name="th_description"-->
+                        <!--                                    style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span style="font-family:DroidKufiRegular">رقم الكود</span>-->
+                        <!--                                    <br/>-->
+                        <!--                                    <span>Code No.</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td name="th_quantity"-->
+                        <!--                                    style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span>Description</span>-->
+                        <!--                                    <span style="font-family:DroidKufiRegular">وصف</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td name="th_priceunit"-->
+                        <!--                                    style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span style="font-family:DroidKufiRegular">رصيد الطلب</span>-->
+                        <!--                                    <br/>-->
+                        <!--                                    <span>Order Balance</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td name="th_quantity"-->
+                        <!--                                    style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span style="font-family:DroidKufiRegular">ﺍﻟﻜﻤﻴﺔتسليم</span>-->
+                        <!--                                    <br/>-->
+                        <!--                                    <span>QTY Delivered</span>-->
+                        <!--                                </td>-->
+                        <!--                            </tr>-->
+                        <!--                        </thead>-->
+                        <!--                        <tbody class="stock_tbody">-->
+                        <!--                            <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>-->
+                        <!--                            <t t-set="i" t-value="1"/>-->
+                        <!--                            <tr t-foreach="lines" t-as="line">-->
+                        <!--                                <td style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span t-esc="i"/>-->
+                        <!--                                    <t t-set="i" t-value="i+1"/>-->
+                        <!--                                </td>-->
+                        <!--                                <td name="account_invoice_line_name"-->
+                        <!--                                    style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span t-field="line.product_id.default_code"-->
+                        <!--                                          t-options="{'widget': 'text'}"/>-->
+                        <!--                                </td>-->
+                        <!--                                <td style="border: 1px solid black; text-align:left; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span class="text-nowrap" t-field="line.product_id.name"/>-->
+                        <!--                                </td>-->
+                        <!--                                <td style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    <span t-esc="'%.2f'% (line.quantity_done - (line.quantity_done))"/>-->
+                        <!--                                    &lt;!&ndash;                                    <span class="text-nowrap" t-field="line.product_id.uom_id"/>&ndash;&gt;-->
+                        <!--                                </td>-->
+                        <!--                                <td style="border: 1px solid black; text-align:center; padding:4px"-->
+                        <!--                                    class="table-border-bottom-left-right-top">-->
+                        <!--                                    &lt;!&ndash;                                    <span t-field="line.quantity"/>&ndash;&gt;-->
+                        <!--                                    <span t-field="line.quantity_done"/>-->
+                        <!--                                </td>-->
+
+                        <!--                            </tr>-->
+                        <!--                        </tbody>-->
+                        <!--                    </table>-->
+                        <!--                    <div class="col-11.99" style="border: 1px solid black;border-radius: 15px;">-->
+                        <!--                        <table style="width:100%">-->
+                        <!--                            <tr style="text-align:left;width:100%;height: 25pt">-->
+                        <!--                                <td>-->
+                        <!--                                    &#160;&#160;&#160;&#160;<span>Notes/Additional Remarks:</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                            </tr>-->
+                        <!--                            <tr style="border:1px dotted;width:100%">-->
+                        <!--                                <td>-->
+                        <!--                                    <span style="border:1px solid;color: white;">blank</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+
+                        <!--                            </tr>-->
+                        <!--                            <tr style="border:1px dotted;width:100%">-->
+                        <!--                                <td>-->
+                        <!--                                    <span style="border:1px solid;color: white;">blank</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+
+                        <!--                            </tr>-->
+                        <!--                            <tr style="width:100%;height: 25pt">-->
+                        <!--                                <td>-->
+                        <!--                                    <span style="border:1px solid;color: white;">blank</span>-->
+                        <!--                                </td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+                        <!--                                <td></td>-->
+
+                        <!--                            </tr>-->
+                        <!--                        </table>-->
+                        <!--                    </div>-->
+                        <!--                    <br/>-->
+                        <!--                    <div class="row" style="width:107%">-->
+                        <!--                        <div class="col-6">-->
+                        <!--                            <table style="width:100%;page-break-inside: avoid;">-->
+                        <!--                                <tr class="text-left" style="page-break-inside: avoid;" width="50%">-->
+                        <!--                                    <td style="font-size:16px">-->
+                        <!--                                        Yours Truly,-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr class="text-left" width="50%">-->
+                        <!--                                    <td style=";font-size:16px;">-->
+                        <!--                                        <span t-field="o.company_id.name"/>,-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr>-->
+                        <!--                                    <td style="text-align:left;color:white">-->
+                        <!--                                        <span>blank</span>-->
+                        <!--                                    </td>-->
+                        <!--                                    <td style="text-align:center">-->
+
+                        <!--                                    </td>-->
+                        <!--                                    <td style="text-align:center">-->
+
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr class="text-left" style="page-break-inside: avoid;" width="50%">-->
+                        <!--                                    <td style="font-size:16px">-->
+                        <!--                                        <span>Stores in charge:</span>-->
+                        <!--                                        <span>..................................................</span>-->
+                        <!--                                        <span style="font-family:DroidKufiRegular">:مخزنة في تهمة</span>-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                            </table>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="col-6" style="margin-left: -31px;">-->
+                        <!--                            <table style="width:100%;page-break-inside: avoid;">-->
+                        <!--                                <tr class="text-left" style="page-break-inside: avoid;" width="50%">-->
+                        <!--                                    <td style="font-size:16px">-->
+                        <!--                                        <span>Received By:</span>-->
+                        <!--                                        <span>-->
+                        <!--                                            ............................................................................-->
+                        <!--                                        </span>-->
+                        <!--                                        <span style="font-family:DroidKufiRegular">:ﺍﻟﻤﺴﺘﻠﻢ</span>-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr>-->
+                        <!--                                    <td style="text-align:left;color:white">-->
+                        <!--                                        <span>blank</span>-->
+                        <!--                                    </td>-->
+                        <!--                                    <td style="text-align:center">-->
+
+                        <!--                                    </td>-->
+                        <!--                                    <td style="text-align:center">-->
+
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr class="text-left" width="50%">-->
+                        <!--                                    <td style="font-size:16px">-->
+                        <!--                                        <span>Date:</span>-->
+                        <!--                                        <span>-->
+                        <!--                                            .................................................................................................-->
+                        <!--                                        </span>-->
+                        <!--                                        <span style="font-family:DroidKufiRegular">:تاريخ</span>-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr>-->
+                        <!--                                    <td style="text-align:left;color:white">-->
+                        <!--                                        <span>blank</span>-->
+                        <!--                                    </td>-->
+                        <!--                                    <td style="text-align:center">-->
+
+                        <!--                                    </td>-->
+                        <!--                                    <td style="text-align:center">-->
+
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                                <tr class="text-left" width="50%">-->
+                        <!--                                    <td style="font-size:16px">-->
+                        <!--                                        <span>Receiver's Signature:</span>-->
+                        <!--                                        <span>...............................................</span>-->
+                        <!--                                        <span style="font-family:DroidKufiRegular">:توقيع المستلم</span>-->
+                        <!--                                    </td>-->
+                        <!--                                </tr>-->
+                        <!--                            </table>-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_embassy_male_document">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang"
+                       t-value=""/>
+                    <t t-call="hr_employee_doc_generator.report_delivery_note_qweb" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

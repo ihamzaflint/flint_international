@@ -1,0 +1,328 @@
+<odoo>
+
+    <template id="report_leave_application_form_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"></td>
+                                <td width="40%" style="text-align:center;font-size:20px;">
+                                    <b>LEAVE APPLICATION FORM</b>
+                                    <br/><b>نموذج طلب اجازة</b>
+                                </td>
+                                <td width="30%" style="text-align:center;">
+                                    <b>شركة فلنت كونسلتنغ السعودية المحدودة و فروعها</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="25%" class="border_left border_top border_right"><br/></td>
+                                <td width="75%" class="border_top border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="25%" class="border_left border_right"></td>
+                                <td width="75%" class="border_right" style="padding-left:25px;">
+                                    LAPF #
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" class="border_left border_right" style="text-align:center;">
+                                    For office Use Only
+                                </td>
+                                <td width="75%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="25%" class="border_left border_right"><br/></td>
+                                <td width="75%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="25%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="75%" class="border_right border_bottom"></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="35%" colspan="2" style="text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    <b>Application Day &amp; Date:</b> 
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                                <td width="15%" style="text-align:center;" class="border_right border_bottom">
+                                    يوم و تاريخ
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    P.F # / ( رقم الموظف)
+                                </td>
+                                <td width="15%" class="border_right border_bottom"></td>
+                                <td width="25%" style="padding-right:5px;text-align:right;" class="border_right border_bottom">
+                                    Designation/وظيفة
+                                </td>
+                                <td width="25%" class="border_bottom">
+                                    <span t-esc="o.employee_id.job_id.name"/>
+                                </td>
+                                <td width="15%" class="border_bottom border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="35%" colspan="2" class="border_left border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    Employee Name/الاسم الموظف
+                                </td>
+                                <td width="65%" colspan="3" class="border_right border_bottom">
+                                    <span t-esc="o.employee_id.muqeem_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    Department/ قسم
+                                </td>
+                                <td width="15%" class="border_right border_bottom">
+                                    <span t-esc="o.employee_id.department_id.name"/>
+                                </td>
+                                <td width="25%" style="text-align:center;" class="border_right border_bottom">
+                                    Organization,Project/مشروع
+                                </td>
+                                <td width="40%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="35%" colspan="2" style="text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    Joining Date # --تاريخ مباشرةالعمل
+                                </td>
+                                <td width="50%" colspan="2" class="border_bottom"></td>
+                                <td width="15%" class="border_bottom border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="5" class="border_left border_right border_bottom"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="15%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Type of Leave</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Annual</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Casual</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Sick</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Emergency</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Compensatory</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>No of Days</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>From Date:</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'annual'">
+                                        <span t-esc="o.leave_from_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'casual'">
+                                        <span t-esc="o.leave_from_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'sick'">
+                                        <span t-esc="o.leave_from_date"/>
+                                    </t>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'emergency'">
+                                        <span t-esc="o.leave_from_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'compensatory'">
+                                        <span t-esc="o.leave_from_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" rowspan="2" style="padding-left:5px;">
+                                    <span t-esc="o.total_leave_days"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>End Date</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'annual'">
+                                        <span t-esc="o.leave_to_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'casual'">
+                                        <span t-esc="o.leave_to_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'sick'">
+                                        <span t-esc="o.leave_to_date"/>
+                                    </t>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'emergency'">
+                                        <span t-esc="o.leave_to_date"/>
+                                    </t>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <t t-if="o.leave_type == 'compensatory'">
+                                        <span t-esc="o.leave_to_date"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Short Leave</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>From Time</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;"></td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>End Time</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;"></td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Total Annual Leave</b>
+                                </td>
+                                <td width="14%" class="border_right border_bottom" style="padding-left:5px;"></td>
+                            </tr>
+                            <tr>
+                                <td width="15%" rowspan="6" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    <b>Remarks/ملاحظات</b>
+                                </td>
+                                <td width="57%" colspan="4" rowspan="6" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.leave_remarks"/>
+                                </td>
+                                <td width="28%" colspan="2" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Leave Availed </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="28%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="28%" colspan="2" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Leave Balance </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="28%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="28%" colspan="2" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Unpaid Leave Availed</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="28%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" rowspan="3" class="border_left border_right border_bottom" style="text-align:center;">
+                                    <b>DirectManager's Recommendation &amp; Remarks/المدير المباشر الموافقة وملاحظات</b>
+                                </td>
+                                <td width="80%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="80%" class="border_right border_bottom"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="80%" class="border_right border_bottom"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" class="border_right border_left" style="text-align:center;">
+                                    <b><u>Employees Signatures</u></b>
+                                </td>
+                                <td width="40%" class="border_right" style="text-align:center;">
+                                    <b><u>Admin &amp; HR Manager's Signatures</u></b>
+                                </td>
+                                <td width="30%" class="border_right" style="text-align:center;">
+                                    <b><u>MD/CEO Signature</u></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_right border_left border_bottom" style="text-align:center;">
+                                    <u><b>الموظف</b></u>
+                                </td>
+                                <td width="40%" class="border_bottom border_right" style="text-align:center;">
+                                    <u><b>  الموارد البشرية </b></u>
+                                </td>
+                                <td width="30%" class="border_bottom border_right" style="text-align:center;">
+                                    <u><b>المدير عام </b></u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_right border_left border_bottom"><br/></td>
+                                <td width="40%" class="border_bottom border_right"></td>
+                                <td width="30%" class="border_bottom border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_right border_left border_bottom" style="text-align:center;">
+                                    DATE
+                                </td>
+                                <td width="40%" class="border_bottom border_right" style="text-align:center;">
+                                    DATE
+                                </td>
+                                <td width="30%" class="border_bottom border_right" style="text-align:center;">
+                                    DATE
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3" style="text-align:center;">
+                                    <b>Note: Casual Leave will be treated as unpaid leave, which will be deducted from Salary </b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_leave_application_form" model="ir.actions.report">
+        <field name="name">Leave Application Form</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_leave_application_form_template</field>
+        <field name="print_report_name">'Leave Application Form'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

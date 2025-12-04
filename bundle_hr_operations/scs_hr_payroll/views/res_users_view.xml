@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_users_form_project_access_inherit" model="ir.ui.view">
+        <field name="name">view.res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']/group">
+                  <field string="Payroll Project Not allowed" name="analytic_account_ids" widget="many2many_tags" options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

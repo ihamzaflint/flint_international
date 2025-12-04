@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* alert_wizard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20220325\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-02 08:58+0000\n"
+"PO-Revision-Date: 2023-05-02 08:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: alert_wizard
+#: model:ir.model,name:alert_wizard.model_general_alert_wizard
+msgid "Alert Wizard"
+msgstr "شاشة التحذير"
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__create_uid
+msgid "Created by"
+msgstr "الإنشاء بواسطة"
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء "
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__id
+msgid "ID"
+msgstr "الرقم التعريفي"
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل بتاريخ"
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ "
+
+#. module: alert_wizard
+#: model:ir.model.fields,field_description:alert_wizard.field_general_alert_wizard__message
+msgid "Message"
+msgstr "رسالة "
+
+#. module: alert_wizard
+#: model_terms:ir.ui.view,arch_db:alert_wizard.alert_wizard_form_view
+msgid "OK"
+msgstr "تم"
+
+#. module: alert_wizard
+#: model_terms:ir.ui.view,arch_db:alert_wizard.alert_wizard_form_view
+msgid "alert"
+msgstr "تنبيه"

@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        <record id="itq_punch_import_history_view_form" model="ir.ui.view">
+            <field name="name">punch.import.history.view.form</field>
+            <field name="model">punch.import.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="zk_action_date"/>
+                            <field name="text"/>
+                            <field name="zk_action_type"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="count"/>
+                            <field name="machine_id" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="itq_punch_import_history_view_list" model="ir.ui.view">
+            <field name="name">punch.import.history.view.list</field>
+            <field name="model">punch.import.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="zk_action_date"/>
+                    <field name="text"/>
+                    <field name="zk_action_type"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="count"/>
+                    <field name="machine_id" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="itq_punch_import_history_view_search" model="ir.ui.view">
+            <field name="name">punch.import.history.view.search</field>
+            <field name="model">punch.import.history</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="zk_action_date" string="Action Date time"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_zk_action_date" string="Action Date time"
+                                context="{'group_by':'zk_action_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="itq_punch_import_history_action" model="ir.actions.act_window">
+            <field name="name">Importing Progress Result</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">punch.import.history</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                No records to view
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="itq_punch_import_history_menu"
+                  parent="itq_attendance_punch.itq_attendance_punch_action_root_menu"
+                  action="itq_punch_import_history_action" sequence="20"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,288 @@
+<odoo>
+
+    <template id="report_sabb_bank_loan_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" style="text-align:right;padding-right:10px;">
+                                    <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                                <td width="60%" style="text-align:center;">
+                                      قرض لبنك ساب 
+                                </td>
+                                <td width="20%" style="text-align:right;padding-right:10px;">
+                                    التاريخ:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3" style="text-align:right;padding-right:5px;">
+                                    السادة / البنك السعودي البريطاني ( ساب )
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;">
+                                    جنسيته: <span t-esc="o.employee_id.country_id.country_name_arabic"/>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;">
+                                    اسم الموظف: <span t-esc="o.employee_id.muqeem_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    رقم الإقامة: <span t-esc="o.employee_id.visa_no"/>
+                                </td>
+                                <td width="30%" style="text-align:right;padding-right:5px;">
+                                    الرقم الوظيفي: <span t-esc="o.employee_id.registration_number"/>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;">
+                                      المسمى الوظيفي: <span t-esc="o.employee_id.muqeem_profession"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                     وضع الوظيفه:
+                                </td>
+                                <td width="30%" style="text-align:right;padding-right:5px;">
+                                      غير مثبت،
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;">
+                                    الدرجه الوظيفيه:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;">
+                                    القسم:
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;">
+                                    تاريخ بداية الخدمه: <span t-esc="o.employee_id.first_contract_date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3" style="text-align:right;padding-right:5px;">
+                                    عقد العمل : <span t-esc="o.job_contract"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3" style="text-align:right;padding-right:5px;">
+                                    لايجدد تلقائياً : <span t-esc="o.renew_contract"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="3" style="text-align:right;padding-right:5px;">
+                                    في حالة عدم تجديد العقد تلقائياً فأذكر تاريخ إنتهاء العقد : <span t-esc="o.contract_expiry_date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%"></td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    ريال سعودي
+                                </td>
+                                <td width="20%" style="text-align:center;">
+                                    <span t-esc="o.employee_id.contract_id.wage"/>
+                                </td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    الراتب الاساسي
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%"></td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    ريال سعودي
+                                </td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    الحسميات
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                     ريال سعودي
+                                </td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                     بدل السكن :
+                                </td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                     ريال سعودي
+                                </td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    البدلات و العلاوات:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%"></td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    أخرى 
+                                </td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                      ريال سعودي
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%"></td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                      ريال سعودي
+                                </td>
+                                <td width="20%"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;">
+                                    مستحقات نهاية الخدمة :
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:right;padding-right:5px;">
+                                    (<span t-esc="o.employee_id.bank_account_id.acc_number"/>) بهذا نؤكد بأن الموظف المذكور أعلاه هو موظف لدينا وقد طلب منا تحويل راتبه الشهري إلى حسابه رقم
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="padding-right:5px;text-align:right;">
+                                    و الموجود في فرعكم () وبناءاً عليه نتعهد تعهداً غير مشروطاً وغير قابل للنقض بأن نقوم بتحويل راتبه الشهري الى الحساب المذكور أعلاه، كما نتعهد بإبلاغكم خطياً وعلى الفور في حالة فصله عن العمل أو أنتهاء خدماته معنا لأي سبب كان  وذلك قبل مغادرتة المملكة العربية السعودية، كما نتعهد بدفع مكافأة نهاية خدمته وتعويضاته إلى الحساب المذكور أعلاه.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;padding-right:5px;">
+                                    يسري مفعول تعهدنا كما هو مذكور أعلاه بالكامل حتى نستلم مذكرة خطية منكم تحلنا من هذا الالتزام.
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" style="text-align:right;padding-right:5px;">
+                                     التوقيع:
+                                </td>
+                                <td width="30%" style="text-align:right;padding-right:5px;">
+                                     المسمئ  الوظيفي:
+                                </td>
+                                <td width="40%" style="text-align:right;padding-right:5px;">
+                                    اسم المفوض/ المفوضين بالتوقيع:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" style="text-align:right;padding-right:5px;">
+                                      رقم الفاكس
+                                </td>
+                                <td width="30%" style="text-align:right;padding-right:5px;">
+                                     رقم التحويلة:
+                                </td>
+                                <td width="40%" style="text-align:right;padding-right:5px;">
+                                    رقم هاتف العمل:
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><hr/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:right;padding-right:5px;">
+                                    أفوض أنا ر سينتيل فير ابان  رقم 2545009793 البنك السعودي البريطاني (ساب) تفويضاً غير مشروطاً وغير قابل للنقض بخصم أية مبالغ مستحقه للبنك وذلك من حسابي رقم (SA6880000644608016221287)  والموجود في فرعكم () كما أفوض وأتنازل للبنك السعودي البريطاني (ساب) تنازلاً غير مشروطاً وغير قابل للنقض عن راتبي الشهري ومستحقاتي الأخرى و المستحقه لي من وظيفتي مع الشركة.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;padding-right:5px;">
+                                    التوقيع:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;padding-right:5px;">
+                                    التاريخ:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;padding-right:5px;">
+                                    المكان:
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_sabb_bank_loan" model="ir.actions.report">
+        <field name="name">SABB Bank Loan</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_sabb_bank_loan_template</field>
+        <field name="print_report_name">'SABB Bank Loan'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

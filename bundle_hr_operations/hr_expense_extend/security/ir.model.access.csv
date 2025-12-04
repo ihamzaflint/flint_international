@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_expense_approval_config,expense.approval.config,model_expense_approval_config,,1,1,1,1
+access_expense_approval_config_line,expense.approval.config.line,model_expense_approval_config_line,,1,1,1,1
+access_hr_expense_sheet_approver_line,hr.expense.sheet.approver.line,model_hr_expense_sheet_approver_line,,1,1,1,1

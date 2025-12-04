@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_report_flight_ticket" model="ir.actions.report">
+        <field name="name">Flight Ticket</field>
+        <field name="model">logistic.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_operation.report_flight_ticket</field>
+        <field name="report_file">scs_operation.report_flight_ticket</field>
+        <field name="print_report_name">'Flight Ticket - %s' % object.name</field>
+        <field name="binding_model_id" ref="model_logistic_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_flight_ticket">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center mb-4">Flight Ticket</h2>
+                        
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <strong>Order Reference:</strong> <span t-field="o.name"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <strong>Date:</strong> <span t-field="o.request_date"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <strong>Passenger Name:</strong> <span t-field="o.employee_id.name"/>
+                                <br/>
+                                <strong>Passport No:</strong> <span t-field="o.passport_no"/>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Flight Details</h4>
+                        <table class="table table-bordered mt-4">
+                            <tr>
+                                <th>From</th>
+                                <td><span t-field="o.departure_airport_id.name"/></td>
+                                <th>To</th>
+                                <td><span t-field="o.destination_airport_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <th>Departure Date</th>
+                                <td><span t-field="o.departure_date"/></td>
+                                <th>Return Date</th>
+                                <td><span t-field="o.return_date"/></td>
+                            </tr>
+                        </table>
+
+                        <t t-if="o.flight_bidding_ids">
+                            <h4 class="mt-4">Selected Flight</h4>
+                            <t t-set="selected_flight" t-value="o.flight_bidding_ids.filtered(lambda x: x.state == 'confirm')[0]"/>
+                            <table class="table table-bordered mt-4">
+                                <tr>
+                                    <th>Airline</th>
+                                    <td><span t-field="selected_flight.airline"/></td>
+                                    <th>Flight Number</th>
+                                    <td><span t-field="selected_flight.flight_number"/></td>
+                                </tr>
+                                <tr>
+                                    <th>Departure Time</th>
+                                    <td><span t-field="selected_flight.departure_time"/></td>
+                                    <th>Arrival Time</th>
+                                    <td><span t-field="selected_flight.arrival_time"/></td>
+                                </tr>
+                                <tr>
+                                    <th>Baggage Allowance</th>
+                                    <td><span t-field="selected_flight.number_of_baggage"/></td>
+                                    <th>Flight Type</th>
+                                    <td>
+                                        <t t-if="selected_flight.is_direct">Direct Flight</t>
+                                        <t t-else="">Connection Flight</t>
+                                    </td>
+                                </tr>
+                            </table>
+                        </t>
+
+                        <div class="mt-5">
+                            <h4>Important Instructions</h4>
+                            <ul>
+                                <li>Please arrive at the airport at least 3 hours before departure</li>
+                                <li>Carry a valid passport</li>
+                                <li>Check baggage restrictions before packing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

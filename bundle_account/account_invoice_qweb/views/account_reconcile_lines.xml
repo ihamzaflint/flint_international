@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_move_line_search_bank_rec_widget_inherit" model="ir.ui.view">
+        <field name="name">account.move.line.list.bank_rec_widget</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account_accountant.view_account_move_line_search_bank_rec_widget"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+              <attribute name="filter_domain">['|', '|', '|', '|', '|', '|' ,('name', 'ilike', self), ('ref', 'ilike', self), ('internal_ref', 'ilike', self), ('partner_id', 'ilike', self), ('amount_residual', 'ilike', self), ('amount_residual_currency', 'ilike', self), ('discount_amount_currency', 'ilike', self)]</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+

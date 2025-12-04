@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_airport_tree" model="ir.ui.view">
+        <field name="name">airport.airport.tree</field>
+        <field name="model">airport.airport</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="iata_code"/>
+                <field name="icao_code"/>
+                <field name="city"/>
+                <field name="country_id"/>
+                <field name="timezone"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_airport_form" model="ir.ui.view">
+        <field name="name">airport.airport.form</field>
+        <field name="model">airport.airport</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_fetch_airports" string="Fetch Airports" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="iata_code"/>
+                            <field name="icao_code"/>
+                            <field name="city"/>
+                        </group>
+                        <group>
+                            <field name="country_id"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                            <field name="timezone"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_airport_search" model="ir.ui.view">
+        <field name="name">airport.airport.search</field>
+        <field name="model">airport.airport</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="iata_code"/>
+                <field name="icao_code"/>
+                <field name="city"/>
+                <field name="country_id"/>
+                <separator/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Country" name="country" context="{'group_by': 'country_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_airport" model="ir.actions.act_window">
+        <field name="name">Airports</field>
+        <field name="res_model">airport.airport</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No airports found. Click 'Create' to add a new airport or use the 'Fetch Airports' button to import from API.
+            </p>
+        </field>
+    </record>
+<record model="ir.actions.server" id="action_fetch_all_airport_info">
+    <field name="name">Fetch All Airport Information</field>
+    <field name="model_id" ref="model_airport_airport"/>
+    <field name="binding_model_id" ref="model_airport_airport"/>
+    <field name="state">code</field>
+    <field name="code">
+if records:
+    for record in records:
+        record.action_fetch_airports()
+    </field>
+    <field name="binding_view_types">list,form</field>
+</record></odoo>

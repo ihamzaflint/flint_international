@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<menuitem id="menu_hr_template_parent"
+              name="Job Management"
+              web_icon="hr_reports,static/description/icon.png"/>
+    <menuitem id="menu_hr_template_child" name="Hr Template"/>
+    <menuitem id="menu_employment_hub" name="Employment Hub" parent="menu_hr_template_child"/>
+    <menuitem id="menu_job_offer" name="Job Offer" parent="menu_employment_hub" action="action_job_offer"/>
+    <menuitem id="menu_salary_increment" name="Salary Increment" parent="menu_employment_hub" action="action_salary_increment"/>
+    <menuitem id="menu_contract_extension" name="Contract Extension" parent="menu_employment_hub" action="action_contract_extension"/>
+<!--    <menuitem id="menu_contract_decline" name="Contract Decline" parent="menu_employment_hub" action="action_contract_decline"/>-->
+    <menuitem id="menu_contractor_access" name="Contractor Access" parent="menu_employment_hub" action="action_contractor_access"/>
+    <menuitem id="menu_experience_certificate" name="Experience Certificate" parent="menu_employment_hub" action="action_experience_certificate"/>
+    <menuitem id="menu_agreement_termination" name="Agreement Termination" parent="menu_employment_hub" action="action_agreement_termination"/>
+<!--    <menuitem id="menu_job_offer_letter" name="Job Offer Letter" parent="menu_employment_hub" action="action_job_offer_letter"/>-->
+    <menuitem id="menu_loan_application" name="Loan Applications" parent="menu_employment_hub" action="action_loan_application"/>
+    <menuitem id="menu_clearance_certificate" name="Clearance Certificate" parent="menu_employment_hub" action="action_clearance_certificate"/>
+    <menuitem id="menu_saudi_culture_office" name="Saudi Culture Office" parent="menu_employment_hub" action="action_saudi_culture_office"/>
+    <menuitem id="menu_no_desire_to_renew_contract" name="No Desire to Renew Contract" parent="menu_employment_hub" action="action_no_desire_to_renew_contract"/>
+</odoo>

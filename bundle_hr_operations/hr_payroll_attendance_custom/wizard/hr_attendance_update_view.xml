@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_attendance_update" model="ir.ui.view">
+        <field name="name">hr.attendance.update.form</field>
+        <field name="model">hr.attendance.update</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Update">
+                <group>
+                    <group>
+                        <field name="employee_filter" widget="radio"/>
+                        <field invisible="employee_filter == 'all'" name="employee_id" required="employee_filter == 'emp'"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button class="btn-primary" name="action_update_attendance" string="Update" type="object"/>
+                    or
+                    <button class="btn-default" special="cancel" string="Cancel"/>
+                </footer>
+            </form></field>
+    </record>
+    <record id="action_hr_attendance_update" model="ir.actions.act_window">
+        <field name="name">Generate Attendance Summary</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.update</field>
+        <!--        <field name="view_type">form</field>-->
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

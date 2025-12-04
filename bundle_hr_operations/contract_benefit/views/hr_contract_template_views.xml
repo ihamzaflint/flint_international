@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hr_contract_template_form_benefit_inegration" model="ir.ui.view">
+        <field name="name">view.hr.contract.template.form.benefit.inegration</field>
+        <field name="model">hr.contract.template</field>
+        <field name="inherit_id" ref="hr_contract_template.view_hr_contract_template_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="inside">
+                <field invisible="1" name="benefit_ids"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+            <page string="BENEFITS LIST" name="benefit_list">
+                <field name="line_ids" nolabel="1">
+                    <tree>
+                        <field domain="[('id','in',parent.benefit_ids)]" name="benefit_id"
+                               options="{'no_quick_create':True,'no_create_edit': True,'no_create': True }"/>
+                        <field name="calculation_type"/>
+                        <field name="benefit_value"/>
+                    </tree>
+                    <form>
+                        <group>
+                            <field domain="[('id','in',parent.benefit_ids), ('schema_id', '=', parent.schema_id)]"
+                                   name="benefit_id"
+                                   options="{'no_quick_create':True,'no_create_edit': True,'no_create': True }"/>
+                            <field name="calculation_type"/>
+                            <field name="benefit_value"/>
+                        </group>
+                    </form></field>
+            </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

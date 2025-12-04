@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+       <record id="itq_attendance_default_fp" model="itq.attendance.punch.config">
+           <field name="zk_machine_ip">Default Fingerprint</field>
+       </record>
+    </data>
+    <function name="set_default_finger_machine" model="itq.attendance.punch"/>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saib_payment_user,SAIB Payment User,model_saib_payment,account.group_account_user,1,1,1,0
+access_saib_payment_manager,SAIB Payment Manager,model_saib_payment,account.group_account_manager,1,1,1,1
+access_saib_payroll_user,SAIB Payroll User,model_saib_payroll,hr_payroll.group_hr_payroll_user,1,1,1,0
+access_saib_payroll_manager,SAIB Payroll Manager,model_saib_payroll,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_saib_bank_statement_user,SAIB Bank Statement User,model_saib_bank_statement,account.group_account_user,1,1,1,0
+access_saib_bank_statement_manager,SAIB Bank Statement Manager,model_saib_bank_statement,account.group_account_manager,1,1,1,1
+access_saib_payroll_line_user,SAIB Payroll Line User,model_saib_payroll_line,hr_payroll.group_hr_payroll_user,1,1,1,0
+access_saib_payroll_line_manager,SAIB Payroll Line Manager,model_saib_payroll_line,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_saib_api_auth_user,SAIB API Auth User,model_saib_api_auth,account.group_account_user,1,0,0,0
+access_saib_api_auth_manager,SAIB API Auth Manager,model_saib_api_auth,account.group_account_manager,1,1,1,1

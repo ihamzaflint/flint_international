@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="itq_punch_import_server_action" model="ir.actions.server">
+            <field name="name">Punch Import Data</field>
+            <field name="model_id" ref="model_itq_attendance_punch"/>
+            <field name="groups_id" eval="[(4, ref('itq_attendance_punch.itq_attendance_punch_user_group'))]"/>
+            <field name="state">code</field>
+            <field name="code">action = model.generate_attendance_punch_manual()</field>
+        </record>
+    </data>
+</odoo>

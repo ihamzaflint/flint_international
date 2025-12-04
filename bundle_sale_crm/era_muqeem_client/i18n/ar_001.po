@@ -1,0 +1,2430 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* era_muqeem_client
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 13:38+0000\n"
+"PO-Revision-Date: 2024-07-17 13:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid " Extend Exit Reentry Visa"
+msgstr "تمديد تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid " Final Exit Visa"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/company_inherit.py:0
+#: code:addons/era_muqeem_client/models/company_inherit.py:0
+#, python-format
+msgid " Invalid Username or Password or connection timeout"
+msgstr "رقم المستخدم او كلمة المرور غير صحيحة او انتهت مده الطلب"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid " Renew Iqama"
+msgstr "تجديد اقامة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#, python-format
+msgid " Reprint Exit Reentry Visa"
+msgstr "اعادة طباعة تاشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#, python-format
+msgid " Reprint Exit Reentry has been successed"
+msgstr "اعادة طباعة تأشيرة خروج وعودة تمت بنجاح "
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid " Transfer Iqama"
+msgstr "نقل خدمات"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "### FE Visa Cancellation Data"
+msgstr "بيانات الغاءتأشيرة الخروج النهائى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "### Final Exit Visa Data"
+msgstr "بيانات تأشيرة الخروج النهائى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "### Main Resident Data"
+msgstr "بيانات المقيم الاساسية"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "%s: %s"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "&gt;"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "'2123123123' for success and '2138453036' for fail"
+msgstr "استخدم للنجاح  (2123123123) استخدم للفشل( 2138453036)"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "'F45646567' for success"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__issue_iqama_wizard__iqamaDuration__12
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__renew_iqama_wizard__iqamaDuration__12
+msgid "12"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__issue_iqama_wizard__iqamaDuration__15
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__renew_iqama_wizard__iqamaDuration__15
+msgid "15"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__issue_iqama_wizard__iqamaDuration__18
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__renew_iqama_wizard__iqamaDuration__18
+msgid "18"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__issue_iqama_wizard__iqamaDuration__21
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__renew_iqama_wizard__iqamaDuration__21
+msgid "21"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__issue_iqama_wizard__iqamaDuration__24
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__renew_iqama_wizard__iqamaDuration__24
+msgid "24"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "An error occurred while connecting to the API: %s"
+msgstr "حدث خطأ أثناء الاتصال بواجهة برمجة التطبيقات (API)"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__print_muqeem_report__language__ar
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_passport_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.print_muqeem_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Arabic"
+msgstr "اللغه العربية"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#, python-format
+msgid "Attachment Muqeem"
+msgstr "مرفق مقيم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#, python-format
+msgid "Attachment Print Muqeem.pdf"
+msgstr "مرفق تقرير مقيم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_hr_employee__borderNumber
+msgid "BorderNumber"
+msgstr "رقم الحدود"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancel_final_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_passport_report_form_view2
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.print_muqeem_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_cancell_print_confirmation
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_cancell_print_confirmation1
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#, python-format
+msgid "Cancel Exit Reentry"
+msgstr "الغاء تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#, python-format
+msgid "Cancel Exit Reentry Visa"
+msgstr "الغاء تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Cancel Final exit visa"
+msgstr "الغاء تاشيرة خروج نهائى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Cancel final Exit"
+msgstr "الغاء تأشيرة خروج نهائى"
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.cancell_exit_entry
+msgid "Cancell Exit Reentry"
+msgstr "الغاء تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Cancell Final Exit"
+msgstr "الغاء تأشيرة الخروج النهائى"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Cancelling an exit and return visa"
+msgstr "الغاء تاشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,help:era_muqeem_client.field_hr_employee__is_admin
+msgid "Check if the user is an admin."
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.action_view_client_requirements
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.client_req_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.client_req_tree_view
+msgid "Client Requests"
+msgstr "طلبات العميل"
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_client_requests
+msgid "Client requests"
+msgstr "طلبات العميل"
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "Company"
+msgstr "رقم الشركة"
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Configuration Missed: AppId"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Configuration Missed: AppKey"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Configuration Missed: URl"
+msgstr "اعدادات غير مكتملة:الرابط"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Configuration Missed: User Name"
+msgstr "اعدادات غير مكتملة:اسم المستخدم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Configuration Missed: User Password"
+msgstr "اعدادات غير مكتملة: كلمة المرور"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Configuration Missed: X INTEGRATOR ID"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__confirm
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__confirm
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__create_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__create_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__passportNumber
+msgid "CurrentPassportNumber"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__date
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__date_from
+msgid "Date From"
+msgstr "من تاريخ"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__date_to
+msgid "Date To"
+msgstr "الى تاريخ"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__fromDate
+msgid "Datestr From"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__toDate
+msgid "Datestr To"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "Description"
+msgstr "نتيجة الطلب"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__display_name
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_hr_employee
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__print_muqeem_report__language__en
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_passport_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.print_muqeem_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "English"
+msgstr "اللغة الانجليزية"
+
+#. module: era_muqeem_client
+#: model:ir.ui.menu,name:era_muqeem_client.menu_muqeem_client
+msgid "Era Muqeem Client "
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Error"
+msgstr "خطأ"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "ErrorMessage"
+msgstr "رساله الخطأ"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Exit Before (G): {}"
+msgstr "الخروج قبل تاريخ التاشيرة ميلادى: {}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Exit Before (H): {}"
+msgstr "الخروج قبل تاريخ التاشيرة هجرى: {}"
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.iqama_exit_entry
+msgid "Exit Reentry"
+msgstr "تاشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#, python-format
+msgid "Exit Reenty Visa"
+msgstr "تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#, python-format
+msgid "Exit Reenty Visa Issued Successfully"
+msgstr "اصدار تأشيرة خروج وعودة تمت بنجاح"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__extend_passport_validaty__type_update__extend
+msgid "Extend"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "Extend Exit Entry"
+msgstr "تمديد خروج وعودة"
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.extend_exit_entry
+msgid "Extend Exit Reentry"
+msgstr "تمديد تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#, python-format
+msgid "Extend Passport "
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.extend_passport_action2
+msgid "Extend passport"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Extending an exit and return visa"
+msgstr "تمديد تاشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Fail"
+msgstr "فشل"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/company_inherit.py:0
+#: code:addons/era_muqeem_client/models/company_inherit.py:0
+#: code:addons/era_muqeem_client/models/company_inherit.py:0
+#, python-format
+msgid "Failed to call muqeem service"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Failed to retrieve token"
+msgstr "فشل فى الحصول على التوكن"
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.today_request_action
+msgid "Fetch Operations From Muqeem"
+msgstr "طلبات اليوم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Final Exit Issue"
+msgstr "اصدار تأشيرة خروج نهائى"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Final Exit Visa"
+msgstr "تاشيرة خروج نهائى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Final Exit Visa Cancellation has been successed"
+msgstr "الغاء تأشيرة خروج نهائى تمت بنجاح"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Final Visa Issued Successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Final Visa Issued has been successed"
+msgstr "اصدار تأشيرة خروج نهائى تمت بنجاح"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Genderar"
+msgstr "اسم النوع عربى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Genderar: {}"
+msgstr "النوع عربى: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Gendercode"
+msgstr "كود النوع"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Gendercode: {}"
+msgstr "كود النوع: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Genderen"
+msgstr "اسم النوع انجليزى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Genderen: {}"
+msgstr "النوع انجليزى: {}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__date_field
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__date_field
+msgid "Gregorian Date"
+msgstr " العودة قبل تاريخ ميلادى"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Header Image"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__hijri_date_field
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__hijri_date_field
+msgid "Hijri Date"
+msgstr "العودة قبل تاريخ هجرى"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_hr_employee__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__iqama_number
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__iqama_number
+msgid "Iqama Number"
+msgstr "رقم الاقامة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Iqama Number: {}"
+msgstr "رقم الاقامة : {}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__iqamaDuration
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__iqamaDuration
+msgid "IqamaDuration"
+msgstr "مدة التجديد (شهر)"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "IqamaExpiryDateG"
+msgstr "تاريخ انتهاء الاقامة ميلادى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "IqamaExpiryDateG: {}"
+msgstr "تاريخ انتهاء الاقامة ميلادى:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "IqamaExpiryDateH"
+msgstr "تاريخ انتهاء الاقامة هجرى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "IqamaExpiryDateH: {}"
+msgstr "تاريخ انتهاء الاقامة هجرى:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "iqama_number"
+msgstr "رقم الاقامة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_hr_employee__is_admin
+msgid "Is Admin"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Issuance Date (G): {}"
+msgstr "رقم الاصدار ميلادى : {}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Issuance Date (H): {}"
+msgstr "رقم الاصدار هجرى: {}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#, python-format
+msgid "Issue Exit Reentry"
+msgstr "اصدار تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "Issue Iqama"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Issuing Exit Return visa"
+msgstr "اصدار تاشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__json_data
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__json_data
+msgid "JSON Data"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__language
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_passport_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.print_muqeem_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Language"
+msgstr "اللغة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__write_uid
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__write_date
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_hr_employee__last_visa_number
+msgid "Last Visanumber"
+msgstr "اخر تاشيرة"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_passport_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.print_muqeem_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Message"
+msgstr "الرسالة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Missing Username,Password"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Missing Username,Password,Environment"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#, python-format
+msgid "Missing the PDF file signature"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.module.category,name:era_muqeem_client.module_category_human_resources_Muqeem
+msgid "Muqeem"
+msgstr ""
+
+
+
+#. module: era_muqeem_client
+#: model:ir.ui.menu,name:era_muqeem_client.client_requirement_config
+msgid "Muqeem Log"
+msgstr "لوج مقيم"
+
+#. module: era_muqeem_client
+#: model:res.groups,name:era_muqeem_client.group_muqeem_user
+msgid "Muqeem Responsible"
+msgstr "مسئول مقيم"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Muqeem services"
+msgstr "خدمات مقيم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__name
+msgid "Name"
+msgstr "اسم التقرير"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+msgid "Nationality"
+msgstr "الجنسية"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Nationality: {}"
+msgstr "الجنسية:    {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Nationalityar"
+msgstr "الجنسية عربى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Nationalityar: {}"
+msgstr " الجنسية عربى: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Nationalitycode"
+msgstr "كود الجنسية"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Nationalitycode: {}"
+msgstr "كود الجنسية:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Nationalityen"
+msgstr "الجنسية انجليزى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Nationalityen: {}"
+msgstr "الجنسية انجليزى: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+msgid "NewIqamaExpiryDateGre"
+msgstr "تاريخ انتهاء الاقامة الجديدة ميلادى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "NewIqamaExpiryDateGre: {}"
+msgstr "تاريخ انتهاء الاقامة الجديدة ميلادى: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+msgid "NewIqamaExpiryDateHij"
+msgstr "تاريخ انتهاء الاقامة الجديدة هجرى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "NewIqamaExpiryDateHij: {}"
+msgstr "تاريخ انتهاء الاقامة الجديدة هجرى: {}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__newPassportExpiryDate
+msgid "NewPassportExpiry"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__newPassportIssueDate
+msgid "NewPassportIssueDate"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__newPassportNumber
+msgid "NewPassportNumber"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__newSponsorId
+msgid "NewSponsor"
+msgstr "رقم شركتنا في الداخلية"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__visa_duration
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__visa_duration
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__api_access_iqama_wizard__validity_visa__1
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__extend_exit_entry_wizard__validity_visa__1
+msgid "Number of days"
+msgstr "عدد الايام"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#, python-format
+msgid "Number of days should be greater than 7"
+msgstr "عدد الايام يجب ان لا يقل عن 7 ايام"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_cancell_print_confirmation
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_cancell_print_confirmation1
+msgid "OK"
+msgstr "نعم"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+msgid "Occupation"
+msgstr "الوظيفة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Occupation: {}"
+msgstr "الوظيفة:   {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Occupationar"
+msgstr "اسم الوظيفه بالعربى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Occupationar: {}"
+msgstr "الوظيفه عربى:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Occupationcode"
+msgstr "كود الوظيفة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Occupationcode: {}"
+msgstr "كود الوظيفة:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Occupationen"
+msgstr "اسم الوظيفه بالانجليزى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Occupationen: {}"
+msgstr "الوظيفة انجليزى:{}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Passport Number: {}"
+msgstr "رقم الجواز :    {}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_hr_employee__expiry_pass_date
+msgid "PassportExpiry"
+msgstr "تاريخ انتهاء الجواز"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "PassportExpiryDateG"
+msgstr "تاريخ انتهاء الجواز ميلادى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "PassportExpiryDateG: {}"
+msgstr "تاريخ انتهاء الجواز ميلادى:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "PassportExpiryDateH"
+msgstr "تاريخ انتهاء الجواز هجرى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "PassportExpiryDateH: {}"
+msgstr "تاريخ انتهاء الجواز هجرى:{}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_hr_employee__passportNumber
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "PassportNumber"
+msgstr "رقم الجواز"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "PassportNumber: {}"
+msgstr "رقم الجواز :{}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_res_company__password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/company_inherit.py:0
+#: code:addons/era_muqeem_client/models/company_inherit.py:0
+#, python-format
+msgid "Please check your subscription with Era Group  info@era.net.sa"
+msgstr "الرجاء الاشتراك بالخدمة info@era.net.sa"
+
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__print
+msgid "Print"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#, python-format
+msgid "Print Muqeem"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_company_form_inherit
+msgid "Muqeem API Configuration"
+msgstr "اعدادات مقيم"
+
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+#, python-format
+msgid "Print Muqeem Report"
+msgstr "طباعة تقرير مقيم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#, python-format
+msgid "Print Muqeem Report has been successed"
+msgstr "طباعة تقرير مقيم تمت بنجاح"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#, python-format
+msgid "Print Muqeem process has been completed successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_requests_report_form_view
+msgid "Print Pdf"
+msgstr "طباعة Pdf"
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.print_muqeem_report_action
+msgid "Print Report"
+msgstr "طباعه تقرير"
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.today_request_report_id
+msgid "Print Today Request_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.cancell_exit_entry_report_id
+msgid "Print cancell_exit_entry_wizard"
+msgstr "الغاء خروج وعودة"
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.extend_passport_report_id
+msgid "Print extend passport wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.extend_exit_entry_report_id
+msgid "Print extend_exit_entry_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.iqama_exit_entry_report_id
+msgid "Print iqama_exit_entry_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.print_muqeem_report_id
+msgid "Print print muqeem report"
+msgstr "طباعة تقرير مقيم"
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.renew_iqama_report_id
+msgid "Print renew_iqama_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.transfer_iqama_report_id
+msgid "Print transfer_iqama_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__res_config_settings__user_environment__production
+msgid "Production"
+msgstr "بيئة الانتاج "
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#, python-format
+msgid "RePrint Reentry Exit"
+msgstr "اعادة طباعة خروج وعودة"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Religionar"
+msgstr "اسم الديانة عربى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Religionar: {}"
+msgstr "الديانة عربى: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Religioncode"
+msgstr "كود الديانة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Religioncode: {}"
+msgstr "كود الديانة: {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "Religionen"
+msgstr "اسم الديانة انجليزى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Religionen: {}"
+msgstr "الديانة انجليزى: {}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__extend_passport_validaty__type_update__renew
+msgid "Renew"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: model:ir.actions.act_window,name:era_muqeem_client.renew_iqama_action
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+#, python-format
+msgid "Renew Iqama"
+msgstr "تجديد اقامة"
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.reprint_exit_entry
+msgid "Reprint Exit Reentry"
+msgstr " اعادة طباعة تاشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Reprinting an exit and return visa"
+msgstr "إعادة طباعة تأشيرة خروج وعودة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__name
+msgid "Request"
+msgstr "الطلب"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "RequestNumber"
+msgstr "رقم الطلب"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "RequestedExtendedDuration"
+msgstr "عدد الأيام المطلوبة للتمديد"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "RequestedExtendedDuration: {}"
+msgstr "عدد الايام المطلوبة للتمديد:{}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_final_exit_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_issue_iqama_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_print_muqeem_report__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_renew_iqama_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__employee_id
+#: model:ir.model.fields,field_description:era_muqeem_client.field_transfer_iqama_wizard__employee_id
+msgid "Resident"
+msgstr "اسم المقيم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Resident Name: {}"
+msgstr "اسم المقيم :  {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_template
+msgid "ResidentName"
+msgstr "اسم المقيم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__des
+msgid "Result"
+msgstr "النتيجة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__api_access_iqama_wizard__validity_visa__2
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__extend_exit_entry_wizard__validity_visa__2
+msgid "Return before date"
+msgstr "العودة قبل تاريخ"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__returnBefore
+msgid "ReturnBefore"
+msgstr " العودة قبل تاريخ ميلادى"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "ReturnBeforeAfterExtensionG"
+msgstr "التاريخ الميلادى المطلوب عوده المقيم للملكه قبله (بعد التمديد)"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "ReturnBeforeAfterExtensionG: {}"
+msgstr "التاريخ الميلادى المطلوب عوده المقيم للملكه قبله (بعد التمديد) :{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "ReturnBeforeAfterExtensionH"
+msgstr "التاريخ الهجرى المطلوب عوده المقيم للملكه قبله (بعد التمديد)"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "ReturnBeforeAfterExtensionH: {}"
+msgstr "التاريخ الهجرى المطلوب عوده المقيم للملكه قبله (بعد التمديد):{}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "ReturnBeforeBeforeExtensionG: {}"
+msgstr "التاريخ الميلادى الذى يجب ان يكون داخل المملكة قبل التمديد:{}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "ReturnBeforeBeforeExtensionH: {}"
+msgstr "  التاريخ الهجرى الذى يجب ان يكون داخل المملكة قبل التمديد:{}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__res_config_settings__user_environment__sandbox
+msgid "Sandbox"
+msgstr "بيئة التجارب"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancel_final_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_passport_report_form_view2
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.print_muqeem_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_report_form_view
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.transfer_iqama_report_form_view
+msgid "Send to Muqeem"
+msgstr "ارسال الى مقيم"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "ServiceCost"
+msgstr "تكلفه الخدمة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "ServiceCost: {}"
+msgstr "تكلفه الخدمة:{}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/reprint.py:0
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/issue_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/print_muqeem_report.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/reprint.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Success"
+msgstr "نجاح"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "The Extend Exit Reentry visa  process has been completed successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "The Extend Exit Reentry visa has been successed"
+msgstr "تمديد تأشيرة خروج وعودة تمت بنجاح"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "The Renew Iqama  process has been completed successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "The Renew Iqama has been successed"
+msgstr "تجديد اقامة تمت بنجاح"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "The Transfer Iqama  process has been completed successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#, python-format
+msgid "The exit visa cancellation has been successed"
+msgstr "الغاء تأشيرة خروج وعودة تمت بنجاح"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#, python-format
+msgid "The exit visa cancellation process has been completed successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid ""
+"The final exit visa cancellation process has been completed successfully"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/customs/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#: code:addons/era_muqeem_client/models/issue_iqama.py:0
+#, python-format
+msgid "The request timed out. Please try again later."
+msgstr "انتهت مهلة الطلب.حاول مرةاخرى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/era_muqeem_client/models/company_inherit.py:0
+#, python-format
+msgid "There is error in Username or Password or connection timeout"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/today_requests_report.py:0
+#: code:addons/era_muqeem_client/models/today_requests_report.py:0
+#, python-format
+msgid "Today Request Report"
+msgstr "تقرير الطلبات اليومية"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+msgid "Today Requests Report"
+msgstr "تقرير طلبات اليوم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#: model:ir.actions.act_window,name:era_muqeem_client.transfer_iqama_action
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.hr_employee_view_form_inherit_visa
+#, python-format
+msgid "Transfer Iqama"
+msgstr "نقل خدمات"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/transfer_iqama.py:0
+#: code:addons/era_muqeem_client/models/transfer_iqama.py:0
+#, python-format
+msgid "Transfer Iqama has been successed"
+msgstr "نقل خدمات تمت بنجاح"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+msgid "TranslatedResidentName"
+msgstr "ترجمة اسم المقيم"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "TranslatedResidentName: {}"
+msgstr "اسم المقيم مترجم:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "Type"
+msgstr "النوع"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__type_update
+msgid "TypeUpdate"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_client_requests__user
+#: model:ir.model.fields,field_description:era_muqeem_client.field_today_request_report_wizard__user_id
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.today_request_report_template
+msgid "User"
+msgstr "الموظف القائم بالعملية"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_res_config_settings__user_environment
+msgid "User Environment"
+msgstr "بيئة المستخدم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_res_config_settings__user_name
+msgid "User Name"
+msgstr "اسم المستخدم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_res_config_settings__user_pass
+msgid "User Pass"
+msgstr "كلمة المرور"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_res_company__user
+msgid "UserName"
+msgstr "اسم المستخدم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__validity_visa
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__validity_visa
+msgid "Validity Visa"
+msgstr "صلاحية التاشيرة"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.renew_iqama_template
+msgid "VersionNumber"
+msgstr "رقم الاصدار"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#: code:addons/era_muqeem_client/models/renew_iqama.py:0
+#, python-format
+msgid "VersionNumber: {}"
+msgstr "رقم الاصدار: {}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancel_final_exit_wizard__feVisaNumber
+#: model:ir.model.fields,field_description:era_muqeem_client.field_cancell_visa_wizard__feVisaNumber
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_exit_entry_wizard__visaNumber
+#: model:ir.model.fields,field_description:era_muqeem_client.field_reprint_visa_wizard__visa_number
+msgid "Visa Number"
+msgstr "رقم التأشيرة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/customs/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#: code:addons/era_muqeem_client/models/final_exit.py:0
+#, python-format
+msgid "Visa Number: {}"
+msgstr "رقم التاشيرة:{}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#, python-format
+msgid "Visa Status: {}"
+msgstr "حالة التاشيرة:{}"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_api_access_iqama_wizard__visa_type
+msgid "Visa Type"
+msgstr "نوع التاشيرة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "Visa Type: {}"
+msgstr "نوع التاشيرة:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "VisaDurationBeforeExtension"
+msgstr ""
+"عدد الأيام التي يمكن لحامل التأشيرة أن يقضيها خارج المملكة قبل التمديد"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "VisaDurationBeforeExtension: {}"
+msgstr ""
+"عدد الأيام التي يمكن لحامل التأشيرة أن يقضيها خارج المملكة قبل التمديد : {}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.final_exit_template
+msgid "VisaNumber"
+msgstr "رقم التاشيرة"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.cancell_exit_entry_template
+msgid "VisaStatus"
+msgstr "visaStatus"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "VisaTypear"
+msgstr "نوع التأشيرة عربى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "VisaTypear: {}"
+msgstr "نوع التأشيرة عربى:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "VisaTypecode"
+msgstr "كود نوع التأشيرة"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "VisaTypecode: {}"
+msgstr "كود نوع التأشيرة:{}"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.extend_exit_entry_template
+msgid "VisaTypeen"
+msgstr "نوع التأشيرة انجليزى"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#: code:addons/era_muqeem_client/models/extend_exit_entry.py:0
+#, python-format
+msgid "VisaTypeen: {}"
+msgstr "نوع التأشيرة انجليزى: {}"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#: code:addons/era_muqeem_client/models/cancel_final_exit.py:0
+#, python-format
+msgid "You cant proceed in process until you check"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#: code:addons/era_muqeem_client/models/cancell.py:0
+#, python-format
+msgid "You cant proceed in process until you press confirm"
+msgstr "لا تستطيع تنفيذ العملية بدون الضغط على تاكيد"
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#, python-format
+msgid "You should enter Url"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#, python-format
+msgid "You should enter User App id"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#, python-format
+msgid "You should enter User App key"
+msgstr ""
+
+#. module: era_muqeem_client
+#. odoo-python
+#: code:addons/customs/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#: code:addons/era_muqeem_client/models/extend_passport_validaty.py:0
+#, python-format
+msgid "You should enter X_INTEGRATOR_ID"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_api_access_iqama_wizard
+msgid "api.access.iqama.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.cancel_final_exit_action
+msgid "cancel final exit"
+msgstr "الغاء تأشيرة خروج نهائى"
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_cancel_final_exit_wizard
+msgid "cancel.final.exit.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_cancell_visa_wizard
+msgid "cancell.visa.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_extend_exit_entry_wizard
+msgid "extend.exit.entry.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_extend_passport_validaty
+msgid "extend.passport.validaty"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.act_window,name:era_muqeem_client.final_exit_action
+msgid "final exit"
+msgstr "تأشيرة خروج نهائى"
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_final_exit_wizard
+msgid "final.exit.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.final_exit_report_id
+msgid "final_exit_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_company_form_inherit
+msgid "https://era.net.sa/hr-muqeem"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+msgid "iqama_number"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_issue_iqama_wizard
+msgid "issue.iqama.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__api_access_iqama_wizard__visa_type__2
+msgid "multiple"
+msgstr "متعددة"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields,field_description:era_muqeem_client.field_extend_passport_validaty__newPassportExpiryDate2
+msgid "newPassportExpiryDate"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_print_muqeem_report
+msgid "print.muqeem.report"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_renew_iqama_wizard
+msgid "renew.iqama.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_reprint_visa_wizard
+msgid "reprint.visa.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.actions.report,name:era_muqeem_client.reprint_exit_entry_report_id
+msgid "reprint_exit_entry_wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+msgid "residentName"
+msgstr "اسم المقيم"
+
+#. module: era_muqeem_client
+#: model:ir.model.fields.selection,name:era_muqeem_client.selection__api_access_iqama_wizard__visa_type__1
+msgid "single"
+msgstr "مفردة"
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_today_request_report_wizard
+msgid "today.request.report.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model:ir.model,name:era_muqeem_client.model_transfer_iqama_wizard
+msgid "transfer.iqama.wizard"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+msgid "translatedResidentName"
+msgstr "ترجمة اسم المقيم"
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+msgid "visaDuration"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.reprint_exit_entry_template
+msgid "visaNumber"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+msgid "visaReturnBeforeHijriDate"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.iqama_exit_entry_template
+msgid "visaType"
+msgstr ""
+
+#. module: era_muqeem_client
+#: model_terms:ir.ui.view,arch_db:era_muqeem_client.view_company_form_inherit
+msgid "للارشادات في طريقة الاشتراك:"
+msgstr ""

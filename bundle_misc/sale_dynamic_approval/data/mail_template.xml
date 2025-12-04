@@ -1,0 +1,154 @@
+<odoo noupdate="1">
+
+    <record id="sale_order_notify_under_approval_mail_template" model="mail.template">
+        <field name="name">Sales Order: Notify under Approval</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Sales Quotation ${object.name != False and ': '+ object.name or ''} Waiting your Approval</field>
+        <field name="email_to"></field>
+        <field name="lang">${ctx.get('user_lang')}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Dear ${ctx.get('name_to')},
+                    </span>
+                </font>
+            </p>
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span >Sales quotation number ${object.name} is waiting your approval.</span>
+                </font>
+            </p>
+            <br/>
+            <b>
+                <a href="${object.get_base_url()}/mail/view?model=sale.order&amp;res_id=${object.id}">View ${object.name}</a>
+            </b>
+            <br/>
+        </field>
+    </record>
+
+    <record id="sale_order_notify_after_final_approval_mail_template" model="mail.template">
+        <field name="name">Sales Order: Notify After Final Approval</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Sales Quotation ${object.name != False and ': '+ object.name or ''} is Approved</field>
+        <field name="email_to"></field>
+        <field name="lang">${ctx.get('user_lang')}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Dear ${ctx.get('name_to')},
+                    </span>
+                </font>
+            </p>
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span >Sales quotation number ${object.name} is approved.</span>
+                </font>
+            </p>
+            <br/>
+            <b>
+                <a href="${object.get_base_url()}/mail/view?model=sale.order&amp;res_id=${object.id}">View ${object.name}</a>
+            </b>
+            <br/>
+        </field>
+    </record>
+
+    <record id="sale_order_notify_reject_approval_mail_template" model="mail.template">
+        <field name="name">Sales Order: Notify Reject Approval</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Sales Quotation ${object.name != False and ': '+ object.name or ''} is Rejected</field>
+        <field name="email_to"></field>
+        <field name="lang">${ctx.get('user_lang')}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Dear ${ctx.get('name_to')},
+                    </span>
+                </font>
+            </p>
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Sales quotation number ${object.name} is rejected.</span>
+                    <br/>
+                    <span>
+                        % if ctx.get('reject_reason'):
+                                Reason: ${ctx.get('reject_reason')}
+                        % endif
+                        % if ctx.get('attachment_ids'):
+                                Attachments: ${ctx.get('attachment_ids')}
+                        % endif
+                    </span>
+                </font>
+            </p>
+            <br/>
+            <b>
+                <a href="${object.get_base_url()}/mail/view?model=sale.order&amp;res_id=${object.id}">View ${object.name}</a>
+            </b>
+            <br/>
+        </field>
+    </record>
+
+    <record id="sale_order_notify_recall_approval_mail_template" model="mail.template">
+        <field name="name">Sales Order: Notify Recall Approval</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Sales Quotation ${object.name != False and ': '+ object.name or ''} is Recalled</field>
+        <field name="email_to"></field>
+        <field name="lang">${ctx.get('user_lang')}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Dear ${ctx.get('name_to')},
+                    </span>
+                </font>
+            </p>
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Sales quotation number ${object.name} is recalled.</span>
+                    <br/>
+                    <span>
+                        % if ctx.get('recall_reason'):
+                                Reason: ${ctx.get('recall_reason')}
+                        % endif
+                    </span>
+                </font>
+            </p>
+            <br/>
+            <b>
+                <a href="${object.get_base_url()}/mail/view?model=sale.order&amp;res_id=${object.id}">View ${object.name}</a>
+            </b>
+            <br/>
+        </field>
+    </record>
+
+    <record id="sale_order_notify_pending_approval_mail_template" model="mail.template">
+        <field name="name">Sales Order: Notify Pending Approval</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Reminder: Sales Quotation ${object.name != False and ': '+ object.name or ''} is waiting your approval</field>
+        <field name="email_to"></field>
+        <field name="lang">${ctx.get('user_lang')}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Dear ${ctx.get('name_to')},
+                    </span>
+                </font>
+            </p>
+            <p class="western" style="margin-bottom: 0in; line-height: 100%">
+                <font size="2" style="font-size: 10pt">
+                    <span>Sales quotation number ${object.name} is waiting your approval.</span>
+                    <br/>
+                </font>
+            </p>
+            <br/>
+            <b>
+                <a href="${object.get_base_url()}/mail/view?model=sale.order&amp;res_id=${object.id}">View ${object.name}</a>
+            </b>
+            <br/>
+        </field>
+    </record>
+
+</odoo>

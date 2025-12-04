@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="hr_employee_document_tree" model="ir.ui.view">
+        <field name="name">hr.employee.document.tree</field>
+        <field name="model">hr.employee.document</field>
+        <field name="arch" type="xml">
+            <tree string="HR Employee Document">
+                <field name="employee_id" widget="many2one_avatar_employee"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_document_form" model="ir.ui.view">
+        <field name="name">hr.employee.document.form</field>
+        <field name="model">hr.employee.document</field>
+        <field name="arch" type="xml">
+            <form string="HR Employee Document">
+                <sheet>
+                    <group>
+                        <group name="employee_details">
+                            <field name="employee_id" widget="many2one_avatar_employee"/>
+                        </group>
+                        <group>
+                            <field name="report_type"/>
+                        </group>
+                        <group>
+                            <div class="row mt16 o_employee_container">
+                                <div class="o_employee_left_pane">
+                                    <button name="get_selected_report" string="Print Report" type="object"
+                                            class="oe_highlight"/>
+                                </div>
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_doc_generator" model="ir.actions.act_window">
+        <field name="name">HR Employee Document</field>
+        <field name="res_model">hr.employee.document</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+    <menuitem id="hr_employee_doc_root" name="Employee Documents" sequence="22" web_icon="hr,static/description/icon.png"/>
+    <menuitem id="menu_hr_employee_document_sub_root" name="Employees"
+              parent="hr_employee_doc_root"
+              sequence="1"/>
+    <menuitem id="menu_hr_employee_document_generator" name="Employee"
+              parent="menu_hr_employee_document_sub_root"
+              action="action_hr_employee_doc_generator" sequence="2"/>
+
+</odoo>

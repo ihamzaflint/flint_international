@@ -1,0 +1,2348 @@
+
+
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* scs_operation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-13 11:55+0000\n"
+"PO-Revision-Date: 2024-11-13 11:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__salary_payment__bank
+msgid " Bank"
+msgstr " بنك"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__ceo
+msgid " CEO"
+msgstr " الرئيس التنفيذي"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__cfo
+msgid " CFO"
+msgstr " المدير المالي"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__coo
+msgid " COO"
+msgstr " مدير العمليات"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__cto
+msgid " CTO"
+msgstr " المدير التقني"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__state__cancel
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale__state__cancel
+msgid " Cancel"
+msgstr " إلغاء"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__pm
+msgid " PM"
+msgstr " مدير المشروع"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.sister_company_form_view
+msgid "&gt;"
+msgstr "&gt;"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__child_flight_ticket
+msgid "2 Child Annual Flight Ticket"
+msgstr "تذكرتي طيران سنوية للأطفال"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__kids_health_insurance
+msgid "2 Kids Health Insurance"
+msgstr "تأمين صحي لطفلين"
+
+#. module: scs_operation
+#: model:mail.template,body_html:scs_operation.email_template_gov_pay_approve
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"\t\t\t\t    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"\t\t\t\t        <b>مرحباً <t t-out=\"object.create_uid.name\"></t>،</b>\n"
+"\t\t\t\t        <br>\n"
+"\t\t\t\t        دفعتك الحكومية <t t-out=\"object.name\"></t> تم <t t-out=\"ctx.get('state', '')\"></t>.\n"
+"\t\t\t\t        <br>\n"
+"\t\t\t\t        شكراً لك\n"
+"\t\t\t\t    </p>\n"
+"\t\t\t\t</div>\n"
+msgstr ""
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__accommodation_provided
+msgid "Accommodation Provided"
+msgstr "السكن مؤمن"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.service_type_form_view
+msgid "Accounting"
+msgstr "المحاسبة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.service_type_form_view
+msgid "Accounting Journals"
+msgstr "دفاتر المحاسبة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_needaction
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__message_needaction
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__message_needaction
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__active
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__active
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__active
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_base__state__active
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_public__state__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_ids
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__activity_ids
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__activity_ids
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_exception_decoration
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__activity_exception_decoration
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__activity_exception_decoration
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_state
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__activity_state
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__activity_state
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_type_icon
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__activity_type_icon
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__activity_type_icon
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__actual_rate
+msgid "Actual Rate"
+msgstr "المعدل الفعلي"
+
+#. module: scs_operation
+#: model_terms:ir.actions.act_window,help:scs_operation.action_employee_citizen_expired_id
+#: model_terms:ir.actions.act_window,help:scs_operation.action_employee_citizen_missing_id
+#: model_terms:ir.actions.act_window,help:scs_operation.action_employee_non_citizen_acco_exp_id
+msgid "Add a new employee"
+msgstr "إضافة موظف جديد"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Add any additional notes here..."
+msgstr "أضف أي ملاحظات إضافية هنا..."
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__request_type__addition
+msgid "Addition"
+msgstr "إضافة"
+
+#. module: scs_operation
+#: model:res.groups,name:scs_operation.group_internal_sale_admin
+msgid "Administrator"
+msgstr "مدير النظام"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__age
+msgid "Age"
+msgstr "العمر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__ajeer
+msgid "Ajeer"
+msgstr "أجير"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__analytic_account_id
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__analytic_account_id
+msgid "Analytic Account"
+msgstr "الحساب التحليلي"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__approve
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__state__approve
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+#: model_terms:ir.ui.view,arch_db:scs_operation.insurance_policy_form
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__ar_family_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__ar_family_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__ar_family_name
+msgid "Arabic Family Name"
+msgstr "اسم العائلة بالعربية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__ar_first_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__ar_first_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__ar_first_name
+msgid "Arabic First Name"
+msgstr "الاسم الأول بالعربية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__ar_grandfather_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__ar_grandfather_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__ar_grandfather_name
+msgid "Arabic Grandfather Name"
+msgstr "اسم الجد بالعربية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__ar_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__ar_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__ar_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__ar_name
+msgid "Arabic Name"
+msgstr "الاسم بالعربية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__ar_second_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__ar_second_name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__ar_second_name
+msgid "Arabic Second Name"
+msgstr "الاسم الثاني بالعربية"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.validate_customer_payment_on_company_wizard_form_view
+msgid "Are you sure to Validate the payment without Selecting Project?\n Please Select a customer instead."
+msgstr "هل أنت متأكد من تأكيد الدفع بدون اختيار مشروع؟\n الرجاء اختيار عميل بدلاً من ذلك."
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__employee_assigned_to
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__employee_assigned_to
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__employee_assigned_to
+msgid "Assigned To"
+msgstr "مسند إلى"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_attachment_count
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__message_attachment_count
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__message_attachment_count
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__operation_order_attachment
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__available_family_member_ids
+msgid "Available Passengers"
+msgstr "الركاب المتاحون"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__available_company_ids
+msgid "Available Sister Companies"
+msgstr "الشركات الشقيقة المتاحة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__bank_account_id
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__payment_method__bank
+msgid "Bank"
+msgstr "البنك"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_setup_bank_manual_config__action_type
+#: model:ir.model.fields,field_description:scs_operation.field_res_partner_bank__action_type
+msgid "Bank Account Type"
+msgstr "نوع الحساب البنكي"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_res_partner_bank
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Bank Accounts"
+msgstr "الحسابات البنكية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__basic
+msgid "Basic"
+msgstr "أساسي"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "موظف أساسي"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.account_payment_government_transactions
+msgid "Basic Information"
+msgstr "المعلومات الأساسية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__birthday
+msgid "Birthday"
+msgstr "تاريخ الميلاد"
+
+#. module: scs_operation
+#: model:ir.module.category,name:scs_operation.module_booking
+msgid "Booking"
+msgstr "الحجز"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__border
+msgid "Border"
+msgstr "حدود"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__border_number
+msgid "Border Number"
+msgstr "رقم الحدود"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_assigned_to__business_unit
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_base__employee_assigned_to__business_unit
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_public__employee_assigned_to__business_unit
+msgid "Business Unit"
+msgstr "وحدة الأعمال"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__cancel
+#: model_terms:ir.ui.view,arch_db:scs_operation.validate_customer_payment_on_company_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_rejection_wizard_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__state__cancel
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__name
+msgid "Candidate Names"
+msgstr "أسماء المرشحين"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__candidate_type
+msgid "Candidate Type"
+msgstr "نوع المرشح"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__payment_method__cash
+msgid "Cash"
+msgstr "نقداً"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__date_from
+msgid "Check In"
+msgstr "تسجيل الدخول"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__date_to
+msgid "Check Out"
+msgstr "تسجيل الخروج"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__check_readonly
+msgid "Check Readonly"
+msgstr "التحقق من القراءة فقط"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_family__family_type__child
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order_line__passenger_type__child
+msgid "Child"
+msgstr "طفل"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_filter_employee_operation
+msgid "Citizen Expired ID"
+msgstr "هوية مواطن منتهية"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.action_employee_citizen_expired_id
+msgid "Citizen – Expired ID"
+msgstr "مواطن - هوية منتهية"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.action_employee_citizen_missing_id
+msgid "Citizen – ID Missing"
+msgstr "مواطن - هوية مفقودة"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.menu_citizen_expired_reports
+msgid "Citizen– Expired ID"
+msgstr "مواطن - هوية منتهية"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.menu_citizen_miss_id_reports
+msgid "Citizen–ID Missing"
+msgstr "مواطن - هوية مفقودة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__project_id
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__project_id
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__project_id
+msgid "Client Project"
+msgstr "مشروع العميل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__client_rate_vat
+msgid "Client Rate with VAT"
+msgstr "سعر العميل مع ضريبة القيمة المضافة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__code
+msgid "Code"
+msgstr "الرمز"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__company_id
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__company_id
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__company_id
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__sponsor__company
+msgid "Company"
+msgstr "الشركة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__file_no
+msgid "File No"
+msgstr "رقم الملف"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_res_config_settings
+msgid "Config Settings"
+msgstr "إعدادات التهيئة"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.root_operation_configration
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__state__confirm
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__is_contract_renew
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__is_contract_renew
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__is_contract_renew
+msgid "Contract Renewable"
+msgstr "قابل لتجديد العقد"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__country_of_birth
+msgid "Country of Birth"
+msgstr "بلد الميلاد"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_search
+#: model_terms:ir.ui.view,arch_db:scs_operation.internal_sale_search
+msgid "Create By"
+msgstr "أنشئ بواسطة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Create User"
+msgstr "إنشاء مستخدم"
+
+#. module: scs_operation
+#: model_terms:ir.actions.act_window,help:scs_operation.action_logistic_orders
+msgid "Create your first Logistic Order!"
+msgstr "أنشئ أول طلب خدمات لوجستية!"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__create_uid
+#: model:ir.model.fields,field_description:scs_operation.field_flight_booking__create_uid
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__create_uid
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__create_date
+#: model:ir.model.fields,field_description:scs_operation.field_flight_booking__create_date
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__currency_id
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__currency_id
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__current_open_contract
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__current_open_contract
+msgid "Current Open Contract"
+msgstr "العقد المفتوح الحالي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__wizard_partner_id
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__partner_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__daily_cost
+msgid "Daily Cost"
+msgstr "التكلفة اليومية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_operation_order__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__birthday
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__birthday
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_setup_bank_manual_config__is_default_account
+#: model:ir.model.fields,field_description:scs_operation.field_res_partner_bank__is_default_account
+msgid "Default Account"
+msgstr "الحساب الافتراضي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__default_credit_account_id
+msgid "Default Credit Account"
+msgstr "حساب الائتمان الافتراضي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__default_debit_account_id
+msgid "Default Debit Account"
+msgstr "حساب الخصم الافتراضي"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.res_config_settings_default_government_payment_journal
+msgid "Default Journal Government Payment"
+msgstr "دفتر اليومية الافتراضي للدفعات الحكومية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_res_config_settings__gov_pay_default_journal_id
+msgid "Default Journal for Government Payment"
+msgstr "دفتر اليومية الافتراضي للمدفوعات الحكومية"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.res_config_settings_default_government_payment_journal
+msgid "Default journal for government payment requests"
+msgstr "دفتر اليومية الافتراضي لطلبات الدفع الحكومية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__department_id
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__department_id
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__departure_date
+msgid "Departure Date"
+msgstr "تاريخ المغادرة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_kanban
+msgid "Departure:"
+msgstr "المغادرة:"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_depnedent_details
+msgid "Dependent Details"
+msgstr "تفاصيل المعالين"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.insurance_policy_form
+msgid "Depnedent Detail"
+msgstr "تفاصيل المعال"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__destination_id
+msgid "Destination"
+msgstr "الوجهة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_kanban
+msgid "Destination:"
+msgstr "الوجهة:"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.internal_sale_form
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__director
+msgid "Director"
+msgstr "المدير"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__display_name
+#: model:ir.model.fields,field_description:scs_operation.field_flight_booking__display_name
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__marital__divorced
+msgid "Divorced"
+msgstr "مطلق"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__state__done
+#: model:ir.model.fields.selection,name:scs_operation.selection__operation_order__state__done
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "Done"
+msgstr "منجز"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__request_type__downgrade
+msgid "Downgrade"
+msgstr "تخفيض المستوى"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__draft
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__state__draft
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__duration
+msgid "Duration"
+msgstr "المدة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Duration of Service"
+msgstr "مدة الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__effective_date
+msgid "Effective Date"
+msgstr "تاريخ السريان"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__efftive_date
+msgid "Effective Date"
+msgstr "تاريخ السريان"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_hr_employee
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__employee_id
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__employee_id
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__employee_annual_flight_ticket
+msgid "Employee Annual Flight Ticket"
+msgstr "تذكرة الطيران السنوية للموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_setup_bank_manual_config__employee_bank_account_id
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__bank_account_ids
+msgid "Employee Bank Account"
+msgstr "الحساب البنكي للموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__pin
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Employee Code"
+msgstr "رمز الموظف"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.account_payment_government_transactions
+msgid "Employee Details"
+msgstr "تفاصيل الموظف"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Employee Family"
+msgstr "عائلة الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__employee_health
+msgid "Employee Health Insurance (Categories)"
+msgstr "التأمين الصحي للموظف (الفئات)"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__employee_insurance_cost
+msgid "Employee Insurance Cost"
+msgstr "تكلفة تأمين الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__employee_iqama_no
+msgid "Employee Iqama No"
+msgstr "رقم إقامة الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__employee_passport_copy
+msgid "Employee Passport Copy"
+msgstr "نسخة جواز سفر الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__state
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__state
+msgid "Employee State"
+msgstr "حالة الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__is_terminated
+msgid "Employee Terminated"
+msgstr "تم إنهاء خدمة الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_hr_employee__bank_account_id
+msgid "Employee bank account to pay salaries"
+msgstr "الحساب البنكي للموظف لدفع الرواتب"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_search
+msgid "Employee code"
+msgstr "رمز الموظف"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_search
+msgid "Employee name"
+msgstr "اسم الموظف"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Employee's Arabic Name"
+msgstr "اسم الموظف بالعربية"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_kanban
+msgid "Employee:"
+msgstr "الموظف:"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__employer
+msgid "Employer"
+msgstr "صاحب العمل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__end_of_service
+msgid "End Of Service"
+msgstr "نهاية الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__payment_type__enterprise
+#: model:ir.model.fields.selection,name:scs_operation.selection__service_type__service_type__enterprise
+msgid "Enterprise"
+msgstr "مؤسسي"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.enterprise_government_payment_menu
+msgid "Enterprise Payment"
+msgstr "مدفوعات المؤسسات"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.enterprise_government_payment_action
+msgid "Enterprise Payments"
+msgstr "مدفوعات المؤسسات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__exit_reentry
+msgid "Exit Reentry"
+msgstr "خروج وعودة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__exp_year
+msgid "Exp Year"
+msgstr "سنة الانتهاء"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__extended
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_base__state__extended
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_public__state__extended
+msgid "Extended"
+msgstr "ممدد"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__family_ids
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__flight_type__family
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__insurance_type__family
+msgid "Family"
+msgstr "العائلة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__family_member
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__family_member_id
+msgid "Family Member"
+msgstr "فرد العائلة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__family_type
+msgid "Family Type"
+msgstr "نوع صلة القرابة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_family__family_type__father
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order_line__passenger_type__father
+msgid "Father"
+msgstr "الأب"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__gender__female
+msgid "Female"
+msgstr "أنثى"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__depnedent_detail_ids
+msgid "Field Label"
+msgstr "تسمية الحقل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__fields_readonly
+msgid "Fields Readonly"
+msgstr "حقول للقراءة فقط"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__file_no
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__file_no
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__file_no
+msgid "File No"
+msgstr "رقم الملف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__emp_code
+msgid "File Number"
+msgstr "رقم الملف"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__order_type__flight
+msgid "Flight"
+msgstr "رحلة طيران"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__flight_no
+msgid "Flight No"
+msgstr "رقم الرحلة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__flight_ticket
+msgid "Flight Ticket"
+msgstr "تذكرة الطيران"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__flight_type
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__flight_type
+msgid "Flight Type"
+msgstr "نوع الرحلة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_follower_ids
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_partner_ids
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__activity_type_icon
+#: model:ir.model.fields,help:scs_operation.field_insurance_policy__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__sponsor__free
+msgid "Free"
+msgstr "حر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__gosi_no
+msgid "GOSI Number"
+msgstr "رقم التأمينات الاجتماعية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__gender
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__gender
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__res_partner_bank__action_type__general
+msgid "General"
+msgstr "عام"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__gosi
+msgid "Gosi"
+msgstr "التأمينات الاجتماعية"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.government_service_without_payment_action
+msgid "Gov. Service Without Payment"
+msgstr "الخدمات الحكومية بدون دفع"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_operation_order
+msgid "Government Order Without Payment"
+msgstr "طلب حكومي بدون دفع"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_government_payment
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__government_payment_id
+msgid "Government Payment"
+msgstr "الدفع الحكومي"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.res_config_settings_default_government_payment_journal
+msgid "Government Payment Journal"
+msgstr "دفتر يومية المدفوعات الحكومية"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_government_payment_line
+msgid "Government Payment Line"
+msgstr "بند الدفع الحكومي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__government_payment_line_ref_id
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__government_payment_ref_id
+msgid "Government Payment Ref"
+msgstr "مرجع الدفع الحكومي"
+
+#. module: scs_operation
+#: model:mail.template,subject:scs_operation.email_template_gov_pay_approve
+msgid "Government Payment Ref: {{object.saddad_no}}"
+msgstr "مرجع الدفع الحكومي: {{object.saddad_no}}"
+
+#. module: scs_operation
+#: model:mail.template,name:scs_operation.email_template_gov_pay_approve
+msgid "Government Payment Update"
+msgstr "تحديث الدفع الحكومي"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.account_payment_government_transactions
+msgid "Government Transactions"
+msgstr "المعاملات الحكومية"
+
+#. module: scs_operation
+#: model:mail.activity.type,name:scs_operation.mail_act_government_approval
+msgid "Government payment approval"
+msgstr "موافقة الدفع الحكومي"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_search
+msgid "Group By..."
+msgstr "تجميع حسب..."
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__res_partner_bank__action_type__hr
+msgid "HR"
+msgstr "الموارد البشرية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__hrfd_support
+msgid "HRFD Support"
+msgstr "دعم قسم الموارد البشرية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__has_message
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: scs_operation
+#: model:ir.module.category,description:scs_operation.module_operation
+msgid "Helps you manage your Operation."
+msgstr "يساعدك في إدارة عملياتك."
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+msgid "Hold Ticket"
+msgstr "تعليق التذكرة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__km_home_work
+msgid "Home-Work Distance"
+msgstr "المسافة بين المنزل والعمل"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__order_type__hotel
+msgid "Hotel"
+msgstr "فندق"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__hotel_address
+msgid "Hotel Address"
+msgstr "عنوان الفندق"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__hotel_name
+msgid "Hotel Name"
+msgstr "اسم الفندق"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__hotel_phone
+msgid "Hotel Phone"
+msgstr "هاتف الفندق"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__housing
+msgid "Housing"
+msgstr "السكن"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_hr_employee_family
+msgid "Hr Employee Family"
+msgstr "عائلة موظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__id
+#: model:ir.model.fields,field_description:scs_operation.field_flight_booking__id
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__identification_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__id_exp_date
+msgid "ID Expiry Date"
+msgstr "تاريخ انتهاء الهوية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__id_exp_date_hijri
+msgid "ID Expiry Date Hijri"
+msgstr "تاريخ انتهاء الهوية هجري"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__id_issue_date
+msgid "ID Issue Date"
+msgstr "تاريخ إصدار الهوية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__id_issue_location
+msgid "ID Issue Location"
+msgstr "مكان إصدار الهوية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_exception_icon
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__activity_exception_icon
+msgid "Icon"
+msgstr "أيقونة"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__activity_exception_icon
+#: model:ir.model.fields,help:scs_operation.field_insurance_policy__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__message_needaction
+#: model:ir.model.fields,help:scs_operation.field_insurance_policy__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديده، تتطلب الرسائل الجديدة انتباهك."
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__message_has_error
+#: model:ir.model.fields,help:scs_operation.field_insurance_policy__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، بعض الرسائل بها خطأ في التسليم."
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__state__in_progress
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__inactive
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_base__state__inactive
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_public__state__inactive
+msgid "Inactive"
+msgstr "غير نشط"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__include_payment
+msgid "Include Payment"
+msgstr "يشمل الدفع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__including_payment
+msgid "Including Payment"
+msgstr "متضمن الدفع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__service_type
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__payment_type__individual
+#: model:ir.model.fields.selection,name:scs_operation.selection__service_type__service_type__individual
+msgid "Individual"
+msgstr "فرد"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.individual_government_payment_action
+msgid "Individual Payments"
+msgstr "المدفوعات الفردية"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.individual_government_payment_menu
+msgid "Individuals Payment"
+msgstr "مدفوعات الأفراد"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__initial_cost
+msgid "Initial Cost"
+msgstr "التكلفة الأولية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__initial_employment_date
+msgid "Initial Employment Date"
+msgstr "تاريخ التوظيف الأولي"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.action_insurance_policy
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__insurance_id
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__order_type__insurance
+msgid "Insurance"
+msgstr "التأمين"
+
+#. module: scs_operation
+#: model:res.groups,comment:scs_operation.group_insurance_admin
+#: model:res.groups,name:scs_operation.group_insurance_admin
+msgid "Insurance Administrator"
+msgstr "مدير التأمين"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__insurance_partner_id
+msgid "Insurance Company"
+msgstr "شركة التأمين"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__insurance_id
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__insurance_id
+msgid "Insurance Covered"
+msgstr "التغطية التأمينية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__insurance
+msgid "Insurance Issuing"
+msgstr "إصدار التأمين"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_insurance_policy
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__insurance_policy
+msgid "Insurance Policy"
+msgstr "وثيقة التأمين"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__insurance_type
+msgid "Insurance Type"
+msgstr "نوع التأمين"
+
+#. module: scs_operation
+#: model:res.groups,comment:scs_operation.group_insurance_user
+#: model:res.groups,name:scs_operation.group_insurance_user
+msgid "Insurance User"
+msgstr "مستخدم التأمين"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.action_internal_sale
+#: model:ir.model,name:scs_operation.model_internal_sale
+msgid "Internal Sale"
+msgstr "المبيعات الداخلية"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_internal_sale_line
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale__internal_sale_line_ids
+msgid "Internal Sale Line"
+msgstr "بند المبيعات الداخلية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__invoice_period
+msgid "Invoice Period (No. of months)"
+msgstr "فترة الفاتورة (عدد الأشهر)"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_operation_order__visa_expire
+msgid "Iqama Expire"
+msgstr "انتهاء الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__visa_expire
+msgid "Iqama Expiry"
+msgstr "تاريخ انتهاء الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__iqama_expire_date
+msgid "Iqama Expiry Date"
+msgstr "تاريخ انتهاء الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__iqama_fees
+msgid "Iqama Fees"
+msgstr "رسوم الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__iqama_no
+msgid "Iqama No"
+msgstr "رقم الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_operation_order__visa_no
+msgid "Iqama No (National ID) "
+msgstr "رقم الإقامة (الهوية الوطنية)"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__iqama_no
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__iqama_no
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__iqama_no
+msgid "Iqama Number"
+msgstr "رقم الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__iqama_transfer_fees
+msgid "Iqama Transfer Fees"
+msgstr "رسوم نقل الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__is_citizen
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_base__is_citizen
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_public__is_citizen
+msgid "Is Citizen"
+msgstr "مواطن"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_setup_bank_manual_config__is_create_from_employee
+#: model:ir.model.fields,field_description:scs_operation.field_res_partner_bank__is_create_from_employee
+msgid "Is Create From Employee"
+msgstr "تم الإنشاء من الموظف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_is_follower
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__is_project_required
+msgid "Is Project Required"
+msgstr "المشروع مطلوب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__is_saddad_required
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__is_saddad_required
+msgid "Is Saddad Required"
+msgstr "السداد مطلوب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__job_id
+msgid "Job Position"
+msgstr "المنصب الوظيفي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__write_uid
+#: model:ir.model.fields,field_description:scs_operation.field_flight_booking__write_uid
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__write_date
+#: model:ir.model.fields,field_description:scs_operation.field_flight_booking__write_date
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__res_partner_bank__action_type__legal
+msgid "Legal"
+msgstr "قانوني"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__marital__cohabitant
+msgid "Legal Cohabitant"
+msgstr "مساكن قانوني"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__length_of_service
+msgid "Length Of Service"
+msgstr "مدة الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__length_of_service_days
+msgid "Length Of Service Days"
+msgstr "مدة الخدمة بالأيام"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__location_id
+msgid "Location"
+msgstr "الموقع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__logistic_order_id
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__logistic_order_id
+msgid "Logistic Order"
+msgstr "طلب خدمات لوجستية"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_logistic_order_line
+msgid "Logistic Order Line"
+msgstr "بند الطلب اللوجستي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__logistic_order_line_ids
+msgid "Logistic Order Lines"
+msgstr "بنود الطلب اللوجستي"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_logistic_order
+msgid "Logistic Order including the insurance and the flight hotel tickets"
+msgstr "الطلب اللوجستي يشمل التأمين وتذاكر الطيران والفنادق"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.action_logistic_orders
+#: model:ir.ui.menu,name:scs_operation.menu_logistic_orders
+msgid "Logistic Orders"
+msgstr "الطلبات اللوجستية"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: scs_operation
+#: model_terms:ir.actions.act_window,help:scs_operation.action_logistic_orders
+msgid "Manage travel arrangements, hotel bookings, and insurance for your employees."
+msgstr "إدارة ترتيبات السفر وحجوزات الفنادق والتأمين لموظفيك."
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__marital
+msgid "Marital Status"
+msgstr "الحالة الاجتماعية"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Mark Done"
+msgstr "تحديد كمنتهي"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__marital__married
+msgid "Married"
+msgstr "متزوج"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Member Type"
+msgstr "نوع العضو"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__mobile
+msgid "Mobile"
+msgstr "الجوال"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__mobilization_cost
+msgid "Mobilization Cost"
+msgstr "تكلفة التعبئة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__monthly_flint_margin
+msgid "Monthly Flint Margin"
+msgstr "هامش فلنت الشهري"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__monthly_po_sar_with_vat
+msgid "Monthly Po Sar With Vat"
+msgstr "أمر الشراء الشهري بالريال مع الضريبة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__monthly_po_sar_without_vat
+msgid "Monthly Po Sar Without Vat"
+msgstr "أمر الشراء الشهري بالريال بدون ضريبة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__monthly_po_without_margin
+msgid "Monthly Po Without Margin"
+msgstr "أمر الشراء الشهري بدون هامش"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_family__family_type__mother
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order_line__passenger_type__mother
+msgid "Mother"
+msgstr "الأم"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "موعد نهاية نشاطي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__name
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__name
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__nationality_id
+msgid "Nationality"
+msgstr "الجنسية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__net_monthly_salary
+msgid "Net Monthly Salary"
+msgstr "صافي الراتب الشهري"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__new_class
+msgid "New Class"
+msgstr "الفئة الجديدة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__request_type__new
+msgid "New Registration"
+msgstr "تسجيل جديد"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__new_hire
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_base__state__new_hire
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_public__state__new_hire
+msgid "New-Hire"
+msgstr "موظف جديد"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "حدث التقويم للنشاط التالي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_filter_employee_operation
+msgid "Non Citizen Residence Permit Expiration"
+msgstr "انتهاء تصريح إقامة غير المواطنين"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.action_employee_non_citizen_acco_exp_id
+msgid "Non- Citizen – Residence Permit Expiration"
+msgstr "غير مواطن - انتهاء تصريح الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__candidate_type__no_saudi
+msgid "Non-Saudi"
+msgstr "غير سعودي"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment_line__payment_state__not_paid
+msgid "Not Paid"
+msgstr "غير مدفوع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__notes
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__notes
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__old_class
+msgid "Old Class"
+msgstr "الفئة القديمة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__on_hold
+#: model:ir.model.fields.selection,name:scs_operation.selection__operation_order__state__on_hold
+msgid "On Hold"
+msgstr "معلق"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__operation_order__state__on_process
+msgid "On Process"
+msgstr "قيد المعالجة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__onboarding
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_base__state__onboarding
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_public__state__onboarding
+msgid "Onboarding"
+msgstr "التأهيل الأولي"
+
+#. module: scs_operation
+#: model:ir.module.category,name:scs_operation.module_operation
+#: model:ir.ui.menu,name:scs_operation.root_operation
+msgid "Operation"
+msgstr "العمليات"
+
+#. module: scs_operation
+#: model:res.groups,comment:scs_operation.group_operation_admin
+#: model:res.groups,name:scs_operation.group_operation_admin
+msgid "Operation Administrator"
+msgstr "مدير العمليات"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__state__operation_manager
+msgid "Operation Manager Approval"
+msgstr "موافقة مدير العمليات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__operation_type
+msgid "Operation Type"
+msgstr "نوع العملية"
+
+#. module: scs_operation
+#: model:res.groups,comment:scs_operation.group_operation_user
+#: model:res.groups,name:scs_operation.group_operation_user
+msgid "Operation User"
+msgstr "مستخدم العمليات"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Order Lines"
+msgstr "بنود الطلب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__name
+msgid "Order Reference"
+msgstr "مرجع الطلب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__order_type
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__order_type
+msgid "Order Type"
+msgstr "نوع الطلب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__other_id
+msgid "Other ID"
+msgstr "هوية أخرى"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Other system info"
+msgstr "معلومات النظام الأخرى"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_hr_employee__pin
+msgid "PIN used to Check In/Out in the Kiosk Mode of the Attendance application"
+msgstr "رقم التعريف الشخصي المستخدم لتسجيل الدخول/الخروج في وضع الكشك لتطبيق الحضور"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__package
+msgid "Package"
+msgstr "الحزمة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__paid
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment_line__payment_state__paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__name
+msgid "Passenger Name"
+msgstr "اسم المسافر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__passenger_type
+msgid "Passenger Type"
+msgstr "نوع المسافر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__passport_copy
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__passport_copy
+msgid "Passport Copy"
+msgstr "نسخة جواز السفر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__passport_exp_date
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__passport_exp_date
+msgid "Passport Expiry Date"
+msgstr "تاريخ انتهاء جواز السفر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__passport_exp_date_hijri
+msgid "Passport Expiry Date Hijri"
+msgstr "تاريخ انتهاء جواز السفر هجري"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__passport_id
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__passport_no
+msgid "Passport No"
+msgstr "رقم جواز السفر"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__is_flint_payment
+msgid "Pay through Flint"
+msgstr "الدفع عبر فلنت"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__payment_count
+msgid "Payment Count"
+msgstr "عدد المدفوعات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__payment_line_ids
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+msgid "Payment Lines"
+msgstr "تفاصيل الطلب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__notes
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__payment_method
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__payment_reference
+msgid "Payment Reference"
+msgstr "مرجع الدفع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__payment_reference_ids
+msgid "Payment References"
+msgstr "مراجع الدفع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__payment_state
+msgid "Payment State"
+msgstr "حالة الدفع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__payment_type
+msgid "Payment Type"
+msgstr "نوع الدفع"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_account_payment
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__pending_deactivation
+msgid "Pending Deactivation"
+msgstr "في انتظار إلغاء التفعيل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__phone
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Private information"
+msgstr "المعلومات الخاصة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__profile_fees
+msgid "Profile Fees (One-time)"
+msgstr "رسوم الملف الشخصي (مرة واحدة)"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__project_id
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__project_id
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_assigned_to__project
+msgid "Project"
+msgstr "المشروع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__rating_ids
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__reject
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__state__reject
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+msgid "Reject"
+msgstr "رفض"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_rejection_wizard_form
+msgid "Reject Logistic Order"
+msgstr "رفض الطلب اللوجستي"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order__state__reject
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__rejection_reason
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__rejection_reason
+msgid "Rejection Reason"
+msgstr "سبب الرفض"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_rejection_reason_wizard
+msgid "Rejection Reason Wizard"
+msgstr "معالج سبب الرفض"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_depnedent_details__relation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__relation
+msgid "Relation"
+msgstr "صلة القرابة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__remark
+msgid "Remark"
+msgstr "ملاحظة"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.menu_employee_reports
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__request_date
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "Request Month"
+msgstr "شهر الطلب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__request_type
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_form
+msgid "Reset to Draft"
+msgstr "إعادة للمسودة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__accommodation_exp_date
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__accommodation_exp_date
+msgid "Residence Permit Expiry Date"
+msgstr "تاريخ انتهاء تصريح الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__accommodation_exp_date_hijri
+msgid "Residence Permit Expiry Date Hijri"
+msgstr "تاريخ انتهاء تصريح الإقامة هجري"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__accommodation_issue_date
+msgid "Residence Permit Issue Date"
+msgstr "تاريخ إصدار تصريح الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__accommodation_issue_location
+msgid "Residence Permit Issue Location"
+msgstr "مكان إصدار تصريح الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__accommodation_no
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee_family__accommodation_no
+msgid "Residence Permit Number"
+msgstr "رقم تصريح الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__return_date
+msgid "Return Date"
+msgstr "تاريخ العودة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_kanban
+msgid "Return:"
+msgstr "العودة:"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__employee_role
+msgid "Role"
+msgstr "الدور الوظيفي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__roles
+msgid "Roles"
+msgstr "الأدوار"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسالة النصية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__saddad_no
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__saddad_no
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__saddad_no
+msgid "Saddad No"
+msgstr "رقم سداد"
+
+#. module: scs_operation
+#: model:ir.model.constraint,message:scs_operation.constraint_government_payment_saddad_no_uniq
+msgid "Saddad No must be unique"
+msgstr "يجب أن يكون رقم سداد فريداً"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__salary_payment
+msgid "Salary Payment"
+msgstr "دفع الراتب"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_filter_employee_operation
+msgid "Salary payment method"
+msgstr "طريقة دفع الراتب"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__candidate_type__saudi_local
+msgid "Saudi Local"
+msgstr "سعودي محلي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__saudization
+msgid "Saudization"
+msgstr "السعودة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "Search Logistic Orders"
+msgstr "بحث الطلبات اللوجستية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order_line__seat_number
+msgid "Seat Number"
+msgstr "رقم المقعد"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__service_name
+msgid "Service Name"
+msgstr "اسم الخدمة"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.service_type_action
+#: model:ir.model,name:scs_operation.model_service_type
+#: model:ir.model.fields,field_description:scs_operation.field_account_payment__service_type
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.constraint,message:scs_operation.constraint_service_type_name_uniq
+msgid "Service Type name already exists!"
+msgstr "اسم نوع الخدمة موجود مسبقاً!"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__service_type_ids
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment_line__service_type_ids
+msgid "Service Types"
+msgstr "الخدمات"
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__service_type_id
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__marital__single
+msgid "Single"
+msgstr "أعزب"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_service_type__sister_company_ids
+msgid "Sister Companies"
+msgstr "الشركات الشقيقة"
+
+#. module: scs_operation
+#: model:ir.model,name:scs_operation.model_sister_company
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__sponsor_company_id
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__sponsor__sister_company
+msgid "Sister Company"
+msgstr "شركة شقيقة"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.sister_company_action
+#: model:ir.ui.menu,name:scs_operation.sister_company_menu_item
+msgid "Sister companies"
+msgstr "الشركات الشقيقة"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.service_type_action
+#: model:ir.ui.menu,name:scs_operation.service_type_menu_item
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.main_government_payment_menu
+msgid "Government Payment"
+msgstr "المدفوعات الحكومية"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__salary_payment__sister_company
+msgid "Sister-Company"
+msgstr "شركة شقيقة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__sponsor
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_filter_employee_operation
+msgid "Sponsor"
+msgstr "الكفيل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__sponsor_contact_name
+msgid "Sponsor Contact Name"
+msgstr "اسم جهة اتصال الكفيل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__sponsor_contact_no
+msgid "Sponsor Contact No"
+msgstr "رقم اتصال الكفيل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__sponsor_no
+msgid "Sponsor Id No"
+msgstr "رقم هوية الكفيل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__sponsor_name
+msgid "Sponsor Name"
+msgstr "اسم الكفيل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__sponsor_number
+msgid "Sponsor Number"
+msgstr "رقم الكفيل"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_employee_form_inherit
+msgid "Sponsorship"
+msgstr "الكفالة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_sister_company__sponsorship_number
+msgid "Sponsorship Number"
+msgstr "رقم الكفالة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_sister_company__name
+msgid "name"
+msgstr "الاسم"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee_family__family_type__spouse
+#: model:ir.model.fields.selection,name:scs_operation.selection__logistic_order_line__passenger_type__spouse
+msgid "Spouse"
+msgstr "الزوج/الزوجة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__spouse_health_insurance
+msgid "Spouse Health Insurance"
+msgstr "التأمين الصحي للزوج/الزوجة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__staff
+msgid "Staff"
+msgstr "الموظفون"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__state
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__state
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__contract_state
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__state
+msgid "Status"
+msgstr "الوضع"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تاريخ الاستحقاق قد مضى\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: الأنشطة المستقبلية."
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_hr_employee__contract_state
+msgid "Status of the contract"
+msgstr "حالة العقد"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.internal_sale_search
+msgid "String"
+msgstr "نص"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__submit
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__state__submit
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__category_ids
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__termination_process
+msgid "Termination Process"
+msgstr "عملية إنهاء الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__terminated_date
+msgid "Termination date"
+msgstr "تاريخ إنهاء الخدمة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.view_logistic_order_search
+msgid "This Month"
+msgstr "هذا الشهر"
+
+#. module: scs_operation
+#: model:ir.model.constraint,message:scs_operation.constraint_hr_employee_family_unique_name
+msgid "This name already exists"
+msgstr "هذا الاسم موجود مسبقاً"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__total_amount
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__total_amount
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__total_monthly_cost
+msgid "Total Monthly Cost"
+msgstr "التكلفة الشهرية الإجمالية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__trans
+msgid "Transportation"
+msgstr "النقل"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__res_partner_bank__action_type__treasury
+msgid "Treasury"
+msgstr "الخزينة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__twelve_months_cost
+msgid "Twelve Months Cost"
+msgstr "تكلفة اثني عشر شهراً"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__state__under_review
+msgid "Under Review"
+msgstr "قيد المراجعة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__request_type__update
+msgid "Update"
+msgstr "تحديث"
+
+#. module: scs_operation
+#: model:res.groups,name:scs_operation.group_internal_sale_user
+msgid "User"
+msgstr "مستخدم"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_insurance_policy__vat
+msgid "VAT %"
+msgstr "ضريبة القيمة المضافة %"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__employee_role__vp
+msgid "VP"
+msgstr "نائب الرئيس"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__vac_salary
+msgid "Vac Salary 12 months PO"
+msgstr "راتب الإجازة 12 شهر أمر شراء"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__state__validate
+#: model:ir.model.fields.selection,name:scs_operation.selection__insurance_policy__state__validate
+msgid "Validate"
+msgstr "تصديق"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_validate_payment_on_company_wizard__government_payment_id
+msgid "Validate Payment"
+msgstr "تصديق الدفع"
+
+#. module: scs_operation
+#: model:ir.actions.act_window,name:scs_operation.validate_payment_on_behalf_action
+msgid "Validate Payment on Company"
+msgstr "تصديق الدفع على الشركة"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.validate_customer_payment_on_company_wizard_form_view
+msgid "Validate customer Payment on Company"
+msgstr "تصديق دفع العميل على الشركة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment_line__payment_state__validated
+msgid "Validated"
+msgstr "تم التصديق"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__wfm_user
+msgid "WFM User"
+msgstr "مستخدم إدارة القوى العاملة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__hr_employee__salary_payment__wage
+msgid "Wage"
+msgstr "الأجر"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.validate_customer_payment_on_company_wizard_form_view
+msgid "Warning!"
+msgstr "تحذير!"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_government_payment__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: scs_operation
+#: model:ir.model.fields,help:scs_operation.field_government_payment__website_message_ids
+msgid "Website communication history"
+msgstr "سجل اتصالات الموقع"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__internal_sale_line__marital__widower
+msgid "Widower"
+msgstr "أرمل"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_internal_sale_line__wife_annual_flight_ticket
+msgid "Wife Annual Flight Ticket"
+msgstr "تذكرة الطيران السنوية للزوجة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__operation_type__with_payment
+msgid "With Payment"
+msgstr "مع الدفع"
+
+#. module: scs_operation
+#: model_terms:ir.actions.act_window,help:scs_operation.action_employee_citizen_expired_id
+msgid ""
+"With just a quick glance on the Odoo employee screen, you\n"
+"                can easily find all the information you need for each person;\n"
+"                contact data, job position, availability, etc."
+msgstr ""
+"بمجرد نظرة سريعة على شاشة موظف أودو، يمكنك\n"
+"                العثور بسهولة على جميع المعلومات التي تحتاجها لكل شخص؛\n"
+"                بيانات الاتصال، المنصب الوظيفي، التوفر، إلخ."
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__operation_type__without_payment
+msgid "Without Payment"
+msgstr "بدون دفع"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+msgid "e.g. Gov. Payment For Iqama Renewal"
+msgstr "مثال: دفع حكومي لتجديد الإقامة"
+
+#. module: scs_operation
+#: model:ir.model.fields.selection,name:scs_operation.selection__government_payment__payment_type__no_payment
+#: model:ir.model.fields.selection,name:scs_operation.selection__service_type__service_type__no_payment
+msgid "No Payment"
+msgstr "بدون دفع"
+
+#. module: scs_operation
+#: model:ir.ui.menu,name:scs_operation.government_service_without_payment_menu
+msgid "Without Payment"
+msgstr "بدون دفع"
+
+#. module: scs_operation
+#: model_terms:ir.ui.view,arch_db:scs_operation.government_payment_form_view
+msgid "set to Draft"
+msgstr "تعيين كمسودة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__length_of_service_str
+msgid "Length of Service String"
+msgstr "نص مدة الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_sister_company__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__initial_salary
+msgid "Initial Salary"
+msgstr "الراتب الأولي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_hr_employee__current_salary
+msgid "Current Salary"
+msgstr "الراتب الحالي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__service_id
+msgid "Service"
+msgstr "الخدمة"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__priority
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__deadline
+msgid "Deadline"
+msgstr "الموعد النهائي"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__color
+msgid "Color"
+msgstr "اللون"
+
+#. module: scs_operation
+#: model:ir.model.fields,field_description:scs_operation.field_logistic_order__active
+msgid "Active"
+msgstr "نشط"

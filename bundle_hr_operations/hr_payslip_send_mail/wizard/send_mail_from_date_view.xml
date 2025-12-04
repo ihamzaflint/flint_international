@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="payslip_send_mail_form" model="ir.ui.view">
+        <field name="name">payslip.send.mail.view.form</field>
+        <field name="model">payslip.send.mail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet> 
+                    <group>
+                        <group>
+                            <field name="month"/>
+                            <field name="year"/>       
+                        </group>
+                        <group>
+                            <field name="analytic_account_id" string="Project"></field>
+                        </group>
+                        <field name="employee_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="work_email"/>
+                                <field name="personal_email"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Send Mail" name="send_mail_to_employee" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="payslip_send_mail_action" model="ir.actions.act_window">
+        <field name="name">Sent Payslip</field>
+        <field name="res_model">payslip.send.mail</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem
+            id="payslip_send_mail_menu"
+            action="payslip_send_mail_action"
+            name="Sent Payslip"
+            sequence="100"
+            parent="hr_payroll.menu_hr_payroll_payslips"/>
+
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_post_attachment_wizard_form" model="ir.ui.view">
+            <field name="name">post.attachment.wizard.form</field>
+            <field name="model">post.attachment.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Post Attachment">
+                    <sheet>
+                        <group>
+                            <field name="attachment_ids" widget="many2many_binary" options="{'accepted_file_types': 'image/*,application/pdf,text/plain'}" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_post_attachment" string="Post" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_post_attachment_wizard" model="ir.actions.act_window">
+            <field name="name">Post Attachment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">post.attachment.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

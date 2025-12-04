@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_block_visa_request_user,block.visa.request.user,model_block_visa_request,group_visa_user,1,1,1,0
+access_block_visa_request_manager,block.visa.request.manager,model_block_visa_request,group_visa_manager,1,1,1,1
+access_block_visa_job_category_user,block.visa.job.category.user,model_block_visa_job_category,group_visa_user,1,1,1,0
+access_block_visa_job_category_manager,block.visa.job.category.manager,model_block_visa_job_category,group_visa_manager,1,1,1,1
+access_block_visa_document_user,block.visa.document.user,model_block_visa_document,group_visa_user,1,1,1,0
+access_block_visa_document_manager,block.visa.document.manager,model_block_visa_document,group_visa_manager,1,1,1,1

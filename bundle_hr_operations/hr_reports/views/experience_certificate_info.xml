@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Form View-->
+    <record id="view_experience_certificate_form" model="ir.ui.view">
+        <field name="name">experience.certificate.form</field>
+        <field name="model">experience.certificate</field>
+        <field name="arch" type="xml">
+            <form string="Experience Certificate">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+
+                    <group>
+                        <field name="employee_id" force_save="1" readonly="state in ['confirm']"/>
+                    </group>
+
+
+                    <group name="dual_language_section" colspan="2">
+                        <group string="English Section" name="english_section">
+                            <field name="name" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <group string="Arabic Section" name="arabic_section">
+                            <field name="name_ar" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+
+
+                    <group colspan="2">
+                        <group string="Common Information" name="common_info">
+                            <field name="nationality" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="id_number" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="company_id" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="file_number" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="iqama_profession" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="actual_job_role" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+
+                        <group string="Project Timeline" name="project_dates">
+                            <field name="project_id" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="joining_date" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="last_date" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_experience_certificate_tree" model="ir.ui.view">
+        <field name="name">experience.certificate.tree</field>
+        <field name="model">experience.certificate</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nationality"/>
+                <field name="id_number"/>
+                <field name="iqama_profession"/>
+                <field name="actual_job_role"/>
+                <field name="project_id"/>
+                <field name="joining_date"/>
+                <field name="last_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_experience_certificate" model="ir.actions.act_window">
+        <field name="name">Experience Certificate</field>
+        <field name="res_model">experience.certificate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

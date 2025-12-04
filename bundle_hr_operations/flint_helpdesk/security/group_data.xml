@@ -1,0 +1,5 @@
+<odoo>
+	<record id="group_helpdesk_final_approved" model="res.groups">
+		<field name="name">Ticket Final Approval</field>
+	</record>
+</odoo>

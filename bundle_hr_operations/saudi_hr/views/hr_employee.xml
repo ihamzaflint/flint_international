@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_employee_form_blood_group" model="ir.ui.view">
+        <field name="name">hr.employee.form.blood.group</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='coach_id']" position="after">
+                <field name="iqama_occupation" invisible="1"/>
+                <field name="actual_work_trade" invisible="1"/>
+                <field name="actual_work_trade_arabic" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='work_email']" position="after">
+                <field name="personal_email"/>
+                <field name="blood_group"/>
+                <field name="visa_no" string="Iqama Number"/>
+            </xpath>
+            <xpath expr="//field[@name='work_permit_expiration_date']" position="after">
+                <field name="work_permit_expiration_date_hijri"/>
+                <field name="pf_no"/>
+            </xpath>
+            <xpath expr="//field[@name='passport_id']" position="after">
+                <field name="passport_expiry_date"/>
+            </xpath>
+            <xpath expr="//field[@name='permit_no']" position="after">
+                <field name="work_permit_issue_date"/>
+            </xpath>
+            <xpath expr="//field[@name='country_of_birth']" position="after">
+                <field name="date_of_entry" invisible="True"/>
+                <field name="is_outside_kingdom" invisible="True"/>
+            </xpath>
+            <xpath expr="//field[@name='work_phone']" position="attributes">
+                <attribute name="string">Work Mobile</attribute>
+            </xpath>
+            <xpath expr="//field[@name='emergency_phone']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='identification_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='study_school']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="hr_employee_view_search" model="ir.ui.view">
+        <field name="name">hr.employee.search.view.employee.code</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_ids']" position="before">
+                <field name="identification_id"/>
+                <field name="passport_id" invisible="True"/>
+                <field name="pf_no" filter_domain="[('pf_no', 'ilike', self)]"/>
+                <field name="visa_no" invisible="True"/>
+                <field name="permit_no"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

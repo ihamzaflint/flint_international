@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_empl_iqama_exp_custom">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <style>
+                        .border{
+                            border-collapse:collapse;
+                            border:1px solid black !important;
+                        }
+                    </style>
+                    <h2>Employee Iqama Expiry List</h2>
+                    <table width="100%" class="table table-bordered">
+                        <tr>
+                            <td width="20%" class="border" style="text-align:center;"><b>Emp ID</b></td>
+                            <td width="40%" class="border" style="text-align:center;"><b>Name of the Employee</b></td>
+                            <td width="40%" class="border" style="text-align:center;"><b>Project</b></td>
+                            <td width="15%" class="border" style="text-align:center;"><b>Iqama Expiry Date</b></td>
+                        </tr>
+                        <t t-foreach="docs" t-as="o">
+                            <tr>
+                                <td width="20%" class="border" style="text-align:center;"><b><span t-esc="o.registration_number"/></b></td>
+                                <td width="40%" class="border" style="text-align:center;"><b><span t-esc="o.name"/></b></td>
+                                <td width="40%" class="border" style="text-align:center;"><b><span t-esc="o.contract_id.analytic_account_id.display_name"/></b></td>
+                                <td width="15%" class="border" style="text-align:center;"><b><span t-esc="o.visa_expire" t-options="{'widget': 'date'}"/></b></td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_empl_iqama_exp" model="ir.actions.report">
+        <field name="name">Employee Iqama Expiry</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_payroll.report_empl_iqama_exp_custom</field>
+        <field name="print_report_name">'Iqama Expiry Report'</field>
+        <!-- <field name="binding_model_id" ref="hr.model_hr_employee"/> -->
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <record id="action_report_emp_expiry" model="ir.actions.server">
+        <field name="name">Employee Iqama Expiry</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <!-- <field name="binding_model_id" ref="hr.model_hr_employee"/> -->
+        <field name="state">code</field>
+        <field name="code">
+            action = model.get_iqama_expiry_emp()
+        </field>
+    </record>
+
+    <!-- <menuitem action="action_report_emp_expiry" id="menu_report_emp_expiry" parent="hr.hr_menu_hr_reports" sequence="11"/>  -->
+
+</odoo>

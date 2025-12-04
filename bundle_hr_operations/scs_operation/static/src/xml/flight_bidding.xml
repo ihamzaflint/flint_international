@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="scs_operation.FlightBidding">
+        <div class="flight-bidding">
+            <t t-slot="default"/>
+            <a t-if="props.state == 'draft'"
+               t-att-href="props.acceptUrl"
+               class="btn btn-primary w-100"
+               t-on-click="onBidClick">
+                Accept This Offer
+            </a>
+            <div t-else="" class="alert alert-info mb-0">
+                <t t-if="props.state == 'confirm'">Offer Accepted</t>
+                <t t-else="">Offer Rejected</t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="scs_operation.ConfirmBidDialog">
+        <Dialog title="'Confirm Bid Selection'">
+            <div class="modal-body">
+                <p>Are you sure you want to accept this flight offer? This action cannot be undone and will reject all other offers.</p>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary" t-on-click="() => this.props.close()">
+                    Cancel
+                </button>
+                <button class="btn btn-primary" t-on-click="() => this.props.close(true)">
+                    Accept Offer
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

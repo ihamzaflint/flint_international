@@ -1,0 +1,42 @@
+<odoo>
+
+    <record id="inherit_hr_applicant_view_form_job_offer" model="ir.ui.view">
+        <field name="name">inherit.hr.applicant.view.form.job.offer</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="work_location_id"/>
+                <field name="file_number"/>
+                <field name="contract_status"/>
+            </field>
+            <xpath expr="//notebook/page[1]" position="after">
+                <page name="salary_details" string="Salary Details">
+                    <group>
+                        <group>
+                            <field name="basic_monthly_sal"/>
+                            <field name="transportation_alw"/>
+                        </group>
+                        <group>
+                            <field name="housing_alw"/>
+                        </group>
+                    </group>
+                </page>
+                <page name="other_details" string="Other Details">
+                    <group>
+                        <group>
+                            <field name="medical_care"/>
+                            <field name="travel_ticket"/>
+                            <field name="contract_duration"/>
+                        </group>
+                        <group>
+                            <field name="vacation"/>
+                            <field name="probation_period"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

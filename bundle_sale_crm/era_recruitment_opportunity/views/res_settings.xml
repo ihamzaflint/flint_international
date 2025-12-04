@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="tv_res_config_settings_inherit_view" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id"
+               ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='invite_users']" position="after">
+                <div id="recruitment_cost_analysis">
+                    <h2>Recruitment Cost Analysis</h2>
+                    <div class="row mt16 o_settings_container" name="recruitment">
+                        <div class="col-12 col-lg-6 o_setting_box" id="cost_analysis">
+                            <div class="o_setting_right_pane">
+                                <label for="flint_fee" class="col-sm-5 col-form-label">
+                                    Flint Fee
+                                </label>
+                                <field name="flint_fee"/>
+
+                                <label for="annual_ticket_serv" class="col-sm-5 col-form-label">
+                                    Annual Ticket + SERV
+                                </label>
+
+                                <field name="annual_ticket_serv"/>
+
+                                <label for="spouse_annual_ticket" class="col-sm-5 col-form-label">
+                                    Spouse Annual Ticket
+                                </label>
+
+                                <field name="spouse_annual_ticket"/>
+                                <label for="kid_annual_ticket" class="col-sm-5 col-form-label">
+                                    Kid Ticket
+                                </label>
+
+                                <field name="kid_annual_ticket"/>
+
+                                <label for="iqama_fee" class="col-sm-5 col-form-label">
+                                    Annual Iqama Fee
+                                </label>
+                                <field name="iqama_fee"/>
+                                <label for="iqama_transfer_fee" class="col-sm-5 col-form-label">
+                                    Annual Iqama Transfer
+                                </label>
+                                <field name="iqama_transfer_fee"/>
+                                <label for="saudi_eng_council" class="col-sm-5 col-form-label">
+                                    Saudi Engineering Council Fee
+                                </label>
+                                <field name="saudi_eng_council"/>
+                                <label for="hire_right_process" class="col-sm-5 col-form-label">
+                                    Hire Right Process
+                                </label>
+                                <field name="hire_right_process"/>
+                                <label for="visa_cost" class="col-sm-5 col-form-label">
+                                    Employee Visa Cost
+                                </label>
+                                <field name="visa_cost"/>
+                                <label for="visa_endorsement" class="col-sm-5 col-form-label">
+                                    Employee Visa Endorsement
+                                </label>
+                                <field name="visa_endorsement"/>
+                                <label for="family_visa_cost" class="col-sm-5 col-form-label">
+                                    Family Visa Cost
+                                </label>
+                                <field name="family_visa_cost"/>
+                                <label for="family_visa_endorsement" class="col-sm-5 col-form-label">
+                                    Family Visa Endorsement
+                                </label>
+                                <field name="family_visa_endorsement"/>
+
+                                <label for="misc" class="col-sm-5 col-form-label">
+                                    Miscellaneous
+                                </label>
+                                <field name="misc"/>
+                            </div>
+
+                        </div>
+                        <setting id="document_layout_setting" string="Health Insurance"
+                                 help="Employee Health Insurance Values" company_dependent="1">
+                            <div class="content-group">
+                                <div>
+                                    <label for="health_insurance_a" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class A
+                                    </label>
+                                    <field name="health_insurance_a"/>
+                                    <label for="health_insurance_a_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class A+
+                                    </label>
+                                    <field name="health_insurance_a_plus"/>
+                                    <label for="health_insurance_b" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class B
+                                    </label>
+                                    <field name="health_insurance_b"/>
+                                    <label for="health_insurance_b_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class B+
+                                    </label>
+                                    <field name="health_insurance_b_plus"/>
+                                    <label for="health_insurance_c" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class C
+                                    </label>
+                                    <field name="health_insurance_c"/>
+                                    <label for="health_insurance_c_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class C+
+                                    </label>
+                                    <field name="health_insurance_c_plus"/>
+                                </div>
+
+                            </div>
+                        </setting>
+                        <setting id="document_layout_setting" string="Spouse Health Insurance"
+                                 help="Health Insurance Valuesfor Spouse" company_dependent="1">
+                            <div class="content-group">
+                                <div>
+                                    <label for="spouse_health_insurance_a" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class A
+                                    </label>
+                                    <field name="spouse_health_insurance_a"/>
+                                    <label for="spouse_health_insurance_a_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class A+
+                                    </label>
+                                    <field name="spouse_health_insurance_a_plus"/>
+                                    <label for="spouse_health_insurance_b" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class B
+                                    </label>
+                                    <field name="spouse_health_insurance_b"/>
+                                    <label for="spouse_health_insurance_b_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class B+
+                                    </label>
+                                    <field name="spouse_health_insurance_b_plus"/>
+                                    <label for="spouse_health_insurance_c" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class C
+                                    </label>
+                                    <field name="spouse_health_insurance_c"/>
+                                    <label for="spouse_health_insurance_c_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class C+
+                                    </label>
+                                    <field name="spouse_health_insurance_c_plus"/>
+                                </div>
+
+                            </div>
+                        </setting>
+                        <setting id="document_layout_setting" string="Health Insurance"
+                                 help="Health Insurance Values for Kids" company_dependent="1">
+                            <div class="content-group">
+                                <div>
+                                    <label for="kids_health_insurance_a" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class A
+                                    </label>
+                                    <field name="kids_health_insurance_a"/>
+                                    <label for="kids_health_insurance_a_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class A+
+                                    </label>
+                                    <field name="kids_health_insurance_a_plus"/>
+                                    <label for="kids_health_insurance_b" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class B
+                                    </label>
+                                    <field name="kids_health_insurance_b"/>
+                                    <label for="kids_health_insurance_b_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class B+
+                                    </label>
+                                    <field name="kids_health_insurance_b_plus"/>
+                                    <label for="kids_health_insurance_c" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class C
+                                    </label>
+                                    <field name="kids_health_insurance_c"/>
+                                    <label for="kids_health_insurance_c_plus" class="col-sm-5 col-form-label">
+                                        Annual Health Insurance Class C+
+                                    </label>
+                                    <field name="kids_health_insurance_c_plus"/>
+                                </div>
+
+                            </div>
+                        </setting>
+
+
+                    </div>
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <report id="action_print_acc_debit_credit_report"
+            model="wizard.export.batch"
+            string="Account Credit Debit"
+            report_type="xlsx"
+            name="account_move_print.acc_debit_credit_report"
+            file="export_batch_details"
+            attachment_use="False"
+            print_report_name=""
+    />
+    </data>
+</odoo>

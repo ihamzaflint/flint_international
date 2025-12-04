@@ -1,0 +1,57 @@
+<odoo>
+    <template id="helpdesk_form_inherit_ticket_submit" name="website Form" inherit_id="helpdesk.helpdesk_team_view_form">
+        <xpath expr="//div[@id='website_form_channel']" position="before">
+            <div class="select-helpdesk row s_col_no_resize s_col_no_bgcolor">
+                <div class="form-group col-12 s_website_form_field" data-type="binary" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto" style="margin-left:15px;width: 200px">
+                            <span class="s_website_form_label_content">Helpdesk Type</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <div class="col-md-6 col-sm col-xs-12">
+                            <select name="ticket_type_id" id="ticket_type_id" class="form-control" data-name="selection_id_type">
+                                <option value=""></option>
+                                <t t-set="selection_ids" t-value="request.env['helpdesk.ticket.type'].search([])"/>
+                                <t t-esc="selection_ids"/>
+                                <t t-if="selection_ids">
+                                    <t t-foreach="selection_ids" t-as="selection">
+                                        <option t-att-value="selection.id">
+                                            <t t-esc="selection.name"/>
+                                        </option>
+                                    </t>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-12 s_website_form_field s_website_form_model_required" data-type="binary" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto" style="margin-left:15px;width: 200px">
+                            <span class="s_website_form_label_content">Request Type</span>
+                            <span class="s_website_form_mark"> *</span>
+                        </label>
+                        <div class="col-md-6 col-sm col-xs-12">
+                            <select name="service_type_id" id="selection_requested_id" class="form-control" data-name="selected_type_ids">
+                                <option value=""></option>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="portal_helpdesk_tickets_inherit" name="Helpdesk Tickets" inherit_id="helpdesk.tickets_followup">
+        <xpath expr="//div[@name='description']" position="before">
+            <div class="row mb-4" name="Ticket Type">
+                <strong class="col-lg-2">Ticket Type</strong>
+                <div class="col-lg-10" t-field="ticket.ticket_type_id"/>
+            </div>
+            <div class="row mb-4" name="Request Type">
+                <strong class="col-lg-2">Request Type</strong>
+                <div class="col-lg-10" t-field="ticket.service_type_id"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
+

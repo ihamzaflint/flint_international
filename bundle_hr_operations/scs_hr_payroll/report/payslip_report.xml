@@ -1,0 +1,14 @@
+<odoo>
+	<template id="report_payslip_inherit_scs" inherit_id='hr_payroll.report_payslip'>
+		<xpath expr="//div[hasclass('page')]/h2[@id='payslip_name']" position='before'>
+			<table width="100%">
+                <tr>
+                    <td style="text-align:center;"><b>Note: </b>This is system generated does not required signatures</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;"><b>Printed on :</b><span t-esc="datetime.datetime.today().strftime('%d/%b/%Y %H:%M:%S')"/></td>
+                </tr>
+            </table>
+		</xpath>
+	</template>
+</odoo>

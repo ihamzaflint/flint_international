@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="ir_cron_zkt_transactions" model="ir.cron">
+            <field name="name">ZK Transactions: Sync with ZK finger print</field>
+            <field name="model_id" ref="model_itq_attendance_punch"/>
+            <field name="state">code</field>
+            <field name="code">model.get_transaction()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+        </record>
+
+    </data>
+</odoo>

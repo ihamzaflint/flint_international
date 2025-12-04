@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="validate_customer_payment_on_company_wizard_form_view" model="ir.ui.view">
+        <field name="name">validate.customer.payment.on.company.wizard.form.view</field>
+        <field name="model">validate.payment.on.company.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Validate customer Payment on Company">
+                <link class='origin' rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+                <div class="w3-panel w3-pale-red w3-border">
+                    <h3>Warning!</h3>
+                    <p>
+                        Are you sure to Validate the payment without Selecting Project?
+                        Please Select a customer instead.
+                    </p>
+                </div>
+                <group>
+                    <field name="partner_id" invisible="is_flint_payment == True"/>
+                    <field name="is_flint_payment" widget="boolean_toggle"/>
+                </group>
+                <footer>
+                    <button name="validate_payment" string="Validate" type="object" class="btn-primary"/>
+                    <button string="Cancel" type="object" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="validate_payment_on_behalf_action" model="ir.actions.act_window">
+        <field name="name">Validate Payment on Company</field>
+        <field name="res_model">validate.payment.on.company.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="validate_customer_payment_on_company_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

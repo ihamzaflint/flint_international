@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="account_payment_government_transactions">
+        <field name="name">account.payment.government.transactions</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <field name="government_payment_line_ref_id" invisible="True"/>
+                    <page string="Government Transactions" invisible="government_payment_ref_id == False">
+                        <group>
+                            <group name="basic_info" string="Basic Information">
+                                <field name="government_payment_ref_id" readonly="True"/>
+                                <field name="saddad_no" readonly="True" options="{'no_open':True}"/>
+                                <field name="service_type" readonly="True" options="{'no_open':True}" invisible="True"/>
+                                <field name="service_name" readonly="True"/>
+                                <field name="project_id" readonly="True"/>
+                                <field name="analytic_account_id" readonly="True"/>
+                            </group>
+                            <group name="employee_details" string="Employee Details">
+                                <field name="employee_id" options="{'no_open':True}" readonly="True"
+                                       invisible="employee_id == False"/>
+                                <field name="file_no" invisible="file_no == False" readonly="True"/>
+                                <field name="employee_iqama_no" readonly="True" invisible="employee_iqama_no == False"/>
+                            </group>
+                        </group>
+
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="account_payment_government_transactions_tree_view">
+        <field name="name">account.payment.government.transactions.tree.view</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_supplier_payment_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="saddad_no"/>
+                <field name="file_no"/>
+                <field name="employee_iqama_no"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_account_payment_search_government_payment_inherit">
+        <field name="name">view.account.payment.search.government.payment.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="saddad_no"/>
+                <field name="file_no"/>
+                <field name="employee_iqama_no"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

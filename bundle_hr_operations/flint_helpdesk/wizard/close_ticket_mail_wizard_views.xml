@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_close_ticket_mail_wizard_form" model="ir.ui.view">
+        <field name="name">close.ticket.mail.wizard.form</field>
+        <field name="model">close.ticket.mail.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Closure Email">
+                <sheet>
+                    <group>
+                        <field name="ticket_id" invisible="1"/>
+                        <field name="template_id"/>
+                        <field name="subject"/>
+                    </group>
+                    <group>
+                        <field name="body" widget="html"/>
+                    </group>
+                    <group>
+                        <field name="attachment_ids" widget="many2many_binary"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Send and Close" name="action_send_mail" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_close_ticket_mail_wizard" model="ir.actions.act_window">
+        <field name="name">Send Closure Email</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">close.ticket.mail.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="helpdesk.model_helpdesk_ticket"/>
+    </record>
+</odoo>

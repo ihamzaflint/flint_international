@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_sales_commissions_lines_form" model="ir.ui.view">
+            <field name="name">view.sales.commissions.lines.form</field>
+            <field name="model">sales.commission.lines</field>
+            <field name="arch" type="xml">
+                <form string="Sales Commission Lines" create="0" edit="0" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="sales_commission_reference"/>
+                            <field name="commission_date"/>
+                            <field name="sales_team_id"/>
+                            <field name="user_id"/>
+                            <field name="commission_percentage"/>
+                        </group>
+                        <notebook>
+                            <page string="Sales Commissions Lines">
+                                <group>
+                                    <field name="amount"/>
+                                    <field name="currency_id"/>
+                                    <!--                                    <field name="amount_in_company_currency"/>-->
+                                </group>
+                            </page>
+                            <page string="Details">
+                                <field name="commission_lines_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="product_id"/>
+                                        <field name="product_desc"/>
+                                        <field name="quantity"/>
+                                        <field name="uom_id"/>
+                                        <field name="price"/>
+                                        <field name="price_subtotal"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="product_id"/>
+                                                <field name="product_desc"/>
+                                                <field name="quantity"/>
+                                                <field name="uom_id"/>
+                                                <field name="price"/>
+                                                <field name="price_subtotal"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right" colspan="2">
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"
+                                           widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sales_commissions_lines_tree" model="ir.ui.view">
+            <field name="name">view.sales.commissions.lines.tree</field>
+            <field name="model">sales.commission.lines</field>
+            <field name="arch" type="xml">
+                <tree string="Sales Commission Lines" create="0" edit="0" delete="0">
+                    <field name="sales_commission_reference"/>
+                    <field name="commission_date"/>
+                    <field name="sales_team_id"/>
+                    <field name="user_id"/>
+                    <field name="commission_percentage"/>
+                    <field name="amount"/>
+                    <field name="currency_id"/>
+                    <!--                    <field name="amount_in_company_currency"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_sales_commissions_lines_search" model="ir.ui.view">
+            <field name="name">hr.payslip.line.select</field>
+            <field name="model">sales.commission.lines</field>
+            <field name="arch" type="xml">
+                <search string="Sales Commission Lines">
+                    <field name="sales_commission_reference"/>
+                    <field name="commission_date"/>
+                    <field name="sales_team_id"/>
+                    <field name="user_id"/>
+                    <group col="8" colspan="4" expand="0" string="Group By">
+                        <filter string="Sales Team" name="sales_team_id" context="{'group_by':'sales_team_id'}"/>
+                        <filter string="Sales Person" name="user_id" context="{'group_by':'user_id'}"/>
+                        <filter string="Date" name="commission_date" context="{'group_by':'commission_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_sales_commissions_lines_view" model="ir.actions.act_window">
+            <field name="name">Sales Commission Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sales.commission.lines</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_sales_commissions_lines_search"/>
+        </record>
+
+        <menuitem id="menu_sales_commission_lines_view"
+                  name="Sales Commission Lines"
+                  parent="commission_menu"
+                  groups="sales_team.group_sale_manager,sales_target_commission.group_commission_policy"
+                  action="action_view_sales_commissions_lines_view"
+                  sequence="2"/>
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_payroll_batch_group_group_payroll_create_entries,hr_payroll_batch_group.group_payroll_create_entries,hr_payroll.model_hr_payslip_run,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_hr_payroll_batch_group_group_payroll_create_entries,hr_payroll_batch_group.group_payroll_create_entries,hr_payroll.model_hr_payslip_run,hr_payroll.group_hr_payroll_user,1,1,1,1

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crm_lead_view_form_1" model="ir.ui.view">
+            <field name="name">crm.lead.view.form.inherit.opportunity1</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_view_sale_order']" position="replace">
+                    <button class="oe_stat_button blue-icon" type="object" invisible="sale_order_count == 0 or type == 'lead'" name="action_view_sale_order" icon="fa-usd">
+                        <div class="o_field_widget o_stat_info blue-icon">
+                            <span class="o_stat_value blue-icon">
+                                <field name="sale_amount_total" widget="monetary" options="{'currency_field': 'company_currency'}" /></span>
+                            <span class="o_stat_text blue-icon"> Ordersss</span>
+                            <field name="sale_order_count" invisible="1" />
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        <record id="crm_lead_view_form" model="ir.ui.view">
+            <field name="name">crm.lead.view.form.inherit.opportunity</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group/group[@name='opportunity_partner']/field[@name='partner_id']" position="before">
+                    <field name="is_create_job" invisible="1" />
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_open_jobs" class="oe_stat_button" icon="fa-file-text-o" type="object" invisible="job_ids_count == 0">
+                        <div class="o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="job_ids_count" widget="statinfo" />
+                            </span>
+                        </div>
+                    </button>
+                    <button name="open_applicants" type="object" class="oe_stat_button" icon="fa-user" invisible="applicant_ids_count == 0">
+                        <div class="o_stat_info">
+                            <field name="applicant_ids_count" widget="statinfo" />
+                        </div>
+                    </button>
+                </xpath>
+                <xpath expr="//button[@name='%(crm.action_crm_lead2opportunity_partner)d']" position="after">
+                    <button string="Create Job" name="action_create_job" type="object" class="btn btn-primary" data-hotkey="l" title="Create a Job from Lead" invisible="not is_create_job" />
+                    <button string="Import Job" name="action_import_jobs" type="object" class="btn btn-primary" data-hotkey="l" title="Import Jobs from File" invisible="not is_create_job" />
+                </xpath>
+                <xpath expr="//notebook" position="before">
+                    <group string="Job Details">
+                        <group>
+                            <field name="is_create_job" />
+                            <field name="crm_recruitment_count" />
+                        </group>
+                        <group>
+                            <field name="job_id" invisible="not is_create_job" widget="many2many_tags" />
+                            <!-- <field name="jobs_id" widget="many2many_tags" invisible="not is_create_job"/> -->
+                        </group>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Applicants" name="applicants" invisible="not is_create_job">
+                        <button name="button_update_crm_applicant_lines" type="object" string="Get / Update Data" class="btn-primary" />
+                        <!-- <label for="total_monthly_cost" />
+                        <field name="total_monthly_cost" force_save="1" optional="hide" />
+                        <label for="total_monthly_cost_usd" />
+                        <field name="total_monthly_cost_usd" force_save="1" optional="hide" />
+                        <label for="total_annual_cost_usd" />
+                        <field name="total_annual_cost_usd" force_save="1" optional="hide" />
+                        <label for="total_per_day_cost" />
+                        <field name="total_per_day_cost" force_save="1" optional="hide" />
+                        <label for="total_yearly_employee_cost" />
+                        <field name="total_yearly_employee_cost" force_save="1" optional="hide" /> -->
+                        <field name="crm_applicant_line_ids" force_save="1" readonly="1">
+                            <tree>
+                                <field name="tv_seq" force_save="1" optional="show" />
+                                <field name="recruitment_order_id" force_save="1" optional="show" />
+                                <field name="sequence" force_save="1" optional="show" />
+                                <field name="name" force_save="1" optional="show" />
+                                <field name="email" force_save="1" optional="show" />
+                                <field name="phone" force_save="1" optional="show" />
+                                <field name="nationality" force_save="1" optional="show" />
+                                <field name="current_location" force_save="1" optional="hide" />
+                                <field name="experience" force_save="1" optional="show" />
+                                <field name="qualification" force_save="1" optional="show" />
+                                <field name="current_company" force_save="1" optional="hide" />
+                                <field name="position" force_save="1" optional="hide" />
+                                <field name="notice_period" force_save="1" optional="show" />
+                                <field name="salary_expectation" force_save="1" optional="hide" />
+                                <field name="show_salary_expectation" force_save="1" optional="hide" />
+                                <field name="wife" force_save="1" optional="hide" />
+                                <field name="show_wife" force_save="1" optional="hide" />
+                                <field name="show_kids" force_save="1" optional="hide" />
+                                <field name="kids" force_save="1" optional="hide" />
+                                <field name="profession" force_save="1" optional="hide" />
+                                <field name="number_iqama" force_save="1" optional="hide" />
+                                <field name="current_salary" force_save="1" optional="hide" />
+                                <field name="show_current_salary" force_save="1" optional="hide" />
+                                <field name="resume" force_save="1" optional="show" />
+                                <field name="file_name" force_save="1" optional="hide" />
+                                <field name="file_name" force_save="1" optional="hide" />
+                                <field name="state" force_save="1" optional="show" />
+                                <field name="rejection_reason" force_save="1" optional="hide" />
+                                <field name="selection_link" force_save="1" optional="hide" />
+                                <field name="access_token" force_save="1" optional="hide" />
+                                <field name="rejection_date" force_save="1" optional="hide" />
+                                <field name="basic" sum="Total" force_save="1" optional="show" />
+                                <field name="housing" force_save="1" optional="hide" />
+                                <field name="transportation" force_save="1" optional="hide" />
+                                <field name="vac_salary" force_save="1" optional="hide" />
+                                <field name="end_of_service" force_save="1" optional="hide" />
+                                <field name="employee_health" force_save="1" optional="hide" />
+                                <field name="spouse_health_insurance" force_save="1" optional="hide" />
+                                <field name="kids_health_insurance" force_save="1" optional="hide" />
+                                <field name="family_health_insurance" force_save="1" optional="hide" />
+                                <field name="employee_annual_flight_ticket" force_save="1" optional="hide" />
+                                <field name="employee_monthly_flight_ticket" force_save="1" optional="hide" />
+                                <field name="wife_annual_flight_ticket" force_save="1" optional="hide" />
+                                <field name="wife_monthly_flight_ticket" force_save="1" optional="hide" />
+                                <field name="child_flight_ticket" force_save="1" optional="hide" />
+                                <field name="child_monthly_flight_ticket" force_save="1" optional="hide" />
+                                <field name="saudi_eng_council" force_save="1" optional="hide" />
+                                <field name="hire_right_process" force_save="1" optional="hide" />
+                                <field name="employee_visa" force_save="1" optional="hide" />
+                                <field name="employee_visa_endorsement" force_save="1" optional="hide" />
+                                <field name="family_visa_cost" force_save="1" optional="hide" />
+                                <field name="family_visa_endorsement" force_save="1" optional="hide" />
+                                <field name="gosi" force_save="1" optional="hide" />
+                                <field name="gosi_share" force_save="1" optional="hide" />
+                                <field name="saudization" force_save="1" optional="hide" />
+                                <field name="iqama_fees" force_save="1" optional="hide" />
+                                <field name="iqama_transfer_fees" force_save="1" optional="hide" />
+                                <field name="mobilization_cost" force_save="1" optional="hide" />
+                                <field name="ajeer" force_save="1" optional="hide" />
+                                <field name="exit_reentry" force_save="1" optional="hide" />
+                                <field name="profile_fees" force_save="1" optional="hide" />
+                                <field name="candidate_type" force_save="1" optional="hide" />
+                                <field name="marital_status" force_save="1" optional="hide" />
+                                <field name="candidate_class" force_save="1" optional="hide" />
+                                <field name="package" force_save="1" optional="hide" />
+                                <field name="misc" force_save="1" optional="hide" />
+                                <field name="flint_fee" force_save="1" optional="show" />
+                                <field name="number_of_kids" force_save="1" optional="hide" />
+                                <field name="number_of_spouses" force_save="1" optional="hide" />
+                                <field name="invoice_period" force_save="1" optional="hide" />
+                                <field name="total_monthly_cost" sum="Total" force_save="1" optional="show" />
+                                <field name="total_monthly_cost_usd" sum="Total" force_save="1" optional="show" />
+                                <field name="total_annual_cost_usd" sum="Total" force_save="1" optional="show" />
+                                <field name="per_25" sum="Total" force_save="1" optional="hide" />
+                                <field name="per_15" sum="Total" force_save="1" optional="hide" />
+                                <field name="per_day_cost" sum="Total" force_save="1" optional="show" />
+                                <field name="net_monthly_salary" sum="Total" force_save="1" optional="hide" />
+                                <field name="yearly_employee_cost" sum="Total" force_save="1" optional="show" />
+                                <field name="is_create_job" force_save="1" optional="hide" />
+                                <field name="applicant_ids_count" force_save="1" optional="hide" />
+                            </tree>
+                            <form string="Applicant Info">
+                                <div class="oe_title">
+                                    <h1 class="d-flex">
+                                        <field name="sequence" readonly="1" />
+                                    </h1>
+                                    <label for="name" />
+                                    <h1>
+                                        <field name="name" placeholder="Name" />
+                                    </h1>
+                                </div>
+                                <group string="Applicant Info">
+                                    <group>
+                                        <field name="email" />
+                                        <field name="phone" />
+                                        <field name="nationality" />
+                                        <field name="current_location" />
+                                        <field name="experience" />
+                                        <field name="qualification" required="1" />
+                                        <field name="current_company" required="1" />
+                                        <field name="position" required="1" />
+                                    </group>
+                                    <group>
+                                        <field name="notice_period" required="1" />
+                                        <field name="kids" />
+                                        <field name="profession" />
+                                        <field name="number_iqama" />
+                                        <!--                                    <field name="current_salary"/>-->
+                                        <field name="resume" required="1" widget="binary" />
+                                        <field name="file_name" invisible="1" />
+                                        <field name="rejection_reason" invisible="state != 'reject'" />
+                                        <field name="state" invisible="1" />
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="salary_expectation" required="1" />
+                                        </group>
+                                        <group>
+                                            <field name="show_salary_expectation" />
+                                        </group>
+                                        <group>
+                                            <field name="wife" />
+                                        </group>
+                                        <group>
+                                            <field name="show_wife" />
+                                        </group>
+                                        <group>
+                                            <field name="kids" />
+                                        </group>
+                                        <group>
+                                            <field name="show_kids" />
+                                        </group>
+                                        <group>
+                                            <field name="current_salary" />
+                                        </group>
+                                        <group>
+                                            <field name="show_current_salary" />
+                                        </group>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="Cost Analysis" name="cost_analysis_details">
+                                        <group name="cost_analysis" string="Cost Analysis">
+                                            <group>
+                                                <field name="candidate_type" />
+                                                <field name="marital_status" />
+                                                <field name="candidate_class" />
+                                                <field name="package" />
+                                                <field name="invoice_period" />
+                                                <field name="number_of_kids" />
+                                                <field name="number_of_spouses" />
+                                            </group>
+                                            <group>
+                                                <field name="total_monthly_cost" />
+                                                <field name="total_monthly_cost_usd" />
+                                                <field name="total_annual_cost_usd" />
+                                                <field name="per_day_cost" />
+                                                <field name="per_25" string="Amount 25%" />
+                                                <field name="per_15" string="Vat 15%" />
+                                                <field name="net_monthly_salary" />
+                                                <field name="yearly_employee_cost" invisible="1" />
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <group string="Basic Salary Components">
+                                                <field name="basic" />
+                                                <field name="housing" />
+                                                <field name="flint_fee" />
+                                                <field name="transportation" />
+                                                <field name="vac_salary" />
+                                                <field name="end_of_service" />
+                                            </group>
+                                            <group string="Health Insurance">
+                                                <field name="employee_health" />
+                                                <field name="family_health_insurance" />
+                                                <field name="spouse_health_insurance" invisible="1" />
+                                                <field name="kids_health_insurance" invisible="1" />
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <group string="Travel Benefits" invisible="candidate_type != 'no_saudi'">
+                                                <field name="employee_annual_flight_ticket" />
+                                                <field name="employee_monthly_flight_ticket" />
+                                                <field name="wife_annual_flight_ticket" />
+                                                <field name="wife_monthly_flight_ticket" />
+                                                <field name="child_flight_ticket" />
+                                                <field name="child_monthly_flight_ticket" />
+                                            </group>
+                                            <group string="Government Fees">
+                                                <field name="gosi" />
+                                                <field name="gosi_share" />
+                                                <field name="saudization" />
+                                                <field name="iqama_fees" />
+                                                <field name="iqama_transfer_fees" />
+                                                <field name="mobilization_cost" />
+                                                <field name="ajeer" />
+                                                <field name="exit_reentry" />
+                                                <field name="profile_fees" />
+                                            </group>
+                                            <group string="Others" readonly="0">
+                                                <field name="saudi_eng_council" />
+                                                <field name="hire_right_process" />
+                                                <field name="employee_visa" />
+                                                <field name="employee_visa_endorsement" />
+                                                <field name="family_visa_cost" />
+                                                <field name="family_visa_endorsement" />
+                                                <field name="misc" />
+                                            </group>
+                                        </group>
+                                    </page>
+                                </notebook>
+                            </form>
+                        </field>
+                    </page>
+                    <page string="Cost Summary" name="cost_summary" invisible="not is_create_job">
+                        <!-- <group style="width: 150%;">
+                            <button name="button_compute_costing_summary" type="object" string="Costing Summary" class="btn-primary" />
+                        </group> -->
+                        <field name="costing_summary_line_ids" nolabel="1">
+                            <tree>
+                                <field name="employee_id" />
+                                <field name="file_number" />
+                                <field name="net_salary" />
+                            </tree>
+                            <!-- <form>
+                                <sheet>
+                                    <group>
+                                        <field name="employee_id" />
+                                        <field name="file_number" />
+                                        <field name="net_salary" />
+                                        <field name="payslip_count" />
+                                        <field name="applicant_line_id" />
+                                    </group>
+                                </sheet>
+                            </form> -->
+                        </field>
+                    </page>
+                    <page string="Profitability Tab" name="profitability_tab" invisible="not is_create_job">
+                        <group>
+                            <field name="total_untaxed" readonly="1" />
+                            <field name="total_taxed" readonly="1" />
+                            <field name="total_payroll_net" readonly="1" />
+                            <field name="profitability" readonly="1" />
+                        </group>
+                        <group>
+                            <!-- <label string="Notes" /> -->
+                            <!-- <div>
+                                <p t-esc="'Income is sum of posted invoices from Sales Orders confirmed from CRM quotations. Payroll is sum of net wages for employees linked via applicant lines.'" />
+                            </div> -->
+                        </group>
+                    </page>
+                    <page string="Job Description &amp; Recruitment Tracking" name="job_description" invisible="not is_create_job">
+                        <field name="job_desc" />
+                    </page>
+                </xpath>
+                <!--                <xpath expr="//notebook" position="inside">-->
+                <!--                    <page string="Cost Analysis" name="cost_analysis_details" invisible="not is_create_job">-->
+                <!--                        <group>-->
+                <!--                            <group name="cost_analysis" string="Cost Analysis">-->
+                <!--                                <field name="candidate_type"/>-->
+                <!--                                <field name="package"/>-->
+                <!--                                <field name="invoice_period"/>-->
+                <!--                                <field name="total_monthly_cost"/>-->
+                <!--                                <field name="net_monthly_salary"/>-->
+                <!--                                <field name="yearly_employee_cost"/>-->
+                <!--                            </group>-->
+                <!--                            <group></group>-->
+                <!--                        </group>-->
+                <!--                        <group>-->
+                <!--                            <group string="Basic Salary Components">-->
+                <!--                                <field name="basic"/>-->
+                <!--                                <field name="housing"/>-->
+                <!--                                <field name="transportation"/>-->
+                <!--                                <field name="vac_salary"/>-->
+                <!--                                <field name="end_of_service"/>-->
+                <!--                            </group>-->
+                <!--                            <group string="Health Insurance">-->
+                <!--                                <field name="employee_health"/>-->
+                <!--                                <field name="spouse_health_insurance"/>-->
+                <!--                                <field name="kids_health_insurance"/>-->
+                <!--                            </group>-->
+                <!--                        </group>-->
+                <!--                        <group>-->
+                <!--                            <group string="Travel Benefits">-->
+                <!--                                <field name="employee_annual_flight_ticket"/>-->
+                <!--                                <field name="wife_annual_flight_ticket"/>-->
+                <!--                                <field name="child_flight_ticket"/>-->
+                <!--                            </group>-->
+                <!--                            <group string="Government Fees">-->
+                <!--                                <field name="gosi"/>-->
+                <!--                                <field name="saudization"/>-->
+                <!--                                <field name="iqama_fees"/>-->
+                <!--                                <field name="iqama_transfer_fees"/>-->
+                <!--                                <field name="mobilization_cost"/>-->
+                <!--                                <field name="ajeer"/>-->
+                <!--                                <field name="exit_reentry"/>-->
+                <!--                                <field name="profile_fees"/>-->
+                <!--                            </group>-->
+                <!--                        </group>-->
+                <!--                    </page>-->
+                <!--                </xpath>-->
+            </field>
+        </record>
+        <record id="job_position_wizard_form_view" model="ir.ui.view">
+            <field name="name">job.position.wizard.form.view</field>
+            <field name="model">job.position.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Job">
+                    <field name="active" invisible="1" />
+                    <field name="company_id" invisible="1" />
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" />
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active" />
+                        <div class="oe_title">
+                            <label for="name" />
+                            <h1>
+                                <field name="name" options="{'line_breaks': False}" widget="text" placeholder="e.g. Sales Manager" required="1" />
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page string="Recruitment" name="recruitment_page">
+                                <group>
+                                    <group name="recruitment">
+                                        <field name="recruitment_process" />
+                                        <field name="lead_id" invisible="1" />
+                                        <field name="company_id" options="{'no_create': True}" invisible="1" groups="base.group_multi_company" />
+                                        <field name="department_id" />
+                                        <label for="address_id" />
+                                        <div class="o_row">
+                                            <span invisible="address_id" class="oe_read_only">Remote</span>
+                                            <field name="address_id" context="{'show_address': 1}" placeholder="Remote" />
+                                        </div>
+                                        <label for="alias_name" string="Email Alias" help="Define a specific contact address for this job position. If you keep it empty, the default email address will be used which is in human resources settings" />
+                                        <div name="alias_def">
+                                            <field name="alias_id" class="oe_read_only" string="Email Alias" required="0" />
+                                            <div class="oe_edit_only" name="edit_alias">
+                                                <field name="alias_name" required="0" class="oe_inline" />@
+                                                <field name="alias_domain_id" class="oe_inline" required="0" placeholder="e.g. domain.com" options="{'no_create': True, 'no_open': True}" />
+                                            </div>
+                                        </div>
+                                        <field name="client_name" />
+                                        <field name="position_title" />
+                                        <field name="experience_level" />
+                                        <field name="preferred_industry" />
+                                        <field name="contract_type_id" />
+                                    </group>
+                                    <group name="recruitment2">
+                                        <label for="no_of_recruitment" />
+                                        <div class="o_row" name="recruitment_target">
+                                            <field name="no_of_recruitment" class="o_hr_narrow_field" />
+                                            <span>new Employees</span>
+                                        </div>
+                                        <field name="user_id" widget="many2one_avatar_user" />
+                                        <field name="interviewer_ids" widget="many2many_tags_avatar" options="{'no_create': True, 'no_create_edit': True}" />
+                                        <field name="nationality_requirement" />
+                                        <field name="salary_range" />
+                                        <field name="job_location" />
+                                        <field name="onsite_remote" />
+                                        <field name="permanent_contract" />
+                                        <field name="bidding_stage" />
+                                    </group>
+                                </group>
+                            </page>
+                           <!--  <page string="Job Summary" name="job_description_page">
+                                <field name="description" options="{'collaborative': true}" />
+                            </page> -->
+                            <page string="Applicant Details" name="applicant_information_page" invisible="recruitment_process != 'direct_recruitment'">
+                                <group>
+                                    <group name="applicant">
+                                        <field name="applicant_name" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_email" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_phone" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_nationality" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_current_location" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_experience" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_profession" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_current_salary" required="recruitment_process == 'direct_recruitment'" />
+                                    </group>
+                                    <group name="applicant2">
+                                        <field name="applicant_qualification" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_current_company" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_position" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_notice_period" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_salary_expectation" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_dependent" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_number_iqama" required="recruitment_process == 'direct_recruitment'" />
+                                        <field name="applicant_resume" required="recruitment_process == 'direct_recruitment'" />
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Job Description &amp; Recruitment Tracking" name="job_description" required="1">
+                                <field name="job_description" required="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string="Create" class="btn btn-primary" type="object" name="action_create_job" data-hotkey="q" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

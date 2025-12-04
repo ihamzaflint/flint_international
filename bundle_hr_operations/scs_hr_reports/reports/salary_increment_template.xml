@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_salary_increment_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_top"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_top"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="text-align:center;" class="border_left border_right">
+                                    <u><h2>Salary Increment</h2></u>
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:center;" class="border_right">
+                                    <u><h2>زيـــــادة راتـــب</h2></u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right"><br/></td>
+                                <td width="50%" colspan="2" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;" class="border_left border_right border_top border_bottom">
+                                    THIS AMENDMENT is made on <span style="border-bottom:1px dotted;" t-esc="o.effective_date"/>, Gfor the purpose of revising the salary in contract known as Employment Contract (“Original Contract”) between
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;" class="border_right border_top border_bottom">
+                                    تم إجراء هذا التعديل في <span style="border-bottom:1px dotted;" t-esc="o.effective_date"/> بغرض مراجعة الراتب في العقد المعروف باسم عقد العمل ("العقد الأصلي") بين كل من:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="35%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Compnay Name</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>(“1st Party”)</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>("الطرف الأول")</b>
+                                </td>
+                                <td width="35%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>اسم الشركة</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="35%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>And Mr/s</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>(“2nd Party”)</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>( الطرف الثاني)</b>
+                                </td>
+                                <td width="35%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>و السيد/ة</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="3%" class="border_left border_bottom" style="padding-left:5px;">
+                                    1.
+                                </td>
+                                <td width="47%" class="border_right border_bottom" style="padding-left:5px;">
+                                    The Original Contract, already signed here to as a part of this amendment, is described in it.  The parties agree to revise the salary as described for the same period; which will begin immediately w.e.f ......2023 G. as following.
+                                </td>
+                                <td width="47%" class="border_bottom" style="text-align:right;padding-right:5px;">
+                                    تم وصف العقد الأصلي ، الذي تم توقيعه بالفعل كجزء من هذا التعديل وقد وافق كل الأطراف على مراجعة الراتب كما هو موضح في نفس الفترة. والتي ستبدأ على الفور من تاريخ ....... 2023م، كالتالي: 
+                                </td>
+                                <td width="3%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    .1
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="15%" class="border_right border_left border_bottom"></td>
+                                <td width="25%" style="background:#CCD1D1 !important;text-align:center;" class="border_right border_bottom">
+                                    New
+                                </td>
+                                <td width="10%" class="border_bottom border_right"></td>
+                                <td width="10%" class="border_bottom border_right"></td>
+                                <td width="25%" style="background:#CCD1D1 !important;text-align:center;" class="border_bottom border_right">
+                                    جديد
+                                </td>
+                                <td width="15%" class="border_bottom border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    <b>Basic:</b>
+                                </td>
+                                <td width="25%" class="border_right border_bottom">
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="padding-left:5px;">
+                                    SR.
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    ريال سعودي
+                                </td>
+                                <td width="25%" class="border_bottom border_right">
+                                </td>
+                                <td width="15%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    الراتب الاساسي:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    <b>Housing:</b>
+                                </td>
+                                <td width="25%" class="border_right border_bottom">
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="padding-left:5px;">
+                                    SR.
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    ريال سعودي
+                                </td>
+                                <td width="25%" class="border_bottom border_right">
+                                </td>
+                                <td width="15%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    بدل السكن :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    <b>Transportation:</b>
+                                </td>
+                                <td width="25%" class="border_right border_bottom">
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="padding-left:5px;">
+                                    SR.
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    ريال سعودي
+                                </td>
+                                <td width="25%" class="border_bottom border_right">
+                                </td>
+                                <td width="15%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    بدل نقل  :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    <b>Others:</b>
+                                </td>
+                                <td width="25%" class="border_right border_bottom">
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="padding-left:5px;">
+                                    SR.
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    ريال سعودي
+                                </td>
+                                <td width="25%" class="border_bottom border_right">
+                                </td>
+                                <td width="15%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    أخرى:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" class="border_right border_left border_bottom" style="padding-left:5px;background:#CCD1D1 !important;">
+                                    <b>Total</b>
+                                </td>
+                                <td width="25%" class="border_right border_bottom" style="background:#CCD1D1 !important;">
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="padding-left:5px;background:#CCD1D1 !important;">
+                                    <b>SR.</b>
+                                </td>
+                                <td width="10%" class="border_bottom border_right" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;">
+                                    ريال سعودي
+                                </td>
+                                <td width="25%" class="border_bottom border_right" style="background:#CCD1D1 !important;">
+                                </td>
+                                <td width="15%" class="border_bottom border_right" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;">
+                                    <b>الاجمالي :</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="3%" class="border_bottom border_left" style="padding-left:5px;">
+                                    <b>2.</b>
+                                </td>
+                                <td width="47%" class="border_bottom border_right" style="padding-left:5px;">
+                                    The Employee must receive his vacation during the employment year, cannot be carry forward to next employment year, will be lapsed otherwise
+                                </td>
+                                <td width="47%" class="border_bottom" style="text-align:right;padding-right:5px;">
+                                    يجب على الموظف الاستفادة من إجازته خلال سنة التوظيف ، ولا يمكن ترحيله إلى عام التوظيف التالي ، و الا سيتم اسقاطها.
+                                </td>
+                                <td width="3%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    .2
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" class="border_bottom border_left" style="padding-left:5px;">
+                                    <b>3.</b>
+                                </td>
+                                <td width="47%" class="border_bottom border_right" style="padding-left:5px;">
+                                    This amendment binds and benefits both parties and any successors or assigns.
+                                </td>
+                                <td width="47%" class="border_bottom" style="text-align:right;padding-right:5px;">
+                                    تعتمد هذه الوثيقة بعد التوقيع عليها من قبل الطرفين
+                                </td>
+                                <td width="3%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    .3
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" class="border_bottom border_left" style="padding-left:5px;">
+                                    <b>4.</b>
+                                </td>
+                                <td width="47%" class="border_bottom border_right" style="padding-left:5px;">
+                                    This document, including the attached Original Contract, is the entire agreement between the Parties.
+                                </td>
+                                <td width="47%" class="border_bottom" style="text-align:right;padding-right:5px;">
+                                    هذه الوثيقة وبما في ذلك العقد الاصلي هو مجمل الاتفاق بين الطرفين.
+                                </td>
+                                <td width="3%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    .4
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" class="border_bottom border_left" style="padding-left:5px;">
+                                    <b>5.</b>
+                                </td>
+                                <td width="47%" class="border_bottom border_right" style="padding-left:5px;">
+                                    All other terms and conditions of the Original Contract remain unchanged
+                                </td>
+                                <td width="47%" class="border_bottom" style="text-align:right;padding-right:5px;">
+                                    جميع احكام وشروط العقد الاصلي الاخرى تبقي كما هي دون تغيير.
+                                </td>
+                                <td width="3%" class="border_bottom border_right" style="text-align:right;padding-right:5px;">
+                                    .5
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="10%"></td>
+                                <td width="40%" class="border_bottom border_top border_left border_right" style="text-align:center;">
+                                    أسم الشركة<br/>Company name
+                                </td>
+                                <td width="40%" class="border_bottom border_top border_right" style="text-align:center;">
+                                    الاسم<br/>Name
+                                </td>
+                                <td width="10%"></td>
+                            </tr>
+                            <tr>
+                                <td width="10%"></td>
+                                <td width="40%" class="border_bottom border_left border_right">
+                                    <br/>
+                                </td>
+                                <td width="40%" class="border_bottom border_right">
+                                </td>
+                                <td width="10%"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_action_salary_increment" model="ir.actions.report">
+        <field name="name">Salary Increment</field>
+        <field name="model">hr.salary.increment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_salary_increment_template</field>
+        <field name="print_report_name">'Salary Increment Report'</field>
+        <field name="binding_model_id" ref="hr_salary_increment.model_hr_salary_increment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

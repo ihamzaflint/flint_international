@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Server Action to Fix Orphaned Attachments -->
+        <record id="action_fix_orphaned_attachments" model="ir.actions.server">
+            <field name="name">Fix Orphaned Attachments</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">
+# Fix orphaned attachments
+orphaned_attachments = env['ir.attachment'].sudo().search([
+    ('res_model', '=', 'hr.employee'),
+    ('res_id', '=', 0),
+])
+
+fixed_count = 0
+for attachment in orphaned_attachments:
+    # Try to find the employee by checking if the attachment is in their passport_copy field
+    employee = env['hr.employee'].sudo().search([
+        ('passport_copy', 'in', attachment.id)
+    ], limit=1)
+    
+    if employee:
+        attachment.write({
+            'res_id': employee.id,
+            'public': True,
+        })
+        fixed_count += 1
+
+# Show result
+if fixed_count > 0:
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Success',
+            'message': f'Fixed {fixed_count} orphaned attachments successfully.',
+            'type': 'success',
+        }
+    }
+else:
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Info',
+            'message': 'No orphaned attachments found.',
+            'type': 'info',
+        }
+    }
+            </field>
+        </record>
+
+        <!-- Server Action to Check and Fix User Access Rights -->
+        <record id="action_check_user_access_rights" model="ir.actions.server">
+            <field name="name">Check User Access Rights</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">
+# Check and fix user access rights for attachments
+users_without_hr_access = env['res.users'].search([
+    ('active', '=', True),
+    ('groups_id', 'not in', [env.ref('hr.group_hr_user').id])
+])
+
+hr_group = env.ref('hr.group_hr_user')
+fixed_users = 0
+
+for user in users_without_hr_access:
+    # Add HR user group if they need access to employee records
+    if user.has_group('base.group_user'):
+        user.write({'groups_id': [(4, hr_group.id)]})
+        fixed_users += 1
+
+# Fix attachment access rights
+env['hr.employee']._check_attachment_access_rights()
+
+# Show result
+if fixed_users > 0:
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Success',
+            'message': f'Fixed access rights for {fixed_users} users and checked attachment access.',
+            'type': 'success',
+        }
+    }
+else:
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Info',
+            'message': 'All users have proper access rights.',
+            'type': 'info',
+        }
+    }
+            </field>
+        </record>
+    </data>
+</odoo> 

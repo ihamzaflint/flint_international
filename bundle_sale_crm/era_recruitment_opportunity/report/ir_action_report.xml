@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="performance_report_action" model="ir.actions.report">
+        <field name="name">Performance Report</field>
+        <field name="model">applicant.line</field>
+        <field name="report_name">era_recruitment_opportunity.performance_report_pdf</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_file">era_recruitment_opportunity.performance_report_pdf</field>
+        <field name="print_report_name">'Performance_report' + (object.name or '')</field>
+    </record>
+
+</odoo>

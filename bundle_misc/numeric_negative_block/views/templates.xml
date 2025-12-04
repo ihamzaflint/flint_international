@@ -1,0 +1,8 @@
+<odoo>
+    <template id="assets_backend" name="Field Assets Backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/numeric_negative_block/static/src/js/numeric.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

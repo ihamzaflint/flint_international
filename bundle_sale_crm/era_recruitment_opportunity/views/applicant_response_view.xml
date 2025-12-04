@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_applicant_response">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-5">
+                <h3>Application Update</h3>
+                <p>Thank you,<strong t-esc="applicant_name"/>.
+                </p>
+                <p>Your response has been recorded as:
+                    <strong t-esc="response"/>
+                </p>
+                <a href="/" class="btn btn-primary mt-3">Go to Home</a>
+            </div>
+        </t>
+    </template>
+</odoo>

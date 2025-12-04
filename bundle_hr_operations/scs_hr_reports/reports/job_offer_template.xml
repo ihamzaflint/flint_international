@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_job_offer_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <center><h2>JOB OFFER</h2></center>
+                        <center><h2>عرض وظيفي</h2></center>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>P.F#</b>  <span t-esc="o.file_number"/>
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;" class="border_right border_top">
+                                    <b><span t-esc="datetime.datetime.today().date()"/></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;" class="border_top border_left border_right">
+                                    <b>Dear</b>  <span t-esc="o.partner_name"/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_top"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;" class="border_top border_left border_right">
+                                    On Behalf of Flint Consulting Saudi, we are pleased to offer you a position with as detailed below:
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    نيابة عن فلنت كونسلتنغ السعودية يسرنا ان نتقدم لكم بهذا العرض الوظيفي للعمل حسب التفاصيل التالية:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Position:</b>
+                                </td>
+                                <td width="35%" style="padding-left:5px;" class="border_top border_right">
+                                    <span t-esc="o.job_id.name"/>
+                                </td>
+                                <td width="35%" class="border_top border_right"></td>
+                                <td width="15%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>الوظيفة:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" style="text-align:center" class="border_left border_top border_right">
+                                    <b>Work Location</b>
+                                </td>
+                                <td width="35%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <span t-esc="o.work_location_id.name"/>
+                                </td>
+                                <td width="35%" class="border_top border_right" style="padding-left:5px;"></td>
+                                <td width="15%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>مكان العمل:</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="3" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Salary and benefits:</b>
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>الراتب والمزايا:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    Basic Monthly Salary:
+                                </td>
+                                <td width="10%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <span t-esc="o.basic_monthly_sal"/>
+                                </td>
+                                <td width="15%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    SAR Per Month 
+                                </td>
+                                <td width="15%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    ريال سعودي شهرياً
+                                </td>
+                                <td width="10%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <span t-esc="o.basic_monthly_sal"/>
+                                </td>
+                                <td width="25%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    الراتب الاساسي:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    Housing Allowance:
+                                </td>
+                                <td width="10%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <span t-esc="o.housing_alw"/>
+                                </td>
+                                <td width="15%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    SAR Per Month 
+                                </td>
+                                <td width="15%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    ريال سعودي شهرياً
+                                </td>
+                                <td width="10%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <span t-esc="o.housing_alw"/>
+                                </td>
+                                <td width="25%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    بدل سكن :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    Transportation  Allowance:
+                                </td>
+                                <td width="10%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <span t-esc="o.transportation_alw"/>
+                                </td>
+                                <td width="15%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    SAR Per Month 
+                                </td>
+                                <td width="15%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    ريال سعودي شهرياً
+                                </td>
+                                <td width="10%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <span t-esc="o.transportation_alw"/>
+                                </td>
+                                <td width="25%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    بدل نقل:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="text-align:right;padding-right:5px;" class="border_left border_top border_right">
+                                    <b>Total</b>
+                                </td>
+                                <td width="10%" style="background:black !important;color:white !important;" class="border_top border_right"></td>
+                                <td width="15%" style="padding-left:5px;background:black !important;color:white !important;" class="border_top border_right">
+                                    <b>SAR Per Month</b>
+                                </td>
+                                <td width="15%" style="text-align:right;padding-right:5px;background:black !important;color:white !important;" class="border_top border_right">
+                                    <b>ريال سعودي شهرياً</b>
+                                </td>
+                                <td width="10%" style="background:black !important;color:white !important;" class="border_top border_right"></td>
+                                <td width="25%" style="text-align:left;padding-left:5px;" class="border_top border_right">
+                                    <b>الاجمالي</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="text-align:right;padding-right:5px;" class="border_left border_top border_right">
+                                    <b>Contract Status:</b>
+                                </td>
+                                <td width="25%" colspan="2" style="padding-left:5px;" class="border_top border_right">
+                                    <span t-esc="o.contract_status"/>
+                                </td>
+                                <td width="25%" colspan="2" style="padding-right:5px;" class="border_top border_right">
+                                    <span t-esc="o.contract_status"/>
+                                </td>
+                                <td width="25%" style="text-align:left;padding-left:5px;" class="border_top border_right">
+                                    <b>حالة العقد :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="3" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Medical Care :</b> <span t-esc="o.medical_care"/>
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>التأمين الطبي :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="3" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Vacation : </b> <span t-esc="o.vacation"/>
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>الاجازة:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="3" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Travel ticket :</b> <span t-esc="o.travel_ticket"/>
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>تذكرة السفر:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="3" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Probation Period :</b> <span t-esc="o.probation_period"/>
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>فترة التجربة  :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="3" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Contract Duration :</b> <span t-esc="o.contract_duration"/>
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>مدة العقد :</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;background:#CCD1D1 !important;" class="border_left border_top border_right">
+                                    <b>Other Conditions:</b>
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <b>بنود اخري :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" style="text-align:right;padding-right:5px;" class="border_left border_top">
+                                    -
+                                </td>
+                                <td width="47%" style="padding-left:5px;" class="border_top border_right">
+                                    The contract is abiding by the continuation of the contract between company and our project and ends upon completion or termination of the contract between the company and project.
+                                </td>
+                                <td width="47%" style="text-align:right;padding-right:5px;" class="border_top">
+                                    العقد مرتبط باستمرار الشركة مع المشروع  وينتهي بانتهاء التعاقد بين الشركة و الطرف الاخر المشروع .
+                                </td>
+                                <td width="3%" style="padding-left:5px;" class="border_top border_right">
+                                    -
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" style="text-align:right;padding-right:5px;" class="border_left">
+                                    -
+                                </td>
+                                <td width="47%" style="padding-left:5px;" class="border_right">
+                                    The employee has no right to directly or indirectly perform any job or employment with any other Company whether with or without pay.
+                                </td>
+                                <td width="47%" style="text-align:right;padding-right:5px;">
+                                    لا يحق للموظف القيام بأي عمل أو وظيفة مع أي شركة أخرى بشكل مباشر أو غير مباشر سواء بأجر أو بدون أجر.
+                                </td>
+                                <td width="3%" style="padding-left:5px;" class="border_right">
+                                    -
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" style="text-align:right;padding-right:5px;" class="border_left">
+                                    -
+                                </td>
+                                <td width="47%" style="padding-left:5px;" class="border_right">
+                                    This job offer is valid and acquires legal status after the transfer of sponsorship and Signing the contract between the two parties.
+                                </td>
+                                <td width="47%" style="text-align:right;padding-right:5px;">
+                                    يعمل  بهذا العرض الوظيفي ويكتسب الصفة القانونية بعد نقل الكفالة و توقيع العقد بين الطرفين.
+                                </td>
+                                <td width="3%" style="padding-left:5px;" class="border_right">
+                                    -
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="3%" style="text-align:right;padding-right:5px;" class="border_left">
+                                    -
+                                </td>
+                                <td width="47%" style="padding-left:5px;" class="border_right">
+                                    You will be responsible for all personal and dependents taxes/Levies
+                                </td>
+                                <td width="47%" style="text-align:right;padding-right:5px;">
+                                    كل الضرائب الشخصية والاسرية علي مسئولية الموظف.
+                                </td>
+                                <td width="3%" style="padding-left:5px;" class="border_right">
+                                    -
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;background:#CCD1D1 !important;" class="border_left border_top border_right">
+                                    <b>Your employment with our company is subject to:</b>
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top border_right">
+                                    <b>يتوقف انتهاء اجراءات توظيفكم معنا علي الاتي:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="5%" style="text-align:right;padding-right:10px;background:#CCD1D1 !important;" class="border_left border_top">
+                                    -
+                                </td>
+                                <td width="45%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_right border_top">
+                                    Completion of pre-employment documents including Reference Check, Job Application Forms and submission of all relevant educational and work experience certificates
+                                </td>
+                                <td width="45%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;" class="border_top">
+                                    اكمال كافة الوثائق قبل التوظيف بما في ذلك نماذج طلبات التوظيف وتقديم جميع شهادات الخبرة التعليمية والعملية ذات الصلة و التحقق من المرجعية .
+                                </td>
+                                <td width="5%" style="padding-left:10px;background:#CCD1D1 !important;" class="border_right border_top">
+                                    -
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="5%" style="text-align:right;padding-right:10px;background:#CCD1D1 !important;" class="border_left">
+                                    -
+                                </td>
+                                <td width="45%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_right">
+                                    Bring the consent of the previous sponsor.
+                                </td>
+                                <td width="45%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;">
+                                    إحضار موافقة الكفيل السابق.
+                                </td>
+                                <td width="5%" style="padding-left:10px;background:#CCD1D1 !important;" class="border_right">
+                                    -
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="5%" style="text-align:right;padding-right:10px;background:#CCD1D1 !important;" class="border_left">
+                                    -
+                                </td>
+                                <td width="45%" style="padding-left:5px;background:#CCD1D1 !important;" class="border_right">
+                                    Your signing of the employment contract
+                                </td>
+                                <td width="45%" style="text-align:right;padding-right:5px;background:#CCD1D1 !important;">
+                                    التوقيع علي العقد
+                                </td>
+                                <td width="5%" style="padding-left:10px;background:#CCD1D1 !important;" class="border_right">
+                                    -
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;" class="border_left border_top border_right">
+                                    * This offer is valid for 1 week from the date of issuance
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    * العرض الوظيفي صالح لمدة اسبوع من تاريخ اصداره
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="padding-left:5px;" class="border_left border_right">
+                                    * We look forward to having you on board. For any queries please contact Mr./s ..... at telephone 011 – 4660035/78 or ..............
+                                </td>
+                                <td width="50%" colspan="2" class="border_right">
+                                    * في حال وجود أي استفسار يمكن الاتصال علي السيد/ه .....، تلفون رقم 4660035- 4330078 أو مراسلتنا عبر الايميل -  ........
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    Sincerely,
+                                </td>
+                                <td width="50%" colspan="3" style="text-align:center" class="border_top border_right">
+                                    <b>Expected Start Date</b><br/>التاريخ المتوقع للمباشرة
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                    <b>HR Department</b>
+                                </td>
+                                <td width="10%"></td>
+                                <td width="30%" style="border-bottom:1px dotted;"></td>
+                                <td width="10%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"></td>
+                                <td width="10%"></td>
+                                <td width="30%" style="text-align:right">
+                                    <b>Offer Acceptance</b>
+                                </td>
+                                <td width="10%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"></td>
+                                <td width="10%"></td>
+                                <td width="40%" colspan="2" class="border_right">
+                                    Date: التاريخ  <span style="border-bottom:1px dotted;" t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="45%" class="border_left border_top border_right"></td>
+                                <td width="5%" class="border_top"></td>
+                                <td width="5%" class="border_top">
+                                    Signature:
+                                </td>
+                                <td width="40%" style="border-bottom:1px dotted black;" class="border_top"></td>
+                                <td width="5%" class="border_top border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" class="border_left border_right border_bottom"></td>
+                                <td width="55%" colspan="4" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    التوقيع 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_action_job_offer" model="ir.actions.report">
+        <field name="name">Job Offer</field>
+        <field name="model">hr.applicant</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_job_offer_template</field>
+        <field name="print_report_name">'Job Offer Report'</field>
+        <field name="binding_model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Menu Item -->
+    <!--    <menuitem id="asset_return_report.menu_employee_device_root"-->
+    <!--              name="Employee Return Devices"-->
+    <!--              sequence="10"/>-->
+
+    <!--    <menuitem id="asset_return_report.menu_employee_device_info"-->
+    <menuitem id="asset_return_report.menu_employee_device_info"
+              name="Return"
+              parent="asset_handover_report.menu_employee_device_root"
+              action="asset_return_report.action_employee_asset_return"
+              sequence="10"/>
+</odoo>

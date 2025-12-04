@@ -1,0 +1,124 @@
+<odoo>
+
+    <template id="report_stc_entry_permit_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%"></td>
+                                <td width="15%"></td>
+                                <td width="20%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_left border_right border_top border_bottom">
+                                    <span t-esc="o.employee_id.stc_entry_permit_sequence"/>
+                                </td>
+                                <td width="15%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_right border_top border_bottom">
+                                    الرقم:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%"></td>
+                                <td width="15%"></td>
+                                <td width="20%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                                <td width="15%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    التاريخ :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%"></td>
+                                <td width="15%"></td>
+                                <td width="20%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    <span t-esc="o.employee_id.registration_number"/>
+                                </td>
+                                <td width="15%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    رقم الملف :
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    السادة / <span style="border-bottom:1px dotted black;" t-esc="o.address_to_whom_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                   ،،،المحترمين
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    ،،،السلام عليكم ورحمة الله وبركاته
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    : تحية طيبة وبعد 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                     نفيدكم بأن السيد / .<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_name"/> ، <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.country_name_arabic"/>.  الجنسية  ، يحمل إقامة رقم (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.visa_no"/>)                         يعمل لدينا و تحت كفالتنا بوظيفة(<span style="border-bottom:1px dotted black;" t-esc="o.muqeem_profession"/>) ولقد أعطي هذا الخطاب من اجل الحصول على تصريح الدخول .وقد تم اغلاق الخطاب قبل علامة الفاصلة ، الشكر لكم مسبقا على حسن تعاونكم معنا .
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    ،،،وتفضلوا بقبول فائق الاحترام والتقدير ،،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%">
+                                    مدير ادراة الموارد البشرية
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_stc_entry_permit" model="ir.actions.report">
+        <field name="name">STC Entry Permit</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_stc_entry_permit_template</field>
+        <field name="print_report_name">'STC Entry Permit'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

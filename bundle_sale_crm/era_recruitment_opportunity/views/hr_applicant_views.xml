@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="hr_applicant_view_form_applicant_details" model="ir.ui.view">
+            <field name="name">hr.applicant.form.applicant.details</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <field name="available_stage_ids" invisible="1"/>
+                    <button name="action_open_recruitment" class="oe_stat_button" icon="fa-briefcase" type="object"
+                            invisible="recruitment_order_count == 0">
+                        <div class="o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="recruitment_order_count" widget="statinfo"/>
+                            </span>
+                        </div>
+                    </button>
+                </xpath>
+                <notebook position="inside">
+                    <page string="Applicant Details">
+                        <group>
+                            <group>
+                                <field name="nationality"/>
+                                <field name="current_location"/>
+                                <field name="experience"/>
+                                <field name="qualification"/>
+                                <field name="current_company"/>
+                            </group>
+                            <group>
+                                <field name="position"/>
+                                <field name="notice_period"/>
+                                <field name="dependent"/>
+                                <field name="profession"/>
+                                <field name="number_iqama"/>
+                                <field name="current_salary"/>
+                                <field name="resume"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_contract_benefit_view_inherit" model="ir.ui.view">
+        <field name="name">contract inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="contract_base.hr_contract_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <!-- <field name="structure_type_id" position="replace">
+                <field domain="[('id', 'in', active_structure_type_ids)]" invisible="schema_design != 'multi'" name="structure_type_id" options="{'no_create_edit': True,'no_create': True }" required="schema_design == 'multi'"/>
+                <field invisible="1" name="active_structure_type_ids"/>
+            </field> -->
+            <xpath expr="//group[@name='salary']" position="before">
+                <field invisible="1" name="benefit_ids"/>
+                <group>
+                    <field invisible="1" name="grade_ids"/>
+                    <field invisible="1" name="schema_domain_ids"/>
+                    <field force_save="1" name="schema_id" options="{'no_create_edit': True,'no_create': True }" readonly="sub_state not in ['draft','close','cancel'] and schema_design != 'multi'"/>
+                    <field invisible="1" name="allow_basic_salary"/>
+                    <field domain="[('id','in',grade_ids)]" force_save="1" name="salary_grade_id" options="{'no_create':1,'no_edit':1}" readonly="sub_state != 'draft'" required="True"/>
+                    <field invisible="1" name="salary_degree_ids"/>
+                    <field domain="[('id','in',salary_degree_ids)]" force_save="1" name="salary_degree_id" options="{'no_create':1,'no_edit':1}" readonly="sub_state != 'draft'" required="True"/>
+                </group>
+                <label for="non_valuable_benefit_ids" string="Non Valuable Benefits"/>
+                <field force_save="1" name="non_valuable_benefit_ids" readonly="sub_state != 'draft' or allow_basic_salary == False">
+                    <tree readonly="parent.sub_state != 'draft' or parent.allow_basic_salary == False">
+                        <field domain="[('calculation_type', '=', 'count'),('appear_on_contract','=',True),('id','in', parent.benefit_ids)]" force_save="1" name="benefit_id"/>
+                        <field invisible="1" name="calculation_type"/>
+                        <field force_save="1" name="benefit_value" string="Count"/>
+                    </tree>
+                    <form readonly="parent.sub_state != 'draft' or parent.allow_basic_salary == False">
+                        <group>
+                            <field domain="[('calculation_type', '=', 'count'),('appear_on_contract','=',True),('id','in',parent.benefit_ids)]" force_save="1" name="benefit_id"/>
+                            <field invisible="1" name="calculation_type"/>
+                            <field force_save="1" name="benefit_value" string="Count"/>
+                        </group>
+                    </form>
+                </field>
+                <label for="valuable_benefit_ids" string="Valuable Benefits"/>
+                <field force_save="1" name="valuable_benefit_ids" readonly="sub_state != 'draft' or allow_basic_salary != True">
+                    <tree readonly="parent.sub_state != 'draft' or parent.allow_basic_salary != True">
+                        <field domain="[('id','in', parent.benefit_ids)]" force_save="1" name="benefit_id" required="True"/>
+                        <field name="calculation_type" readonly="1"/>
+                        <field force_save="1" name="benefit_value" string="Value"/>
+                        <field force_save="1" name="cap" readonly="1"/>
+                        <field name="calculated_value"/>
+                    </tree>
+                    <form readonly="parent.sub_state != 'draft' or parent.allow_basic_salary != True">
+                        <group>
+                            <field domain="[('id','in', parent.benefit_ids)]" force_save="1" name="benefit_id"/>
+                            <field name="calculation_type"/>
+                            <field force_save="1" name="benefit_value" string="Value"/>
+                            <field force_save="1" name="cap"/>
+                            <field name="calculated_value"/>
+                        </group>
+                    </form>
+                </field>
+            </xpath>
+            <div name="wage" position="after">
+                <field name="gross_salary"/>
+            </div>
+            <field name="employee_id" position="before">
+                <field name="contract_template_id" readonly="id != False"/>
+                <field invisible="1" name="schema_design" readonly="1"/>
+                <!--                <field name="structure_type_id"-->
+                <!-- attrs="{'invisible':[('schema_design','!=','multi')],-->
+                <!-- 'required':[('schema_design','=','multi')]}"-->
+                <!-- domain="[]"-->
+                <!-- options="{'no_create_edit': True,'no_create': True }"/>-->
+                <field name="next_contract_id" readonly="1"/>
+                <field invisible="1" name="previous_contract_id"/>
+                <field name="is_indefinite_contract" readonly="sub_state != 'draft'"/>
+            </field>
+            <field name="employee_id" position="after">
+                <field invisible="1" name="is_first_contract"/>
+                <field name="location_id" readonly="1"/>
+            </field>
+            <!-- <xpath expr="//div[@class='o_hr_contract_state']" position="after">
+                <div class="o_kanban_record_subtitle o_hr_contract_grade_id">
+                    <field name="salary_grade_id"/>
+                </div>
+                <div class="o_kanban_record_subtitle o_hr_contract_degree_id">
+                    <field name="salary_degree_id"/>
+                </div>
+            </xpath> -->
+        </field>
+    </record>
+</odoo>

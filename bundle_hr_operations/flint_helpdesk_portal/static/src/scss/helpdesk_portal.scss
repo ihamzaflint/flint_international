@@ -1,0 +1,219 @@
+// Variables
+$input-padding-y: 0.75rem;
+$input-padding-x: 1rem;
+$input-border-radius: 0.5rem;
+$input-border-color: #e2e8f0;
+$input-focus-border-color: #3b82f6;
+$input-focus-box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+$tag-bg: #3b82f6;
+$tag-color: #ffffff;
+
+// Breakpoint Variables
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-desktop: 1200px;
+
+// Form Container
+.o_helpdesk_portal_form {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    width: 95%;
+    max-width: 1200px;
+    margin: 2rem auto;
+
+    @media (max-width: $mobile) {
+        padding: 1rem;
+        margin: 1rem auto;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    @media (min-width: $mobile + 1) and (max-width: $tablet) {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    @media (min-width: $tablet + 1) and (max-width: $desktop) {
+        padding: 2rem;
+        width: 85%;
+    }
+
+    @media (min-width: $desktop + 1) and (max-width: $large-desktop) {
+        width: 80%;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+
+        @media (max-width: $mobile) {
+            font-size: 0.8125rem;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        @media (max-width: $mobile) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// Tags Input Container
+.o_tags_input {
+    position: relative;
+    min-height: calc(1.5em + ($input-padding-y * 2) + 2px);
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    padding: $input-padding-y $input-padding-x;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+
+    @media (max-width: $mobile) {
+        padding: 0.5rem;
+    }
+
+    &:focus-within {
+        border-color: $input-focus-border-color;
+        box-shadow: $input-focus-box-shadow;
+    }
+}
+
+// Tags Section
+.o_tags_section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: $mobile) {
+        gap: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .badge {
+        background-color: $tag-bg;
+        color: $tag-color;
+        font-size: 0.875rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        @media (max-width: $mobile) {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .fa-times {
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Search Input
+.o_tags_search {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    font-size: 0.875rem;
+    color: #4b5563;
+    
+    @media (max-width: $mobile) {
+        font-size: 0.8125rem;
+    }
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+}
+
+// Dropdown
+.o_tags_dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.25rem;
+    background: #ffffff;
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+
+    @media (max-width: $mobile) {
+        max-height: 150px;
+        margin-top: 0.125rem;
+    }
+
+    &.d-block {
+        display: block;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        color: #4b5563;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        @media (max-width: $mobile) {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.8125rem;
+        }
+
+        &:hover {
+            background-color: #f3f4f6;
+        }
+
+        &.text-muted {
+            color: #9ca3af;
+            cursor: default;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+// Invalid state
+.is-invalid {
+    .o_tags_input {
+        border-color: #ef4444;
+        
+        &:focus-within {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+        }
+    }
+    
+    .invalid-feedback {
+        display: block;
+        color: #ef4444;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+
+        @media (max-width: $mobile) {
+            font-size: 0.75rem;
+            margin-top: 0.125rem;
+        }
+    }
+}

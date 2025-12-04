@@ -1,0 +1,195 @@
+<odoo>
+
+    <template id="report_extend_probation_period_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="35%" style="text-align:right;padding-right:5px;" class="border_top border_bottom border_right border_left">
+                                    التاريخ : <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                                <td width="15%"></td>
+                                <td width="50%"></td>
+                            </tr>
+                            <tr>
+                                <td width="35%" style="text-align:right;padding-right:5px;" class="border_bottom border_right border_left">
+                                    الرقم : <span t-esc="o.employee_id.extend_probation_sequence"/>
+                                </td>
+                                <td width="15%"></td>
+                                <td width="50%"></td>
+                            </tr>
+                            <tr>
+                                <td width="35%" style="text-align:right;padding-right:5px;" class="border_bottom border_right border_left">
+                                    رقم الملف  : <span t-esc="o.employee_id.registration_number"/>
+                                </td>
+                                <td width="15%"></td>
+                                <td width="50%"></td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b>تمديد فترة التجربة</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b>Extend of Probation Period</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" class="border_top border_right border_left"><br/></td>
+                                <td width="50%" class="border_top border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="padding-left:5px;">
+                                    <b>Dear / <span t-esc="o.employee_id.name"/></b>
+                                </td>
+                                <td width="50%" class="border_right" style="text-align:right;padding-right:5px;">
+                                    <b>السيد/ة <span t-esc="o.employee_id.muqeem_name"/></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                    According to the provisions and the section of the contract between you and the group dated <span style="border-bottom:1px dotted black;" t-esc="o.probation_extend_date"/> G, And according to the Labor law article no fifty-four subjugate to working experience and based on performance reports for the period.
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right">
+                                    طبفا لإحكام ونصوص العقد المبرم بينكم وبين المجموعة بتاريخ <span style="border-bottom:1px dotted black;" t-esc="o.probation_extend_date"/>م، ووفقاً لنظام العمل والعمال المادة الرابعة والخمسون الخاصة بي إخضاع العامل لفترة تجربة اخرى وبناءاً علي تقارير الأداء للفترة السابقة.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    We  would like to inform you that we are going to extend the probation period for a similar period that starts by ends of the first one, hopefully sufficient cause to prove your presence.
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    عليه نود أن نحيطكم علماً بتمديد فترة التجربة وذلك لمدة مماثلة إبتداءأ من تاريخ إنتهاء الفترة الاولي ،  نأمل أن يكون ذلك سببًا كافيةَ لاثبات وجودكم  بشكل اكبر.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    Sincerely
+                                </td>
+                                <td width="50%" class="border_right" style="padding-left:5px;">
+                                    مع خالص الشكر،،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="padding-left:5px;">
+                                    <b>Dear / </b>
+                                </td>
+                                <td width="50%" class="border_right" style="text-align:right;padding-right:5px;">
+                                    <b>السيد/ه</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Signature :
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    التوقيع :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Date :
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    التاريخ :
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" style="text-align:center;" class="border_left border_right border_top">
+                                    <u>HR Department</u>
+                                </td>
+                                <td width="50%" class="border_right border_top" style="text-align:center;">
+                                    <u>إدارة الموارد البشرية</u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Signature :
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    التوقيع :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Date :
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    التاريخ :
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_extend_probation_period" model="ir.actions.report">
+        <field name="name">Extend Probation Period</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_extend_probation_period_template</field>
+        <field name="print_report_name">'Extend Probation Period'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+       <record id="seq_itq_attendance_fp_config" model="ir.sequence">
+           <field name="name">Fingerprint Sequence</field>
+           <field name="code">itq.attendance.fp.config</field>
+           <field name="padding">3</field>
+       </record>
+    </data>
+</odoo>

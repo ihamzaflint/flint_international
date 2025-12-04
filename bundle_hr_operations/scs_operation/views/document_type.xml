@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="scs_operation.document_type_view_form" model="ir.ui.view">
+            <field name="name">scs_operation document_type_view_form</field>
+            <field name="model">document.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" string="State" widget="statusbar"/>
+                        <button name="button_activate" string="Activate" type="object" invisible="state == 'active'"
+                                class="btn-primary"/>
+                        <button name="button_draft" string="Reset to Draft" type="object" invisible="state == 'draft'"
+                                class="btn-secondary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" force_save="1" readonly="state == 'active'"/>
+                            </group>
+                            <group>
+                                <field name="code" force_save="1" readonly="state == 'active'"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="scs_operation.document_type_view_list" model="ir.ui.view">
+            <field name="name">scs_operation document_type_view_list</field>
+            <field name="model">document.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" optional="show"/>
+                    <field name="code" optional="show"/>
+                    <field name="state" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="scs_operation.document_type_view_search" model="ir.ui.view">
+            <field name="name">scs_operation document_type_view_search</field>
+            <field name="model">document.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="scs_operation.document_type_action" model="ir.actions.act_window">
+            <field name="name">Document Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">document.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

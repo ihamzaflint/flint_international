@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- ===================== Form View ===================== -->
+        <record id="view_loan_application_form" model="ir.ui.view">
+            <field name="name">loan.application.form</field>
+            <field name="model">loan.application</field>
+            <field name="arch" type="xml">
+                <form string="Loan Application">
+                    <header>
+                        <button name="action_draft" string="Draft" type="object" class="btn-success"
+                                invisible="state in ['draft','confirm']"/>
+                        <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                                invisible="state in ['confirm']"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <sheet>
+                        <!-- Application Basic Info -->
+                        <group string="Application Info" >
+                            <group >
+                                <field name="application_number" force_save="1" readonly="state in ['confirm']"/>
+                            </group>
+                            <group >
+                                <field name="application_year" force_save="1" readonly="state in ['confirm']"/>
+                            </group>
+                        </group>
+                        <group string="Employee ID" >
+                            <field name="employee_id" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <!-- Employee Details (English | Arabic side by side) -->
+                        <group>
+                            <group string="English Info">
+                                <field name="name" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="nationality" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="employee_number" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="id_number" force_save="1" readonly="state in ['confirm']"/>
+                            </group>
+                            <group string="Arabic Info">
+                                <field name="name_ar" force_save="1" readonly="state in ['confirm']"/>
+                            </group>
+                        </group>
+
+                        <!-- Common Employee & Job Info -->
+                        <group string="Job and Bank Info" colspan="4">
+                            <group>
+                                <field name="file_number" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="account_number" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="actual_job_role" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="department_project" force_save="1" readonly="state in ['confirm']"/>
+                            </group>
+                            <group>
+                                <field name="employment_status" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="employment_date" force_save="1" readonly="state in ['confirm']"/>
+                                <field name="employment_contract" force_save="1" readonly="state in ['confirm']"/>
+                            </group>
+                        </group>
+
+                        <!-- Salary Information -->
+                        <group string="Salary Info" colspan="4">
+                            <field name="salary_transfer_date" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <!-- Loan Application Lines -->
+                        <notebook string="Loan Application" name="loan_application">
+                            <page string="Loan Application Lines" name="loan_application_lines">
+                                <field name="loan_application_line_ids" force_save="1" readonly="state in ['confirm']">
+                                    <tree editable="bottom">
+                                        <field name="allowance_name_en"/>
+                                        <field name="allowance_name_ar"/>
+                                        <field name="allowance_amount" sum="Total"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!-- ===================== Tree View ===================== -->
+        <record id="view_loan_application_tree" model="ir.ui.view">
+            <field name="name">loan.application.tree</field>
+            <field name="model">loan.application</field>
+            <field name="arch" type="xml">
+                <tree string="Loan Applications" default_order="application_number desc">
+                    <field name="application_number"/>
+                    <field name="application_year" optional="show"/>
+                    <field name="file_number" optional="show"/>
+                    <!--                    <field name="employee_name"/>-->
+                    <field name="actual_job_role" optional="show"/>
+                    <field name="department_project" optional="show"/>
+                    <field name="salary_transfer_date" optional="show"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!-- ===================== Action & Menu ===================== -->
+        <record id="action_loan_application" model="ir.actions.act_window">
+            <field name="name">Loan Applications</field>
+            <field name="res_model">loan.application</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

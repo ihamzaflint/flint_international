@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--inherit and add groups for cancel button in sale order-->
+    <record id="hr_payslip_run_action_validate_group" model="ir.ui.view">
+        <field name="name">hr.payslip.run.action.validate.group</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+            <button name="action_validate" position="attributes">
+                <attribute name="groups">hr_payroll_batch_group.group_payroll_create_entries</attribute>
+            </button>
+        </field>
+    </record>
+
+    <record id="hr_payslip_action_payslip_done" model="ir.ui.view">
+        <field name="name">hr.payslip.action.payslip.done</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <button name="action_payslip_done" position="attributes">
+                <attribute name="groups">hr_payroll_batch_group.group_payroll_create_entries</attribute>
+            </button>
+        </field>
+    </record>
+
+    <record id="hr_payslip_tree_sum_basic_net_wage" model="ir.ui.view">
+        <field name="name">hr.payslip.sum.basic.net.wage</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='basic_wage']" position="replace">
+                <field name="basic_wage" sum="Total basic wage" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='net_wage']" position="replace">
+                <field name="net_wage" sum="Total net wage" widget="monetary" options="{'currency_field': 'currency_id'}" decoration-bf="1" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

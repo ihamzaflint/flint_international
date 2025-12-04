@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Menu Item -->
+    <menuitem id="asset_handover_report.menu_employee_device_root"
+              name="Asset Management"
+              web_icon="asset_handover_report,static/src/img/icon.png"
+              groups="group_asset_handover_return"
+    />
+
+    <menuitem id="asset_handover_report.menu_employee_device_info"
+              name="Handover"
+              parent="asset_handover_report.menu_employee_device_root"
+              action="asset_handover_report.action_employee_asset_handover"
+              sequence="10"/>
+</odoo>

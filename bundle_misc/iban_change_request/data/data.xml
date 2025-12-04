@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="iban_change_request" model="ir.sequence">
+        <field name="name">iban.change.request.seq.</field>
+        <field name="code">iban_request</field>
+        <field name="prefix">IBAN CHANGE REQ./</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

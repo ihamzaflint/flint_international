@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright <2020> PESOL <info@pesol.es>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl) -->
+<odoo>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form - test</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <button name="action_post" position="before">
+                <button invisible="need_validation != True or rejected == True or state not in ['draft']" name="request_validation" string="Request Validation" type="object"/>
+                <button invisible="review_ids == [] or state not in ['draft']" name="restart_validation" string="Restart Validation" type="object"/>
+            </button>
+            <header position="after">
+                <field invisible="1" name="need_validation"/>
+                <field invisible="1" name="validated"/>
+                <field invisible="1" name="rejected"/>
+                <div class="alert alert-warning" invisible="validated == True or state not in ['draft'] or rejected == True or review_ids == []" role="alert" style="margin-bottom:0px;">
+                    <p>
+                        <field name="to_validate_message"/>
+                        <field invisible="1" name="can_review"/>
+                        <button class="oe_inline oe_button btn-success" icon="fa-thumbs-up" invisible="can_review == False" name="validate_tier" string="Validate" type="object"/>
+                        <button class="btn-icon btn-danger" icon="fa-thumbs-down" invisible="can_review == False" name="reject_tier" string="Reject" type="object"/>
+                    </p>
+                </div>
+                <div class="alert alert-success" invisible="validated != True or state not in ['draft'] or review_ids == []" role="alert" style="margin-bottom:0px;">
+                    <p>
+                        <field name="validated_message"/>
+                    </p>
+                </div>
+                <div class="alert alert-danger" invisible="rejected != True or state not in ['draft'] or review_ids == []" role="alert" style="margin-bottom:0px;">
+                    <p>
+                        <field name="rejected_message"/>
+                    </p>
+                </div>
+            </header>
+            <xpath expr="//form/div[hasclass('oe_chatter')]" position="before">
+                <field invisible="review_ids == []" name="review_ids" widget="tier_validation"/>
+            </xpath></field>
+    </record>
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">account.move.select - account_move_tier_validation</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <filter name="duedate" position="after">
+                <separator/>
+                <filter domain="[('reviewer_ids','in',uid), ('state', 'not in', ['posted', 'cancel'])]" help="My Accounts to review" name="needs_review" string="Needs my Review"/>
+                <filter domain="[('review_ids', '=', False), ('state', 'not in', ['posted', 'cancel'])]" help="Invoices where no validation has been requested" name="no_validation_requested" string="No Validation Requested"/>
+                <filter domain="[('reviewer_ids', '=', False), ('state', 'not in', ['posted', 'cancel']), ('validated', '=', False), ('rejected', '=', False)]" help="Invoices where validation has not started" name="validation_not_started" string="Validation Not Started"/>
+                <filter domain="[('reviewer_ids', '!=', False), ('state', 'not in', ['posted', 'cancel'])]" help="Invoices Pending to Validate" name="validation_in_progress" string="Validation In Progress"/>
+                <filter domain="[('validated', '=', True)]" help="Invoices validated and ready to be confirmed" name="tier_validated" string="Validated"/>
+            </filter></field>
+    </record>
+</odoo>

@@ -1,0 +1,6 @@
+<odoo>
+    <record id="dynamic_approval_category" model="ir.module.category">
+        <field name="name">Advanced Approval</field>
+    </record>
+
+</odoo>

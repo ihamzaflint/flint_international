@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form View Definition -->
+    <record id="cancel_final_report_form_view" model="ir.ui.view">
+        <field name="name">cancel.final.form.view</field>
+        <field name="model">cancel.final.exit.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="iqama_number"/>
+
+                        <field name="employee_id" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="feVisaNumber"/>
+                    </group>
+                </group>
+
+
+                <footer>
+                    <button string="Send to Muqeem" type="object" class="btn btn-outline-success" name="action_confirm_print"/>
+                    <button string="Cancel" special="cancel" class="btn btn-outline-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_cancell_print_confirmation" model="ir.ui.view">
+        <field name="name">cancell.print.confirmation</field>
+        <field name="model">cancel.final.exit.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <!--                    <label for="print_checkbox"  string="Are you sure you want to print?"/>-->
+
+                    <field name="confirm"/>
+                </group>
+                <footer>
+                    <button string="OK" type="object" name="cancel_final_exit" class="btn btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Window Definition -->
+    <record id="cancel_final_exit_action" model="ir.actions.act_window">
+        <field name="name">cancel final exit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cancel.final.exit.wizard</field>
+        <field name="view_id" ref="cancel_final_report_form_view"/>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_employee_id': active_id}</field>
+    </record>
+
+
+</odoo>

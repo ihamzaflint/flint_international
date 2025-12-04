@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="experience_level_data" model="experience.level">
+        <field name="name">Entry Level</field>
+        <field name="description">
+            This is the entry level experience.
+        </field>
+    </record>
+    <record id="experience_level_data_2" model="experience.level">
+        <field name="name">Mid Level</field>
+        <field name="description">
+            This is the mid level experience.
+        </field>
+    </record>
+    <record id="experience_level_data_3" model="experience.level">
+        <field name="name">Senior Level</field>
+        <field name="description">
+            This is the senior level experience.
+        </field>
+    </record>
+    <record id="experience_level_data_4" model="experience.level">
+        <field name="name">Director/Executive Level</field>
+        <field name="description">
+            This is the director level or managerial experience.
+        </field>
+    </record>
+</odoo>

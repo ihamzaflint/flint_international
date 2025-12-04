@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payslip_run_view_form" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form.report</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_paid']" position="before">
+                <button name="export_payslips_xlsx" string="PAYROLL DETAILED (XLSX)" type="object"/>
+                <button name="export_payslips_batch_xlsx" string="PAYROLL EXPORT DETAILED (XLSX)" type="object"/>
+                <button invisible="state not in ['verify','waiting_approval','approved','close','paid']" name="export_draft_entry" string="Draft Entry (XLSX)" type="object"/>
+            </xpath></field>
+    </record>
+<!--    <report attachment_use="False"-->
+<!--            file="export_payslips_report"-->
+<!--            id="action_payslips_export"-->
+<!--            model="hr.payslip.run"-->
+<!--            name="hr_payroll_report.export_payslips_report"-->
+<!--            print_report_name=""-->
+<!--            report_type="xlsx"-->
+<!--            string="Export Payslips"/>-->
+    <record id="action_payslips_export" model="ir.actions.report">
+        <field name="name">Export Payslips</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payroll_report.export_payslips_report</field>
+        <field name="report_file">hr_payroll_report</field>
+        <field name="binding_type">report</field>
+    </record>
+<!--    <report attachment_use="False"-->
+
+<!--            file="export_draft_entry_report"-->
+<!--            id="action_export_draft_entry"-->
+<!--            model="hr.payslip.run"-->
+<!--            name="hr_payroll_report.export_draft_entry_report"-->
+<!--            print_report_name=""-->
+<!--            report_type="xlsx"-->
+<!--            string="Export Draft Entry"/>-->
+    <record id="action_export_draft_entry" model="ir.actions.report">
+        <field name="name">Export Draft Entry</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payroll_report.export_draft_entry_report</field>
+        <field name="report_file">hr_payroll_report</field>
+        <field name="binding_type">report</field>
+    </record>
+<!--    <report attachment_use="False" file="export_payslips_batch_report" id="action_payslips_batch_export" model="hr.payslip.run" name="hr_payroll_report.export_payslips_batch_report" print_report_name="" report_type="xlsx" string="Export Payslips Details"/>-->
+    <record model="ir.actions.report" id="action_payslips_batch_export">
+        <field name="name">Export Payslips Details</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payroll_report.export_payslips_batch_report</field>
+        <field name="report_file">hr_payroll_report</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

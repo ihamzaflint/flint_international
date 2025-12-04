@@ -1,0 +1,124 @@
+<odoo>
+    <template id="job_offer_letter_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+
+                    <style>
+                        @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                        }
+                        [dir="rtl"], .arabic-text {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                        }
+                    </style>
+
+                    <div class="page" style="font-family: Arial, sans-serif; font-size: 13px;">
+                        <table class="table table-bordered border-dark" style="width:100%; border-collapse:collapse; font-size:13px;">
+                            <tr>
+                                <!-- English Side -->
+                                <td class="align-top p-3" style="width:50%; text-align:left;">
+                                    <h3 class="mb-3">Job Offer</h3>
+
+                                    <p><b>Dear Mr.</b> <span t-esc="o.employee_name"/></p>
+                                    <p>Resident ID: <span t-esc="o.resident_id"/></p>
+                                    <p>Joining Date: <span t-esc="o.joining_date"/></p>
+                                    <p>
+                                        Let me take this opportunity to offer you the position of
+                                        (<span t-esc="o.job_title"/>) based in Saudi Arabia with the following compensation package:
+                                    </p>
+
+                                    <table class="table table-sm table-bordered border-dark mt-3"
+                                           style="width:100%; font-size:12px; border-collapse:collapse;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="px-2">Basic Salary</td>
+                                                <td class="px-2"><span class="me-1">SR</span> <span t-esc="o.basic_salary"/></td>
+                                            </tr>
+                                            <t t-set="total_amount" t-value="0"/>
+                                            <t t-foreach="o.job_offer_letter_line_ids" t-as="line">
+                                                <tr>
+                                                    <td class="px-2">
+                                                        <strong><span t-field="line.allowance_name_en"/></strong>
+                                                    </td>
+                                                    <td class="px-2 align-top"><span class="me-1">SR</span> <span t-field="line.allowance_amount"/></td>
+                                                </tr>
+                                                <t t-set="total_amount" t-value="total_amount + line.allowance_amount"/>
+                                            </t>
+                                            <tr>
+                                                <td class="px-2"><strong>Total:</strong></td>
+                                                <td class="px-2"><b><span class="me-1">SR</span> <span t-esc="'{0:.2f}'.format(total_amount)"/></b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h4 class="mt-4">Others:</h4>
+                                    <ul>
+                                        <li>Company will provide Medical Health Insurance.</li>
+                                        <li>The contract will be for one year renewal.</li>
+                                        <li>The notice period for termination or resignation will be 2 months.</li>
+                                    </ul>
+                                    <p>Looking forward to see you in the project soon.</p>
+                                </td>
+
+                                <!-- Arabic Side -->
+                                <td class="align-top p-3 text-end" style="width:50%; direction:rtl;">
+                                    <div class="arabic-text" dir="rtl">
+                                        <h3 class="mb-3">عرض وظيفي</h3>
+
+                                        <p>السيد / <span t-esc="o.employee_name"/> المحترم،،،</p>
+                                        <p>هوية مقيم (<span t-esc="o.resident_id"/>)</p>
+                                        <p>تاريخ المباشرة : <span t-esc="o.joining_date"/></p>
+
+                                        <p>
+                                            أود أن اغتنم هذه الفرصه لاقدم لحضرتكم العرض لشغل وظيفة
+                                            (<span t-esc="o.job_title"/>) و مقرها المملكة العربية السعودية وهذا العرض الوظيفي يشمل البنود التالية :
+                                        </p>
+
+                                        <table class="table table-sm table-bordered border-dark mt-3"
+                                               style="width:100%; font-size:12px; border-collapse:collapse;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="px-2 text-end">الراتب الأساسي:</td>
+                                                    <td class="px-2 text-end">
+                                                        <span class="ms-1"> ريال</span>
+                                                        <span t-esc="o.basic_salary"/>
+                                                        <span class="ms-1">سعودي شهري</span>
+                                                    </td>
+                                                </tr>
+                                                <t t-set="total_amount" t-value="0"/>
+                                                <t t-foreach="o.job_offer_letter_line_ids" t-as="line">
+                                                    <tr>
+                                                        <td class="px-2 text-end">
+                                                            <strong><span t-field="line.allowance_name_ar"/></strong>
+                                                        </td>
+                                                        <td class="px-2 text-end"><span class="ms-1">ريال</span> <span t-field="line.allowance_amount"/></td>
+                                                    </tr>
+                                                    <t t-set="total_amount" t-value="total_amount + line.allowance_amount"/>
+                                                </t>
+                                                <tr>
+                                                    <td class="px-2 text-end"><strong>الإجمالي:</strong></td>
+                                                    <td class="px-2 text-end"><b><span class="ms-1"> ريال</span><span t-esc="'{0:.2f}'.format(total_amount)"/><span class="me-1">سعودي شهري</span></b></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <h4 class="mt-4">أخرى :</h4>
+                                        <ul style="list-style-type: disc; padding-right:30px;">
+                                            <li>سوف تقوم الشركة بتوفير التأمين الصحي.</li>
+                                            <li>مدة العقد سنة واحدة قابلة للتجديد.</li>
+                                            <li>في حال رغبة الشركة بإنهاء عقدها معكم سوف تقوم بإشعاركم قبل شهرين من ذلك.</li>
+                                        </ul>
+                                        <p>نتطلع لرؤيتكم معنا بالمشروع في المستقبل.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

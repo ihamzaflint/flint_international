@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="module_category_human_resources_Muqeem" model="ir.module.category">
+        <field name="name">Muqeem</field>
+        <field name="parent_id" ref="base.module_category_human_resources"/>
+        <field name="sequence">9</field>
+    </record>
+
+    <record id="group_muqeem_user" model="res.groups">
+        <field name="name">Muqeem Responsible</field>
+        <field name="category_id" ref="era_muqeem_client.module_category_human_resources_Muqeem"/>
+    </record>
+
+</odoo>

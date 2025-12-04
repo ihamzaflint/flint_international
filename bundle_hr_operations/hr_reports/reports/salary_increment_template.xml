@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="salary_increment_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                            }
+                            [dir="rtl"], .arabic-text {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            }
+                        </style>
+                        <div class="page" style="font-family: Arial, sans-serif; font-size: 12px;">
+                            <table class="table table-bordered w-100 mb-2 border border-dark">
+                                <!-- Heading-->
+                                <tr class="w-100" style="line-height: 2.5;">
+                                    <td class="w-50 p-4 text-center fw-bold fs-6">
+                                        <strong>Salary Increment</strong>
+                                    </td>
+                                    <td class="w-50 p-4 text-center fw-bold fs-6">
+                                        <strong>زيـــــادةراتـــب</strong>
+                                    </td>
+                                </tr>
+                                <!-- Amendment Row-->
+                                <tr class="w-100" style="line-height:2.2;">
+                                    <td class="w-50 p-2 border-dark border-bottom-white">
+                                        THIS AMENDMENT is made on<span t-field="doc.contract_date"/>, for the
+                                        purpose of
+                                        revising the salary in contract known as Employment Contract (“Original
+                                        Contract”) between:
+                                        <div class="row mt-1 p-3">
+                                            <div class="col-4">
+                                                Company Name
+                                            </div>
+                                            <div class="col-4">
+                                                <span class="text-center" t-field="doc.company_id"/>
+                                            </div>
+                                            <div class="col-4 text-end">
+                                                ("1st Party")
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 p-3">
+                                            <div class="col-4">
+                                                Mr/s
+                                            </div>
+                                            <div class="col-4">
+                                                <span class="text-center" t-field="doc.name"/>
+                                            </div>
+                                            <div class="col-4 text-end">
+                                                ("2nd Party")
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="w-50 p-2 border-dark arabic-text" dir="rtl">
+                                        تم إجراء هذا التعديل في
+                                        <span t-field="doc.contract_date"/>
+                                        بغرض مراجعة الراتب في العقد المعروف باسم عقد العمل ("العقد الأصلي") بين كل من:
+
+                                        <div class="row mt-1 p-3">
+                                            <div class="col-4 text-end">
+                                                اسم الشركة
+                                            </div>
+                                            <div class="col-4">
+                                                <span class="text-center" t-field="doc.company_id"/>
+                                            </div>
+                                            <div class="col-4 text-start">
+                                                ("الطرف الأول")
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 p-3">
+                                            <div class="col-4 text-end">
+                                                و السيد/ة
+                                            </div>
+                                            <div class="col-4">
+                                                <span class="text-center" t-field="doc.ar_name"/>
+                                            </div>
+                                            <div class="col-4 text-start">
+                                                ("الطرف الثاني")
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr style="line-height: 2.2;">
+                                    <td class="w-50 p-2 border-dark">
+                                        1. The Original Contract, already signed here to as a part of this amendment,
+                                        is described in it. The parties agree to revise the salary as described for the
+                                        same period; which will begin immediately w.e.f<span
+                                            t-esc="doc.work_effective_date"/>. as following.
+                                    </td>
+                                    <td class="w-50 p-2 border-dark arabic-text text-end" dir="rtl">
+                                        1.تم وصف العقد الأصلي ، الذي تم توقيعه بالفعل كجزء من هذا التعديل وقد وافق كل
+                                        الأطراف على مراجعة الراتب كما هو موضح في نفس الفترة. والتي ستبدأ على الفور من
+                                        تاريخ
+                                        <span t-esc="doc.work_effective_date"/>
+                                        م، كالتالي:
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="table table-bordered w-100 mb-2 border border-dark"
+                                   style="border-collapse: collapse; table-layout: fixed;">
+
+                                <thead>
+                                    <tr>
+
+                                        <td class="p-3 border-end border-dark"></td>
+
+                                        <!-- 2: English Heading -->
+                                        <td class="p-3 text-center border-end border-dark"
+                                            style="background:#e8e8e9; width:12%;">
+                                            <strong>New</strong>
+                                        </td>
+
+
+                                        <td class="p-3 border-end-0"></td>
+
+
+                                        <td class="p-3 border-0" style="width:100px; background:#fff;"></td>
+
+
+                                        <td class="p-3 text-center border-end border-dark arabic-text" dir="rtl"
+                                            style="background:#e8e8e9; width:12%;">
+                                            <strong>جديد</strong>
+                                        </td>
+
+                                        <!-- 6: Spacer -->
+                                        <td class="p-3 border-start-0"></td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <t t-set="total_amount" t-value="0"/>
+
+                                    <t t-foreach="doc.salary_increment_line_ids" t-as="line">
+                                        <tr>
+
+                                            <td class="p-2 border-end border-dark" style="width:20%;">
+                                                <span t-field="line.allowance_name_en"/>
+                                            </td>
+
+                                            <td class="p-2 text-center border-end border-dark" style="width:12%;">
+                                                <span t-field="line.allowance_amount"
+                                                      t-options="{'widget': 'float', 'precision': 2}"/>
+                                            </td>
+
+
+                                            <td class="p-2 text-center border-end border-dark" style="width:10%;">
+                                                SAR
+                                            </td>
+
+
+                                            <td class="p-2 text-center border-end border-dark arabic-text" dir="rtl">
+                                                ريال سعودي
+                                            </td>
+
+
+                                            <td class="p-2 text-center border-end border-dark" style="width:12%;">
+                                                <span t-field="line.allowance_amount"
+                                                      t-options="{'widget': 'float', 'precision': 2}"/>
+                                            </td>
+
+
+                                            <td class="p-2 text-center border-dark arabic-text" dir="rtl"
+                                                style="width:25%;">
+                                                <span t-field="line.allowance_name_ar"/>
+                                            </td>
+                                        </tr>
+
+
+                                        <t t-set="total_amount" t-value="total_amount + line.allowance_amount"/>
+                                    </t>
+
+                                    <tr class="fw-bold">
+
+                                        <td class="p-2 text-center border-end border-dark">Total:</td>
+
+
+                                        <td class="p-2 text-center border border-dark">
+                                            <span t-esc="'{0:.2f}'.format(total_amount)"/>
+                                        </td>
+
+                                        <td class="p-2 text-center border border-dark">SAR</td>
+
+
+                                        <td class="p-2 text-center border border-dark arabic-text" dir="rtl" style="width:150px;">ريال
+                                            سعودي
+                                        </td>
+
+
+                                        <td class="p-2 text-center border border-dark">
+                                            <span t-esc="'{0:.2f}'.format(total_amount)"/>
+                                        </td>
+
+                                        <td class="p-2 text-center border-end border-dark arabic-text" dir="rtl">
+                                            الإجمالي:
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <!-- Static Data Table-->
+                            <table class="table table-bordered w-100 mb-2 border border-dark" style="line-height: 2.2;">
+                                <tr>
+                                    <td class="w-50 p-2 border-dark">
+                                        <span t-esc="doc.html_points_en"/>
+                                    </td>
+                                    <td class="w-50 p-2 border-dark text-end">
+                                        <span t-esc="doc.html_points_ar"/>
+                                    </td>
+                                </tr>
+                                <!--                                <tr>-->
+                                <!--                                    <td class="p-2 border-dark">-->
+                                <!--                                        3. This amendment binds and benefits both parties and any successors or assigns.-->
+                                <!--                                    </td>-->
+                                <!--                                    <td class="p-2 border-dark arabic-text text-end" dir="rtl">-->
+                                <!--                                        3. تعتمد هذه الوثيقة بعد التوقيع عليها من قبل الطرفين-->
+                                <!--                                    </td>-->
+                                <!--                                </tr>-->
+                                <!--                                <tr>-->
+                                <!--                                    <td class="p-2 border-dark">-->
+                                <!--                                        4. This document, including the attached Original Contract, is the entire-->
+                                <!--                                        agreement between the Parties.-->
+                                <!--                                    </td>-->
+                                <!--                                    <td class="p-2 border-dark arabic-text text-end" dir="rtl">-->
+                                <!--                                        4. هذه الوثيقة وبما في ذلك العقد الاصلي هو مجمل الاتفاق بين الطرفين.-->
+                                <!--                                    </td>-->
+                                <!--                                </tr>-->
+                                <!--                                <tr>-->
+                                <!--                                    <td class="p-2 border-dark">-->
+                                <!--                                        5. All other terms and conditions of the Original Contract remain unchanged-->
+                                <!--                                    </td>-->
+                                <!--                                    <td class="p-2 border-dark arabic-text text-end" dir="rtl">-->
+                                <!--                                        5. جميع احكام وشروط العقد الاصلي الاخرى تبقي كما هي دون تغيير.-->
+                                <!--                                    </td>-->
+                                <!--                                </tr>-->
+                            </table>
+                            <!-- Footer Table-->
+                            <table class="table table-bordered w-100 mb-2 border border-dark" style="line-height: 2.2;">
+                                <tr>
+                                    <td class="w-50 p-2 border-dark text-center">
+                                        أسم الشركة
+                                        <br/>
+                                        Company name
+                                    </td>
+                                    <td class="w-50 p-2 border-dark text-center">
+                                        الاسم
+                                        <br/>
+                                        Name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-50 p-2 border-dark text-center">
+                                        --------------------------------------------------
+                                    </td>
+                                    <td class="w-50 p-2 border-dark text-center">
+                                        --------------------------------------------------
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

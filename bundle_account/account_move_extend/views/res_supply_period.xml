@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record id="account_move_extend.res_supply_period_view_form" model="ir.ui.view">
+            <field name="name">account_move_extend res_supply_period_view_form</field>
+            <field name="model">res.supply.period</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" string="State" widget="statusbar"/>
+                        <button name="button_activate" string="Activate" type="object" invisible="state == 'active'"
+                                class="btn-primary"/>
+                        <button name="button_draft" string="Reset to Draft" type="object" invisible="state == 'draft'"
+                                class="btn-secondary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="display_name" readonly="1" placeholder="Period.."/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="month" force_save="1" readonly="state == 'active'"/>
+                            </group>
+                            <group>
+                                <field name="year" force_save="1" readonly="state == 'active'"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_move_extend.res_supply_period_view_tree" model="ir.ui.view">
+            <field name="name">account_move_extend res_supply_period_view_tree</field>
+            <field name="model">res.supply.period</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="display_name" optional="show"/>
+                    <field name="month" optional="show"/>
+                    <field name="year" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_move_extend.res_supply_period_action" model="ir.actions.act_window">
+            <field name="name">Period of Supply</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.supply.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

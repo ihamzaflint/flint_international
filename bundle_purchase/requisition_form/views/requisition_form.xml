@@ -1,0 +1,136 @@
+<odoo>
+    <record id="view_requisition_form_tree" model="ir.ui.view">
+        <field name="name">requisition.form.tree</field>
+        <field name="model">requisition.form</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence"/>
+                <field name="vendor_id"/>
+                <field name="description"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Requisition Form Form -->
+    <record id="view_requisition_form_form" model="ir.ui.view">
+        <field name="name">requisition.form.form</field>
+        <field name="model">requisition.form</field>
+        <field name="arch" type="xml">
+            <form string="Requisition Form">
+                <header>
+                    <button name="button_draft"
+                            string="Draft"
+                            type="object"
+                            class="btn-secondary"
+                            invisible="state in ['draft','approved','approval','confirm']"
+                    />
+                    <button name="button_request_approval"
+                            string="Request Approval"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state in ['approved','approval','confirm','rejected']"
+                    />
+                    <button name="button_approve"
+                            string="Approve"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state in ['draft','approved','confirm','rejected']"
+                    />
+                    <button name="button_confirm"
+                            string="Confirm"
+                            type="object"
+                            class="btn-success"
+                            invisible="state in ['approval','confirm','draft','rejected']"
+                    />
+                    <button name="button_reject"
+                            string="Reject"
+                            type="object"
+                            class="btn-danger"
+                            invisible="state in ['draft','confirm','rejected']"
+                    />
+                    <field name="state"
+                           widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_purchase_order"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                string="PO"
+                                type="object"
+                                invisible="purchase_order_id == False"></button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="vendor_id" force_save="1"
+                                   readonly="1"/>
+                            <field name="description" force_save="1"
+                                   readonly="state in ['approval','approved','confirm','rejected']"/>
+                        </group>
+                        <group>
+                            <field name="purchase_order_id" force_save="1" invisible="purchase_order_id == False"
+                                   readonly="state in ['approval','approved','confirm','rejected']"
+                                   options="{'no_create_edit' : True, 'no_create' : True, 'no_open' : True}"/>
+                            <field name="purchase_approval_config_id" force_save="1"
+                                   invisible="purchase_approval_config_id == False"
+                                   readonly="state in ['approval','approved','confirm','rejected']"
+                                   options="{'no_create_edit' : True, 'no_create' : True, 'no_open' : True}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Products">
+                            <field name="requisition_form_line_ids"
+                                   readonly="state in ['approval','approved','confirm','rejected']">
+                                <tree editable="bottom">
+                                    <field name="product_id" force_save="1"
+                                           options="{'no_create_edit' : True, 'no_create' : True, 'no_open' : True}"/>
+                                    <field name="qty" force_save="1"/>
+                                    <field name="remarks" force_save="1"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Approvals">
+                            <field name="approval_line_ids" readonly="state in ['approval', 'approved','confirm']">
+                                <tree editable="bottom">
+                                    <field name="approver_id"/>
+                                    <field name="is_approved"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_requisition_form" model="ir.actions.act_window">
+        <field name="name">Requisitions</field>
+        <field name="res_model">requisition.form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="seq_req_form" model="ir.sequence">
+        <field name="name">Requisition Form</field>
+        <field name="code">requisition.form</field>
+        <field name="prefix">RF-</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

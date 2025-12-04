@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_line_service_form_view" model="ir.ui.view">
+        <field name="name">sale.order.line.service.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/form" position="inside">
+                <notebook>
+                    <field invisible="1" name="is_recruitment_service"/>
+                    <page invisible="not is_recruitment_service" name="service_lines" string="Service Lines">
+                        <field name="sale_order_service_line_ids"><tree>
+                            <control>
+                                <create name="add_line_control" string="Add Service line"/>
+                            </control>
+                            <field name="name"/>
+                            <field name="candidate_type" optional="show"/>
+                            <field name="hr_job_id" optional="show" required="True"/>
+                            <field name="nationality_id" optional="show" readonly="candidate_type == 'saudi_local'"
+                                   required="True"/>
+                            <field name="marital" optional="show"/>
+                            <field name="invoice_period" optional="hide"/>
+                            <field name="package" optional="hide"/>
+                            <field name="basic" optional="show"/>
+                            <field name="housing" optional="show"/>
+                            <field name="transportation" optional="show"/>
+                            <field name="net_monthly_salary" optional="show"/>
+                            <field name="vac_salary" optional="hide"/>
+                            <field name="end_of_service" optional="hide"/>
+                            <field name="employee_annual_flight_ticket" optional="hide"/>
+                            <field name="wife_annual_flight_ticket" optional="hide"/>
+                            <field name="child_flight_ticket" optional="hide"/>
+                            <field name="employee_health" optional="hide"/>
+                            <field name="spouse_health_insurance" optional="hide"/>
+                            <field name="kids_health_insurance" optional="hide"/>
+                            <field name="gosi" optional="hide"/>
+                            <field name="profile_fees" optional="hide"/>
+                            <field name="saudization" optional="hide"/>
+                            <field name="iqama_fees" optional="hide"/>
+                            <field name="iqama_transfer_fees" optional="hide"/>
+                            <field name="mobilization_cost" optional="hide"/>
+                            <field name="ajeer" optional="hide"/>
+                            <field name="exit_reentry" optional="hide"/>
+                            <field name="total_monthly_cost" optional="show"/>
+                            <field name="yearly_employee_cost" optional="show"/>
+                            <field name="monthly_po_without_margin" optional="show"/>
+                            <field name="monthly_flint_margin" optional="show"/>
+                            <field name="monthly_po_sar_without_vat" optional="show"/>
+                            <field name="monthly_po_sar_with_vat" optional="show"/>
+                            <field invisible="1" name="order_line_id"/>
+                        </tree>
+                            <form>
+                                <sheet>
+                                    <div class="oe_title">
+                                        <h1>
+                                            <field name="name"/>
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <group>
+                                            <field invisible="1" name="partner_id"/>
+                                            <field name="invoice_period"/>
+                                            <field name="package"/>
+                                            <field name="basic"/>
+                                            <field name="housing"/>
+                                            <field name="transportation"/>
+                                            <field name="net_monthly_salary"/>
+                                            <field name="vac_salary"/>
+                                            <field name="end_of_service"/>
+                                            <field name="employee_annual_flight_ticket"/>
+                                            <field name="wife_annual_flight_ticket" invisible="marital != 'married'"/>
+                                            <field invisible="marital != 'married'" name="child_flight_ticket"/>
+                                        </group>
+                                        <group>
+                                            <field name="employee_health"/>
+                                            <field invisible="marital != 'married'" name="spouse_health_insurance"/>
+                                            <field invisible="marital != 'married'" name="kids_health_insurance"/>
+                                            <field name="gosi"/>
+                                            <field name="profile_fees"/>
+                                            <field invisible="candidate_type == 'saudi_local'" name="saudization"/>
+                                            <field invisible="candidate_type == 'saudi_local'" name="iqama_fees"/>
+                                            <field invisible="candidate_type == 'saudi_local'" name="iqama_transfer_fees"/>
+                                            <field invisible="candidate_type == 'saudi_local'" name="mobilization_cost"/>
+                                            <field invisible="candidate_type == 'saudi_local'" name="ajeer"/>
+                                            <field invisible="candidate_type == 'saudi_local'" name="exit_reentry"/>
+                                            <field name="total_monthly_cost"/>
+                                            <field name="yearly_employee_cost"/>
+                                            <field name="monthly_po_without_margin"/>
+                                            <field name="monthly_flint_margin"/>
+                                            <field name="monthly_po_sar_without_vat"/>
+                                            <field name="monthly_po_sar_with_vat"/>
+                                        </group>
+                                    </group>
+                                    <notebook>
+                                        <page string="Applicant Details">
+                                            <group>
+                                                <group>
+                                                    <field name="hr_job_id"/>
+                                                    <field name="candidate_type"/>
+                                                    <field name="nationality_id" readonly="candidate_type == 'saudi_local'"
+                                                           required="1"/>
+                                                    <field name="marital"/>
+                                                    <field name="experience_level"
+                                                           options="{'no_create': True, 'no_edit': True}"/>
+                                                </group>
+                                            </group>
+                                        </page>
+                                    </notebook>
+                                </sheet>
+                            </form></field>
+                    </page>
+                </notebook>
+            </xpath></field>
+    </record>
+    <record model="ir.ui.view" id="sale_order_line_view_form_readonly_inherit">
+        <field name="name">sale.order.line.view.form.readonly.inherit</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <field invisible="1" name="is_recruitment_service"/>
+                    <page invisible="not is_recruitment_service" name="service_lines" string="Service Lines">
+                        <field name="sale_order_service_line_ids">
+                            <tree>
+                                <control>
+                                    <create name="add_line_control" string="Add Service line"/>
+                                </control>
+                                <field name="name"/>
+                                <field name="candidate_type" optional="show"/>
+                                <field name="hr_job_id" optional="show" required="True"/>
+                                <field name="nationality_id" optional="show" readonly="candidate_type == 'saudi_local'"
+                                       required="True"/>
+                                <field name="marital" optional="show"/>
+                                <field name="invoice_period" optional="hide"/>
+                                <field name="package" optional="hide"/>
+                                <field name="basic" optional="show"/>
+                                <field name="housing" optional="show"/>
+                                <field name="transportation" optional="show"/>
+                                <field name="net_monthly_salary" optional="show"/>
+                                <field name="vac_salary" optional="hide"/>
+                                <field name="end_of_service" optional="hide"/>
+                                <field name="employee_annual_flight_ticket" optional="hide"/>
+                                <field name="wife_annual_flight_ticket" optional="hide"/>
+                                <field name="child_flight_ticket" optional="hide"/>
+                                <field name="employee_health" optional="hide"/>
+                                <field name="spouse_health_insurance" optional="hide"/>
+                                <field name="kids_health_insurance" optional="hide"/>
+                                <field name="gosi" optional="hide"/>
+                                <field name="profile_fees" optional="hide"/>
+                                <field name="saudization" optional="hide"/>
+                                <field name="iqama_fees" optional="hide"/>
+                                <field name="iqama_transfer_fees" optional="hide"/>
+                                <field name="mobilization_cost" optional="hide"/>
+                                <field name="ajeer" optional="hide"/>
+                                <field name="exit_reentry" optional="hide"/>
+                                <field name="total_monthly_cost" optional="show"/>
+                                <field name="yearly_employee_cost" optional="show"/>
+                                <field name="monthly_po_without_margin" optional="show"/>
+                                <field name="monthly_flint_margin" optional="show"/>
+                                <field name="monthly_po_sar_without_vat" optional="show"/>
+                                <field name="monthly_po_sar_with_vat" optional="show"/>
+                                <field invisible="1" name="order_line_id"/>
+                            </tree>
+                            <form string="Service Line">
+                                <sheet>
+                                    <div class="oe_title">
+                                        <h1>
+                                            <field name="name" readonly="1"/>
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <group>
+                                            <field name="partner_id"/>
+                                            <field name="hr_job_id"/>
+                                            <field name="candidate_type"/>
+                                            <field name="nationality_id"/>
+                                            <field name="contract_type"/>
+                                            <field name="marital"/>
+                                            <field name="experience_level"/>
+                                        </group>
+                                        <group>
+                                            <field name="package"/>
+                                            <field name="invoice_period"/>
+                                            <field name="net_monthly_salary"/>
+                                            <field name="total_monthly_cost"/>
+                                            <field name="yearly_employee_cost"/>
+                                        </group>
+                                    </group>
+                                    <notebook>
+                                        <page string="Salary Details">
+                                            <group>
+                                                <group string="Basic Salary Components">
+                                                    <field name="basic"/>
+                                                    <field name="housing"/>
+                                                    <field name="transportation"/>
+                                                    <field name="vac_salary"/>
+                                                    <field name="end_of_service"/>
+                                                </group>
+                                                <group string="Health Insurance">
+                                                    <field name="employee_health"/>
+                                                    <field name="spouse_health_insurance"/>
+                                                    <field name="kids_health_insurance"/>
+                                                </group>
+                                            </group>
+                                            <group>
+                                                <group string="Travel Benefits">
+                                                    <field name="employee_annual_flight_ticket"/>
+                                                    <field name="wife_annual_flight_ticket"/>
+                                                    <field name="child_flight_ticket"/>
+                                                </group>
+                                                <group string="Government Fees">
+                                                    <field name="gosi"/>
+                                                    <field name="saudization"/>
+                                                    <field invisible="candidate_type" name="iqama_fees"/>
+                                                    <field invisible="candidate_type" name="iqama_transfer_fees"/>
+                                                    <field invisible="candidate_type" name="mobilization_cost"/>
+                                                    <field invisible="candidate_type" name="ajeer"/>
+                                                    <field invisible="candidate_type" name="exit_reentry"/>
+                                                    <field invisible="candidate_type" name="profile_fees"/>
+                                                </group>
+                                            </group>
+                                        </page>
+                                        <page string="Purchase Order Details">
+                                            <group>
+                                                <group string="PO Calculations">
+                                                    <field name="monthly_po_without_margin"/>
+                                                    <field name="monthly_flint_margin"/>
+                                                    <field name="monthly_po_sar_without_vat"/>
+                                                    <field name="monthly_po_sar_with_vat"/>
+                                                </group>
+                                            </group>
+                                        </page>
+                                        <page string="Job Description">
+                                            <field name="job_description"/>
+                                        </page>
+                                    </notebook>
+                                </sheet>
+                            </form></field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>

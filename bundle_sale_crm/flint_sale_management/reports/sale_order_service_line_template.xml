@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="action_report_service_line" model="ir.actions.report">
+        <field name="name">Service Line Details</field>
+        <field name="model">sale.order.service.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_file">sale_service_line.report_service_line</field>
+        <field name="report_name">flint_sale_management.report_service_line</field>
+        <field name="print_report_name">'Out-Sourcing Sale Order - %s' % object.name</field>
+        <field name="binding_model_id" ref="model_sale_order_service_line"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Main Report Template -->
+    <template id="report_service_line">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Client and Job Information -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <strong>Client:</strong>
+                                <span t-field="doc.partner_id"/>
+                                <br/>
+                                <strong>Job Title:</strong>
+                                <span t-field="doc.hr_job_id"/>
+                                <br/>
+                                <strong>Experience Level:</strong>
+                                <span t-field="doc.experience_level"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Contract Type:</strong>
+                                <span t-field="doc.contract_type"/>
+                                <br/>
+                                <strong>Candidate Type:</strong>
+                                <span t-field="doc.candidate_type"/>
+                                <br/>
+                                <strong>Nationality:</strong>
+                                <span t-field="doc.nationality_id"/>
+                            </div>
+                        </div>
+
+                        <!-- Basic Salary Information -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4>Basic Salary Details</h4>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td class="w-25">Package</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.package" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td class="w-25">Basic Salary</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.basic" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Housing</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.housing" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td>Transportation</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.transportation" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Net Monthly Salary</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.net_monthly_salary" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td>Invoice Period</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.invoice_period"/> months
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Benefits -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4>Benefits</h4>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td class="w-25">Vacation Salary</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.vac_salary" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td class="w-25">End of Service</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.end_of_service" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.candidate_type == 'no_saudi'">
+                                        <td>Employee Flight Ticket</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.employee_annual_flight_ticket" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td>Wife Flight Ticket</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.wife_annual_flight_ticket" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.candidate_type == 'no_saudi' and doc.marital == 'married'">
+                                        <td>Child Flight Ticket</td>
+                                        <td class="text-right" colspan="3">
+                                            <span t-field="doc.child_flight_ticket" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Health Insurance -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4>Health Insurance</h4>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td class="w-25">Employee Health</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.employee_health" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td class="w-25">Spouse Health Insurance</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.spouse_health_insurance" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.marital == 'married'">
+                                        <td>Kids Health Insurance</td>
+                                        <td class="text-right" colspan="3">
+                                            <span t-field="doc.kids_health_insurance" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Government Fees -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4>Government Fees and Other Costs</h4>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td class="w-25">GOSI</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.gosi" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td class="w-25">Saudization</td>
+                                        <td class="w-25 text-right">
+                                            <span t-field="doc.saudization" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.candidate_type == 'no_saudi'">
+                                        <td>Iqama Fees</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.iqama_fees" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td>Iqama Transfer Fees</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.iqama_transfer_fees" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.candidate_type == 'no_saudi'">
+                                        <td>Mobilization Cost</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.mobilization_cost" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                        <td>Ajeer</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.ajeer" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.candidate_type == 'no_saudi'">
+                                        <td>Exit Re-entry</td>
+                                        <td class="text-right" colspan="3">
+                                            <span t-field="doc.exit_reentry" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Cost Summary -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4>Cost Summary</h4>
+                                <table class="table table-sm">
+                                    <tr class="border-top">
+                                        <td class="w-25">Total Monthly Cost</td>
+                                        <td class="w-25 text-right">
+                                            <strong>
+                                                <span t-field="doc.total_monthly_cost" t-options='{"widget": "monetary"}'/>
+                                            </strong>
+                                        </td>
+                                        <td class="w-25">Yearly Employee Cost</td>
+                                        <td class="w-25 text-right">
+                                            <strong>
+                                                <span t-field="doc.yearly_employee_cost" t-options='{"widget": "monetary"}'/>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- PO Details -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4>Purchase Order Details</h4>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td class="w-50">Monthly PO without Margin</td>
+                                        <td class="w-50 text-right">
+                                            <span t-field="doc.monthly_po_without_margin" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Monthly Flint Margin</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.monthly_flint_margin" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Monthly PO SAR without VAT</td>
+                                        <td class="text-right">
+                                            <span t-field="doc.monthly_po_sar_without_vat" t-options='{"widget": "monetary"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <td>
+                                            <strong>Monthly PO SAR with VAT</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <strong>
+                                                <span t-field="doc.monthly_po_sar_with_vat" t-options='{"widget": "monetary"}'/>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Job Description -->
+                        <div class="row mb-4" t-if="doc.job_description">
+                            <div class="col-12">
+                                <h4>Job Description</h4>
+                                <p t-field="doc.job_description"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

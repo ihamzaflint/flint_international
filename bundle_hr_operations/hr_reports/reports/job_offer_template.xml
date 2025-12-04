@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Job Offer Letter Template -->
+        <template id="job_offer_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            @font-face {
+                                font-family: 'DroidKufiRegular';
+                                src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                            }
+                            [dir="rtl"], .arabic-text {
+                                font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            }
+                            .page {
+                                font-family: Arial, sans-serif;
+                                font-size: 12px;
+                            }
+                            .bg-light-gray {
+                                background-color: #e8e8e9;
+                            }
+                            .bg-lighter-gray {
+                                background-color: #f2f2f3;
+                            }
+                        </style>
+
+                        <div class="page">
+                            <!-- HEADER - JOB OFFER -->
+                            <div class="text-center mb-3">
+                                <h3 class="fw-bold mb-1">JOB OFFER</h3>
+                                <h3 class="fw-bold mb-0 arabic-text" dir="rtl">عرض وظيفي</h3>
+                            </div>
+
+                            <!-- P.F and Date Table -->
+                            <div class="border border-dark mb-2">
+                                <div class="row g-0">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>P.F# <span t-field="doc.p_f"/></strong>
+                                    </div>
+                                    <div class="col-6 p-2 text-end">
+                                        <strong><span t-field="doc.create_date" t-options="{'format': 'd MMMM yyyy'}"/></strong>
+                                    </div>
+                                </div>
+
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Dear Mr./Ms. <span t-field="doc.name"/></strong>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>السيد/ة <span t-field="doc.name_ar"/></strong>
+                                    </div>
+                                </div>
+
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        On Behalf of Flint Consulting Saudi, we are pleased to offer you a position with us as detailed below:
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        نيابة عن فلنت كونسلتنغ السعودية يسرنا ان نتقدم لكم بهذا العرض الوظيفي للعمل حسب التفاصيل التالية:
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Position and Work Location Table -->
+                            <div class="border border-dark mb-2">
+                                <div class="row g-0">
+                                    <div class="col-3 border-end border-dark p-2">
+                                        <strong>Position:</strong>
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center">
+                                        <span t-field="doc.position"/>
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center arabic-text" dir="rtl">
+                                        <span t-field="doc.position_ar"/>
+                                    </div>
+                                    <div class="col-3 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>الوظيفة:</strong>
+                                    </div>
+                                </div>
+
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-3 border-end border-dark p-2">
+                                        <strong>Work Location:</strong>
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center">
+                                        Saudi Arabia
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center arabic-text" dir="rtl">
+                                        السعودية
+                                    </div>
+                                    <div class="col-3 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>مكان العمل:</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Salary and Benefits Table -->
+                            <div class="border border-dark mb-2">
+                                <div class="row g-0 bg-light-gray">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Salary and benefits:</strong>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>الراتب والمزايا:</strong>
+                                    </div>
+                                </div>
+
+                                <t t-set="total_amount" t-value="0"/>
+                                <t t-foreach="doc.job_offer_line_ids" t-as="line">
+                                    <div class="row g-0 border-top border-dark">
+                                        <div class="col-2 border-end border-dark p-2">
+                                            <span t-field="line.allowance_name_en"/>
+                                        </div>
+                                        <div class="col-1 border-end border-dark p-2 text-center bg-light-gray">
+                                            <span t-field="line.allowance_amount" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        </div>
+                                        <div class="col-3 border-end border-dark p-2 text-center bg-light-gray">
+                                            SAR Per Month
+                                        </div>
+                                        <div class="col-3 border-end border-dark p-2 text-center bg-light-gray arabic-text" dir="rtl">
+                                            ريال سعودي شهرياً
+                                        </div>
+                                        <div class="col-1 border-end border-dark p-2 text-center bg-light-gray">
+                                            <span t-field="line.allowance_amount" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        </div>
+                                        <div class="col-2 p-2 text-end arabic-text" dir="rtl">
+                                            <span t-field="line.allowance_name_ar"/>
+                                        </div>
+                                    </div>
+                                    <t t-set="total_amount" t-value="total_amount + line.allowance_amount"/>
+                                </t>
+
+                                <!-- Total Row -->
+                                <div class="row g-0 border-top border-dark fw-bold">
+                                    <div class="col-2 border-end border-dark p-2 text-center">Total:</div>
+                                    <div class="col-1 border-end border-dark p-2 text-center bg-dark text-white">
+                                        <span t-esc="'{0:.2f}'.format(total_amount)"/>
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center bg-dark text-white">
+                                        SAR Per Month
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center bg-dark text-white arabic-text" dir="rtl">
+                                        ريال سعودي شهرياً
+                                    </div>
+                                    <div class="col-1 border-end border-dark p-2 text-center bg-dark text-white">
+                                        <span t-esc="'{0:.2f}'.format(total_amount)"/>
+                                    </div>
+                                    <div class="col-2 p-2 text-center arabic-text" dir="rtl">الإجمالي:</div>
+                                </div>
+                            </div>
+
+                            <!-- Contract Details Table -->
+                            <div class="border border-dark mb-2">
+                                <!-- Contract Status -->
+                                <div class="row g-0 bg-light-gray">
+                                    <div class="col-3 border-end border-dark p-2">
+                                        <strong>Contract Status:</strong>
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center">
+                                        <strong><span t-field="doc.contract_status"/></strong>
+                                    </div>
+                                    <div class="col-3 border-end border-dark p-2 text-center arabic-text">
+                                        <strong><span t-field="doc.contract_status_ar"/></strong>
+                                    </div>
+                                    <div class="col-3 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>حالة العقد:</strong>
+                                    </div>
+                                </div>
+
+                                <!-- Medical Care -->
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Medical Care:</strong> <span t-field="doc.medical_care"/>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>التأمين الطبي:</strong> <span t-field="doc.medical_care_ar"/>
+                                    </div>
+                                </div>
+
+                                <!-- Vacation -->
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Vacation:</strong> <span t-field="doc.vacation"/>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>الاجازة:</strong> <span t-field="doc.vacation_ar"/>
+                                    </div>
+                                </div>
+
+                                <!-- Travel Ticket - Conditional for Non-Saudi -->
+                                <t t-if="doc.employee_type == 'non_saudi'">
+                                    <div class="row g-0 border-top border-dark">
+                                        <div class="col-6 border-end border-dark p-2">
+                                            <strong>Travel ticket:</strong> <span t-field="doc.ticket_char"/>
+                                        </div>
+                                        <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                            <strong>تذكرة السفر:</strong> <span t-field="doc.ticket_char"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- GOSI - Conditional for Saudi -->
+                                <t t-if="doc.employee_type == 'saudi'">
+                                    <div class="row g-0 border-top border-dark">
+                                        <div class="col-6 border-end border-dark p-2">
+                                            <strong>GOSI:</strong> <span t-field="doc.gosi"/>
+                                        </div>
+                                        <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                            <strong>التأمينات الاجتماعية:</strong> <span t-field="doc.gosi"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Probation Period -->
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Probation Period:</strong> <span t-field="doc.probation_period"/>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>فترة التجربة:</strong> <span t-field="doc.probation_period_ar"/>
+                                    </div>
+                                </div>
+
+                                <!-- Contract Duration -->
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Contract Duration:</strong>
+                                        <t t-if="doc.date_from and doc.date_to">
+                                            From <span t-field="doc.date_from"/> To <span t-field="doc.date_to"/>
+                                        </t>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>مدة العقد:</strong>
+                                        <t t-if="doc.date_from and doc.date_to">
+                                            From <span t-field="doc.date_from"/> To <span t-field="doc.date_to"/>
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <!-- Other Conditions -->
+                                <div class="row g-0 border-top border-dark">
+                                    <div class="col-6 border-end border-dark p-0">
+                                        <div class="bg-light-gray p-2">
+                                            <strong>Other Conditions:</strong>
+                                        </div>
+                                        <div class="p-2" style="font-size: 11px;">
+                                            <span t-field="doc.html_content_en"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <div class="bg-light-gray p-2 text-end arabic-text" dir="rtl">
+                                            <strong>بنود اخري:</strong>
+                                        </div>
+                                        <div class="p-2 text-end arabic-text" dir="rtl" style="font-size: 11px;">
+                                            <span t-field="doc.html_content_ar"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Employment Subject To -->
+                                <div class="row g-0 border-top border-dark bg-light-gray">
+                                    <div class="col-6 border-end border-dark p-2">
+                                        <strong>Your employment with our company is subject to:</strong>
+                                        <div style="font-size: 11px;" class="mt-1">
+                                            • Completion of pre-employment documents including Reference Check, Job Application Forms and submission of all relevant educational and work experience certificates<br/>
+                                            • Bring the consent of the previous sponsor.<br/>
+                                            • Your signing of the employment contract
+                                        </div>
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl">
+                                        <strong>يتوقف انتهاء اجراءات توظيفكم معنا علي الاتي:</strong>
+                                        <div style="font-size: 11px;" class="mt-1">
+                                            • اكمال كافة الوثائق قبل التوظيف بما في ذلك نماذج طلبات التوظيف وتقديم جميع شهادات الخبرة التعليمية والعملية ذات الصلة و التحقق من المرجعية<br/>
+                                            • إحضار موافقة الكفيل السابق<br/>
+                                            • التوقيع علي العقد
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Validity and Contact -->
+                                <div class="row g-0 border-top border-dark bg-lighter-gray">
+                                    <div class="col-6 border-end border-dark p-2" style="font-size: 11px;">
+                                        *This offer is valid for 1 week from the date of issuance<br/>
+                                        *We look forward to having you on board. For any queries please contact Mr./s _____ at telephone 011 – 4660035/78 or email
+                                    </div>
+                                    <div class="col-6 p-2 text-end arabic-text" dir="rtl" style="font-size: 11px;">
+                                        *العرض الوظيفي صالح لمدة اسبوع من تاريخ اصداره<br/>
+                                        *في حال وجود أي استفسار يمكن الاتصال علي السيد/ه _____ تلفون رقم 4660035-4330078 أو مراسلتنا عبر الايميل
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer Table -->
+                            <div class="border border-dark">
+                                <div class="row g-0">
+                                    <div class="col-6 border-end border-dark p-3">
+                                        <p class="mb-2">Sincerely,</p>
+                                        <p class="mb-0"><strong>HR Department</strong></p>
+                                    </div>
+                                    <div class="col-6 p-3 text-center">
+                                        <p class="mb-1"><strong>Expected Start Date</strong></p>
+                                        <p class="mb-2 arabic-text" dir="rtl">التاريخ المتوقع للمباشرة</p>
+                                        <p class="mb-2"><span t-field="doc.expected_start_date"/></p>
+
+                                        <div class="border-bottom border-dark my-2"></div>
+
+                                        <p class="mb-2"><strong>Offer Acceptance</strong></p>
+                                        <p class="mb-1">Date: _________________ <span class="arabic-text" dir="rtl">التاريخ</span></p>
+                                        <p class="mb-0">Signature: _________________ <span class="arabic-text" dir="rtl">التوقيع</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

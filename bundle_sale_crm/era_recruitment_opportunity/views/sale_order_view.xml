@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="sale_order_view_form_applicant_details" model="ir.ui.view">
+            <field name="name">sale.order.form.applicant.details</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <field name="is_create_from_applicant" invisible="1"/>
+                    <page string="Applicant Details" invisible="is_create_from_applicant == False">
+                        <group>
+                            <group>
+                                <field name="applicant_name"/>
+                                <field name="applicant_email"/>
+                                <field name="applicant_phone"/>
+                                <field name="applicant_nationality"/>
+                                <field name="applicant_current_location"/>
+                                <field name="applicant_experience"/>
+                                <field name="applicant_qualification"/>
+                                <field name="applicant_current_company"/>
+                            </group>
+                            <group>
+                                <field name="applicant_position"/>
+                                <field name="applicant_notice_period"/>
+                                <field name="applicant_salary_expectation"/>
+                                <field name="applicant_dependent"/>
+                                <field name="applicant_profession"/>
+                                <field name="applicant_number_iqama"/>
+                                <field name="applicant_current_salary"/>
+                                <field name="applicant_resume"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+                <xpath expr="//field[@name='order_line']" position="before">
+                    <button name="action_add_service" string="Add Service" type="object" class="btn-primary"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree" position="inside">
+                    <button name="edit_line_control" string="Edit Service" type="object" class="btn-primary"/>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                    <button name="action_view_employee" type="object" class="oe_stat_button"
+                            icon="fa-user" invisible="not employee_id">
+                        <field name="employee_id" invisible="1"/>
+                        <div class="o_stat_info">
+                            <span>Employee</span>
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

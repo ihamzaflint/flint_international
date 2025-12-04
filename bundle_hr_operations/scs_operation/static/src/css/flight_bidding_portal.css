@@ -1,0 +1,76 @@
+.flight-confirmation-details {
+    padding: 1rem;
+}
+
+.flight-header {
+    text-align: center;
+    color: #875A7B;
+}
+
+.flight-header i {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.flight-info {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.flight-info .row {
+    margin-bottom: 0.5rem;
+}
+
+.flight-info .text-end {
+    color: #6c757d;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+    color: #664d03;
+}
+
+.alert-warning i {
+    margin-right: 0.5rem;
+}
+
+/* SweetAlert2 Custom Styles */
+.swal2-popup {
+    border-radius: 1rem;
+}
+
+.swal2-title {
+    color: #875A7B !important;
+}
+
+.swal2-confirm {
+    background-color: #875A7B !important;
+    border-radius: 0.5rem !important;
+}
+
+.swal2-cancel {
+    border-radius: 0.5rem !important;
+}
+
+/* Animation classes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+}

@@ -1,0 +1,113 @@
+<odoo>
+
+    <template id="report_disclaimer_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_left border_right border_top border_bottom">
+                                    <span t-esc="o.employee_id.disclaimer_sequence"/>
+                                </td>
+                                <td width="15%" style="background:#CCD1D1 !important;text-align:right;" class="border_right border_top border_bottom">
+                                    التاريخ:
+                                </td>
+                                <td width="15%"></td>
+                                <td width="50%"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                                <td width="15%" style="background:#CCD1D1 !important;text-align:right;" class="border_right border_bottom">
+                                    الرقم :
+                                </td>
+                                <td width="15%"></td>
+                                <td width="50%"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="background:#CCD1D1 !important;text-align:right;padding-right:5px;" class="border_left border_right border_bottom">
+                                    <span t-esc="o.employee_id.registration_number"/>
+                                </td>
+                                <td width="15%" style="background:#CCD1D1 !important;text-align:right;" class="border_right border_bottom">
+                                    رقم الملف:
+                                </td>
+                                <td width="15%"></td>
+                                <td width="50%"></td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <u><b>إخلاء طرف</b></u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    نشهد نحن <span style="border-bottom:1px dotted black;" t-esc="o.company_name_arabic"/> ، بأن السيد/ه <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_name"/>.، <span style="border-bottom:1px dotted blaack;" t-esc="o.employee_id.country_id.country_name_arabic"/>  الجنسية ، يحمل هوية رقم رقم<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.visa_no"/> .  ، قد عمل لدينا للفترة من <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.first_contract_date"/> ، .<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.contract_id.date_end"/> ، بوظيفة <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_profession"/>..وقد انتهى عمله  لدينا وليس لدينا أو له بطرفنا أي مطالبات  مالية أو عينية و بتوقيعه باستلامه لأصل هذا الخطاب ، يكون قد اخلى طرف المذكور.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    وبالله التوفيق،،،
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%"></td>
+                                <td width="30%"></td>
+                                <td width="20%" style="text-align:center;border-top:3px solid black;">
+                                    إدارة الموارد البشرية
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_disclaimer" model="ir.actions.report">
+        <field name="name">Disclaimer</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_disclaimer_template</field>
+        <field name="print_report_name">'Disclaimer'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

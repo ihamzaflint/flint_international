@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Ensure required groups exist -->
+        
+        <!-- Create scs_operation groups if they don't exist -->
+        <record id="group_operation_user" model="res.groups">
+            <field name="name">Operation User</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Users with basic operation access</field>
+        </record>
+        
+        <record id="group_operation_admin" model="res.groups">
+            <field name="name">Operation Administrator</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Administrators with full operation access</field>
+        </record>
+        
+        <record id="group_insurance_user" model="res.groups">
+            <field name="name">Insurance User</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Users with insurance-related access</field>
+        </record>
+        
+        <record id="group_internal_sale_user" model="res.groups">
+            <field name="name">Internal Sale User</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Users with internal sale access</field>
+        </record>
+        
+        <record id="group_internal_sale_admin" model="res.groups">
+            <field name="name">Internal Sale Administrator</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Administrators with internal sale access</field>
+        </record>
+        
+        <record id="group_government_payment_operator" model="res.groups">
+            <field name="name">Government Payment Operator</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Operators with government payment access</field>
+        </record>
+        
+        <record id="my_flight_user" model="res.groups">
+            <field name="name">My Flight User</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Users with flight booking access</field>
+        </record>
+        
+    </data>
+</odoo>

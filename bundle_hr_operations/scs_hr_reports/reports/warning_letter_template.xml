@@ -1,0 +1,147 @@
+<odoo>
+
+    <template id="report_warning_letter_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b><u>Warning Letter</u></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b><u>خطــاب إنذار</u></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%">
+                                    No. HR-WL - <span t-esc="o.employee_id.warning_letter_sequence"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" class="border_left border_right border_top" style="padding-left:5px;">
+                                    Mr <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_top" style="text-align:right;padding-right:5px;">
+                                    السيد / <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" colspan="2" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="padding-left:5px;">
+                                    Concerning the HR Administration Policies and Procedures and in proportion to your violation of the following:
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    إستناداً الى أحكام مواد نظام العمل وسياسة المنشأة وبناءا على الاجراءات التي تتضمنها هذه السياسه ، ونظرا إلى:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom">
+                                    <span t-esc="o.article_detail"/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_bottom">
+                                    <span t-esc="o.artical_detail_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="padding-left:5px;">
+                                    <u>So It has been decided The following:</u>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    <u>فقد تقرر في حقكم الاتي :</u>
+                                </td>
+                            </tr>
+                            <t t-set="counter" t-value="0"/>
+                            <tr t-foreach="o.artical_detail_ids" t-as="warning_detail_id">
+                                <t t-set="counter" t-value="counter + 1"/>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:10px;">
+                                    <span t-esc="counter"/> <span t-esc="warning_detail_id.name"/>
+                                </td>
+                                <td width="48%" class="border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="warning_detail_id.name_arabic"/>
+                                </td>
+                                <td width="2%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="counter"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    In the case of repeating the same violation or committing any other violations according to the HR Policies &amp; Procedures, the company shall take the appropriate action against you
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    في حالة تكرار عدم الالتزام بقوانين وسياسات قسم ادارة الموارد البشرية ، فإن المجموعة سوف تتخذ الاجراء الملائم حيال ذلك
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"></td>
+                                <td width="40%" class="border_left border_right border_bottom border_top" style="text-align:center;">
+                                    <b>إدارة الموارد البشرية</b>
+                                </td>
+                                <td width="30%"></td>
+                            </tr>
+                            <tr>
+                                <td width="30%"></td>
+                                <td width="40%" class="border_left border_right border_bottom" style="text-align:center;">
+                                    <b>HR Department</b>
+                                </td>
+                                <td width="30%"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_warning_letter" model="ir.actions.report">
+        <field name="name">Warning Letter</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_warning_letter_template</field>
+        <field name="print_report_name">'Warning Letter'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

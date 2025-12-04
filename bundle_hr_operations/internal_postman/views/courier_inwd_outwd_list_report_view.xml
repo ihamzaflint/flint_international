@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <record id="view_inward_courier_tree" model="ir.ui.view">
+           <field name="name">postman.courier.tree.inward</field>
+           <field name="model">postman.courier.inwards</field>
+           <field name="arch" type="xml">
+               <tree string="Courier Inward View">
+                   <field name="state" invisible="1"/>
+                   <field name="department_id" string="Particulars"/>
+                   <field name="description"/>
+                   <field name="package_amount" string="Total Amount"/>
+               </tree>
+           </field>
+       </record>
+       <record id="action_courier_inward_list" model="ir.actions.act_window">
+           <field name="name">Inwards</field>
+           <field name="res_model">postman.courier.inwards</field>
+           <field name="view_mode">tree</field>
+           <field name="context">{'search_default_department':1}</field>
+       </record>
+       <record id="action_inward_tree" model="ir.actions.act_window.view" >
+           <field name="sequence" eval="1"/>
+           <field name="view_mode">tree</field>
+           <field name="view_id" ref="view_inward_courier_tree"/>
+           <field name="act_window_id" ref="action_courier_inward_list"/>
+        </record>
+
+    <record id="view_outward_courier_tree" model="ir.ui.view">
+        <field name="name">postman.courier.tree.outward</field>
+        <field name="model">postman.courier.outwards</field>
+        <field name="arch" type="xml">
+            <tree string="Courier Outward View" create="0">
+                <field name="state" invisible="1" />
+                <field name="full_name_address" string="Name" />
+                <field name="department_id" string="Particulars" />
+                <field name="description" />
+                <field name="package_amount" string="Total Amount" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_courier_outward_list" model="ir.actions.act_window">
+        <field name="name">Outwards</field>
+        <field name="res_model">postman.courier.outwards</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{'search_default_department':1}</field>
+    </record>
+    <record id="action_outward_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_outward_courier_tree" />
+        <field name="act_window_id" ref="action_courier_outward_list" />
+    </record>
+
+    <menuitem
+        id="menu_reports"
+        name="Reports"
+        parent="top_menu_courier_management" sequence="4" />
+
+    <menuitem
+        id="menu_inw_reports"
+        name="Courier Inward"
+        parent="menu_reports"
+        action="action_courier_inward_list"
+        sequence="5" />
+
+    <menuitem
+        id="menu_outw_reports"
+        name="Courier Outward"
+        parent="menu_reports"
+        action="action_courier_outward_list"
+        sequence="5" />
+
+</odoo>

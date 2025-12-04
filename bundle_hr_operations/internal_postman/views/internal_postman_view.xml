@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="group_edii_courier_admin" model="res.groups">
+            <field name="name">Courier Admin</field>
+        </record>
+    </data>
+    <data>
+        <record id="postman_courier_tree_view" model="ir.ui.view">
+            <field name="name">Postman Courier Tree</field>
+            <field name="model">postman.courier.inwards</field>
+            <field name="arch" type="xml">
+                <tree string="Courier">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="full_name_address"/>
+                    <field name="categ_id"/>
+                    <field name="place_from"/>
+                    <field name="description"/>
+                    <field name="department_id"/>
+                    <field name="package_amount"/>
+                    <field name="docket_no"/>
+                    <field name="user_id"/>
+                    <field name="owner_id"/>
+                    <field name="remark"/>
+                    <field name="state"/>
+                </tree></field>
+        </record>
+        <record id="postman_courier_tree_view_outwards" model="ir.ui.view">
+            <field name="name">Postman Courier Tree</field>
+            <field name="model">postman.courier.outwards</field>
+            <field name="arch" type="xml">
+                <tree string="Courier">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="full_name_address"/>
+                    <field name="categ_id"/>
+                    <field name="place_from"/>
+                    <field name="description"/>
+                    <field name="department_id"/>
+                    <field name="package_amount"/>
+                    <field name="docket_no"/>
+                    <field name="user_id"/>
+                    <field name="owner_id"/>
+                    <field name="remark"/>
+                    <field name="state"/>
+                </tree></field>
+        </record>
+        <record id="postman_courier_form_view" model="ir.ui.view">
+            <field name="name">Postman Courier Form Inwards</field>
+            <field name="model">postman.courier.inwards</field>
+            <field name="arch" type="xml">
+                <form string="Courier">
+                    <header>
+                        <field name="state" select="1" statusbar_colors='{"pending":"red", "receive":"blue", "cancel":"red"}' statusbar_visible="pending,receive,cancel" widget="statusbar" readonly="[('state', '!=','pending')]"/>
+                        <button class="oe_highlight" icon="fa-times-circle text-danger" invisible="state not in ['pending']" name="courier_cancel" string="Cancel" type="object"/>
+                        <button class="oe_highlight" invisible="state not in ['pending']" name="courier_receive" string="Receive" type="object"/>
+                        <button class="oe_highlight" invisible="state not in ['cancel']" name="courier_pending" string="Pending" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="from_name"/>
+                                <field name="date" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="department_id" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="post_name"/>
+                                <field name="full_name_address" required="True"/>
+                                <field name="place_from" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="letter_no"/>
+                                <field name="letter_date"/>
+                                <field name="summary" invisible="1" readonly="[('state', '!=','pending')]"/>
+                                <field name="user_id" readonly="[('state', '!=','pending')]"/>
+                            </group>
+                            <group>
+                                <field name="to_name"/>
+                                <field name="categ_id" required="True"/>
+                                <field name="docket_no" required="True"/>
+                                <field name="project_id"/>
+                                <field name="owner_id" string="Handed To" readonly="[('state', '!=','pending')]"/>
+                                <field name="remark"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form></field>
+        </record>
+        <record id="postman_courier_form_view_outwards" model="ir.ui.view">
+            <field name="name">Postman Courier Form</field>
+            <field name="model">postman.courier.outwards</field>
+            <field name="arch" type="xml">
+                <form string="Courier">
+                    <header>
+                        <field name="state" select="1" statusbar_colors='{"pending":"red", "receive":"blue", "cancel":"red"}' statusbar_visible="pending,receive,cancel" widget="statusbar"/>
+                        <button class="oe_highlight" icon="fa-times-circle text-danger" invisible="state not in ['pending']" name="courier_cancel" string="Cancel" type="object"/>
+                        <button class="oe_highlight" invisible="state not in ['pending']" name="courier_receive" string="Receive" type="object"/>
+                        <button class="oe_highlight" invisible="state not in ['cancel']" name="courier_pending" string="Pending" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="from_name"/>
+                                <field name="date" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="project_id"/>
+                                <field name="sender_name" required="True"/>
+                                <field name="letter_no"/>
+                                <field name="description" readonly="[('state', '!=','pending')]"/>
+                                <field name="remark" readonly="[('state', '!=','pending')]"/>
+                            </group>
+                            <group>
+                                <field name="to_name"/>
+                                <field name="department_id" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="post_name"/>
+                                <field name="full_name_address" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="place_from" required="True"/>
+                                <field name="categ_id" required="True"/>
+                                <field name="package_amount" required="True" readonly="[('state', '!=','pending')]"/>
+                                <field name="docket_no" required="True" readonly="[('state', '!=','pending')]"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form></field>
+        </record>
+        <record id="postman_courier_calendar_view" model="ir.ui.view">
+            <field name="name">Postman Courier Calendar</field>
+            <field name="model">postman.courier.inwards</field>
+            <field name="arch" type="xml">
+                <calendar color="user_id" date_start="date" string="Courier">
+                    <field name="name"/>
+                </calendar></field>
+        </record>
+        <record id="postman_courier_calendar_view_outwards" model="ir.ui.view">
+            <field name="name">Postman Courier Calendar</field>
+            <field name="model">postman.courier.outwards</field>
+            <field name="arch" type="xml">
+                <calendar color="user_id" date_start="date" string="Courier">
+                    <field name="name"/>
+                </calendar></field>
+        </record>
+        <record id="view_postman_courier_search" model="ir.ui.view">
+            <field name="name">Postman Courier Search</field>
+            <field name="model">postman.courier.inwards</field>
+            <field name="arch" type="xml">
+                <search string="Search Courier">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="department_id"/>
+                    <field name="user_id"><filter domain="[('user_id','=',False)]" icon="terp-personal-" name="user_id"/></field>
+                    <filter domain="[('state','=','pending')]" help="Pending Courier" icon="terp-document-new" name="pending" string="Pending"/>
+                    <filter domain="[('state','=','receive')]" help="Received Courier" icon="terp-check" name="receive" string="Receive"/>
+                    <filter domain="[('state','=','cancel')]" help="Cancelled Courier" icon="gtk-cancel" name="cancel" string="Cancel"/>
+                    <filter domain="[('date', '>=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),
+                                        ('date', '&gt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]"
+                                        name="today" string="Today"/>
+                    <filter domain="[('date','>=',(datetime.date.today()-datetime.timedelta(days=7)).strftime('%%Y-%%m-%%d'))]" help="Couriers during last 7 days" icon="terp-go-week" name="7days" string="7 Days"/>
+                    <group expand="1" string="Group By...">
+                        <filter context="{'group_by': 'department_id'}" name="department" string="Department"/>
+                        <filter context="{'group_by':'owner_id'}" name="owner_id" string="Recipient"/>
+                        <filter context="{'group_by':'user_id'}" name="user_id" string="Responsible"/>
+                        <separator orientation="vertical"/>
+                        <filter context="{'group_by':'date'}" name="date" string="Parcel Date"/>
+                    </group>
+                </search></field>
+        </record>
+        <record id="view_postman_courier_search_outwards" model="ir.ui.view">
+            <field name="name">Postman Courier Search</field>
+            <field name="model">postman.courier.outwards</field>
+            <field name="arch" type="xml">
+                <search string="Search Courier">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="department_id"/>
+                    <field name="user_id"><filter domain="[('user_id','=',False)]" icon="terp-personal-" name="user_id"/></field>
+                    <filter domain="[('state','=','pending')]" help="Pending Courier" icon="terp-document-new" name="pending" string="Pending"/>
+                    <filter domain="[('state','=','receive')]" help="Received Courier" icon="terp-check" name="receive" string="Receive"/>
+                    <filter domain="[('state','=','cancel')]" help="Cancelled Courier" icon="gtk-cancel" name="cancel" string="Cancel"/>
+                    <filter domain="[('date', '>=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),
+                                        ('date', '&gt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]" name="today" string="Today"/>
+                    <filter domain="[('date','>=',(datetime.date.today()-datetime.timedelta(days=7)).strftime('%%Y-%%m-%%d'))]" help="Couriers during last 7 days" icon="terp-go-week" name="7days" string="7 Days"/>
+                    <group expand="1" string="Group By...">
+                        <filter context="{'group_by': 'department_id'}" name="department" string="Department"/>
+                        <filter context="{'group_by':'owner_id'}" name="owner_id" string="Recipient"/>
+                        <filter context="{'group_by':'user_id'}" name="user_id" string="Responsible"/>
+                        <separator orientation="vertical"/>
+                        <filter context="{'group_by':'date'}" name="date" string="Parcel Date"/>
+                    </group>
+                </search></field>
+        </record>
+        <record id="action_postman_courier_inward" model="ir.actions.act_window">
+            <field name="name">Inwards</field>
+            <field name="res_model">postman.courier.inwards</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="context">{"search_default_user_id":uid, "default_type":'inwards'}</field>
+        </record>
+        <record id="action_postman_courier_outwards" model="ir.actions.act_window">
+            <field name="name">Outwards</field>
+            <field name="res_model">postman.courier.outwards</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="context">{"search_default_user_id":uid, "default_type":'outwards'}</field>
+        </record>
+        <menuitem groups="internal_postman.group_edii_courier_admin" id="top_menu_courier_management" name="Courier" sequence="5" web_icon="internal_postman,static/description/icon.png"/>
+        <menuitem id="menu_courier" name="Couriers" parent="top_menu_courier_management" sequence="4"/>
+        <menuitem action="action_postman_courier_inward" id="menu_postman_courier_inward" parent="menu_courier"/>
+        <menuitem action="action_postman_courier_outwards" id="menu_postman_courier_outwards" parent="menu_courier"/>
+        <record id="postman_courier_type_tree_view" model="ir.ui.view">
+            <field name="name">Postman Courier Type Tree</field>
+            <field name="model">postman.courier.type</field>
+            <field name="arch" type="xml">
+                <tree string="Courier Type">
+                    <field name="name"/>
+                </tree></field>
+        </record>
+        <record id="postman_courier_type_form_view" model="ir.ui.view">
+            <field name="name">Postman Courier Type Form</field>
+            <field name="model">postman.courier.type</field>
+            <field name="arch" type="xml">
+                <form string="Courier Type">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form></field>
+        </record>
+        <record id="action_postman_courier_type" model="ir.actions.act_window">
+            <field name="name">Courier Type</field>
+            <field name="res_model">postman.courier.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_courier_configuration" name="Configuration" parent="top_menu_courier_management" sequence="5"/>
+        <menuitem action="action_postman_courier_type" id="menu_postman_courier_type" parent="menu_courier_configuration"/>
+    </data>
+</odoo>

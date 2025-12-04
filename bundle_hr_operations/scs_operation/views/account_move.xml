@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="scs_operation.view_move_form" model="ir.ui.view">
+        <field name="name">scs_operation view_move_form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="after">
+                <field name="government_payment_id" force_save="1" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_date']" position="attributes">
+                <attribute name="readonly">state not in ['draft', 'approved']</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

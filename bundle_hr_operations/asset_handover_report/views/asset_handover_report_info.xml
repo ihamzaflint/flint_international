@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="asset_handover_report.view_employee_asset_handover_form" model="ir.ui.view">
+        <field name="name">asset_handover_report view_employee_asset_handover_form</field>
+        <field name="model">employee.asset.handover</field>
+        <field name="arch" type="xml">
+            <form string="Employee Device Information">
+                <header>
+                    <button name="button_active" string="Active" type="object" class="btn-primary"
+                            invisible="state == 'active'"/>
+                    <button name="button_draft" string="Reset to Draft" type="object" class="btn-secondary"
+                            invisible="1"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="asset_handover_no" force_save="1" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Employee Info" name="employee_info">
+                            <field name="employee_id" force_save="1" readonly="state == 'active'"/>
+                            <field name="job_id" force_save="1" readonly="state == 'active'"/>
+                            <field name="department_id" force_save="1" readonly="state == 'active'"/>
+                            <field name="identification_no" force_save="1" readonly="state == 'active'"/>
+                        </group>
+                        <group string="Technical Info" name="technical_info">
+                            <field name="form_no" force_save="1" readonly="state == 'active'"/>
+                            <field name="handover_date" force_save="1" readonly="state == 'active'"/>
+                            <field name="handover_employee_id" force_save="1" readonly="state == 'active'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Device Info." name="device_info">
+                            <field name="device_line_ids" readonly="state == 'active'">
+                                <tree editable="bottom">
+                                    <field name="asset" optional="show"/>
+                                    <field name="type" optional="show"/>
+                                    <field name="model" optional="show"/>
+                                    <field name="serial_number" optional="show"/>
+                                    <field name="asset_number" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="asset_handover_report.view_employee_asset_handover_list" model="ir.ui.view">
+        <field name="name">asset_handover_report view_employee_asset_handover_list</field>
+        <field name="model">employee.asset.handover</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" optional="show"/>
+                <field name="job_id" optional="show"/>
+                <field name="department_id" optional="show"/>
+                <field name="identification_no" optional="show"/>
+                <field name="form_no" optional="show"/>
+                <field name="handover_date" optional="show"/>
+                <field name="handover_employee_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="asset_handover_report.action_employee_asset_handover" model="ir.actions.act_window">
+        <field name="name">Asset Handover Form</field>
+        <field name="res_model">employee.asset.handover</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="asset_handover_report.employee_asset_handover" model="ir.sequence">
+        <field name="name">Employee Asset</field>
+        <field name="code">employee.asset.handover</field>
+        <field name="prefix">%(year)s-IT-ADH-</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

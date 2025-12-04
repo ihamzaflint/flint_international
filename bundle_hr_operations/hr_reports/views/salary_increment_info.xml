@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Form View-->
+    <record id="view_salary_increment_form" model="ir.ui.view">
+        <field name="name">salary.increment.form</field>
+        <field name="model">salary.increment</field>
+        <field name="arch" type="xml">
+            <form string="Salary Increment">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+
+                    <group>
+                        <field name="employee_id" force_save="1" options="{'no_create': True}"
+                               readonly="state in ['confirm']"/>
+                    </group>
+                    <group name="dual_language_section" colspan="2">
+                        <!-- English Section -->
+                        <group string="English Section" name="english_section">
+
+                            <field name="name" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="html_points_en" force_save="1" widget="html" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <!-- Arabic Section -->
+                        <group string="Arabic Section" name="arabic_section">
+                            <field name="ar_name" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="html_points_ar" force_save="1" widget="html" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+
+                    <!--  Common Information Section -->
+                    <group colspan="2">
+                        <group string="Common Information" name="common_info">
+                            <field name="project_id" readonly="state in ['confirm']"/>
+                            <field name="company_id" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+
+                        <group string="Contract Dates" name="contract_dates">
+                            <field name="start_date" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="work_effective_date" force_save="1" readonly="state in ['confirm']"/>
+                            <field name="contract_date" force_save="1" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+
+                    <!--  Notebook Section  -->
+                    <notebook string="Salary Increment Details" name="salary_increment_details">
+                        <page string="Salary Increment Lines" name="salary_increment_lines">
+                            <field name="salary_increment_line_ids" force_save="1" readonly="state in ['confirm']">
+                                <tree editable="bottom">
+                                    <field name="allowance_name_en"/>
+                                    <field name="allowance_name_ar"/>
+                                    <field name="allowance_amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--    Tree View-->
+    <record id="view_salary_increment_tree" model="ir.ui.view">
+        <field name="name">salary.increment.tree</field>
+        <field name="model">salary.increment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Action-->
+    <record id="action_salary_increment" model="ir.actions.act_window">
+        <field name="name">Salary Increment</field>
+        <field name="res_model">salary.increment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

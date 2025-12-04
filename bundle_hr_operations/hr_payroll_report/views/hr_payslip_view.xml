@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="inherit_view_hr_payslip_form_mea_payslip" model="ir.ui.view">
+        <field name="name">inherit.view.hr.payslip.form.mea.payslip</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <field name="paid" position="after">
+                <field name="is_mea_payslip"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

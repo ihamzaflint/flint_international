@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="hr_applicant_form_view">
+        <field name="name">hr.applicant.form</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='create_employee_from_applicant']" position="after">
+                <field name="is_accepted" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='create_employee_from_applicant']" position="attributes">
+                <attribute name="invisible">['|','|',('emp_id', '!=', False),('active', '=', False),('is_accepted','=',False)]</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

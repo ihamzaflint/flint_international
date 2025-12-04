@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Paper Format -->
+    <record id="hr_reports.loan_application_paperformat" model="report.paperformat">
+        <field name="name">Loan Application Report Format</field>
+        <field name="default" eval="False"/>
+        <field name="dpi">90</field>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="header_spacing">15</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+    </record>
+
+    <!-- Report Action -->
+    <record id="hr_reports.action_loan_application_report" model="ir.actions.report">
+        <field name="name">Loan Application</field>
+        <field name="model">loan.application</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_reports.loan_application_report_template</field>
+        <field name="report_file">hr_reports.loan-application_report_template</field>
+        <field name="binding_model_id" ref="hr_reports.model_loan_application"/>
+        <field name="paperformat_id" ref="hr_reports.loan_application_paperformat"/>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<odoo>
+
+    <record id="approve_dynamic_approval_wizard_form" model="ir.ui.view">
+        <field name="name">approve.dynamic.approval.wizard.form</field>
+        <field name="model">approve.dynamic.approval.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <label for="note" class="oe_edit_only"/>
+                <h3>
+                    <field name="note"/>
+                </h3>
+                <footer>
+                    <button string="Confirm Approve"
+                            name="action_approve_order"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="approve_dynamic_approval_wizard_action" model="ir.actions.act_window">
+        <field name="name">Approve</field>
+        <field name="res_model">approve.dynamic.approval.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

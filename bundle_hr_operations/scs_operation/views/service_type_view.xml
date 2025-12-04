@@ -1,0 +1,69 @@
+<odoo>
+
+    <record id="service_type_tree_view" model="ir.ui.view">
+        <field name="name">service.type.tree.view</field>
+        <field name="model">service.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="is_muqeem_service"/>
+                <field name="saddad_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_type_form_view" model="ir.ui.view">
+        <field name="name">service.type.form.view</field>
+        <field name="model">service.type</field>
+        <field name="arch" type="xml">
+            <form name="client_type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="True"/>
+                            <field name="service_type"/>
+                            <field name="including_payment" widget="boolean_toggle"/>
+                            <field name="initial_cost" invisible="including_payment == False"
+                                   required="including_payment == True"/>
+                            <field name="is_muqeem_service"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="is_saddad_required" widget="boolean_toggle"/>
+                            <field name="is_project_required" widget="boolean_toggle"/>
+                            <field name="sister_company_ids" invisible="service_type != 'enterprise'"
+                                   widget="many2many_tags"/>
+                            <field name="saddad_type"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="accounting" string="Accounting" groups="account.group_account_manager"
+                              invisible="including_payment == False">
+                            <group string="Accounting">
+                                <group>
+                                    <field name="default_credit_account_id" required="including_payment == True"/>
+                                    <field name="default_debit_account_id" required="including_payment == True"/>
+                                    <field name="partner_id"/>
+                                </group>
+                                <group>
+                                    <field name="tax_ids" widget="many2many_tags"/>
+                                    <field name="product_id"/>
+                                    <field name="account_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="service_type_action" model="ir.actions.act_window">
+        <field name="name">Service Type</field>
+        <field name="res_model">service.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

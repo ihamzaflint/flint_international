@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+    <menuitem id="hr_employee_doc_root" name="Employee Documents" sequence="22" web_icon="hr,static/description/icon.png"
+        groups="group_employee_doc_generator"/>
+    <menuitem id="menu_hr_employee_document_sub_root" name="Employees"
+              parent="hr_employee_doc_root"
+              sequence="1" groups="group_employee_doc_generator"/>
+
+</odoo>

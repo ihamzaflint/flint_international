@@ -1,0 +1,20 @@
+<odoo>
+    <record id="sale_order_view_form_sales_person_per_customer" model="ir.ui.view">
+    <field name="name">sale.order.form.view.sale.person.per.customer</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+       <xpath expr="//field[@name='user_id']" position="before">
+           <field name="user_domain" invisible="1"/>
+           <field name="employee_domain" invisible="1"/>
+           <field name="employee_id" invisible="['|','|', '&amp;', ('user_id', '!=', False), ('partner_id', '!=',False),
+           ('partner_id', '=',False), ('employee_domain', '=',False)]"/>
+       </xpath>
+         <xpath expr="//field[@name='user_id']" position="attributes">
+               <attribute name="invisible">
+                   [('user_domain', '=',False), ('employee_domain', '!=',False)]
+               </attribute>
+           </xpath>
+    </field>
+ </record>
+</odoo>

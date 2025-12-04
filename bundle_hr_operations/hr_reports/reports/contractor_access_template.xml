@@ -1,0 +1,230 @@
+<odoo>
+    <data>
+        <template id="contractor_access_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                            }
+                            [dir="rtl"], .arabic-text {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            }
+                            td,span{
+                            width:50%
+                            }
+                        </style>
+
+                        <div class="page" style="font-family: Arial, sans-serif;">
+                            <h4 class="text-center fs-3 fw-bold my-3">نموذج طلب إصدار بطاقة دخول للمقاولين</h4>
+                            <h4 class="text-center fs-3 fw-bold">Contractor Access ID request Form</h4>
+
+                            <table class="table table-bordered w-100 align-middle fs-6">
+
+                                <!-- Row 1 -->
+                                <tr>
+                                    <td class="p-2 ">To whom it may concern /</td>
+                                    <td class="p-2 text-end arabic-text " dir="rtl">الي من يهمه الامر /</td>
+                                </tr>
+
+                                <!-- Row 2 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="border-1">We inform you that we</span>
+                                        <span  t-field="doc.company_name"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">نحيطكم علما نحن شركة:</span>
+                                        <span class="" t-field="doc.company_name"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 3 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Commercial registration number:</span>
+                                        <span class="" t-field="doc.cr_number"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">سجل تجاري:</span>
+                                        <span class="" t-field="doc.cr_number"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 4 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Employee:</span>
+                                        <span class="" t-field="doc.employee_name"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">بأن الموظف:</span>
+                                        <span class="" t-field="doc.employee_name"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 5 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Identity ID:</span>
+                                        <span class="" t-field="doc.identity_id"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">ويحمل بطاقة/اقامة رقم:</span>
+                                        <span class="" t-field="doc.identity_id"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 6 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Work with us as:</span>
+                                        <span class="" t-field="doc.job_position"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">يعمل لدينا بمهنة:</span>
+                                        <span class="" t-field="doc.job_position"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 7 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Nationality:</span>
+                                        <span class="" t-field="doc.nationality"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">الجنسية:</span>
+                                        <span class="" t-field="doc.nationality"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 8 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Contract No:</span>
+                                        <span class="" t-field="doc.contract_no"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">رقم العقد:</span>
+                                        <span class="" t-field="doc.contract_no"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 9 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Contract Validity date:</span>
+                                        <span class="" t-field="doc.contract_validity"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">صالح الي تاريخ:</span>
+                                        <span class="" t-field="doc.contract_validity"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 10 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Work description:</span>
+                                        <span class="" t-field="doc.work_description"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">وصف العمل:</span>
+                                        <span class="" t-field="doc.work_description"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 11 -->
+                                <tr>
+                                    <td class="p-2">We seek your support to issue Mobily ID for him to access the
+                                        building and do his work. Thank you very much.
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        نأمل منكم إصدار بطاقة للوصول الي مواقع موبايلي حسب نموذج اصدار اذن دخول والقيام
+                                        بعمله ولكم جزيل الشكر والتقدير.
+                                    </td>
+                                </tr>
+
+                                <!-- Row 12 -->
+                                <tr>
+                                    <td class="p-2">We confirm to return Mobily ID card upon completion of the job under
+                                        this contract or contract expiry OR the expiry of the staff service under this
+                                        contract.
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        نتعهد بإعادة بطاقة موبايلي عند انتهاء العمل بموجب هذا العقد نهايته أو انتهاء
+                                        خدمة الموظف عل هذا العقد.
+                                    </td>
+                                </tr>
+
+                                <!-- Row 13 -->
+                                <tr>
+                                    <td class="p-2 ">Authorized</td>
+                                    <td class="p-2 text-end arabic-text " dir="rtl">المصرح له</td>
+                                </tr>
+
+                                <!-- Row 14 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Name:</span>
+                                        <span class="" t-field="doc.name"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">الاسم:</span>
+                                        <span class="" t-field="doc.name"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 15 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Job title:</span>
+                                        <span class="" t-field="doc.job_title"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">المسمى الوظيفي:</span>
+                                        <span class="" t-field="doc.job_title"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 16 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Signature:</span>
+                                        <span class="" t-field="doc.signature"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">التوقيع:</span>
+                                        <span class="" t-field="doc.signature"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 17 -->
+                                <tr>
+                                    <td class="p-2">
+                                        <span class="">Date:</span>
+                                        <span class="" t-field="doc.date"/>
+                                    </td>
+                                    <td class="p-2 text-end arabic-text" dir="rtl">
+                                        <span class="">التاريخ:</span>
+                                        <span class="" t-field="doc.date"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 18 -->
+                                <tr>
+                                    <td class="p-2 ">Stamp</td>
+                                    <td class="p-2 text-end arabic-text " dir="rtl">الختم</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

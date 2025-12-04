@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="logistic_order_form_view_inherit">
+        <field name="name">logistic.order.form.view.inherit</field>
+        <field name="model">logistic.order</field>
+        <field name="inherit_id" ref="scs_operation.view_logistic_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_show_payment" string="Bills" type="object" class="oe_stat_button"
+                        icon="fa-usd" invisible = "state != 'done'"/>
+
+            </xpath>
+            <xpath expr="//field[@name='employee_passport_copy']" position="after">
+                <field name="flight_ticket" widget="many2many_binary" readonly="state != 'in_progress'"
+                       invisible="order_type != 'flight'"
+                />
+                <field name="insurance_membership_no" readonly="state != 'in_progress'"
+                       invisible="order_type != 'insurance'"
+                       required="order_type == 'insurance' and state == 'in_progress'"
+                       />
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

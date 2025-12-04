@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="contract_decline_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                            }
+                            [dir="rtl"], .arabic-text {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            }
+                        </style>
+                        <div class="page" style="font-family: Arial, sans-serif; font-size: 12px;">
+                            <h4 class="text-center fs-3 fw-bold py-3">إشعار بعدم الرغبة في تجديد العقد</h4>
+                            <h4 class="text-center fs-3 fw-bold ">No Desire to Renew the Contract</h4>
+                            <table class="w-100 mb-3"
+                                   style="border:1px solid black; border-collapse:collapse; font-size:14px; line-height:2.2; text-align:left;">
+
+                                <tr>
+                                    <td colspan="2" style="border:1px solid black; padding:8px;">
+                                        <div style="display:flex; justify-content:space-between; width:100%;">
+                                            <span>…………:Ref: HR- 504/2023</span>
+                                            <span>Date: ………… FN</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Second row (50/50 split) -->
+                                <tr>
+                                    <td style="width:50%; border:1px solid black; padding:10px; vertical-align:top;">
+                                        Dear ..............
+                                        <br/>
+                                        Regarding,
+                                    </td>
+                                    <td style="width:50%; border:1px solid black; padding:10px; text-align:right; vertical-align:top;"
+                                        dir="rtl" class="arabic-text">
+                                        السيد / ………….
+                                        <br/>
+                                        تحية طيبة وبعد،
+                                    </td>
+                                </tr>
+
+                                <!-- Third row (50/50 split) -->
+                                <tr>
+                                    <td style="width:50%; border:1px solid black; padding:12px; vertical-align:top;">
+                                        According to the terms and conditions of the contract entered into between you
+                                        and the group,
+                                        which stipulate that one party must inform the other in case there was no desire
+                                        to renew the
+                                        contract for a comparable term, as the provisions of Article (74/3) of the Labor
+                                        Law.
+                                        <br/>
+                                        <br/>
+                                        Since your contract with the group dated 15/01/2023, we hereby notify you
+                                        officially with this
+                                        letter that we have no desire to renew the contract. And the last day for you
+                                        will be 15/01/2024.
+                                        This is for your knowledge and to take the necessary steps to manage yourself.
+                                    </td>
+                                    <td style="width:50%; border:1px solid black; padding:12px; text-align:right; vertical-align:top;"
+                                        dir="rtl" class="arabic-text">
+                                        طبقا لأحكام مواد عقد العمل المبرم فيما بينكم وبين المجموعة وتنفيذا لأحكام المادة
+                                        الثانية من العقد
+                                        والتي نصت على ضرورة إشعار الطرف الراغب في عدم تجديد العقد الطرف الآخر إشعارا
+                                        خطيا،
+                                        وتنفيذا لأحكام المادة (74/3) من نظام العمل.
+                                        <br/>
+                                        <br/>
+                                        وحيث أن عقدكم مع المجموعة موقع بتاريخ 15/01/2023م، عليه فإننا نقوم بإشعاركم
+                                        رسميا بموجب هذا
+                                        الخطاب بعدم الرغبة في تجديد العقد معكم، ويعتبر يوم 15/01/2024 هو آخر يوم لمزاولة
+                                        عملكم طرفنا،
+                                        طبقا للعقد ولنظام العمل، هذا للعلم وإتخاذ اللازم نحو تدبير أموركم.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%; border:1px solid black; padding:12px; vertical-align:top;">
+                                        We thank you for your cooperation during the period of your work with us in the
+                                        previous period,
+                                        and we wish you success.
+                                    </td>
+                                    <td style="width:50%; border:1px solid black; padding:12px; text-align:right; vertical-align:top;"
+                                        dir="rtl" class="arabic-text">
+                                        ونشكر لكم حسن تعاونكم خلال مدة عملكم معنا في الفترة السابقة متمنين لكم التوفيق .
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <table class="w-100 mb-3"
+                                   style="border:1px solid black; border-collapse:collapse; font-size:14px; line-height:2.2;">
+                                <!-- First row (merged 3 cells) -->
+                                <tr>
+                                    <td colspan="3" style="border:1px solid black; padding:10px;">
+                                        <div class="text-center">
+                                            <span class="me-5">HR Department</span>
+                                            <span dir="rtl" class="arabic-text ms-5">إدارة الموارد البشرية</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Second row (3 cells) -->
+                                <tr>
+                                    <td style="width:25%; border:1px solid black; padding:12px;">Name :</td>
+                                    <td style="width:50%; border:1px solid black; padding:12px;"></td>
+                                    <td style="width:25%; border:1px solid black; padding:12px; text-align:right;"
+                                        dir="rtl"
+                                        class="arabic-text">
+                                        الاسم :
+                                    </td>
+                                </tr>
+
+                                <!-- Third row (3 cells) -->
+                                <tr>
+                                    <td style="width:25%; border:1px solid black; padding:12px;">Signature :</td>
+                                    <td style="width:50%; border:1px solid black; padding:12px;"></td>
+                                    <td style="width:25%; border:1px solid black; padding:12px; text-align:right;"
+                                        dir="rtl"
+                                        class="arabic-text">
+                                        التوقيع :
+                                    </td>
+                                </tr>
+
+                                <!-- Fourth row (3 cells) -->
+                                <tr>
+                                    <td style="width:25%; border:1px solid black; padding:12px;">Date :</td>
+                                    <td style="width:50%; border:1px solid black; padding:12px;"></td>
+                                    <td style="width:25%; border:1px solid black; padding:12px; text-align:right;"
+                                        dir="rtl"
+                                        class="arabic-text">
+                                        التاريخ :
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                        </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

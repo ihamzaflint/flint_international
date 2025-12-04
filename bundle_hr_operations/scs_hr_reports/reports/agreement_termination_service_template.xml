@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_agreement_termination_service_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Date : </b>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>التاريخ :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_top border_right">
+                                    <b>Emp. ID : <span t-esc="o.employee_id.identification_id"/></b>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>رقم الموظف: <span t-esc="o.employee_id.identification_id"/></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_top border_right border_bottom">
+                                    <b>Iqama No. : <span t-esc="o.employee_id.visa_no"/></b>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_top border_right border_bottom">
+                                    <b>رقم الاقامة : <span t-esc="o.employee_id.visa_no"/></b>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="text-align:center;" class="border_left border_right">
+                                    <b><u><h6>Agreement of Termination of Services</h6></u></b>
+                                </td>
+                                <td width="50%" style="text-align:center;" class="border_right">
+                                    <b><u><h6>أتفاق على إنهاءعقد العمل</h6></u></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                On(...-......-2023), it was agreed between both (....................) and the employee /((............to terminate the work contract; between them, in an amicable manner and in accordance with the following conditions:
+                            </td>
+                            <td width="50%" style="text-align:right;padding-right:5px;" class="border_right">
+                                تم الاتفاق في تاريخ.....................، بين كل من ............  والموظف السيد/ه ...............، على إنهاء عقد العمل  بشكل ودي و وفقا للشروط التالية:
+                            </td>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                    1. The above employee services are terminated amicably at .............. G, It has to be the last working day, with the consent of both parties and without any pressure or coercion from any party on the other.  Provided that the Company is discharged from any financial claims. Previous, subsequent, or future, after completing the evacuation procedures.
+                                </td>
+                                <td width="50%" style="text-align:center;padding-right:5px;" class="border_right">
+                                    1. يتم انهاء عقد الموظف أعلاه ودياً بتاريخ  ........... ،على ان يكون هو اخر يوم عمل ،وبتراضي الطرفين ودون أي ضغط أو اكراه من أي طرف على الاخر ،على أن يبرئ ذمة الشركة من أي مطالب مالية سابقة أو لاحقة أو مستقبلية.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                    2. The above-mentioned employee acknowledges their commitment. This agreement must be final and irrevocable, irrevocable or assignable to the Company and its subsidiaries.
+                                </td>
+                                <td width="50%" style="text-align:center;padding-right:5px;" class="border_right">
+                                    2.يقر الموظف المذكور أعلاه بإلتزامه بما وجب في هذا الإتفاق بصفة نهائية وغيرقابلة للنقض أوالرجوع عنها أوالنكول فيه ببراءة ذمة الشركة ، 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                    With our best wishes for success in your working life
+                                </td>
+                                <td width="50%" style="text-align:center;padding-right:5px;" class="border_right">
+                                    مع امنياتنا لكم بالتوفيق في حياتكم العملية
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="text-align:center;" class="border_left border_right border_bottom">
+                                    <u><b>HR Department</b></u>
+                                </td>
+                                <td width="50%" style="text-align:center;" class="border_right border_bottom">
+                                    <u><b>إدارة الموارد البشرية</b></u>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" style="padding-left:5px;" class="border_top border_left border_right">
+                                    <b>Name : </b>
+                                </td>
+                                <td width="30%" class="border_right border_top"></td>
+                                <td width="30%" class="border_top border_right"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>الاسم :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="padding-left:5px;" class="border_top border_left border_right">
+                                    <b>Signature : </b>
+                                </td>
+                                <td width="30%" class="border_right border_top"></td>
+                                <td width="30%" class="border_top border_right"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;" class="border_top border_right">
+                                    <b>التوقيع :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="padding-left:5px;" class="border_top border_left border_right border_bottom">
+                                    <b>Date : </b>
+                                </td>
+                                <td width="30%" class="border_right border_top border_bottom"></td>
+                                <td width="30%" class="border_top border_right border_bottom"></td>
+                                <td width="20%" style="text-align:right;padding-right:5px;" class="border_top border_right border_bottom">
+                                    <b>التاريخ:</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_action_agreement_termination_service" model="ir.actions.report">
+        <field name="name">Agreement Termination Service</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_agreement_termination_service_template</field>
+        <field name="print_report_name">'Agreement Termination Service'</field>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

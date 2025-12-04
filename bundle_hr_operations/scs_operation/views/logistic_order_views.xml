@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_logistic_order_form" model="ir.ui.view">
+        <field name="name">logistic.order.form</field>
+        <field name="model">logistic.order</field>
+        <field name="arch" type="xml">
+            <form string="Logistic Order">
+                <header>
+                    <button name="action_confirm"
+                            invisible="state != 'draft' or order_type != 'flight'"
+                            string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_confirm"
+                            invisible="state != 'draft' or order_type == 'flight'"
+                            string="Confirm" type="object" class="oe_highlight"/>
+                    <field name="display_approval_buttons" invisible="True"/>
+                    <button name="action_approve_operation_manager" string="Approve" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'approval' or display_approval_buttons == False"
+                            groups="scs_operation.group_operation_admin"/>
+                    <button name="action_send_for_selection"
+                            string="Send to Selection" type="object" class="oe_highlight"
+                            invisible="state != 'bidding' or order_type != 'flight'"
+                            groups="scs_operation.my_flight_user"/>
+                    <button name="action_reject_operation_manager" string="Reject" type="object"
+                            invisible="state != 'approval' or display_approval_buttons == False"
+                            groups="scs_operation.group_operation_admin"/>
+                    <button class="oe_highlight" invisible="state not in ['in_progress']"
+                            name="action_done"
+                            string="Mark Done" type="object"/>
+                    <button invisible="state not in ['draft','bidding','in_progress']"
+                            name="action_cancel"
+                            string="Cancel" type="object"/>
+                    <button invisible="state not in ['cancel','rejected']" name="action_draft"
+                            string="Reset to Draft"
+                            type="object"/>
+                    <field name="state" statusbar_visible="draft,bidding,approval,in_progress,done"
+                           widget="statusbar" invisible="order_type != 'flight'"/>
+                    <field name="state" statusbar_visible="draft,approval,done"
+                           widget="statusbar" invisible="order_type == 'flight'"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_helpdesk_ticket"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-life-ring">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Helpdesk</span>
+                                <span class="o_stat_text">Ticket</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="bg-danger"
+                            invisible="state != 'cancel'"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" widget="many2one_avatar"/>
+                            <field name="project_id"/>
+                            <field name="file_no"/>
+                            <field name="work_email"/>
+                            <field name="mobile_phone" widget="phone"/>
+                            <field name="iqama_no" invisible="order_type != 'insurance'"/>
+                            <field name="visa_expire" invisible="order_type != 'insurance'"/>
+                            <field name="passport_no" invisible="order_type != 'flight'"/>
+                            <field name="employee_passport_copy" required="order_type == 'flight'"
+                                   widget="many2many_binary"/>
+                            <field name="insurance_type" invisible="order_type != 'insurance'"
+                                   readonly="True"/>
+                            <field name="effective_date" invisible="order_type != 'insurance'"
+                                   readonly="True"/>
+                            <field name="sponsor_no" invisible="order_type != 'insurance'"
+                                   readonly="True"/>
+                            <field name="employee_insurance_cost"
+                                   invisible="order_type != 'insurance' or insurance_type == 'family' or insurance_required_action == 'update'"
+                                   options="{'currency_field': 'currency_id'}" widget="monetary"
+                                   readonly="state != 'draft'"/>
+                            <field name="rejection_reason" invisible="rejection_reason == False"
+                                   readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="available_vendors" invisible="True"/>
+                            <field name="vendor_id"
+                                   invisible="order_type not in ['flight','pick_up_drop_off','courier']"
+                                   required="order_type in ['flight','pick_up_drop_off','courier']"
+                                   domain="[('id', 'in', available_vendors)]"
+                                   readonly="state != 'draft'"/>
+                            <field name="order_type" widget="radio"/>
+                            <field name="ticket_number" force_save="1" invisible="order_type != 'pick_up_drop_off'"
+                                   readonly="1"/>
+                            <field name="driver_name" force_save="1"
+                                   invisible="order_type != 'pick_up_drop_off' or state not in ['in_progress', 'done']"
+                                   required="state == 'done' and order_type == 'pick_up_drop_off'"/>
+                            <field name="driver_number" force_save="1"
+                                   invisible="order_type != 'pick_up_drop_off' or state not in ['in_progress', 'done']"
+                                   required="state == 'done' and order_type == 'pick_up_drop_off'"/>
+
+                            <field name="preferred_travel_time"
+                                   invisible="order_type != 'flight' and order_type != 'pick_up_drop_off'"
+                                   required="order_type == 'pick_up_drop_off'"
+                                   readonly="state != 'draft'"/>
+                            <field name="pick_up_drop_off_cost" force_save="1"
+                                   invisible="order_type != 'pick_up_drop_off'" readonly="state != 'draft'"/>
+                            <field name="required_document_ids" force_save="1" invisible="order_type != 'courier'"
+                                   readonly="1" widget="many2many_tags"
+                                   required="order_type == 'courier'"/>
+                            <field name="required_document_count" force_save="1" invisible="order_type != 'courier'"
+                                   readonly="1"/>
+                            <field name="document_ids" force_save="1" invisible="order_type != 'courier'"
+                                   readonly="1" widget="many2many_binary"/>
+                            <field name="courier_type" force_save="1" invisible="order_type != 'courier'" readonly="1"/>
+                            <field name="agency_name" force_save="1"
+                                   invisible="order_type != 'courier' or courier_type != 'international'"
+                                   readonly="1"/>
+                            <field name="recipient_name" force_save="1" invisible="order_type != 'courier'"
+                                   required="order_type == 'courier'" readonly="1"/>
+                            <field name="recipient_address" force_save="1" invisible="order_type != 'courier'"
+                                   required="order_type == 'courier'" readonly="1"/>
+                            <field name="recipient_phone_number" force_save="1" invisible="order_type != 'courier'"
+                                   required="order_type == 'courier'" readonly="1"/>
+                            <field name="recipient_postal_code" force_save="1" invisible="order_type != 'courier'"
+                                   readonly="1"/>
+                            <field name="recipient_city" force_save="1" invisible="order_type != 'courier'"
+                                   required="order_type == 'courier'" readonly="1"/>
+                            <field name="recipient_country" force_save="1" invisible="order_type != 'courier'"
+                                   required="order_type == 'courier'" readonly="1"/>
+                            <field name="courier_no" force_save="1" invisible="order_type != 'courier'"/>
+                            <field name="courier_cost" force_save="1" invisible="order_type != 'courier'"
+                                   required="order_type == 'courier'" readonly="state != 'draft'"/>
+                            <field invisible="order_type !='insurance'" name="insurance_partner_id"
+                                   force_save="True"
+                                   required="order_type == 'insurance'"
+                                   readonly="state != 'draft' or insurance_policy_id"/>
+                            <field invisible="order_type !='insurance'" name="insurance_policy_id"
+                                   required="order_type =='insurance'" readonly="state != 'draft'"/>
+                            <field name="insurance_class" widget="many2one" options="{'no_create': True}"
+                                   invisible="order_type != 'insurance'"
+                                   readonly="True"/>
+                            <field name="insurance_required_action" invisible="order_type != 'insurance'"
+                                   required="order_type == 'insurance'"
+                                   readonly="True"/>
+                            <field name="update_note" invisible="order_type != 'insurance'" readonly="True"/>
+                            <field name="insurance_class_from" widget="many2one" options="{'no_create': True}"
+                                   invisible="order_type != 'insurance'" readonly="True"/>
+                            <field name="insurance_class_to" widget="many2one" options="{'no_create': True}"
+                                   invisible="order_type != 'insurance'" readonly="True"/>
+                            <field name="location_country_id"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="departure_airport_id"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="departure_city"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="departure_date" required="order_type == 'flight'"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="destination_country_id" required="True"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="destination_airport_id"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="destination_city"
+                                   invisible="order_type != 'flight'" readonly="True"/>
+                            <field name="flight_direction" invisible="order_type != 'flight'"
+                                   readonly="True"/>
+                            <field name="return_date"
+                                   required="order_type == 'flight' and flight_direction == 'round_trip'"
+                                   invisible="order_type != 'flight' or flight_direction == 'one_way'"
+                                   readonly="state != 'draft'"/>
+                            <field name="hotel_partner_id" required="order_type == 'hotel'"
+                                   invisible="order_type != 'hotel'" readonly="state != 'draft'"/>
+                            <field name="available_address_ids"
+                                   invisible="True"/>
+                            <field name="hotel_location_id"
+                                   domain="[('id', 'in', available_address_ids)]"
+                                   required="order_type == 'hotel'"
+                                   invisible="order_type != 'hotel'" readonly="state != 'draft'"/>
+                            <field name="daily_cost" required="order_type == 'hotel'"
+                                   invisible="order_type != 'hotel'"
+                                   options="{'currency_field': 'currency_id'}" widget="monetary"
+                                   readonly="state != 'draft'"/>
+                            <field name="hotel_phone" widget="phone"
+                                   invisible="order_type != 'hotel'"
+                                   readonly="state != 'draft'"/>
+                            <field name="date_from" invisible="order_type != 'hotel'"
+                                   readonly="True"/>
+                            <field name="date_to" invisible="order_type != 'hotel'" readonly="True"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="flight_bidding" string="Bidding"
+                              invisible="order_type != 'flight'"
+                              readonly="state not in  ['bidding']">
+                            <group>
+                                <group>
+                                    <field name="preferred_travel_time" readonly="True"/>
+                                </group>
+                            </group>
+                            <field name="flight_bidding_ids" readonly="state != 'bidding'">
+                                <tree string="Flight Bidding" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="airline"/>
+                                    <field name="flight_number"/>
+                                    <field name="departure_time"/>
+                                    <field name="arrival_time"/>
+                                    <field name="number_of_baggage"/>
+                                    <field name="baggage_weight"/>
+                                    <field name="is_direct"/>
+                                    <field name="is_refundable"/>
+                                    <field name="price" options="{'currency_field': 'currency_id'}"
+                                           widget="monetary"/>
+                                    <field name="currency_id" invisible="True"/>
+                                    <field name="state" readonly="True"/>
+                                    <button name="action_confirm"
+                                            invisible="state != 'draft'"
+                                            string="Confirm" type="object" class="oe_highlight"/>
+                                    <button name="action_reject"
+                                            invisible="state != 'draft'"
+                                            string="Reject" type="object" class="oe_highlight"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Order Lines"
+                              invisible="order_type == 'hotel' or order_type == 'pick_up_drop_off' or order_type == 'courier' or insurance_type == 'employee'">
+                            <field name="logistic_order_line_ids" readonly="state != 'draft'">
+                                <tree string="Order Lines" editable="bottom" create="0" delete="0">
+                                    <field name="available_family_member_ids"
+                                           column_invisible="True"/>
+                                    <field name="employee_id" column_invisible="True" readonly="1"/>
+                                    <field name="family_member_id"
+                                           domain="[('id', 'in', available_family_member_ids)]" readonly="1"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="passenger_type"
+                                           column_invisible="parent.order_type !='flight'" readonly="1"/>
+                                    <field name="passenger_type"
+                                           column_invisible="parent.order_type !='insurance'"
+                                           string="Member Type" readonly="1"/>
+                                    <field name="insurance_class" widget="many2one" options="{'no_create': True}"
+                                           column_invisible="1"
+                                           readonly="1"
+                                    />
+<!--                                           required="parent.order_type == 'insurance'"-->
+                                    <field name="insurance_cost"
+                                           column_invisible="parent.order_type !='insurance' or parent.insurance_required_action == 'update'"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                    <field name="passport_copy"
+                                           column_invisible="parent.order_type !='flight'"
+                                           widget="many2many_binary" readonly="1"/>
+                                    <field name="seat_number"
+                                           options="{'currency_field': 'currency_id'}"
+                                           column_invisible="parent.order_type != 'flight'" readonly="1"/>
+                                    <field name="order_type" column_invisible="True" readonly="1"/>
+                                    <field name="currency_id" column_invisible="True" readonly="1"/>
+                                    <field name="insurance_type" column_invisible="True" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="notes" string="Notes">
+                            <field name="notes" placeholder="Add any additional notes here..."
+                                   readonly="state != 'draft'"/>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right" colspan="2">
+                        <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                            <label for="total_insurance_cost" string="Total Insurance Cost"
+                                   invisible="order_type != 'insurance' or insurance_type == 'employee' or insurance_required_action == 'update'"/>
+                        </div>
+                        <field name="total_insurance_cost" nolabel="1" class="oe_subtotal_footer_separator"
+                               readonly="1"
+                               invisible="order_type != 'insurance' or insurance_type == 'employee' or insurance_required_action == 'update'"
+                               options="{'currency_field': 'currency_id'}" widget="monetary"/>
+                        <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                            <label for="total_amount" invisible="order_type != 'insurance'"/>
+                        </div>
+                        <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator"
+                               readonly="1" invisible="order_type != 'insurance'"/>
+                        <field name="currency_id" invisible="order_type != 'insurance'"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_logistic_order_tree" model="ir.ui.view">
+        <field name="name">logistic.order.tree</field>
+        <field name="model">logistic.order</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'"
+                  decoration-success="state == 'done'" string="Logistic Orders">
+                <field name="name"/>
+                <field name="employee_id" widget="many2one_avatar_employee"/>
+                <field name="order_type"/>
+                <field name="request_date"/>
+                <field name="flight_direction"/>
+                <field name="departure_date"/>
+                <field name="return_date"
+                       invisible="flight_direction == 'one_way'"
+                />
+                <field name="destination_country_id"/>
+                <field decoration-danger="state == 'cancel'" decoration-info="state == 'draft'"
+                       decoration-success="state == 'done'" decoration-warning="state == 'bidding'"
+                       name="state"
+                       widget="badge"/>
+                <field name="total_amount" sum="Total Amount" widget="monetary"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_logistic_order_search" model="ir.ui.view">
+        <field name="name">logistic.order.search</field>
+        <field name="model">logistic.order</field>
+        <field name="arch" type="xml">
+            <search string="Search Logistic Orders">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="order_type"/>
+                <field name="destination_country_id"/>
+                <separator/>
+                <filter domain="[('state', '=', 'draft')]" name="draft" string="Draft"/>
+                <filter domain="[('state', '=', 'bidding')]" name="OnBidding" string="On Bidding"/>
+                <filter domain="[('state', '=', 'in_progress')]" name="in_progress"
+                        string="In Progress"/>
+                <filter domain="[('state', '=', 'done')]" name="done" string="Done"/>
+                <filter domain="[('state', '=', 'cancel')]" name="cancelled" string="Cancelled"/>
+                <separator/>
+                <filter
+                        domain="[('request_date', '>=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')), ('request_date', '&gt;=', (context_today() + relativedelta(months=1, day=1, days=-1)).strftime('%Y-%m-%d'))]"
+                        name="this_month" string="This Month"/>
+                <group expand="0" string="Group By">
+                    <filter context="{'group_by': 'employee_id'}" name="employee" string="Employee"/>
+                    <filter context="{'group_by': 'order_type'}" name="order_type"
+                            string="Order Type"/>
+                    <filter context="{'group_by': 'state'}" name="status" string="Status"/>
+                    <filter context="{'group_by': 'request_date:month'}" name="request_month"
+                            string="Request Month"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_logistic_order_kanban" model="ir.ui.view">
+        <field name="name">logistic.order.kanban</field>
+        <field name="model">logistic.order</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" default_group_by="state" sample="1">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="order_type"/>
+                <field name="location_country_id"/>
+                <field name="departure_airport_id"/>
+                <field name="destination_country_id"/>
+                <field name="destination_airport_id"/>
+                <field name="departure_date"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="o_kanban_tags_section">
+                                    <span class="oe_kanban_list_many2many">
+                                        <field name="order_type"
+                                               widget="label_selection"/>
+                                    </span>
+                                </div>
+                                <ul>
+                                    <li>Employee:
+                                        <field name="employee_id"/>
+                                    </li>
+                                    <li>Destination:
+                                        <field name="destination_country_id"/>
+                                    </li>
+                                    <li>Destination Airport:
+                                        <field name="destination_airport_id"/>
+                                    </li>
+                                    <li>Departure:
+                                        <field name="departure_date"/>
+                                    </li>
+                                    <field name="flight_direction" invisible="1"/>
+                                    <li invisible="flight_direction == 'one_way'">Return:
+                                        <field
+                                                name="return_date"
+                                                invisible="flight_direction == 'one_way'"/>
+                                    </li>
+                                </ul>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="state"
+                                               options="{'classes': {'draft': 'default', 'bidding': 'primary', 'in_progress': 'info', 'done': 'success', 'cancel': 'danger'}}"
+                                               widget="label_selection"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="view_logistic_order_calendar" model="ir.ui.view">
+        <field name="name">logistic.order.calendar</field>
+        <field name="model">logistic.order</field>
+        <field name="arch" type="xml">
+            <calendar color="order_type" date_start="departure_date" date_stop="return_date"
+                      mode="month"
+                      string="Logistic Orders">
+                <field name="flight_direction" invisible="1"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="location_country_id"/>
+                <field name="departure_airport_id"/>
+                <field name="destination_country_id"/>
+                <field name="destination_airport_id"/>
+                <field name="departure_date"/>
+                <field name="return_date" invisible="flight_direction == 'one_way'"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_logistic_orders_hotel_booking" model="ir.actions.act_window">
+        <field name="name">Hotel booking</field>
+        <field name="res_model">logistic.order</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="domain">[('order_type', '=', 'hotel')]</field>
+        <field name="search_view_id" ref="view_logistic_order_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You will receive flight tickets here!
+            </p>
+            <p>
+                Manage travel arrangements, for your employees.
+            </p>
+        </field>
+    </record>
+    <record id="action_logistic_orders_flight_tickets" model="ir.actions.act_window">
+        <field name="name">Flight Tickets</field>
+        <field name="res_model">logistic.order</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="search_view_id" ref="view_logistic_order_search"/>
+        <field name="domain">[('order_type', '=', 'flight')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Logistic Order!
+            </p>
+            <p>
+                Manage travel arrangements, hotel bookings, and insurance for your employees.
+            </p>
+        </field>
+    </record>
+    <record id="action_my_flight" model="ir.actions.act_window">
+        <field name="name">Flight Tickets</field>
+        <field name="res_model">logistic.order</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="search_view_id" ref="view_logistic_order_search"/>
+        <field name="domain">[('order_type', '=', 'flight'), ('state', '=', 'bidding')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Logistic Order!
+            </p>
+            <p>
+                Manage travel arrangements, hotel bookings, and insurance for your employees.
+            </p>
+        </field>
+    </record>
+    <record id="action_logistic_orders_insurance_requests" model="ir.actions.act_window">
+        <field name="name">Insurance Requests</field>
+        <field name="res_model">logistic.order</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="domain">[('order_type', '=', 'insurance')]</field>
+        <field name="search_view_id" ref="view_logistic_order_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Insurance Request!
+            </p>
+            <p>
+                Manage insurance for your employees.
+            </p>
+        </field>
+    </record>
+    <record id="action_logistic_orders_pick_up_drop_off" model="ir.actions.act_window">
+        <field name="name">Pick-Up / Drop-Off</field>
+        <field name="res_model">logistic.order</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="domain">[('order_type', '=', 'pick_up_drop_off')]</field>
+        <field name="search_view_id" ref="view_logistic_order_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pick-Up / Drop-Off!
+            </p>
+            <p>
+                Manage Pick-Up / Drop-Off for your employees.
+            </p>
+        </field>
+    </record>
+    <record id="action_logistic_orders_courier" model="ir.actions.act_window">
+        <field name="name">Courier</field>
+        <field name="res_model">logistic.order</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="domain">[('order_type', '=', 'courier')]</field>
+        <field name="search_view_id" ref="view_logistic_order_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Courier!
+            </p>
+            <p>
+                Manage Couriers.
+            </p>
+        </field>
+    </record>
+</odoo>

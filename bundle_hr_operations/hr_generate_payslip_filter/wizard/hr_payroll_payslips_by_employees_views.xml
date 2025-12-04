@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_payslip_employees_view_form" model="ir.ui.view">
+            <field name="name">hr.payslip.employees.view.form.inherit</field>
+            <field name="model">hr.payslip.employees</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_by_employees"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_row')]" position="after">
+                    <div colspan="2" class="o_row">
+                        <separator string="Project (Analytic Account)" colspan="2"/>
+                        <newline/>
+                        <span class="text-muted">Set a specific project (analytic account) if you wish to select all the employees from
+                            this analytic account (and its child) at once.
+                        </span>
+                        <field name="analytic_account_id" nolabel="1"/>
+                        <field name="filtered_analytic_account_ids" widget="many2many_tags" force_save="1"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

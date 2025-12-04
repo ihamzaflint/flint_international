@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Server Action to Fix Insurance Class is_active Field -->
+        <record id="action_fix_insurance_class_is_active" model="ir.actions.server">
+            <field name="name">Fix Insurance Class is_active Field</field>
+            <field name="model_id" ref="scs_operation.model_insurance_class"/>
+            <field name="state">code</field>
+            <field name="code">
+# Fix insurance class is_active field
+try:
+    # Check if is_active column exists
+    env.cr.execute("""
+        SELECT column_name 
+        FROM information_schema.columns 
+        WHERE table_name = 'insurance_class' 
+        AND column_name = 'is_active'
+    """)
+    
+    if not env.cr.fetchone():
+        # Add is_active column
+        env.cr.execute("""
+            ALTER TABLE insurance_class 
+            ADD COLUMN is_active boolean DEFAULT true
+        """)
+        print("Added is_active column to insurance_class table")
+    
+    # Update existing records
+    env.cr.execute("""
+        UPDATE insurance_class 
+        SET is_active = COALESCE(active, true) 
+        WHERE is_active IS NULL
+    """)
+    
+    updated_count = env.cr.rowcount
+    print(f"Updated {updated_count} insurance class records")
+    
+    # Clear cache to ensure views are updated
+    env['insurance.class'].invalidate_cache()
+    
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Success',
+            'message': f'Fixed insurance class is_active field. Updated {updated_count} records.',
+            'type': 'success',
+        }
+    }
+    
+except Exception as e:
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Error',
+            'message': f'Error fixing insurance class: {str(e)}',
+            'type': 'danger',
+        }
+    }
+            </field>
+        </record>
+    </data>
+</odoo> 

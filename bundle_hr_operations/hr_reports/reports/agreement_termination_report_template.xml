@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="agreement_termination_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <style>
+                        @font-face {
+                            font-family: 'DroidKufiRegular';
+                            src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                        }
+                        [dir="rtl"], .arabic-text {
+                            font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                        }
+                    </style>
+                    <div class="page">
+                        <!-- Main Content Table -->
+                        <div class="border border-dark">
+                            <div class="row g-0">
+                                <!-- English Side -->
+                                <div class="col-6 border-end border-dark">
+                                    <div class="border-bottom border-dark p-2">
+                                        <strong>Date:</strong>
+                                        <span t-esc="o.issue_date"/>
+                                    </div>
+                                    <div class="border-bottom border-dark p-2">
+                                        <strong>Emp. ID:</strong>
+                                        <span t-esc="o.id_number"/>
+                                    </div>
+                                    <div class="border-bottom border-dark p-2">
+                                        <strong>Iqama No:</strong>
+                                        <span t-esc="o.iqama_number"/>
+                                    </div>
+                                    <div class="p-3">
+                                        <h5 class="text-center mb-3">Agreement of Termination of Services</h5>
+
+                                        <p class="text-start mb-3">
+                                            On (<span t-esc="o.agreement_date"/>), it was agreed between both
+                                            (<span t-esc="o.company_id.name"/>) and the employee
+                                            (<span t-esc="o.name"/>) to terminate the work contract amicably
+                                            and in accordance with the following conditions:
+                                        </p>
+
+                                        <p class="text-start mb-3">
+                                            1. The above employee services are terminated amicably at
+                                            (<span t-esc="o.termination_date"/>) G, It has to be the last
+                                            working day, with the consent of both parties and without any
+                                            pressure or coercion from any party on the other. Provided that
+                                            the Company is discharged from any financial claims. Previous,
+                                            subsequent, or future, after completing the evacuation procedures.
+                                        </p>
+
+                                        <p class="text-start mb-3" style="margin-top:25px;">
+                                            2. The above-mentioned employee acknowledges their commitment. This
+                                            agreement must be final and irrevocable, irrevocable or assignable
+                                            to the Company and its subsidiaries.
+                                        </p>
+
+                                        <p class="text-start fst-italic" style="margin-top:25px;">
+                                            With our best wishes for success in your working life
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Arabic Side -->
+                                <div class="col-6">
+                                    <div class="border-bottom border-dark p-2 text-end" dir="rtl">
+                                        <strong>التاريخ:</strong>
+                                        <span t-esc="o.issue_date"/>
+                                    </div>
+                                    <div class="border-bottom border-dark p-2 text-end" dir="rtl">
+                                        <strong>رقم الموظف:</strong>
+                                        <span t-esc="o.id_number"/>
+                                    </div>
+                                    <div class="border-bottom border-dark p-2 text-end" dir="rtl">
+                                        <strong>رقم الإقامة:</strong>
+                                        <span t-esc="o.iqama_number"/>
+                                    </div>
+                                    <div class="p-3" dir="rtl">
+                                        <h5 class="text-center mb-3">اتفاق على إنهاء عقد العمل</h5>
+
+                                        <p class="arabic-text text-end mb-3">
+                                            تم الاتفاق في تاريخ (<span t-esc="o.agreement_date"/>) بين كل من
+                                            (<span t-esc="o.company_id.name"/>) والموظف
+                                            (<span t-esc="o.name_ar"/>) على إنهاء عقد العمل بشكل ودي ووفقاً
+                                            للشروط التالية:
+                                        </p>
+
+                                        <p class="arabic-text text-end mb-3" style="margin-top:40px;">
+                                            1. تم إنهاء عقد الموظف أعلاه وديًا في (<span t-esc="o.termination_date"/>)
+                                            هـ، على أن يكون آخر يوم عمل بموافقة الطرفين ودون أي ضغط أو إكراه من أي
+                                            طرف على الآخر. على أن تكون الشركة في حل من أي مطالب مالية سابقة أو
+                                            لاحقة أو مستقبلية بعد استكمال إجراءات الإخلاء.
+                                        </p>
+
+                                        <p class="arabic-text text-end mb-3" style="margin-top:67px;">
+                                            2. يقر الموظف أعلاه بما وجب عليه في هذا الاتفاق. ويجب أن يكون هذا
+                                            الاتفاق نهائيًا ونهائيًا وغير قابل للنقض أو الرجوع عنه أو قابل للنقل
+                                            إلى الشركة وشركاتها التابعة.
+                                        </p>
+
+                                        <p class="arabic-text text-end">
+                                            مع أطيب أمنياتنا لكم بالتوفيق في حياتكم العملية
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HR Department Table -->
+                        <div class="border border-dark border-2 mt-3">
+                            <!-- Title Row -->
+                            <div class="row g-0">
+                                <div class="col-6 p-3">
+                                    <h5 class="mb-0">HR Department</h5>
+                                </div>
+                                <div class="col-6 p-3 text-end" dir="rtl">
+                                    <h5 class="mb-0 arabic-text">إدارة الموارد البشرية</h5>
+                                </div>
+                            </div>
+
+                            <!-- Name Row -->
+                            <div class="row g-0 border-top border-dark">
+                                <div class="col-6 border-end border-dark p-3">
+                                    <t t-foreach="o.agreement_termination_line_ids" t-as="line">
+                                        <strong>Name:</strong>
+                                        <span t-esc="line.name"/>
+                                    </t>
+                                </div>
+                                <div class="col-6 p-3 text-end" dir="rtl">
+                                    <t t-foreach="o.agreement_termination_line_ids" t-as="line">
+                                        <strong class="arabic-text">الاسم:</strong>
+                                        <span t-esc="line.name_ar" class="arabic-text"/>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Signature Row -->
+                            <div class="row g-0 border-top border-dark">
+                                <div class="col-6 border-end border-dark p-3">
+                                    <t t-foreach="o.agreement_termination_line_ids" t-as="line">
+                                        <strong>Signature:</strong>
+                                        <span t-esc="line.signature"/>
+                                    </t>
+                                </div>
+                                <div class="col-6 p-3 text-end" dir="rtl">
+                                    <t t-foreach="o.agreement_termination_line_ids" t-as="line">
+                                        <strong class="arabic-text">التوقيع:</strong>
+                                        <span t-esc="line.signature" class="arabic-text"/>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Date Row -->
+                            <div class="row g-0 border-top border-dark">
+                                <div class="col-6 border-end border-dark p-3">
+                                    <t t-foreach="o.agreement_termination_line_ids" t-as="line">
+                                        <strong>Date:</strong>
+                                        <span t-esc="line.date"/>
+                                    </t>
+                                </div>
+                                <div class="col-6 p-3 text-end" dir="rtl">
+                                    <t t-foreach="o.agreement_termination_line_ids" t-as="line">
+                                        <strong class="arabic-text">التاريخ:</strong>
+                                        <span t-esc="line.date" class="arabic-text"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

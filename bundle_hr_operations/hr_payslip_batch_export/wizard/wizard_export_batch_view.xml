@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_export_batch_form" model="ir.ui.view">
+        <field name="name">wizard.export.batch.form</field>
+        <field name="model">wizard.export.batch</field>
+        <field name="arch" type="xml">
+            <form string="Export Batch">
+<!--                <group>-->
+<!--                    <group>-->
+<!--                        <field name="name"/>-->
+<!--                    </group>-->
+<!--                </group>-->
+                <footer>
+                    <button name="export_report" string="Export" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="export_payslip_xls_wizard" model="ir.actions.act_window">
+        <field name="name">Export Batch</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizard.export.batch</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_export_batch_form"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="hr_payroll.model_hr_payslip_run"/>
+    </record>
+
+</odoo>

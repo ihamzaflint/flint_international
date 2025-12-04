@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Menu Item -->
+    <menuitem id="loan_management.menu_hr_loan_root"
+              name="Loan Management"
+              web_icon="loan_management,static/src/img/icon.png">
+
+        <menuitem id="loan_management.menu_loan"
+                  name="Loan"
+                  sequence="10">
+
+            <menuitem id="loan_management.menu_request_loan"
+                      name="Request Loan"
+                      action="loan_management.request_hr_loan_action"
+                      groups="loan_management.group_loan_management_manager,group_request_loan_employee,group_request_loan_manager"
+                      sequence="10"/>
+
+            <menuitem id="loan_management.menu_all_loans"
+                      name="All Loans"
+                      action="loan_management.hr_loan_action"
+                      groups="loan_management.group_loan_management_manager"
+                      sequence="20"/>
+        </menuitem>
+
+        <menuitem id="loan_management.menu_configuration"
+                  name="Configuration"
+                  groups="loan_management.group_loan_management_manager"
+                  sequence="20">
+
+            <menuitem id="loan_management.menu_loan_approval"
+                      name="Loan Approval"
+                      action="action_loan_approval_config"/>
+        </menuitem>
+
+    </menuitem>
+
+</odoo>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="government_payment_tree_view" model="ir.ui.view">
+        <field name="name">government.payment.tree.view</field>
+        <field name="model">government.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="services_display"/>
+                <field name="saddad_no_display"/>
+                <field name="iqama_no_display"/>
+                <field name="effective_date"/>
+                <field name="payment_type" invisible="True"/>
+                <field decoration-danger="state == 'cancel'" decoration-info="state == 'draft'"
+                       decoration-success="state == 'validate'" decoration-warning="state == 'approve'" name="state"
+                       widget="badge"/>
+                <field name="total_amount" sum="Total Amount" widget="monetary"
+                       column_invisible="payment_type == 'no_payment'"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="government_payment_ticket_tree_view" model="ir.ui.view">
+        <field name="name">government.payment.tree.view</field>
+        <field name="model">government.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="service_type_id"/>
+                <field name="saddad_no"/>
+                <field name="notes"/>
+                <field name="effective_date"/>
+                <field decoration-danger="state == 'cancel'" decoration-info="state == 'draft'"
+                       decoration-success="state == 'validate'" decoration-warning="state == 'approve'" name="state"
+                       widget="badge"/>
+            </tree>
+        </field>
+    </record>
+    <record id="government_payment_search" model="ir.ui.view">
+        <field name="name">government.payment.search</field>
+        <field name="model">government.payment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Name"/>
+                <field name="employee_id" string="Employee name"/>
+                <field name="file_no" string="Employee code"/>
+                <field name="service_type_id"/>
+                <field name="saddad_no"/>
+                <field name="payment_line_ids" string="Saddad no. in line"
+                       filter_domain="[('payment_line_ids.saddad_no', 'ilike', self)]"/>
+                <field name="payment_line_ids" string="Iqama no. in line"
+                       filter_domain="[('payment_line_ids.iqama_no', 'ilike', self)]"/>
+                <field name="effective_date"/>
+                <group expand="0" string="Group By...">
+                    <filter context="{'group_by':'state'}" domain="[]" name="state" string="State"/>
+                    <filter context="{'group_by':'create_uid'}" domain="[]" name="create_uid" string="Create By"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="government_payment_form_view" model="ir.ui.view">
+        <field name="name">government.payment.form.view</field>
+        <field name="model">government.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" statusbar_visible="draft,submit,validate" widget="statusbar"/>
+                    <button class="oe_highlight" context="{'submit': 1}" invisible="state not in ['draft']"
+                            name="change_state" string="Submit" type="object"
+                            groups="scs_operation.group_operation_user"/>
+                    <button class="oe_highlight" context="{'on_hold': 1}" invisible="state not in ['approve','paid']"
+                            name="change_state" string="Hold Ticket" type="object"
+                            groups="scs_operation.group_operation_user"/>
+                    <button class="oe_highlight" context="{'approve': 1}" groups="scs_operation.group_operation_admin"
+                            invisible="state not in ['submit'] or payment_type == 'no_payment'" name="change_state"
+                            string="Approve" type="object"/>
+                    <button name="action_pay" string="Pay" type="object" class="oe_highlight"
+                            groups="scs_operation.group_government_payment_operator"
+                            invisible="state != 'approve' or payment_type == 'no_payment'"/>
+                    <!-- <button name="change_state" string="Hold Ticket" type="object" 
+                            context="{'on_hold': 1}"
+                            class="oe_highlight" groups="scs_operation.group_operation_user"
+                            invisible="state not in ['paid']"/> -->
+                    <button class="oe_highlight" context="{'validate': 1}" groups="scs_operation.group_operation_user"
+                            invisible="state not in ['paid'] or payment_type == 'no_payment'" name="change_state"
+                            string="Validate" type="object"/>
+                    <button class="oe_highlight" context="{'validate': 1}" groups="scs_operation.group_operation_user"
+                            invisible="state not in ['submit','approve'] or payment_type != 'no_payment'"
+                            name="change_state" string="Validate" type="object"/>
+                    <button class="oe_highlight" context="{'reject': 1}"
+                            invisible="state not in ['submit'] or payment_type == 'no_payment'"
+                            name="change_state" string="Reject" type="object"
+                            groups="scs_operation.group_operation_admin"/>
+                    <button class="oe_highlight" context="{'draft': 1}" invisible="state not in ['reject','submit']"
+                            name="change_state" string="set to Draft" type="object"/>
+                    <button name="button_create_bill"
+                            string="Create Bill"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state not in ['validate'] or bill_id != False or payment_type in ['individual', 'no_payment']" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="show_payment" string="Payments"
+                                type="object" class="oe_stat_button" icon="fa-money"
+                                invisible="payment_type == 'no_payment'">
+                            <field name="payment_count"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. Gov. Payment For Iqama Renewal" readonly="True"
+                                   nolabel="True"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="service_type_id" options="{'no_create': True, 'no_open': True}"
+                                   domain="[('service_type', '=', 'enterprise')]"
+                                   readonly="state != 'draft'"
+                                   required="payment_type == 'enterprise'" invisible="payment_type != 'enterprise'"/>
+                            <field name="service_type_ids" options="{'no_create': True, 'no_open': True}"
+                                   domain="[('service_type', '=', 'no_payment')]"
+                                   readonly="True"
+                                   widget="many2many_tags"
+                                   required="payment_type == 'no_payment'" invisible="payment_type != 'no_payment'"/>
+                            <field name="is_saddad_required" invisible="True"/>
+                            <field name="available_company_ids" invisible="True"/>
+                            <field name="sponsor_company_id" invisible="payment_type != 'enterprise'"
+                                   readonly="state != 'draft'"/>
+                            <field name="sponsor_number" readonly="True" invisible="payment_type != 'enterprise'"/>
+                            <field name="saddad_no" readonly="state != 'draft'"
+                                   required="is_saddad_required == True"
+                                   invisible="is_saddad_required != True or payment_type != 'enterprise'"/>
+                            <field name="payment_type" readonly="True"/>
+                            <field name="include_payment" invisible="True"/>
+                            <field name="rejection_reason" invisible="rejection_reason == False" readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="create_uid" options="{'no_create': True, 'no_open': True}" readonly="True"/>
+                            <field name="effective_date" readonly="state != 'draft'"/>
+                            <field name="payment_method" readonly="state != 'draft'"
+                                   invisible="payment_type == 'no_payment'"/>
+                            <field name="project_id" invisible="payment_type != 'enterprise'"
+                                   options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                            <field name="wizard_partner_id" invisible="wizard_partner_id == False"
+                                   options="{'no_open':True, 'no_create':True}" readonly="True"/>
+                            <field name="payment_reference_ids" widget="many2many_tags" readonly="True"
+                                   invisible="payment_type == 'no_payment'"/>
+                            <field name="bill_id" readonly="True"
+                                   invisible="bill_id == False"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="notes" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name='payment_lines' string="Payment Lines" invisible="payment_type != 'individual'">
+                            <field name="payment_line_ids" readonly="state != 'draft'">
+                                <tree>
+                                    <field name="employee_id" options="{'no_create': True, 'no_open': True}"
+                                           required="True"/>
+                                    <field name="iqama_no"/>
+                                    <field name="iqama_expire_date"/>
+                                    <field name="file_no"/>
+                                    <field name="service_type_ids" widget="many2many_tags"
+                                           options="{'no_create':True,'no_edit':True}"/>
+                                    <field name="saddad_no"/>
+                                    <field name="project_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="amount"/>
+                                    <field name="currency_id" invisible="True"/>
+                                    <field name="payment_reference" options="{'no_create':True, 'no_open':True}"
+                                           readonly="True" optional="hide"/>
+                                    <field name="operation_order_attachment"
+                                           widget="many2many_binary"
+                                           readonly="payment_state != 'paid'"/>
+                                    <field name="payment_state"/>
+                                    <button name="create_payment" string="Create Payment" type="object"
+                                            class="oe_highlight"
+                                            groups="scs_operation.group_government_payment_operator"
+                                            invisible="payment_state == 'paid' or parent.state != 'approve'  "/>
+
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="employee_id" options="{'no_create': True, 'no_open': True}"
+                                                       required="True"/>
+                                                <field name="iqama_no"/>
+                                                <field name="iqama_expire_date"/>
+                                                <field name="file_no"/>
+                                                <field name="service_type_ids" widget="many2many_tags"
+                                                       options="{'no_create':True,'no_edit':True}"/>
+                                                <field name="saddad_no_readonly" invisible="1"/>
+                                                <field name="saddad_no" readonly="saddad_no_readonly"/>
+                                                <field name="project_id"
+                                                       options="{'no_create': True, 'no_open': True}"/>
+                                                <field name="amount"/>
+                                                <field name="currency_id" invisible="True"/>
+                                                <field name="payment_reference"
+                                                       options="{'no_create':True, 'no_open':True}"
+                                                       readonly="True" optional="hide"/>
+                                                <field name="operation_order_attachment"
+                                                       widget="many2many_binary"
+                                                       readonly="payment_state != 'paid'"/>
+                                                <field name="payment_state"/>
+                                            </group>
+                                            <group></group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" invisible="payment_type == 'no_payment'">
+                        <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                            <label for="total_amount"/>
+                        </div>
+                        <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator"
+                               readonly="payment_type == 'individual' or state != 'draft'"/>
+                        <field name="currency_id" invisible="True"/>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="individual_government_payment_action" model="ir.actions.act_window">
+        <field name="name">Individual Payments</field>
+        <field name="res_model">government.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('payment_type', '=', 'individual')]</field>
+        <field name="context"
+               eval="{'default_payment_type': 'individual','payment_type':'individual','create': False}"/>
+    </record>
+    <record id="government_service_without_payment_action" model="ir.actions.act_window">
+        <field name="name">Gov. Service Without Payment</field>
+        <field name="res_model">government.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('payment_type', '=', 'no_payment')]</field>
+        <field name="context"
+               eval="{'default_payment_type': 'no_payment','payment_type':'no_payment','create': False}"/>
+    </record>
+    <record id="enterprise_government_payment_action" model="ir.actions.act_window">
+        <field name="name">Enterprise Payments</field>
+        <field name="res_model">government.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('payment_type', '=', 'enterprise')]</field>
+        <field name="context" eval="{'default_payment_type': 'enterprise','payment_type':'enterprise'}"/>
+    </record>
+
+</odoo>

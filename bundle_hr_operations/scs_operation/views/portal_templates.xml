@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_flight_bidding" name="Flight Bidding Portal">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">Flight Bidding Options</h2>
+                    </div>
+                </div>
+
+                <!-- Bidding Cards -->
+                <div class="row">
+                    <t t-foreach="biddings" t-as="bidding">
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <!-- Airline and Flight Number -->
+                                    <div
+                                        class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="card-title mb-0" t-field="bidding.airline" />
+                                        <span class="badge bg-primary"
+                                            t-field="bidding.flight_number" />
+                                    </div>
+
+                                    <!-- Flight Details -->
+                                    <div class="mb-3">
+                                        <p class="mb-1">
+                                            <i class="fa fa-ticket me-2"></i>
+                                            <span
+                                                t-field="bidding.number_of_tickets" /> Tickets </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-suitcase me-2"></i>
+                                            <span
+                                                t-field="bidding.number_of_baggage" /> Baggage </p>
+                                        <p class="mb-1">
+                                            <i t-if="bidding.is_direct" class="fa fa-rocket me-2" />
+                                            <i t-else="" class="fa fa-exchange me-2" />
+                                            <t t-if="bidding.is_direct">Direct Flight</t>
+                                            <t t-else="">Connection Flight</t>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-refresh me-2" />
+                                            <t t-if="bidding.is_refundable">Refundable</t>
+                                            <t t-else="">Non-Refundable</t>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-clock-o me-2" />
+                                            <t
+                                                t-if="bidding.logistic_order_id.preferred_travel_time == 'morning'">Morning
+                                                (6:00 AM - 12:00 PM)</t>
+                                            <t
+                                                t-elif="bidding.logistic_order_id.preferred_travel_time == 'afternoon'">Afternoon
+                                                (12:00 PM - 6:00 PM)</t>
+                                            <t
+                                                t-elif="bidding.logistic_order_id.preferred_travel_time == 'evening'">Evening
+                                                (6:00 PM - 12:00 AM)</t>
+                                            <t
+                                                t-elif="bidding.logistic_order_id.preferred_travel_time == 'night'">Night
+                                                (12:00 AM - 6:00 AM)</t>
+                                        </p>
+                                    </div>
+                                    <!-- Flight Times -->
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="fa fa-plane me-2"></i>
+                                            <span t-field="bidding.departure_time"
+                                                t-options='{"widget": "datetime", "format": "MMM d, HH:mm"}' />
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa  fa-plane flip me-2"></i>
+                                            <span t-field="bidding.arrival_time"
+                                                t-options='{"widget": "datetime", "format": "MMM d, HH:mm"}' />
+                                        </div>
+                                    </div>
+                                    <!-- Action Button -->
+                                    <!-- Confirm Button -->
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-primary"
+                                            t-att-data-bidding-id="bidding.id"
+                                            onclick="confirmBidding(this)">
+                                            <i class="fa fa-check me-1"></i> Confirm Flight
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- No Biddings Message -->
+                <div t-if="not biddings" class="alert alert-info text-center">
+                    <p class="mb-0">Thank You, We will contact you soon to confirm your flight.</p>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                function confirmBidding(button) {
+                    var biddingId = button.getAttribute('data-bidding-id');
+                    if (confirm('Are you sure you want to confirm this flight bidding? This will reject all other biddings.')) {
+                        window.location.href = '/my/flight-bidding/confirm/' + biddingId;
+                    }
+                }
+            </script>
+        </t>
+    </template>
+
+    <template id="portal_flight_selection" name="Flight Selection Portal">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">Flight Selection</h2>
+                    </div>
+                </div>
+
+                <!-- Flight Selection Form -->
+                <div class="row">
+                    <div class="col-12">
+                        <form t-attf-action="/my/flight-selection/submit/#{logistics_order.id}" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Flight Details</h5>
+                                    
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <p><strong>From:</strong> <span t-field="logistics_order.departure_airport_id.name"/></p>
+                                            <p><strong>To:</strong> <span t-field="logistics_order.destination_airport_id.name"/></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><strong>Departure Date:</strong> <span t-field="logistics_order.departure_date"/></p>
+                                            <t t-if="logistics_order.return_date">
+                                                <p><strong>Return Date:</strong> <span t-field="logistics_order.return_date"/></p>
+                                            </t>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Select</th>
+                                                    <th>Airline</th>
+                                                    <th>Flight Number</th>
+                                                    <th>Departure</th>
+                                                    <th>Arrival</th>
+                                                    <th>Price</th>
+                                                    <th>Baggage</th>
+                                                    <th>Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="logistics_order.flight_bidding_ids" t-as="bidding">
+                                                    <tr>
+                                                        <td>
+                                                            <input type="radio" name="selected_bidding" t-att-value="bidding.id" required="required"/>
+                                                        </td>
+                                                        <td><t t-esc="bidding.airline"/></td>
+                                                        <td><t t-esc="bidding.flight_number"/></td>
+                                                        <td><t t-esc="bidding.departure_time"/></td>
+                                                        <td><t t-esc="bidding.arrival_time"/></td>
+                                                        <td><t t-esc="bidding.price"/> <t t-esc="bidding.currency_id.symbol"/></td>
+                                                        <td><t t-esc="bidding.number_of_baggage"/></td>
+                                                        <td><t t-if="bidding.is_direct">Direct</t><t t-else="">Connection</t></td>
+                                                    </tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="text-end mt-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Confirm Selection
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

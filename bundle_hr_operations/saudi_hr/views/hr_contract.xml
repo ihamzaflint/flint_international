@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="hr_contract_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.palmate.hr.saudi.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <field name="hr_responsible_id" position="after">
+                <field name="gosi_number"/>
+                <field name="gosi_registration_date"/>
+                <field name="sponsor_id"/>
+                <field name="sponsor_number"/>
+            </field>
+
+            <group name="salary" position="inside">
+                <label for="phone_allowance" string="Phone Allowance"/>
+                <div class="o_row" name="phone_allowance">
+                    <field name="phone_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+
+                <label for="tools_allowance" string="Laptop &amp; Tools Allowance"/>
+                <div class="o_row" name="tools_allowance">
+                    <field name="tools_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="tickets_allowance" string="Tickets Allowance"/>
+                <div class="o_row" name="tickets_allowance">
+                    <field name="tickets_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+
+                <label for="eos_payment_allowance" string="EOS Payment"/>
+                <div class="o_row" name="eos_payment_allowance">
+                    <field name="eos_payment_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="eos_provision_accural_allowance" string="EOS Provision Accural"/>
+                <div class="o_row" name="eos_provision_accural_allowance">
+                    <field name="eos_provision_accural_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="annual_leave_vacation_amount_allowance" string="Annual Leave Vacation Amount"/>
+                <div class="o_row" name="annual_leave_vacation_amount_allowance">
+                    <field name="annual_leave_vacation_amount_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="gosi_comp_onbehalf" string="GOSI OnBehalf"/>
+                <div class="o_row" name="gosi_comp_onbehalf">
+                    <field name="gosi_comp_onbehalf" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+
+            </group>
+            <group name="salary" position="after">
+                <group>
+                <label for="tech_allowance" string="Technical Allowance"/>
+                <div class="o_row" name="tech_allowance">
+                    <field name="tech_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="kids_allowance" string="Kids Allowance"/>
+                <div class="o_row" name="kids_allowance">
+                    <field name="kids_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="granted_monthly_bonus" string="Granted Monthly Bonus"/>
+                <div class="o_row" name="granted_monthly_bonus">
+                    <field name="granted_monthly_bonus" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="special_allowance" string="Special Allowance"/>
+                <div class="o_row" name="special_allowance">
+                    <field name="special_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="niche_skill_allowance" string="Niche Skill Allowance"/>
+                <div class="o_row" name="niche_skill_allowance">
+                    <field name="niche_skill_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="shift_allowance" string="Shift Allowance"/>
+                <div class="o_row" name="shift_allowance">
+                    <field name="shift_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="car_allowance" string="Car Allowance"/>
+                <div class="o_row" name="car_allowance">
+                    <field name="car_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="gas_allowance" string="Gas Allowance"/>
+                <div class="o_row" name="gas_allowance">
+                    <field name="gas_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="oc_rec_allowance" string="OC/Rec Allowance"/>
+                <div class="o_row" name="oc_rec_allowance">
+                    <field name="oc_rec_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="project_allowance" string="Project Allowance"/>
+                <div class="o_row" name="project_allowance">
+                    <field name="project_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="food_allowance" string="Food Allowance"/>
+                <div class="o_row" name="food_allowance">
+                    <field name="food_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+                <label for="edu_allowance" string="Education Allowance"/>
+                <div class="o_row" name="edu_allowance">
+                    <field name="edu_allowance" nolabel="1"/>
+                    <span>/ month</span>
+                </div>
+
+                </group>
+            </group>
+
+        </field>
+    </record>
+
+    <record id="hr_contract_view_search_group_analytic" model="ir.ui.view">
+        <field name="name">hr.contract.view.search.group.analytic</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+        <field name="arch" type="xml">
+            <field name="department_id" position="after">
+                <field name="analytic_account_id"/>
+            </field>
+            <filter name="group_by_state" position="after">
+                <filter string="Analytic Account(Project)" name="group_by_analytic_account" domain="[]" context="{'group_by': 'analytic_account_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_ticket" name="My Ticket">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="o_portal_chatter">
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="ticket"/>
+                        <t t-set="res_id" t-value="ticket.id"/>
+                        <t t-set="res_model" t-value="'helpdesk.ticket'"/>
+                        <t t-set="token" t-value="token"/>
+                        <t t-set="pid" t-value="pid"/>
+                        <t t-set="hash" t-value="hash"/>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+
+
+        <record id="embassy-male_qweb_report" model="ir.actions.report">
+            <field name="name">Embassy-Male Qweb</field>
+            <field name="model">hr.employee.doc.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_employee_doc_generator.report_embassy_male_document</field>
+            <field name="report_file">hr_employee_doc_generator.report_embassy_male_document</field>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+    </data>
+</odoo>

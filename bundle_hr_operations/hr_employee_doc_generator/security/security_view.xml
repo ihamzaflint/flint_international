@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <record id="group_employee_doc_generator" model="res.groups">
+        <field name="name">Employee Doc Generator</field>
+        <field name="comment">Allow user to generator the employee documents</field>
+    </record>
+    
+</data>
+</odoo>

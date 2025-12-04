@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_client_selection" model="mail.template">
+            <field name="name">Client Selection</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">{{ object.company_id.name }} (Client Selection For {{ object.name or 'n/a' }})</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.client_name.id }}</field>
+            <!-- <field name="attachment_ids" eval="[(4, object._get_resume_applicants())]"/> -->
+            <field name="description">Send to Client to Select Applicants</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin:0; padding:0; font-size:13px;">
+                        Hello,
+                        <t t-set="lines" t-value="ctx.get('line_ids_for_email')
+    and object.applicant_line.filtered(lambda l: l.id in ctx['line_ids_for_email'])
+    or object.applicant_line.filtered(lambda l: l.state in ('draft','confirm') and not l.sent_to_client)" />
+                        <t t-if="lines">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <t t-foreach="lines" t-as="record">
+                                            <th>
+                                                <t t-esc="record.name" />
+                                            </th>
+                                        </t>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Email</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.email" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Sequence</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.sequence" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Nationality</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.nationality" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current Location</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.current_location" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Experience</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.experience" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Qualification</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.qualification" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current Company</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.current_company" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Position</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.position" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Notice Period</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.notice_period" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <!-- Salary Expectation (hide whole row if all show=True) -->
+                                    <t t-if="lines.filtered(lambda r: not r.show_salary_expectation)">
+                                        <tr>
+                                            <td><b>Salary Expectation</b></td>
+                                            <t t-foreach="lines" t-as="record">
+                                                <td>
+                                                    <t t-if="not record.show_salary_expectation">
+                                                        <t t-esc="'{:.2f}'.format(record.salary_expectation or 0.0)" />
+                                                    </t>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <!-- Wife -->
+                                    <t t-if="lines.filtered(lambda r: not r.show_wife)">
+                                        <tr>
+                                            <td><b>Wife</b></td>
+                                            <t t-foreach="lines" t-as="record">
+                                                <td>
+                                                    <t t-if="not record.show_wife">
+                                                        <t t-esc="record.wife or ''" />
+                                                    </t>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <!-- Kids -->
+                                    <t t-if="lines.filtered(lambda r: not r.show_kids)">
+                                        <tr>
+                                            <td><b>Kids</b></td>
+                                            <t t-foreach="lines" t-as="record">
+                                                <td>
+                                                    <t t-if="not record.show_kids">
+                                                        <t t-esc="record.kids or ''" />
+                                                    </t>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td><b>Profession</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.profession" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Iqama Number</b></td>
+                                        <t t-foreach="lines" t-as="record">
+                                            <td>
+                                                <t t-esc="record.number_iqama" />
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <!-- Current Salary -->
+                                    <t t-if="lines.filtered(lambda r: not r.show_current_salary)">
+                                        <tr>
+                                            <td><b>Current Salary</b></td>
+                                            <t t-foreach="lines" t-as="record">
+                                                <td>
+                                                    <t t-if="not record.show_current_salary">
+                                                        <t t-esc="'{:.2f}'.format(record.current_salary or 0.0)" />
+                                                    </t>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-else="">
+                            <p>No new applicants to display.</p>
+                        </t>
+                        <br /><br />
+                        We have found the following candidate for the job
+                        <span style="font-weight:bold;" t-out="object.name or ''"></span>
+                        <a t-att-href="ctx.get('selection_link', '#')" style="background-color:#875A7B;padding:8px 16px;text-decoration:none;color:#fff;border-radius:5px;">
+                            Select Applicant
+                        </a>
+                        <br /><br />
+                    </p>
+                    <!-- <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello,
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <th>
+                                            <t t-esc="record.name"/>
+                                        </th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <b>Email</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.email"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Sequence</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.sequence"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Nationality</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.nationality"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Current Location</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.current_location"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Experience</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.experience"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Qualification</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.qualification"/>
+                                        </td>
+                                    </t>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <b>Current Company</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.current_company"/>
+                                        </td>
+                                    </t>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <b>Position</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.position"/>
+                                        </td>
+                                    </t>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <b>Notice Period</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.notice_period"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Salary Expectation</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.salary_expectation"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Wife</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.wife"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Kids</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.kids"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Profession</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.profession"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Iqama Number</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.number_iqama"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Current Salary</b>
+                                    </td>
+                                    <t t-foreach="object.applicant_line" t-as="record">
+                                        <td>
+                                            <t t-esc="record.current_salary"/>
+                                        </td>
+                                    </t>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        We have found the following candidate for the job
+                        <span style="font-weight:bold;" t-out="object.name or ''"></span>
+                        <a
+                                t-att-href="ctx.get('selection_link', '#')"
+                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+                            Select
+                            Applicant
+                        </a>
+                        <br/>
+                        <br/>
+                    </p>
+                </div> -->
+                </div>
+            </field>
+            <field name="lang">{{ object.client_name.lang }}</field>
+            <field name="auto_delete" eval="True" />
+        </record>
+        <!-- To Draft -->
+        <record id="email_template_to_draft" model="mail.template">
+            <field name="name">To Draft</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">{{ object.company_id.name }} (To Draft {{ object.name or 'n/a' }})</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.message_partner_ids.ids }}</field>
+            <field name="description">Status Changed To Draft</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello,
+                        For Recruitement Order <span style="font-weight:bold;" t-out="object.name or ''"></span> Status
+                        Changed To Draft.
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True" />
+        </record>
+        <!-- Draft To Head Hunting -->
+        <record id="email_template_draft_to_headhunting" model="mail.template">
+            <field name="name">Draft To Head Hunting</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">{{ object.company_id.name }} (Draft To Head Hunting {{ object.name or 'n/a' }})
+            </field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.message_partner_ids.ids }}</field>
+            <field name="description">Status Changed from Draft to Start Head Hunting</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello,
+                        For Recruitement Order <span style="font-weight:bold;" t-out="object.name or ''"></span> Status
+                        Changed from
+                        <span style="font-weight:bold;">Draft</span>
+                        to
+                        <span style="font-weight:bold;" t-out="dict(object._fields['state'].selection).get(object.state, '')"></span>
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True" />
+        </record>
+        <!-- Head Hunting To Client Selection -->
+        <record id="email_template_headhunting_to_clientselection" model="mail.template">
+            <field name="name">Head Hunting To Client Selection</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">{{ object.company_id.name }} (Head Hunting To Client Selection {{ object.name or 'n/a'
+                }})
+            </field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.message_partner_ids.ids }}</field>
+            <field name="description">Status Changed from Start Head Hunting To Client Selection</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello,
+                        For Recruitement Order <span style="font-weight:bold;" t-out="object.name or ''"></span> Status
+                        Changed from
+                        <span style="font-weight:bold;">Head Hunting</span>
+                        to
+                        <span style="font-weight:bold;" t-out="dict(object._fields['state'].selection).get(object.state, '')"></span>
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True" />
+        </record>
+        <!-- Client Selection To In Progress -->
+        <record id="email_template_clientselection_to_inprogress" model="mail.template">
+            <field name="name">Client Selection To In progress</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">{{ object.company_id.name }} (Client Selection To In progress {{ object.name or 'n/a'
+                }})
+            </field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.message_partner_ids.ids }}</field>
+            <field name="description">Status Changed from Client Selection To In Progress</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello,
+                        For Recruitement Order <span style="font-weight:bold;" t-out="object.name or ''"></span> Status
+                        Changed from
+                        <span style="font-weight:bold;">Client Selection</span>
+                        to
+                        <span style="font-weight:bold;" t-out="dict(object._fields['state'].selection).get(object.state, '')"></span>
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True" />
+        </record>
+        <!-- In Progress To Done-->
+        <record id="email_template_inprogress_to_done" model="mail.template">
+            <field name="name">In progress To Done</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">{{ object.company_id.name }} (In progress To Done {{ object.name or 'n/a' }})</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.message_partner_ids.ids }}</field>
+            <field name="description">Status Changed from In Progress To Done</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello,
+                        For Recruitement Order <span style="font-weight:bold;" t-out="object.name or ''"></span> Status
+                        Changed from
+                        <span style="font-weight:bold;">Inprogress</span>
+                        to
+                        <span style="font-weight:bold;" t-out="dict(object._fields['state'].selection).get(object.state, '')"></span>
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </field>
+            <field name="lang"></field>
+            <field name="auto_delete" eval="True" />
+        </record>
+        <record id="email_template_data_applicant_send_proposal" model="mail.template">
+            <field name="name">Recruitment: Send Offer</field>
+            <field name="model_id" ref="hr_recruitment.model_hr_applicant" />
+            <field name="subject">Your Job Application: {{ object.job_id.name }}</field>
+            <field name="email_to">{{ (not object.partner_id and object.email_from or '') }}</field>
+            <field name="partner_to">{{ object.partner_id.id or '' }}</field>
+            <field name="description">Send Proposal</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <p style="font-size: 14px;">Dear
+                                <span style="font-weight:bold;" t-out="object.partner_name or 'Applicant'"></span>
+                            </p>
+                            <p>We are pleased to offer you a position for <span style="font-weight:bold;" t-out="object.name or 'Applicant'"></span> at
+                                our company.
+                            </p>
+                            <p>Please choose one of the options below:</p>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <a t-att-href="'/applicant/offer/response?applicant_id=%s&amp;response=accept' % object.id" style="display: inline-block; background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; font-size: 14px; border-radius: 5px;">
+                                    Select Offer
+                                </a>
+                                <a t-att-href="'/applicant/offer/response?applicant_id=%s&amp;response=reject' % object.id" style="display: inline-block; background-color: #dc3545; color: white; padding: 10px 20px; text-decoration: none; font-size: 14px; border-radius: 5px; margin-left: 10px;">
+                                    Reject Offer
+                                </a>
+                            </div>
+                            <p style="margin-top: 20px;">Thank you,</p>
+                            <p>
+                                <strong>The Recruitment Team</strong>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="auto_delete" eval="True" />
+            <field name="lang">{{ object.partner_id.lang or '' }}</field>
+        </record>
+        <record id="email_template_recruitment_stuck" model="mail.template">
+            <field name="name">Recruitment Order Stuck Notification</field>
+            <field name="model_id" ref="era_recruitment_opportunity.model_recruitment_order" />
+            <field name="subject">Recruitment Order Stuck in {{ object.state }} Stage</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.user_id.partner_id.id or '' }}</field>
+            <field name="body_html" type="html">
+                <div>
+                    <p>Hello,</p>
+                    <p>The recruitment order <span style="font-weight:bold;" t-out="object.name or ''"></span> has been
+                        in the <span style="font-weight:bold;" t-out="dict(object._fields['state'].selection).get(object.state, '')"></span> stage
+                        for over the allowed time. Please review it.
+                    </p>
+                    <p>Best Regards,</p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True" />
+        </record>
+    </data>
+</odoo>

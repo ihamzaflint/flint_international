@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Payroll Form View -->
+    <record id="view_saib_payroll_form" model="ir.ui.view">
+        <field name="name">saib.payroll.form</field>
+        <field name="model">saib.payroll</field>
+        <field name="arch" type="xml">
+            <form string="Payroll">
+                <header>
+                    <button name="action_verify_data" string="Verify Data" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_test_names" string="Test Names" invisible="state != 'draft'" type="object" class="btn-secondary"  help="Test how employee names will be formatted for SAIB bank transactions"/>
+                    <button name="action_fix_ibans" string="Fix IBANs" invisible="state != 'draft'" type="object" class="btn-secondary" help="Automatically remove whitespace from all employee IBANs"/>
+                    <button name="action_generate_name_report" string="Name Report" invisible="state != 'draft'" type="object" class="btn-secondary" help="Generate a report of all employee name changes for record-keeping"/>
+                    <button name="action_send_to_bank" string="Send to Bank" invisible="state != 'draft'" type="object" class="oe_highlight"  confirm="Are you sure you want to send this payroll to the bank?"/>
+                    <button name="action_check_status" string="Check Status" type="object" class="oe_highlight" invisible="state not in ['sent', 'failed']"/>
+                    <button name="action_get_signed_file" string="Get Signed File" type="object" class="oe_highlight" invisible="state not in ['sent', 'confirmed']"/>
+                    <button name="action_export_to_excel" string="Export to Excel" type="object" class="oe_highlight" icon="fa-file-excel-o"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object" invisible="state not in ['sent', 'failed']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,confirmed,failed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_employees" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="employee_count" widget="statinfo" string="Employees"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="payroll_date"/>
+                            <field name="mol_establishment_id"/>
+                            <field name="payment_method"/>
+                            <field name="currency_id" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                            <field name="bank_account_id" options="{'no_create': True}"/>
+                            <field name="total_amount" widget="monetary"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payroll Lines">
+                            <field name="line_ids" widget="one2many">
+                                <tree editable="bottom">
+                                    <field name="employee_id" options="{'no_create': True}"/>
+                                    <field name="amount" widget="monetary"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Excel Export" invisible="[('excel_file', '=', False)]">
+                            <group>
+                                <field name="excel_filename" invisible="1"/>
+                                <field name="excel_file" filename="excel_filename" widget="binary" string="Download Excel File"/>
+                            </group>
+                            <div class="alert alert-info" role="alert">
+                                <p><strong>Excel Export Information:</strong></p>
+                                <p>The Excel file contains the following sheets:</p>
+                                <ul>
+                                    <li><strong>Metadata:</strong> Contains payroll information, company details, and summary data.</li>
+                                    <li><strong>PayrollDetails:</strong> Contains all employee payroll records with data cleaned according to SAIB Bank requirements.</li>
+                                </ul>
+                                <p>You can download the file by clicking on the download button above.</p>
+                            </div>
+                        </page>
+                        <page string="Bank Response" invisible="response_data == False">
+                            <field name="response_data" readonly="1"/>
+                        </page>
+                        <page string="Bank Information" invisible="state == 'draft'">
+                            <group>
+                                <field name="wps_reference" readonly="1"/>
+                                <field name="wps_status" readonly="1"/>
+                                <field name="inquiry_response" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Payroll Tree View -->
+    <record id="view_saib_payroll_tree" model="ir.ui.view">
+        <field name="name">saib.payroll.tree</field>
+        <field name="model">saib.payroll</field>
+        <field name="arch" type="xml">
+            <tree string="Payrolls" decoration-info="state == 'draft'" decoration-success="state == 'confirmed'" decoration-warning="state == 'sent'" decoration-danger="state == 'failed'">
+                <field name="name"/>
+                <field name="payroll_date"/>
+                <field name="mol_establishment_id"/>
+                <field name="employee_count"/>
+                <field name="total_amount" sum="Total"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Payroll Search View -->
+    <record id="view_saib_payroll_search" model="ir.ui.view">
+        <field name="name">saib.payroll.search</field>
+        <field name="model">saib.payroll</field>
+        <field name="arch" type="xml">
+            <search string="Search Payrolls">
+                <field name="name"/>
+                <field name="mol_establishment_id"/>
+                <field name="payroll_date"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Sent to Bank" name="sent" domain="[('state', '=', 'sent')]"/>
+                <filter string="Confirmed" name="confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_state" context="{'group_by': 'state'}"/>
+                    <filter string="Payment Method" name="group_by_payment_method" context="{'group_by': 'payment_method'}"/>
+                    <filter string="Payroll Date" name="group_by_date" context="{'group_by': 'payroll_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Payroll Action Window -->
+    <record id="action_saib_payroll" model="ir.actions.act_window">
+        <field name="name">SAIB Payrolls</field>
+        <field name="res_model">saib.payroll</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_saib_payroll_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first payroll
+            </p>
+            <p>
+                Create and manage payrolls for sending to SAIB bank.
+            </p>
+        </field>
+    </record>
+</odoo>

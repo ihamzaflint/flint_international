@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+	<t t-extend="reconciliation.line.mv_line">
+		<t t-jquery="td.cell_label" t-operation="before">
+			<td>
+                <span class="font-weight-bold" t-esc="line.internal_ref"/>
+            </td>
+        </t>
+	</t>
+
+	<t t-extend="reconciliation.line">
+		<t t-jquery="td.cell_label" t-operation="before">
+			<td>
+                <!-- <span class="font-weight-bold" t-esc="line.internal_ref"></span> -->
+            </td>
+		</t>
+	</t>
+</templates>

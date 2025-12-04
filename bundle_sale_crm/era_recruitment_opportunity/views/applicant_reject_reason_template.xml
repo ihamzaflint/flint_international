@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_applicant_reject_wizard">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-5">
+                <h3>Reject Bidding</h3>
+                <p>You're rejecting the application for:
+                    <strong t-esc="bidding_name"/>
+                </p>
+
+                <!-- FORM WITH CSRF TOKEN -->
+                <form t-att-action="'/my/applicant-bidding/reject/submit/' + str(bidding_id)" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="hidden" name="bidding_id" t-att-value="bidding_id"/>
+                    <input type="hidden" name="access_token" t-att-value="access_token"/>
+                    <div class="form-group">
+                        <label>Rejection Reason</label>
+                        <textarea name="rejection_reason" required="required" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger mt-2">Submit Rejection</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

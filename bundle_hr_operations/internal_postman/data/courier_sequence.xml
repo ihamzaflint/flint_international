@@ -1,0 +1,18 @@
+<odoo noupdate="1">
+    <record id="seq_in_postman_courier" model="ir.sequence">
+        <field name="name">Courier Inword</field>
+        <field name="code">postman.courier</field>
+        <field name="prefix">INWARD/%(range_year)s/</field>
+        <field name="padding">6</field>
+        <field name="number_increment">1</field>
+    </record>
+    
+    <record id="seq_out_postman_courier" model="ir.sequence">
+        <field name="name">Courier Inword</field>
+        <field name="code">postman.courier.outword</field>
+        <field name="prefix">OUTWARD/%(range_year)s/</field>
+        <field name="padding">6</field>
+        <field name="number_increment">1</field>
+    </record>
+    
+</odoo>

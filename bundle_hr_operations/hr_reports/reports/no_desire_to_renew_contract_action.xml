@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Paper Format  -->
+    <record id="hr_reports.no_desire_to_renew_contract_paperformat" model="report.paperformat">
+        <field name="name">No Desire to Renew Contract Format</field>
+        <field name="default" eval="False"/>
+        <field name="dpi">90</field>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="header_spacing">15</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+    </record>
+
+
+    <!-- Report Action-->
+    <record id="hr_reports.action_no_desire_to_renew_contract_report" model="ir.actions.report">
+        <field name="name">No Desire to Renew Contract</field>
+        <field name="model">no.desire.to.renew.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_reports.report_no_desire_to_renew_contract_template</field>
+        <field name="report_file">hr_reports.report_no_desire_to_renew_contract_template</field>
+        <field name="binding_model_id" ref="hr_reports.model_no_desire_to_renew_contract"/>
+        <field name="paperformat_id" ref="hr_reports.no_desire_to_renew_contract_paperformat"/>
+    </record>
+
+</odoo>

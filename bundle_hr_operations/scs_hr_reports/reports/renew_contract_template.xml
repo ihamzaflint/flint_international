@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_renew_contract_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <h3><u>إشعار بعدم الرغبة في تجديد العقد</u></h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <h3><u>No Desire to Renew the Contract</u></h3>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" colspan="4" class="border_top border_left border_right border_bottom">
+                                    ..................Ref: HR- 504/2023    Date :…………….FN
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                    Dear <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    السيدة /  <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                    Regarding
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    تحية طيبة وبعد،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom">
+                                    <br/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                    According to the terms and conditions of the contract entered into between you and the group. Which stipulate that one party must inform the other in case there was no desire to renew the contract for a comparable term, as the provisions of Article (74 /3) of the Labor Law.
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    طبقا لأحكام مواد عقد العمل المبرم فيما بينكم وبين المجموعة وتنفيذا لأحكام المادة الثانية من العقد والتي نصت على ضرورة إشعار الطرف الراغب في عدم تجديد العقد الطرف الآخر إشعارا خطيا .وتنفيذا لأحكام المادة (74/3) من نظام العمل.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                    Since your contract with group dated 15/01/2023, We hereby notify you officially with this letter that we have no desire to renew the contract. And the last day for you will be 15/01/2024, this is for your knowledge and takes the necessary to manage yourself.
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    وحيث أن عقدكم مع المجموعة موقع بتاريخ 15/01/2023م ، عليه فإننا نقوم بإشعاركم رسميا بموجب هذا الخطاب بعدم الرغبة في تجديد العقد معكم ويعتبر يوم 15/01/2024 ، هو آخر يوم لمزاولة عملكم طرفنا ، طبقا للعقد ولنظام العمل، هذا للعلم وإتخاذ اللازم نحو تدبير أموركم .
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right">
+                                    <br/>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    We thank you for your cooperation during the period of your work with us in the previous period, and we wish you success.
+                                </td>
+                                <td width="50%" colspan="2" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    ونشكر لكم حسن تعاونكم خلال مدة عملكم معنا في الفترة السابقة متمنين لكم التوفيق .
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="text-align:center" class="border_left border_right">
+                                    <u><h4>HR Department</h4></u>
+                                </td>
+                                <td width="50%" colspan="2" style="text-align:center" class="border_right">
+                                    <u><h4>إدارة الموارد البشرية</h4></u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Name : </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>التاريخ:</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Signature : </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>التوقيع :</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Date : </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <b>التاريخ:</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_action_renew_contract" model="ir.actions.report">
+        <field name="name">Renew Contract</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_renew_contract_template</field>
+        <field name="print_report_name">'Renew Contract'</field>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

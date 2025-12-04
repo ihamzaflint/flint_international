@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_client_type_group_user,access_client_type_group_user,model_client_type,hr.group_hr_user,1,1,1,1
+access_cleint_client_group_user,access_cleint_client_group_user,model_client_client,hr.group_hr_user,1,1,1,1
+access_client_project_group_user,access_client_project_group_user,model_client_project,hr.group_hr_user,1,1,1,1
+access_employee_degree_group_user,access_employee_degree_group_user,model_employee_degree,hr.group_hr_user,1,1,1,1
+access_employee_import,employee_import,model_hr_employee_import,base.group_user,1,1,1,1

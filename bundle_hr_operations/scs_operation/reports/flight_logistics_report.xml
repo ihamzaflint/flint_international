@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_flight_logistics">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Flight Logistics Order</h2>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Order Reference:</strong> <span t-field="o.name"/>
+                                <br/>
+                                <strong>Employee:</strong> <span t-field="o.employee_id.name"/>
+                                <br/>
+                                <strong>Project:</strong> <span t-field="o.project_id.name"/>
+                                <br/>
+                                <strong>File Number:</strong> <span t-field="o.file_no"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Status:</strong> <span t-field="o.state"/>
+                                <br/>
+                                <strong>Departure Date:</strong> <span t-field="o.departure_date"/>
+                                <br/>
+                                <strong>Return Date:</strong> <span t-field="o.return_date"/>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">Flight Bidding Details</h3>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Vendor</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.flight_bidding_ids.filtered(lambda x: x.state == 'confirm')" t-as="bid">
+                                    <tr>
+                                        <td><span t-field="bid.vendor_id.name"/></td>
+                                        <td><span t-field="bid.price"/></td>
+                                        <td><span t-field="bid.state"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <h3 class="mt-4">Passengers</h3>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Passenger</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.logistic_order_line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <t t-if="line.family_member_id">
+                                                <span t-field="line.family_member_id.name"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="line.employee_id.name"/>
+                                            </t>
+                                        </td>
+                                        <td><span t-field="line.passenger_type"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_flight_logistics" model="ir.actions.report">
+        <field name="name">Flight Logistics Order</field>
+        <field name="model">logistic.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_operation.report_flight_logistics</field>
+        <field name="report_file">scs_operation.report_flight_logistics</field>
+        <field name="print_report_name">'Flight Logistics Order - %s' % object.name</field>
+        <field name="binding_model_id" ref="model_logistic_order"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

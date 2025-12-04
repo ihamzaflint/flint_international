@@ -1,0 +1,12 @@
+<odoo>
+        <record id="itq_hr_benefit_integration_form" model="ir.ui.view">
+            <field name="name">itq.hr.benefit.form</field>
+            <field name="model">itq.hr.benefit.integration</field>
+            <field name="inherit_id" ref="itq_hr_benefits.itq_hr_benefit_integration_form"/>
+            <field name="arch" type="xml">
+                <field name="calculation_type"  position="after">
+                    <field name="is_used" invisible="1"/>
+                </field>
+            </field>
+        </record>
+  </odoo>

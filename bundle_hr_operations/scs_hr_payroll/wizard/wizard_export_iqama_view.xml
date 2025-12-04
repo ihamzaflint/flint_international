@@ -1,0 +1,39 @@
+<odoo>
+
+    <record id="wizard_export_iqama_form" model="ir.ui.view">
+        <field name="name">wizard.export.iqama.form</field>
+        <field name="model">wizard.export.iqama</field>
+        <field name="arch" type="xml">
+            <form string="Export Iqama">
+                <footer>
+                    <button name="export_report" string="Export" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="export_iqama_detail_xls_wizard" model="ir.actions.act_window">
+        <field name="name">Employee Iqama Expiry</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizard.export.iqama</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_export_iqama_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.report" id="action_iqama_expire_export_wizard">
+        <field name="name">Export Iqama Expiry Action</field>
+        <field name="model">wizard.export.contract.expiry</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_payroll.report_contract_expiry</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <menuitem name="Export Iqama Expiry"
+              action="action_iqama_expire_export_wizard"
+              id="menu_report_emp_iqama_expiry_excel"
+              parent="hr.hr_menu_hr_reports" sequence="14"/>
+
+</odoo>

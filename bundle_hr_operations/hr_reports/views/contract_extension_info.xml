@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Form View-->
+    <record id="view_contract_extension_form" model="ir.ui.view">
+        <field name="name">contract.extension.form</field>
+        <field name="model">contract.extension</field>
+        <field name="arch" type="xml">
+            <form string="Contract Extension">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="employee_id" readonly="state in ['confirm']" force_save="1"/>
+                    </group>
+                    <group name="dual_language_section" colspan="2">
+                        <!-- English Section -->
+                        <group string="English Section" name="english_section">
+                            <field name="name" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="file_number" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="id_number" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+
+                        <!-- Arabic Section -->
+                        <group string="Arabic Section" name="arabic_section">
+                            <field name="name_ar" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                    </group>
+
+                    <!--  Common Information Section  -->
+                    <group colspan="2">
+                        <group string="Common Information" name="common_info">
+                            <field name="reference" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+
+                        <group string="Contract Dates" name="contract_dates">
+                            <field name="current_date" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="renew_date" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="end_date" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="new_expiry_date" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_extension_tree" model="ir.ui.view">
+        <field name="name">contract.extension.tree</field>
+        <field name="model">contract.extension</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="name_ar"/>
+                <field name="file_number"/>
+                <field name="id_number"/>
+                <field name="reference"/>
+                <field name="current_date"/>
+                <field name="renew_date"/>
+                <field name="end_date"/>
+                <field name="new_expiry_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_contract_extension" model="ir.actions.act_window">
+        <field name="name">Contract Extension</field>
+        <field name="res_model">contract.extension</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

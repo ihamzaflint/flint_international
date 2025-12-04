@@ -1,0 +1,19 @@
+<odoo>
+	<record model="ir.ui.view" id="alert_wizard_form_view">
+		<field name="name">general.alert.wizard.form</field>
+		<field name="model">general.alert.wizard</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="alert">
+				<strong>
+					<field name="message" nolabel="1" colspan="4" />
+				</strong>
+				<footer>
+					<button string="OK" class="oe_link" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+</odoo>
+            
+           

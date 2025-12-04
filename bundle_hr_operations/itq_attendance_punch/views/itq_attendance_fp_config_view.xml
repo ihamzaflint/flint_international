@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="itq_attendance_fp_config_form" model="ir.ui.view">
+        <field name="name">itq.attendance.punch.config.form</field>
+        <field name="model">itq.attendance.punch.config</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Fingerprint Configuration Settings">
+                <header>
+                    <button name="check_zk_credentials"
+                            invisible="['|', '|', ('zk_machine_ip', '=', False), ('zk_username', '=', False), ('zk_password', '=', False)]"
+                            string="Check Connection" type="object" class="oe_highlight"/>
+                    <field name="connection_state" widget="statusbar" statusbar_visible=""/>
+                </header>
+                <sheet>
+                    <div>
+                        <label for="sequence"/>
+                        <field name="sequence"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="zk_machine_ip" required="True" placeholder="Set Server IP with port"/>
+                            <field name="zk_username" required="True"/>
+                            <field name="zk_password" password="True" required="True"/>
+                            <field name="zk_action_type" required="True"/>
+                            <field name="zk_last_check_date" readonly="1"/>
+                            <separator/>
+                        </group>
+                        <group>
+                            <field name="zk_start_date" required="True"
+                                   readonly="[('zk_last_action_date', '!=',False)]"/>
+                            <field name="zk_last_action_date" readonly="1"/>
+                            <field name="check_in_indicators" required="True"/>
+                            <field name="check_out_indicators"  required="True"/>
+                            <separator/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="itq_attendance_fp_config_list" model="ir.ui.view">
+        <field name="name">itq.attendance.punch.config.list</field>
+        <field name="model">itq.attendance.punch.config</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance Fingerprint Settings">
+                <field name="sequence"/>
+                <field name="zk_machine_ip"/>
+                <field name="zk_username"/>
+                <field name="zk_last_action_date"/>
+                <field name="zk_action_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="itq_attendance_fp_config_action" model="ir.actions.act_window">
+        <field name="name">Attendance Fingerprint Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">itq.attendance.punch.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="itq_attendance_fp_config_menu"
+              name="Attendance FP Settings"
+              parent="itq_attendance_punch.itq_attendance_root_config"
+              action="itq_attendance_fp_config_action" sequence="1"/>
+
+</odoo>

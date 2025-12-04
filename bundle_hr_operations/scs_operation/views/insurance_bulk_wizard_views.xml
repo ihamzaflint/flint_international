@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Insurance Bulk Operation Wizard Form View -->
+    <record id="insurance_bulk_operation_wizard_form_view" model="ir.ui.view">
+        <field name="name">insurance.bulk.operation.wizard.form</field>
+        <field name="model">insurance.bulk.operation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Insurance Operations">
+                <group>
+                    <field name="operation_type"/>
+                    <field name="policy_id" domain="[('state', '=', 'active')]"/>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                </group>
+                <group invisible="[('operation_type', '!=', 'add_employees')]">
+                    <field name="insurance_class" domain="[('is_active', '=', True)]"/>
+                </group>
+                <group invisible="[('operation_type', '!=', 'change_class')]">
+                    <field name="insurance_class" domain="[('is_active', '=', True)]" string="Current Insurance Class"/>
+                    <field name="new_insurance_class" domain="[('is_active', '=', True)]"/>
+                </group>
+                <group>
+                    <field name="date_effective"/>
+                </group>
+                <footer>
+                    <button name="action_execute" string="Execute" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Insurance Bulk Operation Wizard Action -->
+    <record id="action_insurance_bulk_operation_wizard" model="ir.actions.act_window">
+        <field name="name">Bulk Insurance Operations</field>
+        <field name="res_model">insurance.bulk.operation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Perform bulk operations on insurance policies!
+            </p>
+            <p>
+                You can add multiple employees, change insurance classes, or end coverage for multiple employees at once.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item for Bulk Operations -->
+    <menuitem id="menu_insurance_bulk_operation" 
+              name="Bulk Operations" 
+              parent="scs_operation.root_operation_configration"
+              action="action_insurance_bulk_operation_wizard" 
+              sequence="25"/>
+</odoo> 

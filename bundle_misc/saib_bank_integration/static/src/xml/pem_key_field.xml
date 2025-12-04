@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="saib_bank_integration.PemKeyField" owl="1">
+        <textarea 
+            class="o_input" 
+            t-ref="textarea"
+            t-att-id="props.id"
+            t-att-name="props.name"
+            t-att-placeholder="props.placeholder"
+            t-att-readonly="props.readonly ? 'readonly' : undefined"
+            t-on-input="(ev) => props.update(ev.target.value)"
+            t-esc="formattedValue"
+        />
+    </t>
+</templates>

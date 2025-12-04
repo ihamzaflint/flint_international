@@ -1,0 +1,9 @@
+<odoo>
+    <!-- Demo Vendor -->
+    <record id="demo_vendor_partner" model="res.partner">
+        <field name="name">Demo Vendor</field>
+        <field name="is_company">False</field>
+        <field name="supplier_rank">1</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define the JavaScript asset -->
+    <!--    <template id="assets_frontend" inherit_id="web.assets_frontend" name="Applicant Bidding Assets">-->
+    <!--        <xpath expr="//script[last()]" position="after">-->
+    <!--            <script type="text/javascript" src="/your_module_name/static/src/js/applicant_bidding.js"/>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+
+    <template id="portal_bidding_applicant" name="Applicant Bidding Portal">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">Applicant Bidding Options</h2>
+                    </div>
+                </div>
+
+                <!-- Bidding Cards -->
+                <div class="row">
+                    <t t-foreach="biddings" t-as="bidding">
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <!-- Airline and Flight Number -->
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="card-title mb-0" t-field="bidding.name"/>
+                                        <span class="badge bg-primary" t-field="bidding.email"/>
+                                    </div>
+
+                                    <!-- Flight Details -->
+                                    <div class="mb-3">
+                                        <p class="mb-1">
+                                            <i class="fa fa-phone me-2"></i>
+                                            <span t-field="bidding.phone"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-flag me-2"></i>
+                                            <strong>Nationality:</strong>
+                                            <span class="ms-2" t-field="bidding.nationality"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-map-marker me-2"></i>
+                                            <strong>Current Location:</strong>
+                                            <span class="ms-2" t-field="bidding.current_location"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-solid fa-briefcase me-2"></i>
+                                            <strong>Experience:</strong>
+                                            <span class="ms-2" t-field="bidding.experience"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-solid fa-graduation-cap me-2"></i>
+                                            <strong>Qualification:</strong>
+                                            <span class="ms-2" t-field="bidding.qualification"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-solid fa-building me-2"></i>
+                                            <strong>Current Company:</strong>
+                                            <span class="ms-2" t-field="bidding.current_company"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-solid fa-user-circle me-2"></i>
+                                            <strong>Position:</strong>
+                                            <span class="ms-2" t-field="bidding.position"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-solid fa-hourglass-half me-2"></i>
+                                            <strong>Notice Period:</strong>
+                                            <span class="ms-2" t-field="bidding.notice_period"/>
+                                        </p>
+                                        <t t-if="not bidding.show_salary_expectation">
+                                            <p class="mb-1">
+                                                <i class="fa fa-money me-2"></i>
+                                                <strong>Salary Expectation:</strong>
+                                                <span t-field="bidding.salary_expectation"/>
+                                            </p>
+                                        </t>
+                                        <t t-if="not bidding.show_wife">
+                                            <p class="mb-1">
+                                                <i class="fa fa-solid fa-users me-2"></i>
+                                                <strong>Wife:</strong>
+                                                <span class="ms-2" t-field="bidding.wife"/>
+                                            </p>
+                                        </t>
+                                        <t t-if="not bidding.show_kids">
+                                            <p class="mb-1">
+                                                <i class="fa fa-solid fa-users me-2"></i>
+                                                <strong>Kids:</strong>
+                                                <span class="ms-2" t-field="bidding.kids"/>
+                                            </p>
+                                        </t>
+                                        <p class="mb-1">
+                                            <i class="fa fa-solid fa-user-md me-2"></i>
+                                            <strong>Profession:</strong>
+                                            <span class="ms-2" t-field="bidding.profession"/>
+                                        </p>
+                                        <p class="mb-1">
+                                            <i class="fa fa-id-card-o me-2"></i>
+                                            <strong>Iqama Number:</strong>
+                                            <span class="ms-2" t-field="bidding.number_iqama"/>
+                                        </p>
+                                        <t t-if="not bidding.show_current_salary">
+                                            <p class="mb-1">
+                                                <i class="fa fa-money me-2"></i>
+                                                <strong>Current Salary:</strong>
+                                                <span class="ms-2" t-field="bidding.current_salary"/>
+                                            </p>
+                                        </t>
+                                        <p class="mb-1">
+                                            <i class="fa fa-download me-2"></i>
+                                            <a t-attf-href="/web/content/applicant.line/{{ bidding.id }}/resume/{{ bidding.file_name }}">
+                                                Download Resume
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <!-- Action Button -->
+                                    <!-- Confirm Button -->
+                                    <t t-if="bidding.state == 'draft'">
+                                        <div class="d-flex">
+                                            <div class="text-left me-2">
+                                                <button type="button" class="btn btn-success"
+                                                        t-att-data-bidding-id="bidding.id"
+                                                        t-att-data-access-token="bidding.access_token">
+                                                    <i class="fa fa-check me-1"></i>
+                                                    Confirm Applicant
+                                                </button>
+                                            </div>
+                                            <div class="text-right">
+                                                <button type="button" class="btn btn-danger"
+                                                        t-att-data-bidding-id="bidding.id"
+                                                        t-att-data-access-token="bidding.access_token">
+                                                    <i class="fa fa-times me-1"></i>
+                                                    Reject Applicant
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="bidding.state == 'confirm'">
+                                            <div class="text-left">
+                                                <span class="badge bg-success">Confirmed</span>
+                                            </div>
+                                        </t>
+                                        <t t-if="bidding.state == 'reject'">
+                                            <div class="text-left">
+                                                <span class="badge bg-danger">Rejected</span>
+                                            </div>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- No Biddings Message -->
+                <div t-if="not biddings" class="alert alert-info text-center">
+                    <p class="mb-0">Thank You, We will contact you soon to confirm your Applicant.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_select_applicant" name="Applicant Selection Portal">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">Applicant Selection</h2>
+                    </div>
+                </div>
+
+                <!-- Flight Selection Form -->
+                <div class="row">
+                    <div class="col-12">
+                        <form t-attf-action="/my/applicant-selection/submit/#{recruitment_order.id}" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Applicant Details</h5>
+
+                                    <div class="row mb-3">
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Applicant Name</th>
+                                                    <th>Email</th>
+                                                    <th>Contact #</th>
+                                                    <th>Nationality</th>
+                                                    <th>Current Location</th>
+                                                    <th>Experience</th>
+                                                    <th>Qualification</th>
+                                                    <th>Current Company</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="recruitment_order.applicant_line" t-as="recruitment">
+                                                    <tr>
+                                                        <td>
+                                                            <input type="radio" name="selected_applicant"
+                                                                   t-att-value="recruitment.id" required="required"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.name"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.email"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.phone"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.nationality"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.current_location"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.experience"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.qualification"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="recruitment.current_company"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="text-end mt-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Confirm Selection
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

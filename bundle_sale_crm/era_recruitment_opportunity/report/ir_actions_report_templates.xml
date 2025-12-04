@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="performance_report_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="text-center">
+                    <h2>Performance Report</h2>
+                    <p>
+                        <strong>From:</strong>
+                        <t t-esc="date_from"/> &#160;&#160;
+                        <strong>To:</strong>
+                        <t t-esc="date_to"/>
+                    </p>
+                </div>
+
+                <table class="table table-bordered" style="width:100%; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2; text-align: center;">
+                            <th>#</th>
+                            <th>Sequence</th>
+                            <th>Name</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="counter" t-value="0"/>
+                        <t t-foreach="docs" t-as="line">
+                            <t t-set="loop_cycle_number" t-value="loop_cycle_number or 0"/>
+                            <t t-set="counter" t-value="counter + 1"/>
+                            <tr t-att-style="'background-color: #f2f2f2' if loop_cycle_number % 2 == 0 else 'background-color: #ffffff'">
+                                <t t-set="loop_cycle_number" t-value="loop_cycle_number + 1"/>
+                                <td class="text-center">
+                                    <t t-esc="counter"/>
+                                </td>
+                                <td>
+                                    <t t-esc="line.get('sequence')"/>
+                                </td>
+                                <td>
+                                    <t t-esc="line.get('name')"/>
+                                </td>
+                                <td>
+                                    <t t-esc="line.get('rejection_reason')"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

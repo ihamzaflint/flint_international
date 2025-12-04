@@ -1,0 +1,8 @@
+<!--<?xml version="1.0" encoding="utf-8" ?>-->
+<odoo>
+
+         Menu Items Definition
+        <menuitem id="menu_muqeem_client" name="Era Muqeem Client " web_icon="era_muqeem_client,static/description/icon.png" sequence="1"/>
+
+
+</odoo>

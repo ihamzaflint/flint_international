@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_job_offer_form" model="ir.ui.view">
+        <field name="name">job.offer.form</field>
+        <field name="model">job.offer</field>
+        <field name="arch" type="xml">
+            <form string="Job Offer">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+
+                    <group name="dual_language_section" colspan="2">
+                        <!-- Left Column: English Section -->
+                        <group string="English Section" name="english_section">
+                            <field name="name" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="contract_status" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="p_f" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="probation_period" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="position" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="medical_care" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="vacation" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="html_content_en" widget="html"/>
+                        </group>
+
+
+                        <group string="Arabic Section" name="arabic_section">
+                            <field name="name_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="contract_status_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="p_f_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="probation_period_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="position_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="medical_care_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="vacation_ar" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="html_content_ar" widget="html"/>
+                        </group>
+                    </group>
+
+
+                    <group colspan="2">
+                        <group string="Common Information">
+                            <field name="project_id" options="{'no_create': True}" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="employee_type" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="gosi" invisible="employee_type != 'saudi'" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="ticket_char" invisible="employee_type != 'non_saudi'"
+                                   readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                        <group string="Contract Dates" name="contract_dates">
+                            <field name="expected_start_date" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="date_from" readonly="state in ['confirm']" force_save="1"/>
+                            <field name="date_to" readonly="state in ['confirm']" force_save="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Salary and Allowances" name="salary_lines_section">
+                            <field name="job_offer_line_ids" readonly="state in ['confirm']" force_save="1">
+                                <tree editable="bottom">
+                                    <field name="allowance_name_en"/>
+                                    <field name="allowance_name_ar"/>
+                                    <field name="allowance_amount" sum="Total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_job_offer_tree" model="ir.ui.view">
+        <field name="name">job.offer.tree</field>
+        <field name="model">job.offer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="name_ar"/>
+                <field name="project_id"/>
+                <field name="employee_type"/>
+                <field name="contract_status"/>
+                <field name="expected_start_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_job_offer" model="ir.actions.act_window">
+        <field name="name">Job Offer</field>
+        <field name="res_model">job.offer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+

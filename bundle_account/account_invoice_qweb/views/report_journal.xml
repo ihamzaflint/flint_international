@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--        <template id="report_journal" inherit_id="account.report_journal">-->
+<!--            <xpath expr="//t[@t-set='data_report_margin_top']" position="replace">-->
+<!--                <t t-set="data_report_margin_top" t-value="22"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//t[@t-set='data_report_header_spacing']" position="replace">-->
+<!--                <t t-set="data_report_header_spacing" t-value="18"/>-->
+<!--            </xpath>-->
+<!--&lt;!&ndash;            &ndash;&gt;-->
+<!--&lt;!&ndash;            <t t-call="web.html_container">&ndash;&gt;-->
+<!--&lt;!&ndash;                <t t-set="data_report_margin_top" t-value="12"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <t t-set="data_report_header_spacing" t-value="9"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </t>&ndash;&gt;-->
+<!--        </template>-->
+
+    </data>
+</odoo>

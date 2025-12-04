@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="account_analytic_account_approval_role_form_inherit" model="ir.ui.view">
+        <field name="name">account.analytic.account.approval.role.form</field>
+        <field name="model">account.analytic.account.approval.role</field>
+        <field name="inherit_id" ref="analytic_dynamic_approval.account_analytic_account_approval_role_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <label for="account_approval_role_line_ids"/>
+                <field name="account_approval_role_line_ids">
+                    <tree editable="bottom">
+                        <field name="salesperson_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="user_id" options="{'no_create': True}"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_analytic_account_approval_role_tree_inherit" model="ir.ui.view">
+        <field name="name">account.analytic.account.approval.role.tree</field>
+        <field name="model">account.analytic.account.approval.role</field>
+        <field name="inherit_id" ref="analytic_dynamic_approval.account_analytic_account_approval_role_tree"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="account_approval_role_line_ids"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

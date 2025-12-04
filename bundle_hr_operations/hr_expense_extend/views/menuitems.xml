@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <menuitem id="expense_approvals"
+                  name="Expense Approvals"
+                  parent="hr_expense.menu_hr_expense_configuration"
+                  action="expense_approval_config_action"
+                  sequence="10"/>
+
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+export_employee_iqama_expiry,export_employee_iqama_expiry,model_wizard_export_iqama,hr_payroll.group_hr_payroll_manager,1,1,1,1
+export_employee_contract_expiry,export_employee_contract_expiry,model_wizard_export_contract_expiry,hr_payroll.group_hr_payroll_manager,1,1,1,1

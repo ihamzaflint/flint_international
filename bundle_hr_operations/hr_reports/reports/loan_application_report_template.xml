@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Report Template -->
+        <template id="loan_application_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="page"
+                         style="font-family: 'DejaVu Sans'; direction: rtl; text-align: right; line-height: 1.8;">
+                        <style>
+                            @font-face {
+                                font-family: 'DroidKufiRegular';
+                                src: url('/loan_management/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                            }
+                            .arabic-text {
+                                font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                            }
+                        </style>
+
+                        <!-- Loop through all docs -->
+                        <t t-foreach="docs" t-as="record">
+
+                            <!-- Application Numbers -->
+                            <div class="row mb-4" style="font-size: 14px;">
+                                <div class="col-5 arabic-text">
+                                    <table class="table table-striped"
+                                           style="border: 2px solid #ccc; border-collapse: collapse; width: 100%;background-color: #f9f9f9;">
+                                        <tr>
+                                            <td style="border: 1px solid #ccc;">
+                                                <strong>الرقم :</strong>
+                                            </td>
+                                            <td style="border: 1px solid #ccc;">
+                                                <span t-field="record.application_number"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc;">
+                                                <strong>التاريخ:</strong>
+                                            </td>
+                                            <td style="border: 1px solid #ccc;">
+                                                <span t-field="record.application_year"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #ccc;">
+                                                <strong>رقم الملف:</strong>
+                                            </td>
+                                            <td style="border: 1px solid #ccc;">
+                                                <span t-field="record.file_number"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Title -->
+                            <div class="row text-center mb-4" style="padding-bottom: 10px;">
+                                <div class="col-4">
+                                    <h3 style="margin: 5px 0 0 0; font-size: 20px; font-weight: normal;" class="arabic-text">
+                                        السادة / بنك الأنعاء
+                                    </h3>
+                                </div>
+                                <div class="col-4">
+                                    <h2 style="margin: 0; font-size: 24px; font-weight: bold;" class="arabic-text">
+                                        طلب قرض
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <!-- Main Employee Information Table -->
+                            <table class="table table-bordered"
+                                   style="width: 100%; border: 1px solid #ccc; font-size: 14px; border-collapse: collapse;">
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>اسم الموظف:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.name_ar"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>الجنسية:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.nationality"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>الرقم الوظيفى:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.employee_number"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>رقم هوية:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.id_number"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>المسمى الوظيفي:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.actual_job_role"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>القسم / مشروع:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.department_project"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>وضع الوظيفه:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.employment_status"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>تاريخ بداية العمل:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.employment_date"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>عقد العمل:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.employment_contract"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Loan Lines -->
+                                <t t-set="total_amount" t-value="0"/>
+                                <t t-foreach="record.loan_application_line_ids" t-as="line">
+                                    <tr>
+                                        <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                            <strong><span t-field="line.allowance_name_ar"/></strong>
+                                        </td>
+                                        <td class="arabic-text" style="border: 1px solid #ccc;">
+                                            <span t-field="line.allowance_amount"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="total_amount" t-value="total_amount + line.allowance_amount"/>
+                                </t>
+
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;background-color: #f9f9f9;">
+                                        <strong>المجموع:</strong>
+                                    </td>
+                                    <td style="border: 1px solid #ccc;">
+                                        <span t-esc="'{0:.2f}'.format(total_amount)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="arabic-text" style="width: 25%; border: 1px solid #ccc;">
+                                        <strong>تاريخ دفع الراتب:</strong>
+                                    </td>
+                                    <td class="arabic-text" style="border: 1px solid #ccc;">
+                                        <span t-field="record.salary_transfer_date"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="row mt-1">
+                                <div class="col-12 arabic-text" style="font-size: 10px;">
+                                    <p>
+                                        <strong>المفوض بالتوقيع في إدارة شؤون الموظفين ( إذا كان يختلف عن الموقع ادناه):</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Supervisor Remarks -->
+                            <div class="row mt-4">
+                                <div class="col-12 arabic-text">
+                                    <p>
+                                        <strong>بهذا نؤكد بأن الموظفه المذكوره أعلاه هي موظفه لدينا وقد طلبت منا تحويل
+                                            راتبها الشهري الى الايبان رقم /
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Commitment Text -->
+                            <div class="row mt-4">
+                                <div class="col-12 arabic-text">
+                                    <p>
+                                        <span t-field="record.account_number"/> والموجود في فرعكم وبناء عليه نتعهد تعهدا
+                                        غير مشروطا وغير قابل للنقض بأن نقوم بتحويل راتبها الشهري الى الحساب المذكور وذلك في اول كل شهر
+                                        كما نتعهد بتحويل مستحقاتها في حالة فصلها عن العمل أو انتهاء خدماتها معنا لاي سبب كان.
+                                        يسري مفعول تعهدنا كما هو مذكور أعلاه بالكامل حتى نستلم مذكرة خطية منكم تحلنا من هذا الالتزام.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Footer Signatures -->
+                            <div class="row mt-4">
+                                <div class="col-6 arabic-text">
+                                    <p><strong>اسم المفوض بالتوقيع:</strong></p>
+                                </div>
+                            </div>
+
+                            <!-- Footer Table -->
+                            <div class="row mt-1">
+                                <div class="col-12 arabic-text">
+                                    <table class="table table-bordered"
+                                           style="width: 100%; border: 1px solid #ccc; font-size: 12px; border-collapse: collapse;">
+                                        <tr>
+                                            <td style="width: 50%; border: 1px solid #ccc;">
+                                                <strong>مفلح المفلح:</strong>
+                                            </td>
+                                            <td style="width: 50%; border: 1px solid #ccc;">
+                                                <strong>ضياء عقاب:</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; border: 1px solid #ccc;">
+                                                <strong>التوقيع:</strong>
+                                            </td>
+                                            <td style="width: 50%; border: 1px solid #ccc;">
+                                                <strong>التوقيع:</strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

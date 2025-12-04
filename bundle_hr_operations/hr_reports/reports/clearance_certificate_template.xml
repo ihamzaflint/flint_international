@@ -1,0 +1,100 @@
+<odoo>
+    <template id="report_clearance_certificate_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+
+                    <style>
+                        @font-face {
+                        font-family: 'DroidKufiRegular';
+                        src: url('/hr_reports/static/src/fonts/DroidKufi-Regular.ttf') format('truetype');
+                        }
+                        [dir="rtl"], .arabic-text {
+                        font-family: 'DroidKufiRegular', Arial, sans-serif !important;
+                        direction: rtl;
+                        text-align: right;
+                        }
+                        .header-table td { padding: 6px 10px; }
+                    </style>
+
+                    <div class="arabic-text p-5 lh-lg">
+
+                        <!-- Header section -->
+                        <table class="table table-bordered w-auto ms-auto mb-4 header-table">
+                            <tr class="w-25">
+                                <td >الرقم :</td>
+                                <td >
+                                    <t t-esc="o.id_number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >التاريخ :</td>
+                                <td >
+                                    <t t-esc="o.create_date.strftime('%Y-%m-%d') if o.create_date else ''"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Receiver -->
+                        <div class="w-100 d-flex justify-content-between mb-3 ps-5">
+                            <p class="fw-bold fs-5">
+                                الساده / مكتب العمل - الرياض
+                            </p>
+
+                            <!-- Salutation -->
+                            <p class="fw-bold">
+                                المحترمين ...
+                            </p>
+                        </div>
+
+                        <!-- Greeting -->
+                        <p class="mb-3 fw-semibold">
+                            <strong>السلام عليكم ورحمة الله وبركاته</strong>
+                            <br/>
+                            <strong class="mb-3">تحيه طيبه وبعد :</strong>
+                        </p>
+
+                        <!-- Main Body -->
+                        <p class="mt-2 lh-lg">
+                            نود الإفادة بأنه لا مانع لدينا في نقل كفالة الموظف السيد /
+                            <span>
+                                <t t-esc="o.name_ar or ''"/>
+                            </span>
+                            ،
+                            <span>
+                                <t t-esc="o.employee_id.country_id.name or ''"/>
+                            </span>
+                            الجنسية ، يحمل هوية مقيم رقم
+                            (
+                            <span>
+                                <t t-esc="o.id_number or ''"/>
+                            </span>
+                            )
+                            إلى شركتنا، وذلك بعد إلغاء حالة
+                            "
+                            <span>
+                                <t t-esc="o.status or ''"/>
+                            </span>
+                            "
+                            ولقد منح هـذا الخـطاب بناء على طلبه من أجـل تقديمه لكم ، دون أدنى مسؤوليه علينا في ذلك، وقد
+                            تم إغلاق الخطاب قبل علامة الفاصلة ، الشكر لكم مسبقاً على حسن تعاونكم معنا
+                        </p>
+
+                        <!-- Closing -->
+                        <p class="mt-5 mb-0 text-center fw-bold">
+                            ... وتفضلوا بقبول فائق تحياتنا وتقديرنا ...
+                        </p>
+
+                        <!-- Footer -->
+                        <div class="w-100 mt-5 d-flex justify-content-end">
+                            <div class="border p-3 d-inline-block text-center">
+                                <strong>إدارة الموارد البشرية</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

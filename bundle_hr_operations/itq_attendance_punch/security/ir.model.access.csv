@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user_itq_attendance_punch,access.user.itq.attendance.punch,model_itq_attendance_punch,itq_attendance_punch_user_group,1,0,0,0
+access_admin_itq_admin_attendance_punch,access.admin.itq.attendance.punch,model_itq_attendance_punch,itq_attendance_punch_admin_group,1,1,0,1
+access_punch_import_history,access_punch_import_history,model_punch_import_history,,1,0,0,0
+access_itq_attendance_fp_config_admin,access.itq.attendance.fp.config_admin,model_itq_attendance_punch_config,itq_attendance_punch_admin_group,1,1,1,0
+access_itq_attendance_fp_config_user,access.itq.attendance.fp.config.user,model_itq_attendance_punch_config,itq_attendance_punch_user_group,1,0,0,0

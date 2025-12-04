@@ -1,0 +1,14 @@
+<odoo>
+	<record id="hr_contract_view_form_scs_inherit" model="ir.ui.view">
+        <field name="name">View Contract Form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="l10n_sa_hr_payroll.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+        	<group name='salary_info' position='after'>
+        		<group name="total_gross" string="Total Gross Wage">
+                    <field name="total_gross_wage" string="Total Gross"/>
+                </group>
+        	</group>
+        </field>
+    </record>
+</odoo>

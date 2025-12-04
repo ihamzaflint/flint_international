@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_contract_expiry">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <style>
+                        .border{
+                            border-collapse:collapse;
+                            border:1px solid black !important;
+                        }
+                    </style>
+                    <h2>Employee Contract Expiry List</h2>
+                    <table width="100%" class="table table-bordered">
+                        <tr>
+                            <td width="20%" class="border" style="text-align:center;"><b>Emp ID</b></td>
+                            <td width="40%" class="border" style="text-align:center;"><b>Name of the Employee</b></td>
+                            <td width="40%" class="border" style="text-align:center;"><b>Project</b></td>
+                            <td width="15%" class="border" style="text-align:center;"><b>Start Date</b></td>
+                            <td width="15%" class="border" style="text-align:center;"><b>End Date</b></td>
+                        </tr>
+                        <t t-foreach="docs" t-as="o">
+                            <tr>
+                                <td width="20%" class="border" style="text-align:center;"><b><span t-esc="o.employee_id.registration_number"/></b></td>
+                                <td width="40%" class="border" style="text-align:center;"><b><span t-esc="o.employee_id.name"/></b></td>
+                                <td width="40%" class="border" style="text-align:center;"><b><span t-esc="o.employee_id.contract_id.analytic_account_id.display_name"/></b></td>
+                                <td width="15%" class="border" style="text-align:center;"><b><span t-esc="o.date_start" t-options="{'widget': 'date'}"/></b></td>
+                                <td width="15%" class="border" style="text-align:center;"><b><span t-esc="o.date_end" t-options="{'widget': 'date'}"/></b></td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_action_report_contract_expiry" model="ir.actions.report">
+        <field name="name">Employee Contract Expiry</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_payroll.report_contract_expiry</field>
+        <field name="print_report_name">'Contract Ending Report'</field>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <record id="action_report_contract_expiry" model="ir.actions.server">
+        <field name="name">Employee Contract Expiry</field>
+        <field name="model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="binding_model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.get_contract_expiry()
+        </field>
+    </record>
+
+    <!-- <menuitem action="action_report_contract_expiry" id="menu_report_contract_expiry" parent="hr.hr_menu_hr_reports" sequence="12"/>  -->
+
+</odoo>

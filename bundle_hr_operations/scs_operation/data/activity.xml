@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mail_act_government_approval" model="mail.activity.type">
+        <field name="name">Government payment approval</field>
+        <field name="res_model">government.payment</field>
+    </record>
+</odoo>

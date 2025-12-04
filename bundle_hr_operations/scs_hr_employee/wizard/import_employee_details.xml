@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="hr_employee_import_wizard" model="ir.ui.view">
+            <field name="name">hr.employee.import</field>
+            <field name="model">hr.employee.import</field>
+            <field name="arch" type="xml">
+                <form string="BOM Product Import">
+                    <group>
+                        <group>
+                            <field class="oe_inline" filename="datas_fname" name="files" required="True" string="Import File"/>
+                            <field class="oe_inline" invisible="1" name="datas_fname" readonly="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button class="oe_highlight" name="import_file" string="Import" type="object"/>or
+                        <button class="oe_link" special="cancel" string="Cancel"/></footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_employee_import_action" model="ir.actions.act_window">
+            <field name="name">Update Employee Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.import</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_employee_import_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="import_employee_details" name="Update Employee" parent="hr.hr_menu_configuration" action="hr_employee_import_action" sequence="2"/>
+
+    </data>
+</odoo>

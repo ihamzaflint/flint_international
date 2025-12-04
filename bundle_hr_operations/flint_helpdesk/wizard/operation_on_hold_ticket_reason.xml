@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_operation_on_hold_ticket_reason_form" model="ir.ui.view">
+        <field name="name">operation.on.hold.ticket.reason.form</field>
+        <field name="model">operation.on.hold.ticket.reason</field>
+        <field name="arch" type="xml">
+            <form string="On Hold Reason">
+                <sheet>
+                    <group>
+                        <field name="on_hold_reason" placeholder="Please enter the reason for putting the ticket on hold..." colspan="6"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_on_hold"
+                            string="Set On Hold"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="action_operation_on_hold_ticket_reason" model="ir.actions.act_window">
+        <field name="name">Set Ticket On Hold</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">operation.on.hold.ticket.reason</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,116 @@
+<odoo>
+
+    <template id="report_crops_engineers_registration_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b>تسجيل بهيئه المهندسين</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    الرقم : <span t-esc="o.employee_id.crops_eng_registartion_seq"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    التاريخ : <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    رقم الملف : <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.identification_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    <b>السادة/ الهيئة السعودية للمهندسين</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    <b>المحترمين...</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    السلام عليكم ورحمة الله وبركاته ...
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    نفيد كم بأن السيد / <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_name"/>.،<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.country_name_arabic"/>  الجنسية ،رقم  الحدود/الاقامه (<span style="border-bottom:1px dotted black;" t-esc="o.residence_number"/>) قد حضر تحت كفالتنا للعمل لدينا بوظيفة ( <span style="border-bottom:1px dotted black;" t-esc="o.work_position"/> ).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:right;">
+                                    وقد تم منحه هذا الخطاب بناء على طلبه لتقديمه إليكم لتسجيل بياناته. وقد تم اغلاق الخطاب قبل علامة الفاصلة ، الشكر لكم مسبقاً على حسن تعاونكم معنا.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    ،،،وتفضلـوا بقبول فائق تحياتنا وتقديرنا ،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%">
+                                    إدارة الموارد البشرية
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_crops_engineers_registration" model="ir.actions.report">
+        <field name="name">Registration Crops of Engineers</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_crops_engineers_registration_template</field>
+        <field name="print_report_name">'Registration Crops of Engineers'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cost_analysis_form" model="ir.ui.view">
+        <field name="name">cost.analysis.form</field>
+        <field name="model">cost.analysis</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" statusbar_visible="draft,submit,validate" widget="statusbar"/>
+                    <button class="oe_highlight" context="{'submit': 1}" invisible="state not in ['draft']" name="change_state" string="Submit" type="object"/>
+                    <button class="oe_highlight" context="{'validate': 1}" groups="flint_sale_management.group_cost_analysis_admin" invisible="state not in ['submit']" name="change_state" string="Validate" type="object"/>
+                    <button class="oe_highlight" context="{'reject': 1}" groups="flint_sale_management.group_cost_analysis_admin" invisible="state not in ['submit']" name="change_state" string="Reject" type="object"/>
+                    <button class="oe_highlight" context="{'draft': 1}" invisible="state not in ['reject','submit']" name="change_state" string="Draft" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                            <field name="create_uid"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="detail" string="Details">
+                            <field name="cost_analysis_line_ids" readonly="state in ('validate', 'reject')">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="candidate_type"/>
+                                            <field name="roles" required="True"/>
+                                            <field name="nationality_id" readonly="candidate_type == 'saudi_local'" required="True"/>
+                                            <field name="name" required="True"/>
+                                            <field name="exp_year"/>
+                                            <field name="marital"/>
+                                            <field name="invoice_period"/>
+                                            <field name="package"/>
+                                            <field name="basic"/>
+                                            <field name="housing"/>
+                                            <field name="trans"/>
+                                            <field name="net_monthly_salary"/>
+                                            <field name="vac_salary"/>
+                                            <field name="end_of_service"/>
+                                            <field name="employee_annual_flight_ticket" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="wife_annual_flight_ticket" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="child_flight_ticket" readonly="candidate_type == 'saudi_local'"/>
+                                        </group>
+                                        <group>
+                                            <field name="employee_health"/>
+                                            <field name="spouse_health_insurance"/>
+                                            <field name="kids_health_insurance"/>
+                                            <field name="gosi"/>
+                                            <field name="profile_fees" readonly="candidate_type == 'no_saudi'"/>
+                                            <field name="saudization" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="iqama_fees" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="iqama_transfer_fees" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="mobilization_cost" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="ajeer" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="exit_reentry" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="total_monthly_cost"/>
+                                            <field name="twelve_months_cost"/>
+                                            <field name="monthly_po_without_margin"/>
+                                            <field name="monthly_flint_margin"/>
+                                            <field name="monthly_po_sar_without_vat"/>
+                                            <field name="monthly_po_sar_with_vat"/>
+                                            <field invisible="1" name="cost_analysis_id"/>
+                                        </group>
+                                    </group>
+                                </form></field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form></field>
+    </record>
+    <record id="cost_analysis_tree" model="ir.ui.view">
+        <field name="name">cost_analysis.tree</field>
+        <field name="model">cost.analysis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="create_uid"/>
+                <field name="state"/>
+            </tree></field>
+    </record>
+    <record id="cost_analysis_search" model="ir.ui.view">
+        <field name="name">cost.analysis.search</field>
+        <field name="model">cost.analysis</field>
+        <field name="arch" type="xml">
+            <search string="String">
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="create_uid"/>
+                <filter context="{'group_by' : 'partner_id'}" name="partner_id" string="Customer"/>
+                <filter context="{'group_by' : 'create_uid'}" name="create_uid" string="Create By"/>
+                <filter context="{'group_by' : 'state'}" domain="[]" name="state" string="State"/>
+            </search></field>
+    </record>
+    <record id="action_cost_analysis" model="ir.actions.act_window">
+        <field name="name">Cost Analysis</field>
+        <field name="res_model">cost.analysis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem groups="group_cost_analysis_admin" id="cost_analysis_root" name="Cost Analysis" web_icon="flint_sale_management,static/description/sale.png"/>
+    <menuitem action="action_cost_analysis" id="cost_analysis_menu" name="Cost Analysis" parent="cost_analysis_root"/>
+    <record id="cost_analysis_action_new" model="ir.actions.act_window">
+        <field name="name">Cost Analysis</field>
+        <field name="res_model">cost.analysis</field>
+        <field name="view_mode">form,tree</field>
+        <field name="domain">[('crm_id', '=', active_id)]</field>
+        <field name="context">{'default_crm_id': active_id}</field>
+    </record>
+</odoo>

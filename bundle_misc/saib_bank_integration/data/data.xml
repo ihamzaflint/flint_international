@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- SAIB Bank Integration Default Configuration -->
+        <record id="config_saib_base_url" model="ir.config_parameter">
+            <field name="key">saib_bank_integration.base_url</field>
+            <field name="value">https://api-test.saib.com</field>
+        </record>
+
+        <record id="config_saib_client_id" model="ir.config_parameter">
+            <field name="key">saib_bank_integration.client_id</field>
+            <field name="value">565267744747626a9866f10cbfbcec89</field>
+        </record>
+
+        <record id="config_saib_client_secret" model="ir.config_parameter">
+            <field name="key">saib_bank_integration.client_secret</field>
+            <field name="value">da746e7e184621a7e66b9d298e230a92</field>
+        </record>
+
+        <record id="config_saib_username" model="ir.config_parameter">
+            <field name="key">saib_bank_integration.username</field>
+            <field name="value">almawarid</field>
+        </record>
+
+        <record id="config_saib_company_code" model="ir.config_parameter">
+            <field name="key">saib_bank_integration.company_code</field>
+            <field name="value">ALMAWARD</field>
+        </record>
+
+        <record id="config_saib_customer_ip" model="ir.config_parameter">
+            <field name="key">saib_bank_integration.customer_ip</field>
+            <field name="value">172.16.38.24</field>
+        </record>
+        <!-- Sequences -->
+        <record id="seq_saib_payroll" model="ir.sequence">
+            <field name="name">SAIB Payroll</field>
+            <field name="code">saib.payroll</field>
+            <field name="prefix">PAY/%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_saib_bank_statement" model="ir.sequence">
+            <field name="name">SAIB Bank Statement</field>
+            <field name="code">saib.bank.statement</field>
+            <field name="prefix">STMT/%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

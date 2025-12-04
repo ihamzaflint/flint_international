@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--        <record id="action_hr_payslip_export_wizard" model="ir.actions.report">-->
+<!--            <field name="name">Export Payslip</field>-->
+<!--            <field name="model">export.payslip</field>-->
+<!--            <field name="report_type">xlsx</field>-->
+<!--            <field name="report_name">hr_payslip_batch_export.export_payslip</field>-->
+<!--            <field name="report_file">hr_payslip_batch_export</field>-->
+<!--            <field name="binding_type">report</field>-->
+<!--        </record>-->
+
+<!--    <report id="action_hr_payslip_export_wizard"-->
+<!--            model="wizard.export.batch"-->
+<!--            string="Export Batch"-->
+<!--            report_type="xlsx"-->
+<!--            name="hr_payslip_batch_export.export_payslip_batch"-->
+<!--            file="export_batch_details"-->
+<!--            attachment_use="False"-->
+<!--            print_report_name=""-->
+<!--    />-->
+    <record id="action_hr_payslip_export_wizard" model="ir.actions.report">
+        <field name="name">Export Batch</field>
+        <field name="model">wizard.export.batch</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payslip_batch_export.export_payslip_batch</field>
+        <field name="report_file">hr_payslip_batch_export</field>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_hr_payslip_export_wizard_adjustments" model="ir.actions.report">
+        <field name="name">Additional Adjustments</field>
+        <field name="model">wizard.export.batch</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hr_payslip_batch_export.export_payslip_batch_adjustments</field>
+        <field name="report_file">hr_payslip_batch_export</field>
+        <field name="binding_type">report</field>
+    </record>
+    </data>
+</odoo>

@@ -1,0 +1,223 @@
+<odoo>
+
+    <template id="report_experience_certificate_female_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <h2><u>Experience Certificate</u></h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="padding-left:5px;">
+                                    Ref No File Number <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.registration_number"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" colspan="2" style="background:#CCD1D1 !important;text-align:center;" class="border_left border_right border_top border_bottom">
+                                    Personal Details
+                                </td>
+                                <td width="50%" colspan="2" style="background:#CCD1D1 !important;text-align:center;" class="border_right border_top border_bottom">
+                                    المعلومات الشخصية
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="padding-left:5px;" class="border_left border_bottom border_right">
+                                    Name:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.name"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <spa t-esc="o.employee_id.muqeem_name"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    الاسم :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="padding-left:5px;" class="border_left border_bottom border_right">
+                                    Nationality:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.country_id.name"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.country_id.country_name_arabic"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    الجنسية :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="padding-left:5px;" class="border_left border_bottom border_right">
+                                    ID No.
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.identification_id"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.identification_id"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    رقم الهويه  :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="background:#CCD1D1 !important;text-align:center;" class="border_right border_left border_bottom">
+                                    Employment Details
+                                </td>
+                                <td width="50%" colspan="2" style="background:#CCD1D1 !important;text-align:center;" class="border_right border_bottom">
+                                    المعلومات الوظيفة
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    professions as per Iqama:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.profession_id.name"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.muqeem_profession"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    المسمى حسب الأقامه:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    Actual Job role:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.job_id.name"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.job_id.name_arabic"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    الدور الوظيفي:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    Project:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.client_id.name"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.client_id.name"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    المشروع :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" style="background:#CCD1D1 !important;text-align:center;" class="border_right border_left border_bottom">
+                                    Service Details
+                                </td>
+                                <td width="50%" colspan="2" style="background:#CCD1D1 !important;text-align:center;" class="border_right border_bottom">
+                                    معلومات الخدمة
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    Joining Date:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.first_contract_date"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.first_contract_date"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    تاريخ التعيين :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_right border_left border_bottom" style="padding-left:5px;">
+                                    Last date:
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.contract_id.date_end"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.contract_id.date_end"/>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    اخر يوم عمل:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="padding-left:5px;">
+                                    We, <span style="border-bottom:1px dotted black;" t-esc="o.company_name"/>, certify that the aforementioned worked for us during the aforementioned period and during her work period was an example of a hardworking, diligent and persistent employee, cooperating with her colleagues and dedicated to performing her work.
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:right;padding-right:5px;">
+                                    نشهد <span style="border-bottom:1px dotted black;" t-esc="o.company_name_arabic"/>، بأن المذكوره إعلاه عملة لدينا خلال الفترة المذكورة وخلال فترة عملها كانت مثال للموظفه المجده والمجتهده والمثابره  ومتعاونه مع زملائها ومتفانيه في أداء عملها.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right"><br/></td>
+                                <td width="50%" colspan="2" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right" style="text-align:center;">
+                                    <b>With our best wishes for Her,,</b>
+                                </td>
+                                <td width="50%" colspan="2" class="border_right" style="text-align:center;">
+                                    <b>,, مع امنياتنا له بالتوفيق</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colspan="2" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" colspan="2" class="border_right border_bottom"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_experience_certificate_female" model="ir.actions.report">
+        <field name="name">Experience Certificate Female</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_experience_certificate_female_template</field>
+        <field name="print_report_name">'Experience Certificate'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

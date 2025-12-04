@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="internal_sale_form" model="ir.ui.view">
+        <field name="name">internal.sale.form</field>
+        <field name="model">internal.sale</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" statusbar_visible="draft,submit,validate" widget="statusbar"/>
+                    <button class="oe_highlight" context="{'submit': 1}" invisible="state not in ['draft']" name="change_state" string="Submit" type="object"/>
+                    <button class="oe_highlight" context="{'validate': 1}" groups="scs_operation.group_internal_sale_admin" invisible="state not in ['submit']" name="change_state" string="Validate" type="object"/>
+                    <button class="oe_highlight" context="{'reject': 1}" groups="scs_operation.group_internal_sale_admin" invisible="state not in ['submit']" name="change_state" string="Reject" type="object"/>
+                    <button class="oe_highlight" context="{'draft': 1}" invisible="state not in ['reject','submit']" name="change_state" string="Draft" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                            <field name="create_uid"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="detail" string="Details">
+                            <field name="internal_sale_line_ids" readonly="state in ('validate', 'reject')">
+                                <tree>
+                                    <field name="candidate_type" optional="show"/>
+                                    <field name="roles" optional="show" required="True"/>
+                                    <field name="nationality_id" optional="show" required="True"/>
+                                    <field name="name" required="True"/>
+                                    <field name="exp_year" optional="show"/>
+                                    <field name="marital" optional="show"/>
+                                    <field name="invoice_period" optional="show"/>
+                                    <field name="package" optional="show"/>
+                                    <field name="basic" optional="show"/>
+                                    <field name="housing" optional="show"/>
+                                    <field name="trans" optional="show"/>
+                                    <field name="net_monthly_salary" optional="show"/>
+                                    <field name="vac_salary" optional="show"/>
+                                    <field name="end_of_service" optional="show"/>
+                                    <field name="employee_annual_flight_ticket" optional="show"/>
+                                    <field name="wife_annual_flight_ticket" optional="show"/>
+                                    <field name="child_flight_ticket" optional="show"/>
+                                    <field name="employee_health" optional="show"/>
+                                    <field name="spouse_health_insurance" optional="show"/>
+                                    <field name="kids_health_insurance" optional="show"/>
+                                    <field name="gosi" optional="show"/>
+                                    <field name="profile_fees"/>
+                                    <field name="saudization" optional="show"/>
+                                    <field name="iqama_fees" optional="show"/>
+                                    <field name="iqama_transfer_fees" optional="show"/>
+                                    <field name="mobilization_cost" optional="show"/>
+                                    <field name="ajeer" optional="show"/>
+                                    <field name="exit_reentry" optional="show"/>
+                                    <field name="total_monthly_cost" optional="show"/>
+                                    <field name="twelve_months_cost" optional="show"/>
+                                    <field name="monthly_flint_margin" optional="show"/>
+                                    <field name="monthly_po_sar_without_vat" optional="show"/>
+                                    <field name="monthly_po_sar_with_vat" optional="show"/>
+                                    <field invisible="1" name="internal_sale_id"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="candidate_type"/>
+                                            <field name="roles" required="True"/>
+                                            <field name="nationality_id" required="True"/>
+                                            <field name="name" required="True"/>
+                                            <field name="exp_year"/>
+                                            <field name="marital"/>
+                                            <field name="invoice_period"/>
+                                            <field name="package"/>
+                                            <field name="basic"/>
+                                            <field name="housing"/>
+                                            <field name="trans"/>
+                                            <field name="net_monthly_salary"/>
+                                            <field name="vac_salary"/>
+                                            <field name="end_of_service"/>
+                                            <field name="employee_annual_flight_ticket" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="wife_annual_flight_ticket" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="child_flight_ticket" readonly="candidate_type == 'saudi_local'"/>
+                                        </group>
+                                        <group>
+                                            <field name="employee_health"/>
+                                            <field name="spouse_health_insurance"/>
+                                            <field name="kids_health_insurance"/>
+                                            <field name="gosi"/>
+                                            <field name="profile_fees" readonly="candidate_type == 'no_saudi'"/>
+                                            <field name="saudization" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="iqama_fees" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="iqama_transfer_fees" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="mobilization_cost" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="ajeer" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="exit_reentry" readonly="candidate_type == 'saudi_local'"/>
+                                            <field name="total_monthly_cost"/>
+                                            <field name="twelve_months_cost"/>
+                                            <field name="monthly_flint_margin"/>
+                                            <field name="monthly_po_sar_without_vat"/>
+                                            <field name="monthly_po_sar_with_vat"/>
+                                            <field invisible="1" name="internal_sale_id"/>
+                                        </group>
+                                    </group>
+                                </form></field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form></field>
+    </record>
+    <record id="internal_sale_tree" model="ir.ui.view">
+        <field name="name">internal_sale.tree</field>
+        <field name="model">internal.sale</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="create_uid"/>
+                <field name="state"/>
+            </tree></field>
+    </record>
+    <record id="internal_sale_search" model="ir.ui.view">
+        <field name="name">internal.sale.search</field>
+        <field name="model">internal.sale</field>
+        <field name="arch" type="xml">
+            <search string="String">
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="create_uid"/>
+                <filter context="{'group_by' : 'partner_id'}" name="partner_id" string="Customer"/>
+                <filter context="{'group_by' : 'create_uid'}" name="create_uid" string="Create By"/>
+                <filter context="{'group_by' : 'state'}" domain="[]" name="state" string="State"/>
+            </search></field>
+    </record>
+    <record id="action_internal_sale" model="ir.actions.act_window">
+        <field name="name">Internal Sale</field>
+        <field name="res_model">internal.sale</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem groups="scs_operation.group_internal_sale_user,scs_operation.group_internal_sale_admin" id="internal_sale_root" name="Internal Sale" web_icon="scs_operation,static/description/sale.png"/>
+    <menuitem action="action_internal_sale" id="internal_sale_menu" name="Internal Sale" parent="internal_sale_root"/>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="print_acc_debit_credit_report" model="ir.ui.view">
+        <field name="name">acc.debit.credit.report</field>
+        <field name="model">acc.debit.credit.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet> 
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Print Report" name="export_report" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="print_acc_debit_credit_report_action" model="ir.actions.act_window">
+        <field name="name">Account Dabit Credit</field>
+        <field name="res_model">acc.debit.credit.report</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem
+            id="print_acc_debit_credit_report_menu"
+            action="print_acc_debit_credit_report_action"
+            name="Account Credit Dabit"
+            sequence="100"
+            parent="account_reports.account_reports_audit_reports_menu"/>
+
+</odoo>

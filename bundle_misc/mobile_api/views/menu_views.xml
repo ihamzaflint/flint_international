@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_mobile_api_root" 
+              name="Mobile API"
+              web_icon="mobile_api,static/description/icon.png"
+              sequence="100"
+              groups="mobile_api.group_mobile_api_admin"/>
+              
+    <!-- Mobile Users Menu -->
+    <menuitem id="menu_mobile_api_users"
+              name="Mobile Users"
+              parent="menu_mobile_api_root"
+              action="action_mobile_user"
+              sequence="10"/>
+              
+    <!-- Configuration Menu -->
+    <menuitem id="menu_mobile_api_config"
+              name="Configuration"
+              parent="menu_mobile_api_root"
+              sequence="100"/>
+</odoo>

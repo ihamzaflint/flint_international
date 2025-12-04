@@ -1,0 +1,510 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* itq_attendance_punch
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20220325\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-07 08:17+0000\n"
+"PO-Revision-Date: 2023-05-07 08:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__zk_action_date
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_punch_import_history_view_search
+msgid "Action Date time"
+msgstr "توقيت الإجراء"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_needaction
+msgid "Action Needed"
+msgstr "إجراءات لازمة"
+
+#. module: itq_attendance_punch
+#: model:res.groups,name:itq_attendance_punch.itq_attendance_punch_admin_group
+msgid "Admin"
+msgstr "المدير"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: itq_attendance_punch
+#: model:ir.ui.menu,name:itq_attendance_punch.itq_attendance_fp_config_menu
+msgid "Attendance FP Settings"
+msgstr "إعدادات الحضور المرتبطة بالبصمة"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_fp_config_form
+msgid "Attendance Fingerprint Configuration Settings"
+msgstr "إعدادات ضبط بصمة الحضور"
+
+#. module: itq_attendance_punch
+#: model:ir.actions.act_window,name:itq_attendance_punch.itq_attendance_fp_config_action
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_fp_config_list
+msgid "Attendance Fingerprint Settings"
+msgstr "إعدادات بصمة الحضور "
+
+#. module: itq_attendance_punch
+#: model:ir.actions.act_window,name:itq_attendance_punch.itq_attendance_punch_action
+#: model:ir.model,name:itq_attendance_punch.model_itq_attendance_punch
+#: model:ir.module.category,name:itq_attendance_punch.itq_attendance_punch_category
+#: model:ir.ui.menu,name:itq_attendance_punch.itq_attendance_punch_action_menu
+#: model:ir.ui.menu,name:itq_attendance_punch.itq_attendance_punch_action_root_menu
+msgid "Attendance Punch"
+msgstr "بصمة الحضور"
+
+#. module: itq_attendance_punch
+#: model:ir.ui.menu,name:itq_attendance_punch.attendance_punch_manual_import_menu
+msgid "Attendance Punch Import"
+msgstr "استيراد بصمة الحضور"
+
+#. module: itq_attendance_punch
+#: model:ir.model,name:itq_attendance_punch.model_punch_import_history
+msgid "Attendance Punch Import History"
+msgstr "تاريخ استيراد بصمة الحضور"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_form
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_list
+msgid "Attendance Punch Time"
+msgstr "توقيت بصمة الحضور"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields.selection,name:itq_attendance_punch.selection__itq_attendance_punch_config__zk_action_type__auto
+#: model:ir.model.fields.selection,name:itq_attendance_punch.selection__punch_import_history__zk_action_type__auto
+msgid "Automatic"
+msgstr "آلي"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_fp_config_form
+msgid "Check Connection"
+msgstr "تحقق من الاتصال"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__check_in_indicators
+msgid "Check-in Indicators"
+msgstr "مؤشرات تسجيل الدخول"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__check_out_indicators
+msgid "Check-out Indicators"
+msgstr "مؤشرات تسجيل الخروج "
+
+#. module: itq_attendance_punch
+#: model:ir.ui.menu,name:itq_attendance_punch.itq_attendance_root_config
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields.selection,name:itq_attendance_punch.selection__itq_attendance_punch_config__connection_state__fail
+msgid "Connection Failed"
+msgstr "فشل الاتصال"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__connection_state
+msgid "Connection Status"
+msgstr "حالة الاتصال"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields.selection,name:itq_attendance_punch.selection__itq_attendance_punch_config__connection_state__success
+msgid "Connection Succeeded"
+msgstr "نجح الاتصال"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Correct"
+msgstr "صحيح"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__create_uid
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__create_uid
+msgid "Created by"
+msgstr "الإنشاء بواسطة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__create_date
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__create_date
+msgid "Created on"
+msgstr "الإنشاء بتاريخ"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_action_type
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__zk_action_type
+msgid "Data Importing"
+msgstr "استيراد البيانات"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__display_name
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__display_name
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: itq_attendance_punch
+#: model:ir.model,name:itq_attendance_punch.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__emp_code
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Employee Code"
+msgstr "كود الموظف"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__employee_name
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Employee Name"
+msgstr "اسم الموظف"
+
+#. module: itq_attendance_punch
+#: model:ir.model.constraint,message:itq_attendance_punch.constraint_hr_employee_unique_zk_emp_code
+msgid "Employee code already exists"
+msgstr "كود الموظف موجود بالفعل"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.view_employee_attendance_filter
+msgid "Employee hasn't ZK Code"
+msgstr "ليس لدى الموظف كود على جهاز البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__error
+msgid "Error"
+msgstr "خطأ "
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "متابعون (شركاء)"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__date_from
+msgid "From Date"
+msgstr "التاريخ من "
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_punch_import_history_view_search
+msgid "Group By"
+msgstr "التجميع بحسب"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_hr_employee__id
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__id
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__id
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_needaction
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "تطلب الرسائل الجديدة انتباهك وذلك عند التحديد"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_has_error
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "هناك بعض الرسائل بها خطأ في التسليم وذلك عند التحديد"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__text
+msgid "Import Data"
+msgstr "استيراد البيانات"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__user_id
+msgid "Imported by"
+msgstr "تم الاستيراد بواسطة"
+
+#. module: itq_attendance_punch
+#: model:ir.actions.act_window,name:itq_attendance_punch.itq_punch_import_history_action
+#: model:ir.ui.menu,name:itq_attendance_punch.itq_punch_import_history_menu
+msgid "Importing Progress Result"
+msgstr "استيراد نتيجة التقدم في العملية"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__incorrect
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Incorrect"
+msgstr "غير صحيح"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_is_follower
+msgid "Is Follower"
+msgstr "متابع؟"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_last_action_date
+msgid "Last Action Date"
+msgstr "تاريخ آخر إجراء"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_last_check_date
+msgid "Last Connection Check Date"
+msgstr "تاريخ التحقق من آخر اتصال"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch____last_update
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config____last_update
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__write_uid
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة "
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__write_date
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ "
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__machine_id
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__machine_id
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Machine ID"
+msgstr "الرقم التعريفي للجهاز"
+
+#. module: itq_attendance_punch
+#: code:addons/itq_attendance_punch/models/itq_attendance_fp_config.py:0
+#, python-format
+msgid "Machine IP must be unique"
+msgstr "يجب أن يكون مُعرف الجهاز فريدًا"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "مرفق أساسي"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields.selection,name:itq_attendance_punch.selection__itq_attendance_punch_config__zk_action_type__manual
+#: model:ir.model.fields.selection,name:itq_attendance_punch.selection__punch_import_history__zk_action_type__manual
+msgid "Manual"
+msgstr "يدوي"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ تسليم الرسالة "
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: itq_attendance_punch
+#: code:addons/itq_attendance_punch/models/itq_attendance_fp_config.py:0
+#, python-format
+msgid "NEW"
+msgstr "جديد"
+
+#. module: itq_attendance_punch
+#: code:addons/itq_attendance_punch/models/itq_attendance_fp_config.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: itq_attendance_punch
+#: model:ir.model,name:itq_attendance_punch.model_itq_attendance_punch_config
+msgid "New Attendance Punch Setting"
+msgstr "إعدادات جديدة لبصمة الحضور "
+
+#. module: itq_attendance_punch
+#: model_terms:ir.actions.act_window,help:itq_attendance_punch.itq_punch_import_history_action
+msgid "No records to view"
+msgstr "لا يوجد سجلات للعرض"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Not Transferred"
+msgstr "لم يتم التحويل"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تطلب اتخاذ إجراء"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: itq_attendance_punch
+#: model:ir.actions.server,name:itq_attendance_punch.itq_punch_import_server_action
+msgid "Punch Import Data"
+msgstr "استيراد بيانات البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__punch_log_id
+msgid "Punch Import History"
+msgstr "تاريخ استيراد البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__punch_state
+msgid "Punch State"
+msgstr "حالة البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__punch_time
+msgid "Punch Time"
+msgstr "تاريخ البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__count
+msgid "Record Count"
+msgstr "عدد السجلات"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ تسليم الرسائل القصيرة "
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__sequence
+msgid "Sequence"
+msgstr "التتابع"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_machine_ip
+msgid "Server IP"
+msgstr "مٌعرف الخادم"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__zk_machine_ip
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_fp_config_form
+msgid "Set Server IP with port"
+msgstr "ضبط مٌعرف الخادم مع المدخل"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_punch_import_history__date_to
+msgid "To Date"
+msgstr "التاريخ إلى "
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__transfer
+msgid "Transfer"
+msgstr "تحويل"
+
+#. module: itq_attendance_punch
+#: model_terms:ir.ui.view,arch_db:itq_attendance_punch.itq_attendance_punch_view_search
+msgid "Transferred"
+msgstr "محول"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_unread
+msgid "Unread Messages"
+msgstr "رسائل غير مقروءة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: itq_attendance_punch
+#: model:res.groups,name:itq_attendance_punch.itq_attendance_punch_user_group
+msgid "User"
+msgstr "المستخدم"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__zk_username
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch_config__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,help:itq_attendance_punch.field_itq_attendance_punch_config__website_message_ids
+msgid "Website communication history"
+msgstr "تاريخ الاتصال بالموقع"
+
+#. module: itq_attendance_punch
+#: code:addons/itq_attendance_punch/models/zk_transactions.py:0
+#, python-format
+msgid ""
+"You can't import Attendance Punch Manual, will imported Automatic at %s"
+msgstr ""
+"لا يمكن استيراد بصمة الحضور يدويًا ولكن يمكن استيرادها أتوماتيكيًا في غضون "
+"s%"
+
+#. module: itq_attendance_punch
+#: code:addons/itq_attendance_punch/models/itq_attendance_fp_config.py:0
+#: code:addons/itq_attendance_punch/models/itq_attendance_fp_config.py:0
+#, python-format
+msgid "ZK Connection"
+msgstr "اتصال جهاز البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_hr_employee__zk_emp_code
+msgid "ZK Employee Code"
+msgstr "كود الموظف على جهاز البصمة"
+
+#. module: itq_attendance_punch
+#: model:ir.model.fields,field_description:itq_attendance_punch.field_itq_attendance_punch__zk_id
+msgid "ZK ID"
+msgstr "الرقم التعريفي لجهاز بصمة الحضور"
+
+#. module: itq_attendance_punch
+#: model:ir.actions.server,name:itq_attendance_punch.ir_cron_zkt_transactions_ir_actions_server
+#: model:ir.cron,cron_name:itq_attendance_punch.ir_cron_zkt_transactions
+#: model:ir.cron,name:itq_attendance_punch.ir_cron_zkt_transactions
+msgid "ZK Transactions: Sync with ZK finger print"
+msgstr "عمليات جهاز البصمة: المزامنة مع جهاز بصمة الحضور."
+
+#. module: itq_attendance_punch
+#: model:ir.model.constraint,message:itq_attendance_punch.constraint_itq_attendance_punch_unique_zk_id
+msgid "zk_id must be unique"
+msgstr "يجب أن يكون zk_id فريدًا"

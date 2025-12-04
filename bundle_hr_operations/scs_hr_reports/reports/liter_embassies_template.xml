@@ -1,0 +1,134 @@
+<odoo>
+
+    <template id="report_liter_embassies_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <!-- <tr>
+                                <td width="100%" colspan="2" style="text-align:center;font-size:25px;">
+                                    <b>Letter for embassies</b>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:right">
+                                    الرقم : <span t-esc="o.employee_id.liter_embassies_sequence"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:right">
+                                    التاريخ: <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:right">
+                                    رقم الملف : <span t-esc="o.employee_id.registration_number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%">
+                                    <b>The Honorable Ambassadors,</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%">
+                                    <span style="border-bottom:2px dotted black;" t-esc="o.embassy_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%">
+                                    His Excellency,
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%">
+                                    This is to certify that Mr  <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/> <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.name"/> national, passport No(<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.passport_id"/>)And National Id No (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.visa_no"/>) has been working with us as (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.profession_id.name"/>) since <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.first_contract_date"/> until the date and drawing monthly salary (SR. <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.contract_id.wage"/>). This certificate is issued upon his request , by stating it does not constitute any legal or financial liability on us, and we wish him good luck!
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="text-align:right;">
+                                    الموقرين,,,
+                                </td>
+                                <td width="50%" style="text-align:right;">
+                                    السادة /  <span t-esc="o.embassy_id.name_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:center;">
+                                    السلام عليكم ورحمة الله وبركاته،،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%">
+                                    نفيد كم بأن السيد <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_name"/> ، <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.country_name_arabic"/> الجنسية ، يحمل جواز سفر رقم (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.passport_id_arabic"/>) وهوية الوطنيه رقم(<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.visa_no_arabic"/>) يعمل لدينا و تحت كفالتنا بوظيفة             (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_profession"/>) منذ تاريخ <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.first_contract_date"/> وحتى تاريخه ، براتب شهري وقدره الاجمالي (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.contract_id.wage"/>) ريال سعودي فقط لا غير وقد تم اعطاءه هذا الخطاب بناء على طلبه ، من دون ادنى مسؤولية علينا في ذلك . وقد تم اغلاق الخطاب قبل علامة الفاصلة ، الشكر لكم مسبقاً على حسن تعاونكم معنا.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:center;">
+                                    وتفضلوا بقبول فائق تحياتنا وتقديرنا ،،،
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:center;">
+                                    إدارة الموارد البشرية
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="100%" style="text-align:center;">
+                                    H.R. Department
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_liter_embassies" model="ir.actions.report">
+        <field name="name">Liter for embassies</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_liter_embassies_template</field>
+        <field name="print_report_name">'Liter for embassies'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

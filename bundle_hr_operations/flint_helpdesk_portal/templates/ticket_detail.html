@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket #{{ ticket['id'] }} - {{ company.name }}</title>
+    
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --background-dark: #2c3e50;
+            --card-background: #34495e;
+            --card-hover: #2c3e50;
+            --border-color: #456789;
+        }
+
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .ticket-header {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ticket-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .ticket-title h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .ticket-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .priority-badge, .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .priority-0 { background-color: #3498db; color: white; }
+        .priority-1 { background-color: #f1c40f; color: #2c3e50; }
+        .priority-2 { background-color: #e74c3c; color: white; }
+        .priority-3 { background-color: #8e44ad; color: white; }
+
+        .ticket-description {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ticket-description h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .messages-section {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .messages-section h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .message {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .message:last-child {
+            border-bottom: none;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-author {
+            font-weight: 500;
+        }
+
+        .message-date {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .message-content {
+            margin-bottom: 1rem;
+        }
+
+        .attachments {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .attachment {
+            background-color: var(--card-hover);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .attachment:hover {
+            background-color: var(--primary-color);
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .chart-container {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .chart-container h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: 300px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/helpdesk/portal" class="back-link">← Back to Dashboard</a>
+        
+        <div class="ticket-header">
+            <div class="ticket-title">
+                <h1>{{ ticket['name'] }}</h1>
+                <div class="ticket-badges">
+                    <span class="priority-{{ ticket['priority'] }}">
+                        {% if ticket['priority'] == '0' %}Low
+                        {% elif ticket['priority'] == '1' %}Medium
+                        {% elif ticket['priority'] == '2' %}High
+                        {% elif ticket['priority'] == '3' %}Urgent
+                        {% endif %}
+                    </span>
+                    <span class="status-{{ ticket['stage_id'].name.lower().replace(' ', '-') }}">
+                        {{ ticket['stage_id'].name }}
+                    </span>
+                </div>
+            </div>
+            <div class="ticket-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Created</span>
+                    <span class="meta-value">{{ ticket['create_date'].strftime('%b %d, %Y') }}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Last Updated</span>
+                    <span class="meta-value">{{ ticket['write_date'].strftime('%b %d, %Y') }}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Ticket ID</span>
+                    <span class="meta-value">#{{ ticket['id'] }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket-description">
+            <h2>Description</h2>
+            <p>{{ ticket['description'] }}</p>
+        </div>
+
+        <div class="messages-section">
+            <h2>Messages</h2>
+            {% for message in ticket['messages']|reverse %}
+                <div class="message">
+                    <div class="message-header">
+                        <span class="message-author">{{ message['author'] }}</span>
+                        <span class="message-date">{{ message['date'].strftime('%b %d, %Y %H:%M') }}</span>
+                    </div>
+                    <div class="message-content">
+                        {{ message['body']|safe }}
+                    </div>
+                    {% if message['attachments'] %}
+                        <div class="attachments">
+                            {% for attachment in message['attachments'] %}
+                                <a href="{{ attachment['url'] }}" class="attachment" target="_blank">
+                                    <i class="fa fa-paperclip"></i>
+                                    {{ attachment['name'] }} ({{ attachment['size'] }})
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Response Time</h3>
+                <canvas id="responseChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Resolution Time</h3>
+                <canvas id="resolutionChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Initialize charts -->
+    <script>
+        const slaData = JSON.parse('{{ sla_data|safe }}');
+        
+        // Response Time Chart
+        new Chart(document.getElementById('responseChart').getContext('2d'), {
+            type: 'bar',
+            data: slaData.response,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            color: '#ecf0f1'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ecf0f1'
+                        },
+                        grid: {
+                            color: 'rgba(236, 240, 241, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#ecf0f1'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Resolution Time Chart
+        new Chart(document.getElementById('resolutionChart').getContext('2d'), {
+            type: 'bar',
+            data: slaData.resolution,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            color: '#ecf0f1'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ecf0f1'
+                        },
+                        grid: {
+                            color: 'rgba(236, 240, 241, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#ecf0f1'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

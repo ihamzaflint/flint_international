@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="expense_approval_config_view_form" model="ir.ui.view">
+        <field name="name">expense_approval_config_view_form</field>
+        <field name="model">expense.approval.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" string="State" widget="statusbar"/>
+                    <button name="change_state_to_lock" string="Lock" type="object" invisible="state == 'lock'"
+                            class="btn-primary"/>
+                    <button name="change_state_to_draft" string="Reset To Draft" type="object"
+                            invisible="state == 'draft'" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" force_save="1" readonly="state == 'lock'"/>
+                            <field name="min_limit" force_save="1" readonly="state == 'lock'"/>
+                        </group>
+                        <group>
+                            <field name="code" force_save="1" readonly="state == 'lock'"/>
+                            <field name="max_limit" force_save="1" readonly="state == 'lock'"/>
+                        </group>
+                        <notebook>
+                            <page id="approvers_list" string="Approvers List">
+                                <field name="expense_approval_config_line_ids" force_save="1"
+                                       readonly="state == 'lock'">
+                                    <tree editable="bottom">
+                                        <field name="approver_id" force_save="1"
+                                               options="{'no_create': True, 'no_open': True}" width="100% auto"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="expense_approval_config_view_list" model="ir.ui.view">
+        <field name="name">expense_approval_config_view_list</field>
+        <field name="model">expense.approval.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" optional="show"/>
+                <field name="code" optional="show"/>
+                <field name="min_limit" optional="show"/>
+                <field name="max_limit" optional="show"/>
+                <field name="state" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="expense_approval_config_view_search" model="ir.ui.view">
+        <field name="name">expense_approval_config_view_search</field>
+        <field name="model">expense.approval.config</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="min_limit"/>
+                <field name="max_limit"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="expense_approval_config_action" model="ir.actions.act_window">
+        <field name="name">Expense Approval Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">expense.approval.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

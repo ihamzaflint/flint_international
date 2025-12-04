@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk Portal - {{ company.name }}</title>
+    
+    <!-- Load frontend assets -->
+    <t t-call-assets="web.assets_frontend" t-js="false"/>
+    <t t-call-assets="web.assets_frontend" t-css="false"/>
+
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --background-dark: #2c3e50;
+            --card-background: #34495e;
+            --card-hover: #2c3e50;
+            --border-color: #456789;
+        }
+
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            margin-bottom: 2rem;
+        }
+
+        .welcome-section h1 {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-section p {
+            color: #bdc3c7;
+        }
+
+        /* Stats Overview */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: #bdc3c7;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        /* Recent Tickets Section */
+        .recent-tickets-section {
+            margin-bottom: 2rem;
+        }
+
+        .tickets-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .ticket-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-2px);
+            background-color: var(--card-hover);
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .ticket-id {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .status-badge, .priority-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.new { background-color: var(--primary-color); color: white; }
+        .status-new { background-color: var(--primary-color); color: white; }
+        .status-in-progress { background-color: var(--warning-color); color: #2c3e50; }
+        .status-resolved { background-color: var(--secondary-color); color: white; }
+        .status-closed { background-color: #95a5a6; color: white; }
+
+        .priority-0 { background-color: #3498db; color: white; }
+        .priority-1 { background-color: #f1c40f; color: #2c3e50; }
+        .priority-2 { background-color: #e74c3c; color: white; }
+        .priority-3 { background-color: #8e44ad; color: white; }
+
+        .ticket-content {
+            margin-bottom: 1rem;
+        }
+
+        .ticket-title {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .ticket-description {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .ticket-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .ticket-date {
+            color: #bdc3c7;
+            font-size: 0.85rem;
+        }
+
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .chart-container {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: 300px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="welcome-section">
+            <h1>Welcome back, portal employee!</h1>
+            <p>Here's an overview of your helpdesk tickets</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <h3>Total Tickets</h3>
+                <p class="stat-number">{{ total_tickets }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Open Tickets</h3>
+                <p class="stat-number">{{ open_tickets }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Resolved</h3>
+                <p class="stat-number">{{ resolved_tickets }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg Response</h3>
+                <p class="stat-number">{{ avg_response }}</p>
+            </div>
+        </div>
+
+        <!-- Recent Tickets Section -->
+        <div class="recent-tickets-section">
+            <h2>Recent Tickets</h2>
+            <div class="tickets-list">
+                {% for ticket in tickets %}
+                    <a href="/helpdesk/ticket/{{ ticket['id'] }}" class="ticket-card">
+                        <div class="ticket-header">
+                            <span class="ticket-id">#{{ ticket['id'] }}</span>
+                            <div class="ticket-badges">
+                                <span class="priority-{{ ticket['priority'] }}">
+                                    {% if ticket['priority'] == '0' %}Low
+                                    {% elif ticket['priority'] == '1' %}Medium
+                                    {% elif ticket['priority'] == '2' %}High
+                                    {% elif ticket['priority'] == '3' %}Urgent
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ticket-content">
+                            <h3 class="ticket-title">{{ ticket['name'] }}</h3>
+                            <p class="ticket-description">{{ ticket['description'] }}</p>
+                        </div>
+                        <div class="ticket-footer">
+                            <span class="ticket-date">Created: {{ ticket['create_date'].strftime('%b %d, %Y') }}</span>
+                            <span class="status-{{ ticket['stage_id'].name.lower().replace(' ', '-') }}">
+                                {{ ticket['stage_id'].name }}
+                            </span>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Ticket Status Distribution</h3>
+                <canvas id="statusChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Monthly Ticket Trends</h3>
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart Data -->
+    <script type="text/javascript">
+        window.chartConfig = {
+            status: JSON.parse('{{ statusChartData | safe }}'),
+            monthly: JSON.parse('{{ monthlyChartData | safe }}')
+        };
+    </script>
+
+    <!-- Load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Load dashboard JavaScript -->
+    <script src="/flint_helpdesk_portal/static/js/portal_dashboard.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Status Chart
+            const statusCtx = document.getElementById('statusChart');
+            if (statusCtx) {
+                new Chart(statusCtx, {
+                    type: window.chartConfig.status.type,
+                    data: window.chartConfig.status.data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: 'var(--dk-gray-100)',
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Initialize Monthly Chart
+            const monthlyCtx = document.getElementById('monthlyChart');
+            if (monthlyCtx) {
+                new Chart(monthlyCtx, {
+                    type: window.chartConfig.monthly.type,
+                    data: window.chartConfig.monthly.data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: 'var(--dk-gray-100)',
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                },
+                                ticks: {
+                                    color: 'var(--dk-gray-100)',
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
+                                },
+                                ticks: {
+                                    color: 'var(--dk-gray-100)',
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

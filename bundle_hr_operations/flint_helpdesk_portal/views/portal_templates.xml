@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="portal_dashboard" name="Helpdesk Portal Dashboard" page="True">
+            <t t-call="portal.portal_layout">
+                <div class="dashboard-container">
+                    <div class="dashboard-header">
+                        <h1>Helpdesk Portal</h1>
+                        <p class="text-muted">View and manage your support tickets</p>
+                    </div>
+
+                    <div class="row">
+                        <t t-foreach="tickets" t-as="ticket">
+                            <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="ticket-card">
+                                    <div class="ticket-header d-flex justify-content-between align-items-center">
+                                        <span class="ticket-number" t-esc="ticket['number']"/>
+                                        <span t-attf-class="ticket-status #{ticket['status_class']}" t-esc="ticket['status']"/>
+                                    </div>
+                                    <div class="ticket-body">
+                                        <div class="ticket-title" t-esc="ticket['title']"/>
+                                        <div class="ticket-info">
+                                            <div class="info-item">
+                                                <i class="fa fa-calendar"/>
+                                                <span>Created: <t t-esc="ticket['created_date']"/></span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fa fa-flag"/>
+                                                <span t-attf-class="#{ticket['priority']['class']}" t-esc="ticket['priority']['text']"/>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fa fa-clock-o"/>
+                                                <span>Last Updated: <t t-esc="ticket['last_update']" t-options='{"widget": "relative"}'/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ticket-footer">
+                                        <a t-attf-href="#{ticket['url']}" class="btn-view-ticket">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="assets_frontend" inherit_id="web.assets_frontend" name="Helpdesk Portal Assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/flint_helpdesk_portal/static/css/portal_dashboard.css"/>
+                <script type="text/javascript" src="/flint_helpdesk_portal/static/js/portal_dashboard.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

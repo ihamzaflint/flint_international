@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+
+        <record id="purchase_order_form_approved_user" model="ir.ui.view">
+            <field name="name">purchase.order.form.approved.user</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="fiscal_position_id" position="after">
+                    <field name="created_user_id" />
+                    <field name="approved_user_id" />
+                </field>
+            </field>
+        </record>
+
+        <record id="view_purchase_order_filter_approved_user" model="ir.ui.view">
+            <field name="name">view.purchase.order.filter.approved.user</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="created_user_id" />
+                    <field name="approved_user_id" />
+                </field>
+                <filter name="representative" position="after">
+                    <filter string="Created By" name="created_user_id" domain="[]" context="{'group_by': 'created_user_id'}"/>
+                    <filter string="Approved By" name="approved_user_id" domain="[]" context="{'group_by': 'approved_user_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+  </data>
+</odoo>

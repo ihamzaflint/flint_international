@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_bank_statement_form_editable" model="ir.ui.view">
+            <field name="name">view.bank.statement.form.editable</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account_accountant.view_bank_statement_form_bank_rec_widget"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='statement_line_id']" position="attributes">
+                    <attribute name="readonly">state == 'confirm'</attribute>
+                </xpath></field>
+        </record>
+    </data>
+</odoo>

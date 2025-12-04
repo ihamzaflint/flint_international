@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="government_payment_form_view_ticket_inheritance">
+        <field name="name">government.payment.form.view.ticket.inheritance</field>
+        <field name="model">government.payment</field>
+        <field name="inherit_id" ref="scs_operation.government_payment_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="show_ticket" string="Tickets" type="object" class="oe_stat_button" icon="fa-ticket"
+                        invisible="ticket_count == 0">
+                    <field name="ticket_count"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='payment_state']" position="after">
+                <button name="open_post_attachment_wizard" string="Post Attachment" type="object" class="oe_highlight"
+                invisible="parent.state != 'paid' "/>
+            </xpath>
+            <xpath expr="//field[@name='payment_method']" position="after">
+                <field name="muqeem_attachment_ids" widget="many2many_binary" options="{'no_create': True}"
+                invisible="payment_type != 'no_payment'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

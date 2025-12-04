@@ -1,0 +1,122 @@
+<odoo>
+
+    <template id="report_attestation_certificate_1_female_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" colspan="2"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_top" style="text-align:right;padding-right:5px;">
+                                    الرقم: <span t-esc="o.employee_id.attestation_certificate_1_seq"/>
+                                </td>
+                                <td width="50%" class="border_right border_top"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    التاريخ : <span style="border-bottom:1px dotted black;" t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    رقم الملف: <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.registration_number"/>
+                                </td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                             <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    <b>السيد / الملحق  الثقافي لسفارة المملكة  العربية السعودية - <span style="border-bottom:1px dotted black;" t-esc="o.city_name_arabic"/></b>
+                                </td>
+                                <td width="50%" rowspan="2" class="border_right" style="padding-left:5px;">
+                                    To:   Saudi culture office – <span style="border-bottom:1px dotted black;" t-esc="o.city_name_english"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    <b>الموقر ،،،</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    ،،،السلام عليكم ورحمة الله وبركاته
+                                </td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    نفيد كم بأن السيده<span style="border-bottom:1 px dotted black;" t-esc="o.employee_id.muqeem_name"/> ، <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.country_name_arabic"/> الجنسية  تحمل جواز سفر رقم (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.passport_id_arabic"/>) وهوية مقيم رقم(<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.visa_no_arabic"/>)     تعمل لدينا و تحت كفالتنا بوظيفة (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_profession"/>) منذ تاريخ <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.first_contract_date"/> ، وحتى تاريخه ، وقد تم إعطاءه هذا الخطاب بناء على طلبه لأجل تصديق شهاداته الجامعية ،وقد تم إغلاق الخطاب قبل علامة الفاصلة  الشكر لكم مسبقاً على حسن تعاونكم معنا.
+                                </td>
+                                <td width="50%" rowspan="3" class="border_right" style="padding-left:5px;">
+                                    Dear Excellency,<br/>
+                                    This is to certify that Mr <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>, <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.name"/> national, Holding Passport number (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.passport_id"/>) and Resident ID number (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.visa_no"/>) has been working with us as a (<span style="border-bottom:1px dotted black;" t-esc="o.employee_id.profession_id.name"/>) since <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.first_contract_date"/> G until the date This certificate is issued upon his request to have his academic certificates attested. So, kindly provide him with your approval.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="text-align:right;padding-right:5px;">
+                                    ،،،وتفضلوا بقبول فائق تحياتنا وتقديرنا ،،،
+                                </td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right"><br/></td>
+                                <td width="50%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"></td>
+                                <td width="50%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Thanks, Regards</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_attestation_certificate_1_female" model="ir.actions.report">
+        <field name="name">Attestation Certificate 1 Female</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_attestation_certificate_1_female_template</field>
+        <field name="print_report_name">'Attestation Certificate 1 Female'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

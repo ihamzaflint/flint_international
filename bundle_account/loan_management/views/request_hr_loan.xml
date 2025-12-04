@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="loan_management.request_hr_loan_form_view" model="ir.ui.view">
+        <field name="name">loan_management request_hr_loan_form_view</field>
+        <field name="model">request.hr.loan</field>
+        <field name="arch" type="xml">
+            <form string="HR Loan">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="button_draft" string="Draft" type="object" class="btn-secondary"
+                            invisible="state in ['draft','approved','approval','confirm','edit', 'paid']"
+                            readonly="state != 'draft'"/>
+                    <button name="button_request_approval" string="Request Approval" type="object" class="btn-primary"
+                            invisible="state in ['approved','approval','confirm','edit','rejected', 'paid']"
+                            readonly="state != 'draft'"/>
+                    <button name="button_approve" string="Approve" type="object" class="btn-primary"
+                            invisible="state in ['draft','approved','confirm','edit','rejected', 'paid']"
+                            readonly="state != 'draft'"/>
+                    <button name="button_confirm" string="Confirm" type="object" class="btn-success"
+                            invisible="state in ['approval','confirm','draft','rejected', 'paid']"
+                            readonly="state != 'draft'"/>
+                    <button name="button_reject" string="Reject" type="object" class="btn-danger"
+                            invisible="state in ['draft','confirm','edit','rejected', 'paid']"
+                            readonly="state != 'draft'"/>
+                    <button name="button_compute_installments" string="Compute Installment" type="object"
+                            class="btn-primary" invisible="state not in 'draft'" readonly="state != 'draft'"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_loan"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                string="Loan"
+                                type="object"
+                                invisible="hr_loan_id == False"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence" force_save="1" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" force_save="1"/>
+                            <field name="identification_no" force_save="1"/>
+                            <field name="job_id" force_save="1"/>
+                            <field name="client_id" force_save="1"/>
+                            <field name="installment_type" force_save="1" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="file_no" force_save="1"/>
+                            <field name="passport_no" force_save="1"/>
+                            <field name="department_id" force_save="1"/>
+                            <field name="total_gross_wage" force_save="1"/>
+                            <field name="requested_loan_amount" force_save="1" readonly="state != 'draft'"/>
+                            <field name="no_of_installments" force_save="1" readonly="state != 'draft'"/>
+                            <field name="hr_loan_id" force_save="1" readonly="1" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Installment Info.">
+                            <field name="request_hr_loan_installment_line_ids"
+                                   readonly="state not in ['draft', 'edit']">
+                                <tree editable="bottom">
+                                    <field name="name" optional="show"/>
+                                    <field name="amount" optional="show" sum="Total Amount"/>
+                                    <field name="remarks" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Approvals">
+                            <field name="approval_line_ids" readonly="1">
+                                <tree editable="bottom">
+                                    <field name="approver_id"/>
+                                    <field name="is_approved"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="loan_management.request_hr_loan_tree_view" model="ir.ui.view">
+        <field name="name">loan_management request_hr_loan_tree_view</field>
+        <field name="model">request.hr.loan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" optional="show"/>
+                <field name="file_no" optional="show"/>
+                <field name="identification_no" optional="show"/>
+                <field name="passport_no" optional="show"/>
+                <field name="job_id" optional="show"/>
+                <field name="department_id" optional="show"/>
+                <field name="client_id" optional="show"/>
+                <field name="total_gross_wage" optional="show"/>
+                <field name="requested_loan_amount" optional="show"/>
+                <field name="installment_type" optional="show"/>
+                <field name="no_of_installments" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="loan_management.request_hr_loan_action" model="ir.actions.act_window">
+        <field name="name">Request HR Loan</field>
+        <field name="res_model">request.hr.loan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sequence -->
+    <record id="loan_management.request_hr_loan_sequence" model="ir.sequence">
+        <field name="name">Request HR Loan</field>
+        <field name="code">request.request.hr.loan</field>
+        <field name="prefix">RFL-</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

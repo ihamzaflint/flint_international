@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_postman_courier_inward,access_postman_courier_user,model_postman_courier_inwards,,1,1,1,1
+access_postman_courier_outward,access_postman_courier_user,model_postman_courier_outwards,,1,1,1,1
+access_postman_courier_inward_manager,access_postman_courier_manager,model_postman_courier_inwards,,1,1,1,1
+access_postman_courier_outward_manager,access_postman_courier_manager,model_postman_courier_outwards,,1,1,1,1
+access_postman_courier_type_user,access_postman_courier_type_user,model_postman_courier_type,,1,0,0,0
+access_postman_courier_type_manager,access_postman_courier_type_manager,model_postman_courier_type,,1,1,1,1

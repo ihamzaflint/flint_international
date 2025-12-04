@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_change_iban_approve" model="mail.template">
+            <field name="name">IBAN Changed</field>
+            <field name="model_id" ref="model_iban_change_request"/>
+            <field name="subject">Request: {{ object.name }}</field>
+            <field name="email_from">{{ (user.email_formatted or object.user_id.email_formatted) }}</field>
+            <field name="email_to"></field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-out="object.employee_id.name or ''"/>
+                        <br/><br/>
+                        Your Request To Change IBAN <t t-out="object.name or ''"/> has been approved.
+                        <br/><br/>
+                    </p>
+                </div>
+            </field>
+            <field name="lang">${object.employee_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

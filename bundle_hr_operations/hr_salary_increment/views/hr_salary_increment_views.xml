@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_salary_increment_search" model="ir.ui.view">
+        <field name="name">view.hr.salary.increment.search</field>
+        <field name="model">hr.salary.increment</field>
+        <field name="arch" type="xml">
+            <search string="Salary Increment">
+                <field name="name"/>
+                <field name="effective_date"/>
+                <field name="employee_id"/>
+                <field name="contract_id"/>
+                <group expand="0" string="Group By">
+                    <filter context="{'group_by':'employee_id'}" domain="[]" name="employee" string="Employee"/>
+                </group>
+            </search></field>
+    </record>
+    <record id="view_hr_salary_increment_tree" model="ir.ui.view">
+        <field name="name">view.hr.salary.increment.tree</field>
+        <field name="model">hr.salary.increment</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state in ['draft']" decoration-muted="state == 'cancel'" string="Salary Increment">
+                <field name="name" optional="show"/>
+                <field name="employee_id" optional="show"/>
+                <field name="contract_id" optional="show"/>
+                <field name="effective_date" optional="show"/>
+                <field invisible="1" name="salary_structure_updated" optional="show"/>
+                <field name="state" optional="show"/>
+            </tree></field>
+    </record>
+    <record id="view_hr_salary_increment_form" model="ir.ui.view">
+        <field name="name">view.hr.salary.increment.form</field>
+        <field name="model">hr.salary.increment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button class="btn-primary" data-hotkey="s"
+                            groups="hr_salary_increment.group_submit_salary_increment"
+                            invisible="state not in ['draft']" name="action_submit" string="Submit" type="object"/>
+                    <button class="btn-primary" data-hotkey="a"
+                            groups="hr_salary_increment.group_approve_salary_increment"
+                            invisible="state not in ['to_approve']" name="action_approve" string="Approve"
+                            type="object"/>
+                    <button data-hotkey="c" invisible="state not in ['draft','to_approve','approved']"
+                            name="action_cancel" string="Cancel" type="object"/>
+                    <button class="btn-primary" data-hotkey="d" invisible="state not in ['cancel']"
+                            name="action_reset_draft" string="Set To Draft" type="object"/>
+                    <field name="state" statusbar_visible="draft,to_approve,approved" widget="statusbar"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="state != 'draft'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"
+                                   options="{'no_create_edit' : True, 'no_create' : True, 'no_open' : True}"
+                                   readonly="state != 'draft'"/>
+                            <field name="contract_id"
+                                   options="{'no_create_edit' : True, 'no_create' : True, 'no_open' : True}"/>
+                            <field invisible="1" name="salary_structure_updated"/>
+                        </group>
+                        <group>
+                            <field name="effective_date" readonly="state != 'draft'"/>
+                            <field name="total_new_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="increment_lines" string="Increment Lines">
+                            <button data-hotkey="i" invisible="state not in ['draft']" name="get_increment_lines"
+                                    string="Get Increment Lines" type="object"/>
+                            <field mode="tree,from" name="increment_lines"
+                                   readonly="state in ('to_approve','approved')">
+                                <tree create="0" editable="bottom" string="Increment Lines">
+                                    <field name="increment_field_id" optional="show"/>
+                                    <field name="old_value" optional="show"/>
+                                    <field name="new_value" optional="show"/>
+                                    <field invisible="1" name="is_changed"/>
+                                </tree></field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form></field>
+    </record>
+    <record id="action_hr_salary_increment" model="ir.actions.act_window">
+        <field name="name">Salary Increment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.salary.increment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="hr_salary_increment.view_hr_salary_increment_search"/>
+    </record>
+    <!--    parent="hr_payroll.menu_hr_payroll_root"-->
+    <menuitem action="action_hr_salary_increment" id="menu_salary_increment" name="Salary Increment"
+              parent="hr_work_entry_contract_enterprise.menu_hr_payroll_root" sequence="68"/>
+</odoo>

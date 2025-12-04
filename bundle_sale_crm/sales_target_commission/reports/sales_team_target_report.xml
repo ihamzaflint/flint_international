@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="sales_team_target_view_pivot" model="ir.ui.view">
+            <field name="name">sales.team.target.view.pivot</field>
+            <field name="model">sales.team.target</field>
+            <field name="arch" type="xml">
+                <pivot string="Sales Team Target Analysis" disable_linking="True" sample="1">
+                    <field name="team_id" type="col"/>
+                    <field name="sales_person_id" type="col"/>
+                    <field name="target_amount" type="measure"/>
+                    <field name="achievement_amount" type="measure"/>
+                    <field name="achievement_percent" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="action_sales_team_target_view" model="ir.actions.act_window">
+            <field name="name">Sales Team Target Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sales.team.target</field>
+            <field name="view_mode">pivot</field>
+        </record>
+
+        <menuitem id="menu_sales_team_target_view"
+                  name="Sales Team Target Report"
+                  parent="sale.menu_sale_report"
+                  action="action_sales_team_target_view"
+                  sequence="2"/>
+    </data>
+</odoo>

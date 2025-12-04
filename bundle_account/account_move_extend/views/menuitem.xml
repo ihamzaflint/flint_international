@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+
+        <menuitem id="account_move_extend.res_supply_period"
+                  name="Period of Supply"
+                  parent="account.account_account_menu"
+                  action="account_move_extend.res_supply_period_action"
+                  sequence="1"/>
+
+    </data>
+</odoo>

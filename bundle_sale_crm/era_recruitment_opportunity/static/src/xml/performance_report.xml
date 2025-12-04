@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates>
+    <t t-name="PerformanceReport" owl="1">
+        <!-- Section contains a structure for the purchase report, including a filter
+        view and a table view. It has div elements for the filter view and table view,
+         with respective classes for styling.-->
+        <div class="">
+            <div>
+                <center>
+                    <h1 style="margin: 20px;">Performance Report</h1>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-4">
+                <div class="report_print">
+                    <button type="button" class="btn btn-primary" id="pdf"
+                            style="float: left; margin-right: 9px;"
+                            t-on-click="printPdf">
+                        Print (PDF)
+                    </button>
+                    <button type="button" class="btn btn-primary" id="xlsx"
+                            t-on-click="print_xlsx">
+                        Export (XLSX)
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-4">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle time_range_pr"
+                            type="button" id="date_chose"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="fa fa-calendar" title="Dates" role="img" aria-label="Dates"/>
+                        <t t-esc="state.start_date or 'Start Date'"/>
+                        -
+                        <t t-esc="state.end_date or 'End Date'"/>
+                    </button>
+
+                    <div class="dropdown-menu my_custom_dropdown" role="menu" aria-labelledby="date_chose">
+                        <div class="form-group">
+                            <label for="date_from">Start Date:</label>
+                            <input type="date" name="date_from"
+                                   t-ref="date_from"
+                                   class="form-control"
+                                   t-on-change="onDateChange"
+                                   t-att-value="state.start_date"/>
+
+                            <label for="date_to" class="mt-2">End Date:</label>
+                            <input type="date" name="date_to"
+                                   t-ref="date_to"
+                                   class="form-control"
+                                   t-on-change="onDateChange"
+                                   t-att-value="state.end_date"/>
+                        </div>
+                    </div>
+
+                    <button type="button" id="apply_filter" class="btn btn-primary" t-on-click="applyFilter">
+                        Apply
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="overflow-auto" style="height: 70vh; padding:10px">
+            <div>
+                <div class="table_main_view">
+                    <table cellspacing="0" width="100%">
+                        <thead>
+                            <tr class="table_pr_head">
+                                <th>Sequence</th>
+                                <th class="mon_fld">Name</th>
+                                <th class="mon_fld">Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="state.order_line"
+                               t-as="dynamic_performance_report"
+                               t-key="dynamic_performance_report_index">
+                                <tr style="border: 1.5px solid black;"
+                                    class="pr-line"
+                                    t-att-data-account-id="dynamic_performance_report['id']"
+                                    t-attf-data-target=".a{{dynamic_performance_report['id']}}">
+                                    <td>
+                                        <t t-if="dynamic_performance_report['id']">
+                                            <div class="dropdown dropdown-toggle">
+                                                <a data-toggle="dropdown"
+                                                   href="#"
+                                                   id="table_toggle_btn"
+                                                   data-bs-toggle="dropdown"
+                                                   aria-expanded="false">
+                                                    <span class="caret"/>
+                                                    <span>
+                                                        <t t-esc="dynamic_performance_report['sequence']"/>
+                                                    </span>
+                                                </a>
+                                                <ul class="dropdown-menu"
+                                                    role="menu"
+                                                    aria-labelledby="table_toggle_btn">
+                                                    <li>
+                                                        <a class="view_purchase_order"
+                                                           tabindex="-1"
+                                                           href="#"
+                                                           t-att-id="dynamic_performance_report['id']"
+                                                           t-on-click="viewCandidate">
+                                                            View Candidate
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <t t-esc="dynamic_performance_report['name']"/>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <t t-esc="dynamic_performance_report['rejection_reason']"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

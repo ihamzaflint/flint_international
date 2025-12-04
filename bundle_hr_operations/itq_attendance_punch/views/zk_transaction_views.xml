@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <record id="itq_attendance_punch_view_form" model="ir.ui.view">
+            <field name="name">itq.attendance.punch.view.form</field>
+            <field name="model">itq.attendance.punch</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Punch Time">
+                    <sheet>
+                        <group>
+                            <field name="zk_id" options="{'format': 0}" readonly="1"/>
+                            <field name="employee_name" readonly="1"/>
+                            <field name="emp_code" readonly="1"/>
+                            <field name="punch_time" required="True"/>
+                            <field name="punch_state"  required="True"/>
+                            <field name="punch_log_id" invisible="1"/>
+                            <field name="machine_id" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="itq_attendance_punch_view_list" model="ir.ui.view">
+            <field name="name">itq.attendance.punch.view.list</field>
+            <field name="model">itq.attendance.punch</field>
+            <field name="arch" type="xml">
+                <tree string="Attendance Punch Time">
+                    <field name="employee_name"/>
+                    <field name="emp_code"/>
+                    <field name="punch_time"/>
+                    <field name="punch_state"/>
+                    <field name="machine_id" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="itq_attendance_punch_view_search" model="ir.ui.view">
+            <field name="name">attendance.punch.view.search</field>
+            <field name="model">itq.attendance.punch</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="emp_code" string="Employee Code" />
+                    <field name="employee_name" string="Employee Name" />
+                    <filter name="transfer" string="Transferred" domain="[('transfer', '=', True)]"/>
+                    <filter name="in_correct" string="Incorrect" domain="[('incorrect', '=', True)]"/>
+                    <separator/>
+                    <filter name="no_transfer" string="Not Transferred" domain="[('transfer', '=', False)]"/>
+                    <filter name="correct" string="Correct" domain="[('incorrect', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_machine_id" string="Machine ID" domain="[]" context="{'group_by': 'machine_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="itq_attendance_punch_action" model="ir.actions.act_window">
+            <field name="name">Attendance Punch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">itq.attendance.punch</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="itq_attendance_punch_action_root_menu"
+                  groups="itq_attendance_punch_user_group"
+                  web_icon="itq_attendance_punch,static/description/menu_icon.png"
+                  name="Attendance Punch" sequence="75"/>
+        <menuitem id="itq_attendance_punch_action_menu"
+                  name="Attendance Punch"
+                  groups="itq_attendance_punch_user_group"
+                  parent="itq_attendance_punch_action_root_menu"
+                  action="itq_attendance_punch_action" sequence="10"/>
+        <menuitem id="attendance_punch_manual_import_menu"
+                  name="Attendance Punch Import"
+                  groups="itq_attendance_punch_user_group"
+                  parent="itq_attendance_punch_action_root_menu"
+                  action="itq_punch_import_server_action" sequence="10"/>
+        <menuitem id="itq_attendance_root_config"
+                  name="Configuration"
+                  parent="itq_attendance_punch_action_root_menu"
+                  sequence="99"/>
+<!--        <menuitem id="itq_attendance_zk_config"-->
+<!--                  name="ZK Settings"-->
+<!--                  parent="itq_attendance_root_config"-->
+<!--                  action="action_zk_configuration"-->
+<!--                  sequence="1"/>-->
+
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dynamic_performance_report_action" model="ir.actions.client">
+            <field name="name">Peroformance Report</field>
+            <field name="tag">recruitment_performance_report</field>
+        </record>
+        <menuitem id="dynamic_purchase_report_menu"
+                  name=" Recruitment Performance Report"
+                  parent="hr_recruitment.menu_hr_recruitment_root"
+                  action="dynamic_performance_report_action"/>
+    </data>
+</odoo>

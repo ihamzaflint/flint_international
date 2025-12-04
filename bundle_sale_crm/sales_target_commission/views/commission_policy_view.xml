@@ -1,0 +1,102 @@
+<odoo>
+    <record id="commission_policy_form_view" model="ir.ui.view">
+        <field name="name">commission.policy.form</field>
+        <field name="model">commission.policy</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="set_active" type="object" string="Active" invisible="[('state','!=','draft')]" class="oe_highlight"/>
+                    <button name="set_in_active" type="object" string="Archive" invisible="[('state','!=','active')]" class="oe_highlight"/>
+                    <button name="set_draft" type="object" string="Set to draft" invisible="[('state','!=','in_active')]"
+                            class="oe_highlight"/>
+                    <field name="state" readonly="1" widget="statusbar"
+                           statusbar_visible="draft,active,in_active"/>
+                </header>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name" required="True" readonly="[('state','=', 'draft')]"/>
+                            <field name="commission_policy" widget="radio" readonly="[('state','=', 'draft')]"/>
+                            <field name="fixed_payroll"
+                                   invisible = "[('commission_policy', '!=','payroll_based')]"
+                                   readonly="[('state','=', 'draft')]"/>
+                            <field name="variable_payroll"
+                                   invisible = "[('commission_policy', '!=','payroll_based')]"
+                                   readonly="[('state','=', 'draft')]"/>
+                        </group>
+                        <group>
+                            <field name="target_type" widget="radio" readonly="[('state','=', 'draft')]"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Detailed">
+                            <field name="details_ids" readonly="[('state','=', 'draft')]">
+                                <tree editable="bottom">
+                                    <field name="target_from" required="True"/>
+                                    <field name="target_to" required="True"/>
+                                    <field name="commission" required="True"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="target_from"/>
+                                            <field name="target_to"/>
+                                            <field name="commission"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="commission_policy_tree_view" model="ir.ui.view">
+        <field name="name">commission.policy.tree</field>
+        <field name="model">commission.policy</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="commission_policy"/>
+                <field name="target_type"/>
+                <field name="state"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="commission_policy_search_view" model="ir.ui.view">
+        <field name="name">commission.policy.search</field>
+        <field name="model">commission.policy</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="commission_policy"/>
+                <field name="target_type"/>
+                <field name="state"/>
+                <group expand="1" string="Group By">
+                    <filter string="Commission Policy" name="commission_policy" domain="[]"
+                            context="{'group_by':'commission_policy'}"/>
+                    <filter string="Target Type" name="target_type" domain="[]"
+                            context="{'group_by':'target_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="commission_policy_act_window" model="ir.actions.act_window">
+        <field name="name">Commission Policy</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">commission.policy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|',('active','=',True),('active','=',False)]</field>
+    </record>
+
+    <menuitem name="Commissions" id="commission_menu" parent="sale.sale_menu_root" sequence="5"/>
+    <menuitem name="Commission Policy" id="commission_policy_menu" parent="commission_menu" sequence="0"
+              action="commission_policy_act_window" groups="sales_target_commission.group_commission_policy"/>
+</odoo>

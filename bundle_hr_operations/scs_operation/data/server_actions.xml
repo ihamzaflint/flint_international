@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_sync_iqama_numbers" model="ir.actions.server">
+            <field name="name">Sync Iqama Numbers</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="binding_model_id" ref="model_logistic_order"/>
+            <field name="state">code</field>
+            <field name="code">action = model.sync_iqama_numbers()</field>
+            <field name="binding_view_types">list</field>
+        </record>
+        
+        <record id="action_bulk_pay_government_payments" model="ir.actions.server">
+            <field name="name">Pay All</field>
+            <field name="model_id" ref="model_government_payment"/>
+            <field name="binding_model_id" ref="model_government_payment"/>
+            <field name="state">code</field>
+            <field name="code">action = records.bulk_pay()</field>
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+</odoo>

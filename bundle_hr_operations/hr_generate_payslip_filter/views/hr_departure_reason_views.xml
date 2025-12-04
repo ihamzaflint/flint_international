@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_departure_reason_view_list_exclude_from_batch" model="ir.ui.view">
+            <field name="model">hr.departure.reason</field>
+            <field name="inherit_id" ref="hr.hr_departure_reason_view_list"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="exclude_from_batch"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

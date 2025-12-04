@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="contacts_extend.view_partner_form" model="ir.ui.view">
+        <field name="name">contacts_extend view_partner_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="function" position="before">
+                <field name="cr_number" force_save="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.saib</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="SAIB Integration" string="SAIB Integration" name="saib_bank_integration" logo="/saib_bank_integration/static/description/icon.png">
+                    <block title="SAIB Bank API Configuration" name="saib_api_config">
+                        <setting string="API Connection" help="Configure your SAIB Bank API connection settings">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="saib_base_url" class="col-lg-3 o_light_label">Base URL</label>
+                                    <field name="saib_base_url"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_customer_ip" class="col-lg-3 o_light_label">Customer IP</label>
+                                    <field name="saib_customer_ip"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_company_code" class="col-lg-3 o_light_label">Company Code</label>
+                                    <field name="saib_company_code" placeholder="e.g., COMPANY01"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_account_number" class="col-lg-3 o_light_label">Account Number</label>
+                                    <field name="saib_account_number" placeholder="Your SAIB account number"/>
+                                </div>
+                            </div>
+                        </setting>
+                        
+                        <setting string="API Credentials" help="Configure your SAIB Bank API authentication credentials">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="saib_client_id" class="col-lg-3 o_light_label">Header Client ID</label>
+                                    <field name="saib_client_id"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_client_secret" class="col-lg-3 o_light_label">Header Client Secret</label>
+                                    <field name="saib_client_secret" password="True"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_data_client_id" class="col-lg-3 o_light_label">Data Client ID</label>
+                                    <field name="saib_data_client_id"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_data_client_secret" class="col-lg-3 o_light_label">Data Client Secret</label>
+                                    <field name="saib_data_client_secret" password="True"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_username" class="col-lg-3 o_light_label">Username</label>
+                                    <field name="saib_username"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_password" class="col-lg-3 o_light_label">Password</label>
+                                    <field name="saib_password" password="True"/>
+                                </div>
+                            </div>
+                        </setting>
+
+                        <setting string="Certificates" help="Configure client certificate paths for API authentication">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="saib_cert_path" class="col-lg-3 o_light_label">Client Certificate Path</label>
+                                    <field name="saib_cert_path" placeholder="/path/to/client-cert.pem"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="saib_key_path" class="col-lg-3 o_light_label">Client Key Path</label>
+                                    <field name="saib_key_path" placeholder="/path/to/client-key.pem"/>
+                                </div>
+                            </div>
+                        </setting>
+
+                        <setting string="JWS Signing" help="Configure JWS signing key for API requests">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="saib_private_key" class="col-lg-3 o_light_label">Private Key (PEM)</label>
+                                    <field name="saib_private_key" placeholder="Paste your RSA private key here (including BEGIN and END lines)" widget="text" nolabel="1"/>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-9 text-muted">
+                                        <small>
+                                            The private key must be in PEM format, starting with -----BEGIN PRIVATE KEY----- or -----BEGIN RSA PRIVATE KEY----- and ending with the corresponding END line. 
+                                            The key must not be encrypted (no password protection).
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-9">
+                                        <button name="action_diagnose_private_key" type="object" string="Diagnose Private Key" class="btn-secondary" icon="fa-stethoscope" 
+                                                help="Check if your private key is valid and diagnose any issues"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

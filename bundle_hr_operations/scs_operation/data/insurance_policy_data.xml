@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Security Groups -->
+    <data noupdate="1">
+        
+        <!-- Insurance User Group -->
+        <record id="group_insurance_user" model="res.groups">
+            <field name="name">Insurance User</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">User can view and manage insurance policies and employee coverage</field>
+        </record>
+        
+        <!-- Insurance Manager Group -->
+        <record id="group_insurance_manager" model="res.groups">
+            <field name="name">Insurance Manager</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="comment">Manager can fully manage insurance policies, coverage, and financial operations</field>
+            <field name="implied_ids" eval="[(4, ref('group_insurance_user'))]"/>
+        </record>
+
+    </data>
+
+    <!-- Access Rights -->
+    <data noupdate="1">
+        
+        <!-- Insurance Policy Access Rights -->
+        <record id="access_insurance_policy_user" model="ir.model.access">
+            <field name="name">insurance.policy.user</field>
+            <field name="model_id" ref="model_insurance_policy"/>
+            <field name="group_id" ref="group_insurance_user"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        
+        <record id="access_insurance_policy_manager" model="ir.model.access">
+            <field name="name">insurance.policy.manager</field>
+            <field name="model_id" ref="model_insurance_policy"/>
+            <field name="group_id" ref="group_insurance_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Employee Insurance Line Access Rights -->
+        <record id="access_employee_insurance_line_user" model="ir.model.access">
+            <field name="name">employee.insurance.line.user</field>
+            <field name="model_id" ref="model_employee_insurance_line"/>
+            <field name="group_id" ref="group_insurance_user"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+        
+        <record id="access_employee_insurance_line_manager" model="ir.model.access">
+            <field name="name">employee.insurance.line.manager</field>
+            <field name="model_id" ref="model_employee_insurance_line"/>
+            <field name="group_id" ref="group_insurance_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Bulk Operation Wizard Access Rights -->
+        <record id="access_insurance_bulk_operation_wizard_user" model="ir.model.access">
+            <field name="name">insurance.bulk.operation.wizard.user</field>
+            <field name="model_id" ref="model_insurance_bulk_operation_wizard"/>
+            <field name="group_id" ref="group_insurance_user"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- HR Employee Access for Insurance Users -->
+        <record id="access_hr_employee_insurance_user" model="ir.model.access">
+            <field name="name">hr.employee.insurance.user</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="group_id" ref="group_insurance_user"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- HR Employee Family Access for Insurance Users -->
+        <record id="access_hr_employee_family_insurance_user" model="ir.model.access">
+            <field name="name">hr.employee.family.insurance.user</field>
+            <field name="model_id" ref="model_hr_employee_family"/>
+            <field name="group_id" ref="group_insurance_user"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+    </data>
+
+    <!-- Record Rules -->
+    <data noupdate="1">
+        
+        <!-- Insurance Policy Record Rules -->
+        <record id="insurance_policy_rule_user" model="ir.rule">
+            <field name="name">Insurance Policy: User Access</field>
+            <field name="model_id" ref="model_insurance_policy"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('group_insurance_user'))]"/>
+        </record>
+        
+        <record id="insurance_policy_rule_manager" model="ir.rule">
+            <field name="name">Insurance Policy: Manager Access</field>
+            <field name="model_id" ref="model_insurance_policy"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_insurance_manager'))]"/>
+        </record>
+
+        <!-- Employee Insurance Line Record Rules -->
+        <record id="employee_insurance_line_rule_user" model="ir.rule">
+            <field name="name">Employee Insurance Line: User Access</field>
+            <field name="model_id" ref="model_employee_insurance_line"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('group_insurance_user'))]"/>
+        </record>
+        
+        <record id="employee_insurance_line_rule_manager" model="ir.rule">
+            <field name="name">Employee Insurance Line: Manager Access</field>
+            <field name="model_id" ref="model_employee_insurance_line"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_insurance_manager'))]"/>
+        </record>
+
+    </data>
+
+    <!-- Default Insurance Service Product -->
+    <data noupdate="1">
+        
+        <record id="product_insurance_service" model="product.product">
+            <field name="name">Insurance Service</field>
+            <field name="type">service</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="can_be_expensed">True</field>
+            <field name="invoice_policy">order</field>
+            <field name="description">Insurance coverage service for employees and family members</field>
+            <field name="default_code">INS-SERVICE</field>
+        </record>
+
+    </data>
+
+    <!-- Email Templates -->
+    <data noupdate="1">
+        
+        <!-- Insurance Coverage Activation Email -->
+        <record id="email_template_insurance_activation" model="mail.template">
+            <field name="name">Insurance Coverage Activation</field>
+            <field name="model_id" ref="model_employee_insurance_line"/>
+            <field name="subject">Insurance Coverage Activated - ${object.name}</field>
+            <field name="email_from">${(object.company_id.email or user.email)|safe}</field>
+            <field name="email_to">${object.employee_id.work_email}</field>
+            <field name="lang">${object.employee_id.lang}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Dear ${object.employee_id.name},</p>
+                    <p>Your insurance coverage has been activated with the following details:</p>
+                    <ul>
+                        <li><strong>Policy:</strong> ${object.policy_id.name}</li>
+                        <li><strong>Coverage Type:</strong> ${object.passenger_type.title()}</li>
+                        <li><strong>Insurance Class:</strong> ${object.insurance_class.upper()}</li>
+                        <li><strong>Coverage Start Date:</strong> ${object.date_added}</li>
+                        <li><strong>Annual Cost:</strong> ${object.annual_cost} ${object.currency_id.name}</li>
+                        <li><strong>Prorated Cost:</strong> ${object.prorated_cost} ${object.currency_id.name}</li>
+                    </ul>
+                    % if object.family_member_id:
+                    <p><strong>Family Member:</strong> ${object.family_member_id.name}</p>
+                    % endif
+                    <p>If you have any questions, please contact the HR department.</p>
+                    <p>Best regards,<br/>
+                    ${object.company_id.name}</p>
+                </div>
+            </field>
+        </record>
+
+        <!-- Insurance Coverage End Email -->
+        <record id="email_template_insurance_end" model="mail.template">
+            <field name="name">Insurance Coverage End</field>
+            <field name="model_id" ref="model_employee_insurance_line"/>
+            <field name="subject">Insurance Coverage Ended - ${object.name}</field>
+            <field name="email_from">${(object.company_id.email or user.email)|safe}</field>
+            <field name="email_to">${object.employee_id.work_email}</field>
+            <field name="lang">${object.employee_id.lang}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Dear ${object.employee_id.name},</p>
+                    <p>Your insurance coverage has been ended with the following details:</p>
+                    <ul>
+                        <li><strong>Policy:</strong> ${object.policy_id.name}</li>
+                        <li><strong>Coverage Type:</strong> ${object.passenger_type.title()}</li>
+                        <li><strong>Insurance Class:</strong> ${object.insurance_class.upper()}</li>
+                        <li><strong>Coverage End Date:</strong> ${object.date_removed}</li>
+                        % if object.refund_amount > 0:
+                        <li><strong>Refund Amount:</strong> ${object.refund_amount} ${object.currency_id.name}</li>
+                        % endif
+                    </ul>
+                    % if object.family_member_id:
+                    <p><strong>Family Member:</strong> ${object.family_member_id.name}</p>
+                    % endif
+                    <p>If you have any questions, please contact the HR department.</p>
+                    <p>Best regards,<br/>
+                    ${object.company_id.name}</p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+
+    <!-- Sequences -->
+    <data noupdate="1">
+        
+        <record id="seq_insurance_policy" model="ir.sequence">
+            <field name="name">Insurance Policy Sequence</field>
+            <field name="code">insurance.policy</field>
+            <field name="prefix">INS-POL-</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+
+    <!-- Server Actions -->
+    <data noupdate="1">
+        
+        <!-- Auto-expire policies server action -->
+        <record id="action_auto_expire_policies" model="ir.actions.server">
+            <field name="name">Auto-expire Insurance Policies</field>
+            <field name="model_id" ref="model_insurance_policy"/>
+            <field name="state">code</field>
+            <field name="code">
+# Auto-expire policies that have passed their end date
+expired_policies = model.search([
+    ('state', '=', 'active'),
+    ('date_end', '&lt;', datetime.date.today())
+])
+for policy in expired_policies:
+    policy.action_expire()
+            </field>
+        </record>
+
+        <!-- Auto-expire policies cron job -->
+        <record id="cron_auto_expire_policies" model="ir.cron">
+            <field name="name">Auto-expire Insurance Policies</field>
+            <field name="model_id" ref="model_insurance_policy"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_auto_expire_policies()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+
+    </data>
+
+    <!-- Configuration Parameters -->
+    <data noupdate="1">
+        
+        <!-- Default insurance class costs -->
+        <record id="config_insurance_class_a_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.class_a_cost</field>
+            <field name="value">4000.0</field>
+        </record>
+        
+        <record id="config_insurance_class_a_plus_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.class_a_plus_cost</field>
+            <field name="value">6000.0</field>
+        </record>
+        
+        <record id="config_insurance_class_b_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.class_b_cost</field>
+            <field name="value">8000.0</field>
+        </record>
+        
+        <record id="config_insurance_class_b_plus_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.class_b_plus_cost</field>
+            <field name="value">10000.0</field>
+        </record>
+        
+        <record id="config_insurance_class_c_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.class_c_cost</field>
+            <field name="value">12000.0</field>
+        </record>
+        
+        <record id="config_insurance_class_c_plus_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.class_c_plus_cost</field>
+            <field name="value">15000.0</field>
+        </record>
+        
+        <!-- Default spouse insurance costs -->
+        <record id="config_spouse_class_a_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.spouse_class_a_cost</field>
+            <field name="value">6000.0</field>
+        </record>
+        
+        <record id="config_spouse_class_a_plus_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.spouse_class_a_plus_cost</field>
+            <field name="value">8000.0</field>
+        </record>
+        
+        <!-- Default child insurance cost -->
+        <record id="config_child_cost" model="ir.config_parameter">
+            <field name="key">insurance.default.child_cost</field>
+            <field name="value">3000.0</field>
+        </record>
+
+    </data>
+
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend Aged Payable Report -->
+    <record id="aged_payable_report_payment_terms" model="account.report.column">
+        <field name="name">Payment Terms</field>
+        <field name="expression_label">payment_terms</field>
+        <field name="figure_type">string</field>
+        <field name="report_id" ref="account_reports.aged_payable_report"/>
+        <field name="sequence" eval="5"/>
+    </record>
+
+    <record id="aged_payable_line_payment_terms" model="account.report.expression">
+        <field name="label">payment_terms</field>
+        <field name="engine">custom</field>
+        <field name="formula">_report_custom_engine_aged_payable_payment_terms</field>
+        <field name="report_line_id" ref="account_reports.aged_payable_line"/>
+        <field name="figure_type">string</field>
+    </record>
+
+    <!-- Extend Aged Receivable Report -->
+    <record id="aged_receivable_report_payment_terms" model="account.report.column">
+        <field name="name">Payment Terms</field>
+        <field name="expression_label">payment_terms</field>
+        <field name="figure_type">string</field>
+        <field name="report_id" ref="account_reports.aged_receivable_report"/>
+        <field name="sequence" eval="5"/>
+    </record>
+
+    <record id="aged_receivable_line_payment_terms" model="account.report.expression">
+        <field name="label">payment_terms</field>
+        <field name="engine">custom</field>
+        <field name="formula">_report_custom_engine_aged_receivable_payment_terms</field>
+        <field name="report_line_id" ref="account_reports.aged_receivable_line"/>
+        <field name="figure_type">string</field>
+    </record>
+</odoo>

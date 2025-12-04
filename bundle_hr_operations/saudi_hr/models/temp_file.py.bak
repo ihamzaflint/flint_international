@@ -1,0 +1,7 @@
+from odoo import api, fields, models
+
+
+class StockLocation(models.Model):
+    _name = 'stock.location'
+
+

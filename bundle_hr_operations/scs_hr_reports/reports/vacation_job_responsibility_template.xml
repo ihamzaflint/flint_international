@@ -1,0 +1,253 @@
+<odoo>
+
+    <template id="report_vacation_job_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b>Vacations Job Responsibility Form</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" style="text-align:center;">
+                                    <b>نموذج مسؤولية الوظيفة  في الإجازات</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" class="border_left border_right border_top"></td>
+                                <td width="20%" class="border_right border_top"></td>
+                                <td width="60%" class="border_right border_top"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right"></td>
+                                <td width="20%" class="border_right" style="text-align:center;">
+                                    JRF #
+                                </td>
+                                <td width="60%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right" style="text-align:center;">
+                                    For HR Use Only
+                                </td>
+                                <td width="20%" class="border_right"></td>
+                                <td width="60%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right"></td>
+                                <td width="20%" class="border_right"></td>
+                                <td width="60%" class="border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom"></td>
+                                <td width="20%" class="border_right border_bottom"></td>
+                                <td width="60%" class="border_right border_bottom"></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="40%" colspan="2" class="border_left border_right border_top border_bottom" style="padding-left:5px;">
+                                    <b>Report Day &amp; Date: </b>
+                                </td>
+                                <td width="15%" class="border_right border_top border_bottom"></td>
+                                <td width="30%" colspan="2" class="border_right border_top border_bottom"></td>
+                                <td width="15%" class="border_right border_top border_bottom" style="text-align:center;">
+                                    التاريخ واليوم
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    P.F #
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="text-align:center;">
+                                    رقم الملف : <Span t-esc="o.employee_id.registration_number"/>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    Designation
+                                </td>
+                                <td width="30%" colspan="2" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.job_id.name"/>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    الوظيفة
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Employee Name</b>
+                                </td>
+                                <td width="35%" colspan="2" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.name"/>
+                                </td>
+                                <td width="30%" colspan="2" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    <span t-esc="o.employee_id.muqeem_name"/>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    اسم الموظف
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Department</b>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.department_id.name"/>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    الادارة
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Organization</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    Meatech
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    القسم 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    <b>Nationality</b>
+                                </td>
+                                <td width="20%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="o.employee_id.country_id.name"/>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="tetx-align:center;">
+                                    الجنسية
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <b>Project</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Meatech</b>
+                                </td>
+                                <td width="15%" class="border_right border_bottom" style="text-align:center;">
+                                    المشروع
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="6" class="border_left border_right border_bottom"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="10%" class="border_left border_right border_bottom" style="text-align:center;">
+                                    <b>S#</b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Name/الاسم</b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Responsibily/المسئوليات </b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Signature/التوقيع </b>
+                                </td>
+                            </tr>
+                            <t t-set="counter" t-value="1" />
+                            <tr t-foreach="o.responsibility_ids" t-as="data">
+                                <td width="10%" class="border_left border_right border_bottom" style="text-align:center;">
+                                    <span t-esc="counter" />
+                                    <t t-set="counter" t-value="counter+1" />
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="data.name"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="padding-left:5px;">
+                                    <span t-esc="data.responsibility"/>
+                                </td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="4" class="border_left border_right border_bottom"><br/></td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" class="border_left border_right border_bottom" style="text-align:center;">
+                                    <b>Employee Signatures</b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Department Head</b>
+                                </td>
+                                <td width="40%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Admin &amp; HR Manager's </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_left border_right border_bottom" style="text-align:center;">
+                                    <b>Signatures</b>
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Signatures</b>
+                                </td>
+                                <td width="40%" class="border_right border_bottom" style="text-align:center;">
+                                    <b>Signatures</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="40%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_left border_right border_bottom" style="text-align:center;">
+                                    DATE
+                                </td>
+                                <td width="30%" class="border_right border_bottom" style="text-align:center;">
+                                    DATE
+                                </td>
+                                <td width="40%" class="border_right border_bottom" style="text-align:center;">
+                                    DATE
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="30%" class="border_right border_bottom"></td>
+                                <td width="40%" class="border_right border_bottom"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_vacation_job_responsibility" model="ir.actions.report">
+        <field name="name">Vacation Job Responsibility</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_vacation_job_template</field>
+        <field name="print_report_name">'Vacation Job Responsibility'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

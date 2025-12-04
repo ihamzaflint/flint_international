@@ -1,0 +1,101 @@
+<odoo>
+
+    <record id="view_employee_form_inherit_other_details_employee" model="ir.ui.view">
+        <field name="name">view.employee.form.inherit.other.details</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="contract_id" invisible="1"/>
+                <!-- <field name="state" invisible="1"/> -->
+                <field name="client_type_id" invisible="True"/>
+                <field name="project_id"/>
+                <field name="client_id"/>
+                <field name="emp_degree_id" invisible="1"/>
+            </field>
+            <field name="job_title" position="before">
+                <field name="muqeem_name" placeholder="Name As per Muqeem"/>
+            </field>
+            <field name="job_title" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="registration_number" position="after">
+                <field name="client_employee_id"/>
+            </field>
+            <xpath expr="//header" position="inside">
+                <button name="export_employee_detail_xlsx" string="Export Employee Details" type="object"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_employee_form_emp_profession_muqeem" model="ir.ui.view">
+        <field name="name">inherit.view.employee.form.emp.profession.muqeem</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_employee_profession.view_employee_form_emp_profession"/>
+        <field name="arch" type="xml">
+            <field name="profession_id" position="attributes">
+                <attribute name="string">Profession in Iqama</attribute>
+            </field>
+            <field name="profession_id" position="after">
+                <field name="muqeem_profession"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="inherit_view_employee_tree" model="ir.ui.view">
+        <field name="name">inherit.view.employee.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <field name="job_id" position="after">
+                <field name="client_type_id" optional="hide"/>
+                <field name="client_id" optional="hide"/>
+                <field name="project_id" optional="hide"/>
+                <field name="emp_degree_id" optional="hide"/>
+                <field name="muqeem_profession" optional="hide"/>
+                <field name="muqeem_name" optional="hide"/>
+            </field>
+             <field name="name" position="before">
+                <field name="client_employee_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_kanban_view_employees_scs_hr_employee" model="ir.ui.view">
+        <field name="name">inherit.view.employee.kanban</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+            <field name="id" position="after">
+                <field name="kanban_color"/>
+            </field>
+            <xpath expr="//strong[hasclass('o_kanban_record_title')]/field[@name='name']" position="before">
+                    <!-- <attribute name="t-attf-style">background-color: #{record.kanban_color.raw_value};</attribute> -->
+                    <div class="float-right" t-if="record.kanban_color.raw_value == 'lightgreen'" name="contract_running">
+                        
+                        <span class="fa fa-fw fa-file-text text-success" role="img" title="Contract Running" name="contract_running">
+                        </span>
+                    </div>
+                    <div class="float-right" t-if="record.kanban_color.raw_value == 'red'" name="contract_expier">
+                        <span class="fa fa-fw fa-file-text text-danger" role="img" title="Contract Expier" name="contract_expier">
+                        </span>
+                    </div>
+            </xpath>
+            <xpath expr="//div[hasclass('o_kanban_record_top')]" position="after">
+                <span t-if="record.contract_state_id" class="o_kanban_record_subtitle"><field name="contract_state_id"/></span>
+                <span t-if="record.project_id.raw_value" class="o_kanban_record_subtitle"><field name="project_id"/></span>
+                <span t-if="record.departure_reason_id.raw_value" class="o_kanban_record_subtitle"><field name="departure_reason_id"/></span>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_employee_detail_export" model="ir.actions.report">
+        <field name="name">Export Employee Details</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">scs_hr_employee.export_employee_detail_report</field>
+        <field name="report_file">export_employee_detail_report</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Email template for flight bidding confirmation -->
+        <record id="email_template_flight_bidding_confirmation" model="mail.template">
+            <field name="name">Flight Bidding - Confirmation Link</field>
+            <field name="model_id" ref="model_flight_bidding"/>
+            <field name="subject">Flight Bidding Confirmation for ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="email_to">${object.logistic_order_id.employee_id.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">Dear
+                        ${object.logistic_order_id.employee_id.name},
+                        <br/>
+                        <br/>
+                        Your flight
+                        bidding has been confirmed with the following details:
+                        <br/>
+                        <br/>
+                        <strong>
+                            Airline:
+                        </strong>
+                        ${object.airline}
+                        <br/>
+                        <strong>Flight Number:</strong>
+                        ${object.flight_number}
+                        <br/>
+                        <strong>Departure:</strong>
+                        ${format_datetime(object.departure_time, tz=object.env.user.tz)}
+                        <br/>
+                        <strong>
+                            Arrival:
+                        </strong>
+                        ${format_datetime(object.arrival_time,
+                                               tz=object.env.user.tz)}
+                        <br/>
+                        <strong>Number of Tickets:</strong>
+                        ${object.number_of_tickets}
+                        <br/>
+                        <strong>Number of Baggage:</strong>
+                        ${object.number_of_baggage}
+                        <br/>
+                        <br/>
+                        Please click the following link to
+                        confirm your flight bidding:
+                        <br/>
+                        <a href="${object.confirmation_link}"
+                           style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                            Confirm Flight Bidding
+                        </a>
+                        <br/>
+                        <br/>
+                        Best regards,
+                        <br/>
+                        ${user.company_id.name}
+                    </p>
+                </div>
+            </field>
+            <field name="lang">${object.logistic_order_id.employee_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="email_template_flight_selection" model="mail.template">
+            <field name="name">Flight Selection Notification</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Flight Selection for {{ctx.get('', '')}}</field>
+            <field name="email_from">{{user.email_formatted}}</field>
+            <field name="email_to">{{ctx.get('employee_email', '')}}</field>
+            <field name="body_html" type="html">
+                <div>Dear<t t-esc="ctx.get('', '')"/>,
+                    <br/>
+                    <br/>
+                    The following
+                    Link from Flint to select your desirable flight option.
+                    <br/>
+                    <br/>
+                    <a
+                            t-att-href="ctx.get('selection_link', '#')"
+                            style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+                        Select
+                        Flight Option
+                    </a>
+                    <br/>
+                    <br/>
+                    Thanks,
+                    <br/>
+                    Best regards,
+                    <br/>
+                    <t
+                            t-esc="ctx.get('company_name', 'Flint Team')"/>
+                </div>
+            </field>
+            <field name="lang">{{object.employee_id.lang}}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="email_template_flight_ticket" model="mail.template">
+            <field name="name">Flight Ticket Information</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Flight Ticket Details for ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="email_to">${object.employee_id.work_email}</field>
+            <field name="body_html" type="html">
+                <div>Dear ${object.employee_id.name},
+                    <br/>
+                    <br/>
+                    Your flight ticket has been
+                    issued. Please find the details below:
+                    <br/>
+                    <br/>
+                    <strong>Flight Details:</strong>
+                    <br/>
+                    Departure: ${object.departure_date}
+                    <br/>
+                    From:
+                    ${object.departure_airport_id.name}
+                    <br/>
+                    To:
+                    ${object.destination_airport_id.name}
+                    <br/>
+                    % if object.return_date: Return:
+                    ${object.return_date}
+                    <br/>
+                    % endif
+                    <br/>
+                    <strong>Important Instructions:</strong>
+                    <br/>
+                    - Please arrive at the airport at least 3 hours before departure
+                    <br/>
+                    - Carry a
+                    valid passport
+                    <br/>
+                    - Check baggage restrictions before packing
+                    <br/>
+                    <br/>
+                    %
+                    if object.flight_ticket: Your flight ticket is attached to this email. % endif
+                    <br/>
+                    <br/>
+                    Best regards,
+                    <br/>
+                    Flint Team
+                </div>
+            </field>
+            <field name="lang">${object.employee_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="email_template_flight_completion" model="mail.template">
+            <field name="name">Flight Completion Notification</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Flight Booking Completed for {{ctx.get('', '')}}</field>
+            <field name="email_from">{{user.email_formatted}}</field>
+            <field name="email_to">{{ctx.get('employee_email', '')}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear<t t-esc="ctx.get('', '')"/>,
+                        <br/>
+                        <br/>
+                        Your flight booking has been completed successfully. Please find the attached flight tickets.
+                        <br/>
+                        <br/>
+                        <strong>Flight Details:</strong>
+                        <br/>
+                        From:
+                        <t t-esc="object.departure_airport_id.name"/>
+                        <br/>
+                        To:
+                        <t t-esc="object.destination_airport_id.name"/>
+                        <br/>
+                        Departure Date:
+                        <t t-esc="object.departure_date"/>
+                        <br/>
+                        <t t-if="object.return_date">
+                            Return Date:
+                            <t t-esc="object.return_date"/>
+                            <br/>
+                        </t>
+                        <br/>
+                        <strong>Important Notes:</strong>
+                        <br/>
+                        - Please check the attached flight tickets for detailed information
+                        <br/>
+                        - Arrive at the airport at least 3 hours before departure
+                        <br/>
+                        - Ensure you have valid travel documents
+                        <br/>
+                        <br/>
+                        Best regards,
+                        <br/>
+                        <t t-esc="ctx.get('company_name', 'Flint Team')"/>
+                    </p>
+                </div>
+            </field>
+            <field name="lang">{{object.employee_id.lang}}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="email_template_insurance_completion" model="mail.template">
+            <field name="name">Insurance Completion Notification</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Insurance Booking Completed for {{ctx.get('employee_name', '')}}</field>
+            <field name="email_from">{{user.email_formatted}}</field>
+            <field name="email_to">{{ctx.get('employee_email', '')}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear<t t-esc="ctx.get('employee_name', '')"/>,
+                        <br/>
+                        <br/>
+                        Your insurance Request has been completed successfully. Please find the attached insurance
+                        policy documents.
+                        <br/>
+                        <br/>
+                        <strong>Insurance Details:</strong>
+                        <br/>
+                        <t t-if="object.insurance_class">
+                            Insurance Class:
+                            <t t-esc="object.insurance_class.name"/>
+                            <br/>
+                        </t>
+                        <t t-if="object.insurance_partner_id">
+                            Insurance Provider:
+                            <t t-esc="object.insurance_partner_id.name"/>
+                            <br/>
+                        </t>
+                        <t t-if="object.insurance_policy_id">
+                            Policy Number:
+                            <t t-esc="object.insurance_policy_id.name"/>
+                            <br/>
+                        </t>
+                        <br/>
+                        <strong>Important Notes:</strong>
+                        <br/>
+                        - Please check the attached insurance documents for detailed information
+                        <br/>
+                        - Keep your insurance policy details for your records
+                        <br/>
+                        - For any questions regarding your coverage, please contact HR
+                        <br/>
+                        <br/>
+                        Best regards,
+                        <br/>
+                        <t t-esc="ctx.get('company_name', 'Flint Team')"/>
+                    </p>
+                </div>
+            </field>
+            <field name="lang">{{object.employee_id.lang}}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+        <record id="email_template_hotel_completion" model="mail.template">
+            <field name="name">Hotel Completion Notification</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Hotel Booking Completed for {{ctx.get('employee_name', '')}}</field>
+            <field name="email_from">{{user.email_formatted}}</field>
+            <field name="email_to">{{ctx.get('employee_email', '')}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear<t t-esc="ctx.get('employee_name', '')"/>,
+                        <br/>
+                        <br/>
+                        Your hotel booking has been completed successfully. Please find the attached hotel booking
+                        documents.
+                        <br/>
+                        <br/>
+                        <strong>Hotel Details:</strong>
+                        <br/>
+                        <t t-if="object.hotel_partner_id">
+                            Hotel:
+                            <t t-esc="object.hotel_partner_id.name"/>
+                            <br/>
+                        </t>
+                        <t t-if="object.hotel_location_id">
+                            Address:
+                            <t t-esc="object.hotel_location_id.name"/>
+                            <br/>
+                        </t>
+                        <t t-if="object.date_from">
+                            Check In:
+                            <t t-esc="object.date_from"/>
+                            <br/>
+                        </t>
+                        <t t-if="object.date_to">
+                            Check Out:
+                            <t t-esc="object.date_to"/>
+                            <br/>
+                        </t>
+                        <br/>
+                        <strong>Important Notes:</strong>
+                        <br/>
+                        - Please check the attached hotel booking documents for detailed information
+                        <br/>
+                        - Keep your hotel booking details for your records
+                        <br/>
+                        - For any questions regarding your booking, please contact HR
+                        <br/>
+                        <br/>
+                        Best regards,
+                        <br/>
+                        <t t-esc="ctx.get('company_name', 'Flint Team')"/>
+                    </p>
+                </div>
+            </field>
+        </record>
+        <record id="email_template_pick_up_drop_off" model="mail.template">
+            <field name="name">Airport Pick-Up / Drop-Off</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Airport Pick-Up / Drop-Off Confirmed for {{ctx.get('employee_name', '')}}</field>
+            <field name="email_from">{{user.email_formatted}}</field>
+            <field name="email_to">{{ctx.get('employee_email', '')}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-esc="ctx.get('employee_name', '')"/>,
+                        <br/>
+                        <br/>
+                        Your airport pick-Up / drop-off has been confirmed successfully.
+                        <br/>
+                        Best regards,
+                        <br/>
+                        <br/>
+                        <t t-esc="ctx.get('company_name', 'Flint Team')"/>
+                    </p>
+                </div>
+            </field>
+        </record>
+        <record id="email_template_courier" model="mail.template">
+            <field name="name">Document Courier Notification</field>
+            <field name="model_id" ref="model_logistic_order"/>
+            <field name="subject">Document Courier for {{ctx.get('employee_name', '')}}</field>
+            <field name="email_from">{{user.email_formatted}}</field>
+            <field name="email_to">{{ctx.get('employee_email', '')}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-esc="ctx.get('employee_name', '')"/>,
+                        <br/>
+                        <br/>
+                        Your documents has been couriered successfully.
+                        <br/>
+                        Best regards,
+                        <br/>
+                        <br/>
+                        <t t-esc="ctx.get('company_name', 'Flint Team')"/>
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

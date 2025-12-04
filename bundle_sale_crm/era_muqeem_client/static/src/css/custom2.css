@@ -1,0 +1,12 @@
+
+<style>
+
+.container.with-background {
+        background-image: url('/era_muqeem_client/static/description/icon2.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 20px;
+    }
+
+    </style>
+

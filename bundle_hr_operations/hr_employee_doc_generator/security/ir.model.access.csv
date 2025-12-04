@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_doc,hr.employee Doc user,hr.model_hr_employee,hr_employee_doc_generator.group_employee_doc_generator,1,1,1,0
+access_hr_contract_doc,hr.contract Doc user,hr_contract.model_hr_contract,hr_employee_doc_generator.group_employee_doc_generator,1,1,1,0
+access_hr_employee_doc_wizard_doc,hr.employee.doc.wizard Doc user,model_hr_employee_doc_wizard,hr_employee_doc_generator.group_employee_doc_generator,1,1,1,0
+

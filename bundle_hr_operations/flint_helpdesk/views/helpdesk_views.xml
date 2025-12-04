@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_helpdesk_ticket_tree_view_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree.view.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="before">
+                <field name="employee_id"/>
+                <field name="registration_number"/>
+                <field name="iqama_no"/>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="attributes">
+                <attribute name="string">Service Category</attribute>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="after">
+                <field name="service_type_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_ticket_search_inherit_flint">
+        <field name="name">helpdesk.ticket.search.inherit.flint</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="employee_id" string="Employee"/>
+            </xpath>
+            <field name="description" position="after">
+                <filter name="employee_id" string="Employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                <filter name="registration_number" string="File Number" domain="[]"
+                        context="{'group_by':'registration_number'}"/>
+                <filter name="iqama_no" string="Iqama Number" domain="[]" context="{'group_by':'iqama_no'}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_form_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='legend_blocked']" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button"
+                            name="action_view_logistic_order"
+                            string="Flights"
+                            type="object"
+                            icon="fa-plane"
+                            invisible="is_logistics == False or service_logistic_order_type != 'flight' or in_progress != True and is_closed != True"/>
+                    <button class="oe_stat_button"
+                            name="action_view_logistic_order"
+                            string="Insurance"
+                            type="object"
+                            icon="fa-stethoscope"
+                            invisible="is_logistics == False or service_logistic_order_type != 'insurance' or in_progress != True and is_closed != True"/>
+                    <button class="oe_stat_button"
+                            name="action_view_logistic_order"
+                            string="Hotel Booking"
+                            type="object"
+                            icon="fa-hotel"
+                            invisible="is_logistics == False or service_logistic_order_type != 'hotel'
+                             or in_progress != True and is_closed != True"/>
+                    <button class="oe_stat_button"
+                            name="action_view_logistic_order"
+                            string="Pick-Up / Drop-Off"
+                            type="object"
+                            icon="fa-car"
+                            invisible="is_logistics == False or service_logistic_order_type != 'pick_up_drop_off'
+                             or in_progress != True and is_closed != True"/>
+                    <button class="oe_stat_button"
+                            name="action_view_logistic_order"
+                            string="Courier"
+                            type="object"
+                            icon="fa-truck"
+                            invisible="is_logistics == False or service_logistic_order_type != 'courier'
+                             or in_progress != True and is_closed != True"/>
+                    <button class="oe_stat_button"
+                            name="view_government_payment"
+                            string="Government Payment"
+                            type="object"
+                            icon="fa-money"
+                            invisible="is_operation == False or
+                             in_progress != True and is_closed != True"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="after">
+                <field name="include_payment"
+                       widget="boolean_toggle" force_save="1"/>
+                <field name="government_payment_id" string="Payment Reference"
+                       invisible="government_payment_id == False"/>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="readonly">stage_is_draft == False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="readonly">stage_is_draft == False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">stage_is_draft == False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="required">1</attribute>
+                <attribute name="readonly">1</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_phone']" position="attributes">
+                <attribute name="required">1</attribute>
+                <attribute name="readonly">1</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <field name="stage_under_approval" invisible="1"/>
+                <field name="stage_is_draft" invisible="1"/>
+                <field name="is_operation_manager_reject" invisible="1"/>
+                <field name="is_on_hold" invisible="1"/>
+                <field name="in_progress" invisible="1"/>
+                <field name="is_closed" invisible="1"/>
+                <button name="action_confirm" string="Confirm" type="object" class="btn-primary"
+                        invisible="stage_is_draft == False"/>
+                <button name="action_approve" string="Approve" type="object" class="btn-primary"
+                        invisible="stage_under_approval == False"
+                        groups="scs_operation.group_operation_admin"
+                />
+                <button class="btn-primary"
+                        name="set_government_payment_on_progress"
+                        string="Proceed Government Service"
+                        type="object"
+                        invisible="is_operation == False or
+                             is_on_hold != True"/>
+                <button name="action_operation_manager_reject" string="Reject" type="object" class="btn-primary"
+                        groups="scs_operation.group_operation_admin"
+                        invisible="stage_under_approval == False"
+                />
+                <button name="action_on_hold" string="On Hold" type="object" class="btn-primary"
+                        invisible="in_progress == False"
+                />
+                <button name="reset_to_draft" string="Reset to Draft" type="object" class="btn-primary"
+                        invisible="is_operation_manager_reject == False"
+                />
+                <button name="action_close" string="Close" type="object" class="btn-primary"
+                        invisible="in_progress == False"
+                />
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="attributes">
+                <attribute name="string">service category</attribute>
+                <attribute name="readonly">stage_is_draft == False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='ticket_type_id']" position="after">
+                <field name="available_service_type_ids" invisible="1"/>
+                <field name="service_type_ids" context="{'type_id': ticket_type_id}"
+                       domain="[('id','in', available_service_type_ids)]"
+                       readonly="stage_is_draft == False" widget="many2many_tags"/>
+            </xpath>
+            <field name="partner_id" position="before">
+                <field name="employee_id" readonly="stage_is_draft == False" required="True"/>
+                <field name="passport_no" invisible="is_logistics == False or service_logistic_order_type !='flight'"
+                       required="is_logistics == True and service_logistic_order_type =='flight'"/>
+                <field name="passport_exp_date"
+                       invisible="is_logistics == False or service_logistic_order_type !='flight'"
+                       required="is_logistics == True and service_logistic_order_type =='flight'"/>
+                <field name="passport_exp_date_hijri"
+                       invisible="is_logistics == False or service_logistic_order_type !='flight'"
+                       required="is_logistics == True and service_logistic_order_type =='flight'"/>
+                <field name="passport_copy" invisible="is_logistics == False or service_logistic_order_type !='flight'"
+                       widget="many2many_binary"
+                       required="is_logistics == True and service_logistic_order_type =='flight'"/>
+            </field>
+            <field name="user_id" position="after">
+                <field name='request_user_ids' widget="many2many_tags" readonly="stage_is_draft == False"/>
+                <!--                <field name="ticket_status"/>-->
+            </field>
+
+            <field name="partner_id" position="after">
+                <field name="registration_number" readonly="1" force_save="1" string="File Number"/>
+                <field name="project_id" readonly="1" force_save="1" options="{'no_create': True, 'no_open': True}"/>
+                <field name="analytic_account_id" readonly="1" force_save="1"
+                       options="{'no_create': True, 'no_open': True}"/>
+                <field name="employee_country_id" invisible="1"/>
+                <field name="is_citizen" invisible="1"/>
+                <field name="iqama_no" invisible="is_citizen == True" required="is_citizen != True"/>
+                <field name="visa_expire" invisible="is_citizen == True" required="is_citizen != True"/>
+                <field name="identification_id" invisible="is_citizen != True" required="is_citizen == True"/>
+                <field name="email" force_save="1" readonly="1"/>
+                <field name="is_operation" invisible="True"/>
+            </field>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='stage_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/field[@name='display_extra_info']" position="after">
+                <field name="service_logistic_order_type" invisible="True"/>
+                <field name="is_logistics" invisible="True"/>
+                <page string="Flight Details"
+                      invisible="is_logistics == False or service_logistic_order_type !='flight'">
+                    <group>
+                        <group string="Flight Info">
+                            <field name="flight_ticket" widget="many2many_binary" readonly="True"/>
+                            <field name="flight_type" readonly="stage_is_draft == False"/>
+                            <field name="available_departure_location" invisible="1"/>
+                            <field name="location_country_id" options="{'no_create': True, 'no_open': True}"
+                                   readonly="stage_is_draft == False"/>
+                            <field name="departure_airport_id" options="{'no_create': True, 'no_open': True}"
+                                   domain="[('id','in',available_departure_location)]"
+                                   readonly="stage_is_draft == False"/>
+                            <field name="departure_city"
+                                   readonly="stage_is_draft == False"/>
+                            <field name="preferred_travel_time"
+                                   invisible="service_logistic_order_type != 'flight'"
+                                   readonly="stage_is_draft == False"/>
+                            <field name="available_destination_location" invisible="1"/>
+                            <field name="destination_country_id" options="{'no_create': True, 'no_open': True}"
+                                   readonly="stage_is_draft == False"/>
+                            <field name="destination_airport_id"
+                                   required="is_logistics == True and service_logistic_order_type =='flight'"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   readonly="stage_is_draft == False"
+                                   domain="[('id','in',available_destination_location)]"/>
+                            <field name="destination_city"
+                                   readonly="stage_is_draft == False"/>
+                            <field name="flight_direction" widget="radio" options="{'horizontal': True}"
+                                   readonly="stage_is_draft == False"
+                                   required="is_logistics == True and service_logistic_order_type =='flight'"/>
+                            <field name="departure_date" readonly="stage_is_draft == False"
+                                   required="is_logistics == True and service_logistic_order_type =='flight'"/>
+                            <field name="return_date" invisible="flight_direction == 'one_way'"
+                                   readonly="stage_is_draft == False"
+                                   required="is_logistics == True and service_logistic_order_type =='flight' and flight_direction == 'round_trip'"
+                            />
+                        </group>
+                        <group string="Family Info" invisible="flight_type != 'family'">
+                            <field name="available_family_member_ids" invisible="1"/>
+                            <field name="family_member_ids" invisible="flight_type == 'employee'"
+                                   widget="many2many_tags"
+                                   domain="[('id','in', available_family_member_ids)]"
+                                   readonly="stage_is_draft == False"
+                            />
+                        </group>
+                    </group>
+
+                </page>
+                <page string="Insurance Details"
+                      invisible="is_logistics == False or service_logistic_order_type !='insurance'">
+                    <group>
+                        <group>
+                            <field name="insurance_type"/>
+                            <field name="insurance_membership_no"
+                                   readonly="required_insurance_action == 'addition' or stage_is_draft == False"/>
+                            <field name="required_insurance_action" required="service_logistic_order_type =='insurance'"/>
+                            <field name="insurance_class_from_id"
+                                   invisible="required_insurance_action not in ['upgrade', 'downgrade']"
+                                   required="required_insurance_action in ['upgrade', 'downgrade']"/>
+                            <field name="insurance_class_to_id"
+                                   invisible="required_insurance_action not in ['upgrade', 'downgrade', 'addition']"
+                                   required="required_insurance_action in ['upgrade', 'downgrade', 'addition']"/>
+                            <field name="update_note"
+                                   required="required_insurance_action in ['update']"
+                                   readonly="required_insurance_action not in ['update'] or stage_is_draft == False"
+                                   invisible="required_insurance_action not in ['update']"/>
+                        </group>
+                        <group>
+                            <field name="effective_date" required="service_logistic_order_type =='insurance'"/>
+                            <field name="sponsor_no" required="service_logistic_order_type =='insurance'"/>
+                            <!--                        <group invisible="insurance_type == 'employee'">-->
+                            <!--                            <field name="family_member_ids" invisible="insurance_type == 'employee'"-->
+                            <!--                                   domain="[('id','in', available_family_member_ids)]" />-->
+                        </group>
+                        <field name="family_member_ids" invisible="insurance_type == 'employee'" domain="[('id','in', available_family_member_ids)]">
+                            <tree editable="bottom">
+                                <field name="family_type" optional="show" readonly="1"/>
+                                <field name="name" optional="show" readonly="1"/>
+                                <field name="ar_name" optional="show" readonly="1"/>
+                                <field name="gender" optional="show" readonly="1"/>
+                                <field name="passport_id" optional="show" readonly="1"/>
+                                <field name="passport_copy" optional="show" widget="many2many_binary" readonly="1"/>/>
+                                <field name="passport_exp_date" optional="show" readonly="1"/>
+                                <field name="border_number" optional="show" readonly="1"/>
+                                <field name="identification_id" optional="show" readonly="1"/>
+                                <field name="phone" optional="show" readonly="1"/>
+                                <field name="birthday" optional="show" readonly="1"/>
+                                <field name="employer" optional="show" readonly="1"/>
+                                <field name="insurance_class_id" optional="show" readonly="1"/>
+                                <field name="accommodation_no" optional="show" readonly="1"/>
+                                <field name="accommodation_exp_date" optional="show" readonly="1"/>
+                                <field name="insurance_id" optional="show" readonly="1"/>
+                                <field name="employee_id" optional="show" readonly="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+                <page string="Hotel Details"
+                      invisible="is_logistics == False or service_logistic_order_type !='hotel'">
+                    <group>
+                        <group>
+                            <field name="hotel_name"/>
+                            <field name="date_from"
+                                   required="is_logistics == False and service_logistic_order_type == 'hotel'"/>
+                            <field name="date_to"
+                                   required="is_logistics == False and service_logistic_order_type == 'hotel'"/>
+                        </group>
+                        <group></group>
+                    </group>
+
+                </page>
+                <page string="Pick-Up / Drop-Off Details"
+                      invisible="is_logistics == False or service_logistic_order_type != 'pick_up_drop_off'">
+                    <group>
+                        <group>
+                            <field name="ticket_number"
+                                   required="is_logistics == True and service_logistic_order_type == 'pick_up_drop_off'"/>
+                        </group>
+                        <group>
+                            <!--  <field name="preferred_travel_time"-->
+                            <!--  required="is_logistics == False and service_logistic_order_type == 'pick_up_drop_off'"/>-->
+                        </group>
+                    </group>
+
+                </page>
+                <page string="Courier"
+                      invisible="is_logistics == False or service_logistic_order_type != 'courier'">
+                    <group>
+                        <group>
+                            <field name="courier_type"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                            <field name="required_document_ids"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"
+                                   widget="many2many_tags"/>
+                            <field name="recipient_name"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                            <field name="recipient_address"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                            <field name="recipient_city"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                            <field name="recipient_country"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                        </group>
+                        <group>
+                            <field name="agency_name"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier' and courier_type == 'international'"
+                                   invisible="courier_type !='international'"/>
+                            <field name="required_document_count"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                            <field name="document_ids"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"
+                                   widget="many2many_binary"/>
+                            <field name="recipient_phone_number"
+                                   required="is_logistics == True and service_logistic_order_type == 'courier'"/>
+                            <field name="recipient_postal_code"/>
+                            <!-- required="is_logistics == True and service_logistic_order_type == 'courier'"/> -->
+                        </group>
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    kanban-->
+    <record id="view_helpdesk_kanban_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.kanban.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="records_draggable">False</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

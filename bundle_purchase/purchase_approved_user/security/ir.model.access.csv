@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_approved_user_purchase_approved_user,purchase_approved_user.purchase_approved_user,model_purchase_approved_user_purchase_approved_user,base.group_user,1,1,1,1

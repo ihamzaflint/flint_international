@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="root_operation" name="Operation"
+              groups="group_operation_user,group_insurance_user"
+              web_icon="scs_operation,static/description/icon.png"/>
+    <menuitem id="main_government_payment_menu" name="Government Payment" parent="root_operation"
+              groups="scs_operation.group_operation_user,scs_operation.group_operation_admin"
+              sequence="1"/>
+    <menuitem id="root_operation_configration"
+              name="Configration"
+              groups="group_operation_admin"
+              parent="root_operation"
+              sequence="10"/>
+
+    <menuitem id="menu_airport_main" parent="root_operation_configration" action="action_airport" sequence="1"/>
+    <menuitem action="individual_government_payment_action" groups="scs_operation.group_operation_user"
+              id="individual_government_payment_menu" name="Individuals Payment" parent="main_government_payment_menu"
+              sequence="1"/>
+    <menuitem action="government_service_without_payment_action" groups="scs_operation.group_operation_user"
+              id="government_service_without_payment_menu" name="Without Payment" parent="main_government_payment_menu"
+              sequence="2"/>
+    <menuitem action="enterprise_government_payment_action" groups="scs_operation.group_operation_user"
+              id="enterprise_government_payment_menu" name="Enterprise Payment" parent="main_government_payment_menu"
+              sequence="3"/>
+
+    <menuitem id="service_type_menu_item"
+              name="Service Type"
+              parent="root_operation_configration"
+              sequence="10"
+              action="service_type_action"/>
+    <menuitem id="document_type_menu_item"
+              name="Document Type"
+              parent="root_operation_configration"
+              sequence="10"
+              action="document_type_action"/>
+    <menuitem id="sister_company_menu_item"
+              name="Sister companies"
+              parent="root_operation_configration"
+              action="sister_company_action"/>
+
+    <menuitem id="menu_logistic_orders"
+              name="Logistic Orders"
+              groups="group_insurance_user"
+              parent="root_operation"
+              sequence="2"/>
+    <menuitem id="menu_logistic_orders_flight_tickets"
+                name="Flight Tickets"
+                parent="menu_logistic_orders"
+                action="action_logistic_orders_flight_tickets"
+                groups="group_insurance_user"
+                sequence="1"/>
+    <menuitem id="menu_logistic_orders_hotel_booking"
+                name="Hotel Booking"
+                parent="menu_logistic_orders"
+                action="action_logistic_orders_hotel_booking"
+                groups="group_insurance_user"
+                sequence="2"/>
+    <menuitem id="menu_logistic_orders_insurance_requests"
+                name="Insurance"
+                parent="menu_logistic_orders"
+                action="action_logistic_orders_insurance_requests"
+                groups="group_insurance_user"
+                sequence="3"/>
+    <menuitem id="menu_logistic_orders_action_pick_up_drop_off"
+                name="Pick-Up / Drop-Off"
+                parent="menu_logistic_orders"
+                action="action_logistic_orders_pick_up_drop_off"
+                groups="group_insurance_user"
+                sequence="4"/>
+    <menuitem id="menu_logistic_orders_courier"
+                name="Courier"
+                parent="menu_logistic_orders"
+                action="action_logistic_orders_courier"
+                groups="group_insurance_user"
+                sequence="5"/>
+    <menuitem id="menu_employee_reports"
+              name="Reports"
+              parent="hr.menu_hr_employee_payroll"
+              sequence="14"
+              groups="hr.group_hr_user"
+    />
+
+    <menuitem id="menu_citizen_expired_reports"
+              name="Citizen– Expired ID"
+              parent="menu_employee_reports"
+              action="action_employee_citizen_expired_id"
+              groups="hr.group_hr_user"
+              sequence="15"
+    />
+    <menuitem id="menu_citizen_miss_id_reports"
+              name="Citizen–ID Missing"
+              parent="menu_employee_reports"
+              action="action_employee_citizen_missing_id"
+              groups="hr.group_hr_user"
+              sequence="16"/>
+        
+    <menuitem id="menu_hotel_location"
+              name="Hotel Locations"
+              parent="scs_operation.root_operation_configration"
+              groups="scs_operation.group_operation_admin"
+              action="action_hotel_location"
+              sequence="20"/>
+
+</odoo>

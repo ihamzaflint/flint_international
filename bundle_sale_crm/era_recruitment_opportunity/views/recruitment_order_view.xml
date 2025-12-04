@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="recruitment_order_form_view" model="ir.ui.view">
+            <field name="name">recruitment.order.form.view</field>
+            <field name="model">recruitment.order</field>
+            <field name="arch" type="xml">
+                <form string="Recruitment Order" class="o_sale_order">
+                    <header>
+                        <button name="return_to_draft" string="Return to draft" invisible="state not in ('done')" type="object" class="oe_highlight" />
+                        <button name="action_head_hunting" string="Start Head Hunting" invisible="state not in ('draft') or recruitment_process == 'direct_recruitment'" type="object" class="oe_highlight" />
+                        <button name="action_client_select" string="Ready for Client Selection" type="object" class="oe_highlight"/>
+                        <button string="Import Applicants" name="action_import_applicants" type="object" class="btn btn-primary" data-hotkey="l" title="Import Jobs from File" invisible="state in ('done')" />
+                        <button name="action_in_progress" string="In Progress" type="object" invisible="state not in ('draft') or recruitment_process != 'direct_recruitment'" class="oe_highlight" />
+                        <button name="action_done" string="Done" type="object" invisible="state not in ('in_progress')" class="oe_highlight" />
+                        <field name="state" widget="statusbar" invisible="recruitment_process=='direct_recruitment'" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done" invisible="recruitment_process=='full_recruitment'" />
+                    </header>
+                    <field name="active" invisible="1" />
+                    <field name="recruitment_process" invisible="1" />
+                    <field name="company_id" invisible="1" />
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_applicants" type="object" class="oe_stat_button" icon="fa-user" invisible="applicant_ids_count == 0">
+                                <div class="o_stat_info">
+                                    <field name="applicant_ids_count" widget="statinfo" />
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="sequence" />
+                            <h1>
+                                <field name="sequence" readonly="1" />
+                                <!-- <field name="name" placeholder="Name"/> -->
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" />
+                            <h1>
+                                <!-- <field name="sequence" readonly="1"/> -->
+                                <field name="name" placeholder="Name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group name="recruitment">
+                                <field name="company_id" options="{'no_create': True}" invisible="1" groups="base.group_multi_company" />
+                                <field name="department_id" />
+                                <label for="address_id" />
+                                <div class="o_row">
+                                    <span invisible="address_id" class="oe_read_only">Remote</span>
+                                    <field name="address_id" context="{'show_address': 1}" placeholder="Remote" />
+                                </div>
+                                <label for="alias_name" string="Email Alias" help="Define a specific contact address for this job position. If you keep it empty, the default email address will be used which is in human resources settings" />
+                                <div name="alias_def">
+                                    <field name="alias_id" class="oe_read_only" string="Email Alias" required="0" />
+                                    <div class="oe_edit_only" name="edit_alias">
+                                        <field name="alias_name" class="oe_inline" />@
+                                        <field name="alias_domain_id" class="oe_inline" placeholder="e.g. domain.com" options="{'no_create': True, 'no_open': True}" />
+                                    </div>
+                                </div>
+                                <field name="contract_type_id" />
+                                <field name="lead_id" invisible="1" />
+                                <field name="recruitment_process" />
+                                <field name="client_name" />
+                                <field name="position_title" />
+                                <field name="experience_level" />
+                                <field name="preferred_industry" />
+                                <field name="recruitment_count" string="Remaining Recruitment"/>
+                            </group>
+                            <group name="recruitment2">
+                                <label for="no_of_recruitment" />
+                                <div class="o_row" name="recruitment_target">
+                                    <field name="no_of_recruitment" class="o_hr_narrow_field" />
+                                    <span>new Employees</span>
+                                </div>
+                                <field name="user_id" widget="many2one_avatar_user" />
+                                <field name="interviewer_ids" widget="many2many_tags_avatar" options="{'no_create': True, 'no_create_edit': True}" />
+                                <field name="nationality_requirement" />
+                                <field name="salary_range" />
+                                <field name="job_location" />
+                                <field name="onsite_remote" />
+                                <field name="permanent_contract" />
+                                <field name="bidding_stage" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Applicant Information">
+                                <field name="applicant_line" mode="tree" readonly="state in ['draft','done']">
+                                    <tree string="Applicant">
+                                        <field name="sequence" />
+                                        <field name="name" />
+                                        <!-- <field name="is_saved"/> -->
+                                        <field name="email" />
+                                        <field name="phone" />
+                                        <!--                                        <field name="resume" widget="binary"/>-->
+                                        <!--                                        <field name="file_name"/>-->
+                                        <field name="resume" widget="binary" />
+                                        <field name="file_name" column_invisible="1" />
+                                        <field name="rejection_reason" invisible="not state == 'reject'" />
+                                        <field name="state" readonly="True" />
+                                        <button name="action_confirm" invisible="state != 'draft'" string="Confirm" type="object" class="oe_highlight" />
+                                        <button name="action_reject" invisible="state != 'draft'" string="Reject" type="object" class="oe_highlight" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Job Description &amp; Recruitment Tracking" name="job_description">
+                                <field name="job_description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'open_attachments': True}" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="applicant_line_form_view" model="ir.ui.view">
+            <field name="name">applicant.line.form.view</field>
+            <field name="model">applicant.line</field>
+            <field name="arch" type="xml">
+                <form string="Applicant Info">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1 class="d-flex">
+                                <field name="sequence" readonly="1" />
+                            </h1>
+                            <label for="name" />
+                            <h1>
+                                <field name="name" placeholder="Name" />
+                            </h1>
+                        </div>
+                        <group string="Applicant Info">
+                            <group>
+                                <field name="email" />
+                                <field name="phone" />
+                                <field name="nationality" />
+                                <field name="current_location" />
+                                <field name="experience" />
+                                <field name="qualification" required="1" />
+                                <field name="current_company" required="1" />
+                                <field name="position" required="1" />
+                            </group>
+                            <group>
+                                <field name="notice_period" required="1" />
+                                <field name="kids" />
+                                <field name="profession" />
+                                <field name="number_iqama" readonly="0" />
+                                <!--                                    <field name="current_salary"/>-->
+                                <field name="resume" required="1" widget="binary" />
+                                <field name="file_name" invisible="1" />
+                                <field name="rejection_reason" invisible="state != 'reject'" />
+                                <field name="state" invisible="1" />
+                              <!--   <field name="sent_to_client"/>
+                                <field name="client_sent_on"/ -->>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="salary_expectation" required="1" />
+                                </group>
+                                <group>
+                                    <field name="show_salary_expectation" />
+                                </group>
+                                <group>
+                                    <field name="wife" invisible="candidate_type == 'remote'" />
+                                </group>
+                                <group>
+                                    <field name="show_wife" invisible="candidate_type == 'remote'" />
+                                </group>
+                                <group>
+                                    <field name="kids" invisible="candidate_type == 'remote'" />
+                                </group>
+                                <group>
+                                    <field name="show_kids" invisible="candidate_type == 'remote'" />
+                                </group>
+                                <group>
+                                    <field name="current_salary" />
+                                </group>
+                                <group>
+                                    <field name="show_current_salary" />
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Cost Analysis" name="cost_analysis_details">
+                                <group name="cost_analysis" string="Cost Analysis">
+                                    <group>
+                                        <field name="show_cost_case1" invisible="1" />
+                                        <field name="show_cost_case2" invisible="1" />
+                                        <field name="show_cost_case3" invisible="1" />
+                                        <field name="show_cost_case4" invisible="1" />
+                                        <field name="show_cost_case5" invisible="1" />
+                                        <field name="show_cost_case6" invisible="1" />
+                                        <field name="show_cost_case7" invisible="1" />
+                                        <field name="candidate_type" />
+                                        <field name="marital_status" invisible="candidate_type == 'remote'" />
+                                        <field name="expatriates_married_type" invisible="marital_status == 'unmarried' or candidate_type == 'remote' or candidate_type == 'saudi_local'" />
+                                        <field name="expatriates_unmarried_type" invisible="marital_status == 'married' or candidate_type == 'remote' or candidate_type == 'saudi_local'" />
+                                        <field name="candidate_class" invisible="candidate_type == 'remote'" />
+                                        <field name="package" />
+                                        <field name="invoice_period" />
+                                        <field name="number_of_kids" invisible="candidate_type == 'remote' or show_cost_case5 or show_cost_case3 or show_cost_case4" />
+                                        <field name="number_of_spouses" invisible="candidate_type == 'remote' or show_cost_case5 or show_cost_case3 or show_cost_case4" />
+                                    </group>
+                                    <group>
+                                        <field name="total_monthly_cost" />
+                                        <field name="total_monthly_cost_usd" />
+                                        <field name="total_annual_cost_usd" />
+                                        <field name="per_day_cost" />
+                                        <label for="per_25" />
+                                        <div class="o_row">
+                                            <field name="percentage_amount" placeholder="amount %" /> %
+                                            <field name="per_25" string="Margin" nolabel="1" />
+                                        </div>
+                                        <label for="per_15" />
+                                        <div class="o_row">
+                                            <field name="percentage_amount_fifteen" placeholder="amount %" /> %
+                                            <field name="per_15" string="Vat" nolabel="1" />
+                                        </div>
+                                        <!-- <field name="per_25" string="Amount 25%" />
+                                        <field name="per_15" string="Vat 15%" /> -->
+                                        <field name="net_monthly_salary" />
+                                        <field name="yearly_employee_cost" invisible="1" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Basic Salary Components">
+                                        <field name="basic" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 and not show_cost_case7" />
+                                        <field name="housing" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 and not show_cost_case7" />
+                                        <field name="flint_fee" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="transportation" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 and not show_cost_case7" />
+                                        <field name="vac_salary" invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="end_of_service" invisible="(not show_cost_case1 and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 and not show_cost_case5 and not show_cost_case6) and not show_cost_case7" />
+                                    </group>
+                                    <group string="Health Insurance" invisible="show_cost_case7 == True">
+                                        <field name="employee_health" readonly="0" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 or show_cost_case7" />
+                                        <!--                                        <field name="family_health_insurance" -->
+                                        <!--                                               invisible="show_cost_case1 or show_cost_case3 or show_cost_case4 or show_cost_case5 or not show_cost_case6 or show_cost_case7 and not show_cost_case2"/>-->
+                                        <field name="family_health_insurance" invisible="show_cost_case3 or show_cost_case4 or show_cost_case5 " readonly="0" />
+                                        <field name="spouse_health_insurance" invisible="show_cost_case2 or show_cost_case5 or show_cost_case1 or show_cost_case3 or show_cost_case4 or show_cost_case6" />
+                                        <field name="kids_health_insurance" invisible="show_cost_case2 or show_cost_case5 or show_cost_case1 or show_cost_case3 or show_cost_case4 or show_cost_case6" />
+                                        <!-- <field name="spouse_health_insurance" 
+                                               invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or not show_cost_case6 or show_cost_case7"/>
+                                        <field name="kids_health_insurance" 
+                                               invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or not show_cost_case6 or show_cost_case7"/> -->
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Travel Benefits" invisible="show_cost_case5 == True or show_cost_case6 == True or show_cost_case7 == True">
+                                        <field name="employee_annual_flight_ticket" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="employee_monthly_flight_ticket" invisible="not show_cost_case1 or not show_cost_case2 or not show_cost_case3" />
+                                        <field name="family_annual_flight_ticket" invisible="show_cost_case3 or show_cost_case4" />
+                                        <!--                                        <field name="wife_annual_flight_ticket" invisible="not show_cost_case1  and not show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7"/>-->
+                                        <field name="wife_monthly_flight_ticket" invisible="show_cost_case1 == True  or show_cost_case2 == True or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6  or show_cost_case7" />
+                                        <!--                                        <field name="child_flight_ticket" invisible="not show_cost_case1  and not show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7"/>-->
+                                        <field name="child_monthly_flight_ticket" invisible="show_cost_case1 == True  or show_cost_case2 == True or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                    </group>
+                                    <group string="Government Fees" invisible="show_cost_case7 == True">
+                                        <field name="gosi" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 and not show_cost_case7" />
+                                        <field name="gosi_share" invisible="(show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case7) and not show_cost_case5 and not show_cost_case6" />
+                                        <field name="saudization" invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="iqama_fees" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <label for="iqama_transfer_fees" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <div class="o_row" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7">
+                                            <field name="iqama_transfer_percentage" placeholder="amount %" /> %
+                                            <field name="iqama_transfer_fees" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" string="Iqama Transfer Fees" nolabel="1" />
+                                        </div>
+                                        <!-- <field name="iqama_transfer_fees" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" /> -->
+                                        <field name="mobilization_cost" invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="ajeer" invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="exit_reentry" invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="profile_fees" invisible="show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                    </group>
+                                    <group string="Others" readonly="0">
+                                        <field name="saudi_eng_council" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4 or show_cost_case5 or show_cost_case6 or show_cost_case7" />
+                                        <field name="hire_right_process" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 or show_cost_case7" />
+                                        <field name="employee_visa" invisible="not (show_cost_case1 or show_cost_case3)" />
+                                        <field name="employee_visa_endorsement" invisible="not (show_cost_case1 or show_cost_case3 or show_cost_case7)" />
+                                        <field name="family_visa_cost" invisible="not show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 and not show_cost_case7" />
+                                        <field name="family_visa_endorsement" invisible="not show_cost_case1 or show_cost_case2 or show_cost_case3 or show_cost_case4 or show_cost_case5 or show_cost_case6 and not show_cost_case7" />
+                                        <field name="misc" invisible="not show_cost_case1  and not show_cost_case2 and not show_cost_case3 and not show_cost_case4  and not show_cost_case5 and not show_cost_case6 and not show_cost_case7" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="recruitment_order_tree_view" model="ir.ui.view">
+            <field name="name">recruitment.order.tree</field>
+            <field name="model">recruitment.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" readonly="1" />
+                    <field name="name" />
+                    <field name="user_id" />
+                    <field name="state" readonly="True" />
+                    <field name="recruitment_count" string="Remaining Recruitment"/>
+                </tree>
+            </field>
+        </record>
+        <record id="recruitment_order_act_window" model="ir.actions.act_window">
+            <field name="name">Recruitment Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">recruitment.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add new Recruitment Order.
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_recruitment_order" name="Recruitment Order" action="recruitment_order_act_window" parent="hr_recruitment.menu_hr_recruitment_root" sequence="10" />
+        <!-- ACTION -->
+        <record id="action_recruitment_recruiter" model="ir.actions.act_window">
+            <field name="name">Recruiters</field>
+            <field name="res_model">recruitment.recruiter</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add new Recruiters.
+                </p>
+            </field>
+        </record>
+        <!-- TREE VIEW -->
+        <record id="view_recruitment_recruiter_tree" model="ir.ui.view">
+            <field name="name">recruitment.recruiter.tree</field>
+            <field name="model">recruitment.recruiter</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" string="Recruiters">
+                    <field name="sequence" widget="handle" />
+                    <field name="user_id" />
+                    <field name="company_id" />
+                    <field name="active" optional="hide" />
+                    <field name="order_count" string="Recruitment Orders" />
+                    <button name="action_view_orders" type="object" string="Open Recruitment orders" class="oe_stat_button" />
+                </tree>
+            </field>
+        </record>
+        <!-- Form -->
+        <record id="view_recruitment_recruiter_form" model="ir.ui.view">
+            <field name="name">recruitment.recruiter.form</field>
+            <field name="model">recruitment.recruiter</field>
+            <field name="arch" type="xml">
+                <form string="Recruiter">
+                    <sheet>
+                        <group>
+                            <field name="sequence" />
+                            <field name="user_id" />
+                            <field name="company_id" />
+                            <field name="active" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem id="menu_recruiters" name="Recruiters" parent="hr_recruitment.menu_hr_recruitment_configuration" action="action_recruitment_recruiter" sequence="15" />
+    </data>
+</odoo>

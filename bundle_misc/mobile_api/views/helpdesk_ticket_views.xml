@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend Helpdesk Ticket Form View -->
+    <record id="view_helpdesk_ticket_form_inherit_mobile_api" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit.mobile.api</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Mobile App" groups="mobile_api.group_mobile_api_admin">
+                    <group>
+                        <group string="Mobile Sync">
+                            <field name="last_app_sync_date" readonly="1"/>
+                            <field name="mobile_sync_status"/>
+                            <field name="mobile_local_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <button name="mark_as_synced" string="Mark as Synced" type="object" class="oe_highlight" 
+                                    invisible="mobile_sync_status == 'synced'"/>
+                            <button name="mark_as_pending_sync" string="Mark as Pending Sync" type="object"
+                                    invisible="mobile_sync_status == 'pending'"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+            <field name="team_id" position="after">
+                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Extend Helpdesk Ticket Tree View -->
+    <record id="view_helpdesk_ticket_tree_inherit_mobile_api" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree.inherit.mobile.api</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="stage_id" position="after">
+                <field name="mobile_sync_status" optional="hide" groups="mobile_api.group_mobile_api_admin"/>
+                <field name="last_app_sync_date" optional="hide" groups="mobile_api.group_mobile_api_admin"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Extend Helpdesk Ticket Search View -->
+    <record id="view_helpdesk_ticket_search_inherit_mobile_api" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search.inherit.mobile.api</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="sla_deadline" position="after">
+                <filter string="Pending Mobile Sync" name="pending_sync" domain="[('mobile_sync_status', '=', 'pending')]" groups="mobile_api.group_mobile_api_admin"/>
+                <filter string="Synced with Mobile" name="synced" domain="[('mobile_sync_status', '=', 'synced')]" groups="mobile_api.group_mobile_api_admin"/>
+                <filter string="Mobile Sync Failed" name="sync_failed" domain="[('mobile_sync_status', '=', 'failed')]" groups="mobile_api.group_mobile_api_admin"/>
+            </filter>
+            <group position="inside">
+                <filter string="Mobile Sync Status" name="group_by_sync_status" context="{'group_by': 'mobile_sync_status'}" groups="mobile_api.group_mobile_api_admin"/>
+                <filter string="Company" name="group_by_company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+            </group>
+        </field>
+    </record>
+</odoo>

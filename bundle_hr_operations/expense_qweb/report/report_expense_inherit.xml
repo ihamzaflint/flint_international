@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="expense_report_inherit" inherit_id="hr_expense.report_expense_sheet">
+        <xpath expr="//div[@class='col-6']" position="inside">
+             <div class="row mt32 mb32" id="test_inherit">
+                <div class="col-auto mw-100 mb-2">
+                    <strong>Analytic Account(Project):</strong>
+                    &#160;&#160;&#160;<span t-field="o.employee_id.contract_id.analytic_account_id.name"/>
+                </div>
+             </div>
+        </xpath>
+        <xpath expr="//div[@class='page o_content_pdf']" position="after">
+            <div class="col-auto mw-100 mb-2">
+                <span t-field="o.env.user.name"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='col-6']/div[1]" position="replace">
+                <div class="col-2">
+                    <strong>Approved By:</strong>
+                    <p t-field="o.user_id"/>
+                </div>
+        </xpath>
+    </template>
+</odoo>

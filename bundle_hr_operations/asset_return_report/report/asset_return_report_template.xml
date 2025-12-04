@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Header Template -->
+    <template id="asset_return_report.asset_return_report_header">
+        <div style=" width: 100%; margin-bottom: 10px;">
+            <table style="width:100%;border: 1px solid #000; border-collapse: collapse;">
+                <tr>
+                    <td class='p-1' style="width: 33.33%; text-align: center; vertical-align: middle;">
+                        <img t-if="request.env.company.logo"
+                             t-att-src="image_data_uri(request.env.company.logo)"
+                             style="max-height: 80px; max-width: 130px; object-fit: contain;"/>
+                    </td>
+                    <td class='p-1' style="width: 33.33%;  vertical-align: top; ">
+                        <div class='p-1'
+                             style="border: 1px solid #000;  margin-bottom: 2px; display: flex; justify-content: space-between;">
+                            <span>Form No:</span>
+                            <span t-esc="doc.form_no"/>
+                        </div>
+                        <div class='p-1'
+                             style="border: 1px solid #000;  margin-bottom: 2px; display: flex; justify-content: space-between;">
+                            <span>Version:</span>
+                            <span>1.1</span>
+                        </div>
+                        <div class='p-1'
+                             style="border: 1px solid #000;  margin-bottom: 2px; display: flex; justify-content: space-between;">
+                            <span>Date:</span>
+                            <span t-esc="doc.return_date and doc.return_date.strftime('%b %d, %Y') or context_timestamp(datetime.datetime.now()).strftime('%b %d, %Y')"/>
+                        </div>
+                        <div class='p-1'
+                             style="border: 1px solid #000;  display: flex; justify-content: space-between;">
+                            <span>Department:</span>
+                            <span>Information Technology</span>
+                        </div>
+                    </td>
+                    <td class='p-1' style="width: 33.33%;  vertical-align: top; ">
+                        <div class='p-1'
+                             style="border: 1px solid #000;  margin-bottom: 2px; display: flex; justify-content: space-between;">
+                            <span>Asset Handover ID:</span>
+                            <span t-esc="doc.asset_return_no"/>
+                        </div>
+                        <div class='p-1'
+                             style="border: 1px solid #000;  margin-bottom: 2px; display: flex; justify-content: space-between;">
+                            <span>References:</span>
+                            <span>ISO 9001, ISO 27001</span>
+                        </div>
+                        <div class='p-1'
+                             style="border: 1px solid #000;  margin-bottom: 2px; display: flex; justify-content: space-between;">
+                            <span>Location:</span>
+                            <span>Head Office, Riyadh</span>
+                        </div>
+                        <div class='p-1' style="border: 1px solid #000; ">
+                            <span>ISMS-POL-013-Asset Management Policy</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </template>
+
+    <!-- Footer Template -->
+    <template id="asset_return_report.asset_return_report_footer">
+        <div style="border-top: 2px solid #000; padding:0px 20px">
+            <div class="row" style="display: flex; align-items: center; padding: 5px;">
+                <div class="col-6" style="flex: 1; width: 70%;">
+                    <span style="color:#1A3C35; font-weight:bold; font-size: 14px;">
+                        Classification:
+                        <span style="color:#8B98ED; font-size: 14px;">Company Asset – Internal</span>
+                    </span>
+                </div>
+                <div class="col-6 text-right" style="flex: 0 0 30%; text-align: center;">
+                    <span style="color:#1A3C35; font-size: 12px;"
+                          t-esc="context_timestamp(datetime.datetime.now()).strftime('%B %d, %Y')"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Main Template -->
+    <template id="asset_return_report.employee_device_template">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <style>
+                        @font-face { font-family: 'DroidKufiRegular';
+                        src:
+                        url('/asset_return_report/static/src/fonts/DroidKufi-Regular.ttf')
+                        format('truetype');}
+                        .page{
+                        <!--                            background-color:red;-->
+                        position: relative;
+                        z-index: 1;
+                        }
+                        .page::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: url('/asset_return_report/static/src/img/watermark.jpeg')
+                        no-repeat center center;
+                        background-size: 50%;
+                        opacity: 0.2;
+                        <!--                        z-index: -1;-->
+                        }
+
+                    </style>
+                    <div class="page">
+                        <t t-call="asset_return_report.asset_return_report_header"/>
+
+                        <!-- Recipient Information Table -->
+                        <table style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+                            <thead>
+                                <tr>
+                                    <th colspan="4"
+                                        style="background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;">
+                                        <span>Recipient Information</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span>Employee Name</span>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.employee_id.name or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.employee_id.name or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">
+                                            اسم الموظف
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span>Employee ID</span>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.identification_no or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.identification_no or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">الرقم الوظيفي</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span>Department</span>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.department_id.name or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.department_id.name or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">القسم</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span>Job Title</span>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.job_id.name or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;">
+                                        <span t-esc="doc.job_id.name or ''"/>
+                                    </td>
+                                    <td class='p-1' style="width: 25%;text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">المسمى الوظيفي</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Returned Asset Information Table -->
+                        <table style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+                            <thead>
+                                <tr>
+                                    <th colspan="5"
+                                        style="background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;">
+                                        Returned Asset Information
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 20%; font-weight: bold; text-align: center; padding: 5px; border: 1px solid #000;">
+                                        Asset
+                                    </th>
+                                    <th style="width: 20%; font-weight: bold; text-align: center; padding: 5px; border: 1px solid #000;">
+                                        Type
+                                    </th>
+                                    <th style="width: 20%; font-weight: bold; text-align: center; padding: 5px; border: 1px solid #000;">
+                                        Model
+                                    </th>
+                                    <th style="width: 20%; font-weight: bold; text-align: center; padding: 5px; border: 1px solid #000;">
+                                        Serial Number (S/N)
+                                    </th>
+                                    <th style="width: 20%; font-weight: bold; text-align: center; padding: 5px; border: 1px solid #000;">
+                                        Asset Number
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.device_line_ids" t-as="line">
+                                    <td class='p-1 text-center border'
+                                        t-esc="line.asset or ''"/>
+                                    <td class='p-1 text-center border'
+                                        t-esc="line.type or ''"/>
+                                    <td class='p-1 text-center border'
+                                        t-esc="line.model or ''"/>
+                                    <td class='p-1 text-center border'
+                                        t-esc="line.serial_number or ''"/>
+                                    <td class='p-1 text-center border'
+                                        t-esc="line.asset_number or ''"/>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Note Section -->
+                        <table style="width: 100%; border-collapse: collapse; border: 1px solid #000; margin-top: 0;">
+                            <tbody>
+                                <tr>
+                                    <td class="p-1 fw-bold"
+                                        style="width: 100%; min-height: 80px; vertical-align: top; padding: 10px;">
+                                        <strong>Note:</strong>
+                                        <span style="min-height: 60px;" t-esc="doc.note or ''"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Asset Data Handling: Table -->
+                        <table style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+                            <thead>
+                                <tr>
+                                    <th style="width:45%;background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;">
+                                        <span>Asset Data Handling:</span>
+                                    </th>
+                                    <th style="width:5%;background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;"/>
+                                    <th style="width:5%;background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;"/>
+                                    <th style="width:45%;background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;">
+                                        <span style="font-family:DroidKufiRegular">:التعامل مع البيانات</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-1">
+                                        <span>All organizational data has been removed from the device.</span>
+                                    </td>
+                                    <td class="p-1 text-center">
+                                        <input type="checkbox"/>
+                                    </td>
+                                    <td class="p-1  text-center">
+                                        <input type="checkbox"/>
+                                    </td>
+                                    <td class='p-1' style="text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">تمت إزالة كافة البيانات التنظيمية من
+                                            الجهاز
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-1">
+                                        <span>All accounts and stored content have been wiped.</span>
+                                    </td>
+                                    <td class="p-1 text-center">
+                                        <input type="checkbox"/>
+                                    </td>
+                                    <td class="p-1  text-center">
+                                        <input type="checkbox"/>
+                                    </td>
+                                    <td class='p-1' style="text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">تم محو الحسابات والمحتوى المخزن
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-1">
+                                        <span>No additional faults or damages have been reported.</span>
+                                    </td>
+                                    <td class="p-1 text-center">
+                                        <input type="checkbox"/>
+                                    </td>
+                                    <td class="p-1  text-center">
+                                        <input type="checkbox"/>
+                                    </td>
+                                    <td class='p-1' style="text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">لم يتم الإبلاغ عن أعطال أو أضرار
+                                            إضافية
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!--  Acknowledgment of Receipt Table -->
+                        <table style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+                            <thead>
+                                <tr>
+                                    <th style="width:50%;background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;">
+                                        <span>Acknowledgment of Asset Return:</span>
+                                    </th>
+                                    <th style="width:50%;background: #f8f8f8; text-align: center; padding: 15px; font-size: 17px; font-weight: bold; border: 1px solid #000;">
+                                        <span style="font-family:DroidKufiRegular">:إقرار بتسليم الاصول</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-1">
+                                        <span>I, the undersigned, confirm that I have returned the listed asset to the
+                                            company and that I have handed over all files, data, and information related
+                                            to my job responsibilities to the relevant department. I also confirm that I
+                                            have not deleted, modified, or transferred any data on the asset, and I
+                                            accept full responsibility for any unreported damage or loss.
+                                        </span>
+                                    </td>
+                                    <td class='p-1' style="text-align:right;">
+                                        <span style="font-family:DroidKufiRegular">أقرّ أنا الموقع أدناه بأني قد قمت
+                                            بتسليم الأصل الموضح أعلاه إلى الشركة، وأؤكد أنني قد سلّمت كافة البيانات
+                                            والملفات والمعلومات المتعلقة بمهامي الوظيفية إلى الإدارة المختصة. كما أؤكد
+                                            أنني لم أقم بنقل أو حذف أو تعديل أي بيانات على الأصل، وأتحمل المسؤولية عن أي
+                                            ضرر أو فقد لم يتم الإبلاغ عنه.
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Signature Section (No Border) -->
+                        <div class="row" style="margin-bottom:30px;">
+                            <div class="col-5" style="padding: 5px;">
+                                <div style="font-family:DroidKufiRegular;text-align:right; margin-bottom: 5px;">
+                                    الموظف المُسلِّم للأصل
+                                </div>
+                                <div style="margin-bottom: 5px; font-weight: bold;">
+                                    Employee Returning the Asset
+                                </div>
+                                <div style="">
+                                    <strong>Employee Name:</strong>
+                                    <span t-esc="doc.return_by_employee_id.name or ''"/>
+                                </div>
+                                <div style="">
+                                    <strong>Date:</strong>
+                                    <span t-esc="doc.return_date and doc.return_date.strftime('%b %d, %Y') or context_timestamp(datetime.datetime.now()).strftime('%b %d, %Y')"/>
+                                </div>
+                                <div style=" width: 180px; height: 15px; ">
+                                    <strong>Signature:</strong>
+                                </div>
+                            </div>
+                            <div class="col-2"></div>
+                            <div class="col-5" style="padding: 5px;">
+                                <div style="font-family:DroidKufiRegular;text-align:right; margin-bottom: 5px;">
+                                    الموظف المستلِم للأصل
+                                </div>
+                                <div style="margin-bottom: 5px; font-weight: bold;">
+                                    EIT / Asset Management Receiver
+                                </div>
+                                <div style="">
+                                    <strong>Employee Name:</strong>
+                                    <span t-esc="doc.return_employee_id.name or ''"/>
+                                </div>
+                                <div style="">
+                                    <strong>Date:</strong>
+                                    <span t-esc="doc.return_date and doc.return_date.strftime('%b %d, %Y') or context_timestamp(datetime.datetime.now()).strftime('%b %d, %Y')"/>
+                                </div>
+                                <div style=" width: 180px;  ">
+                                    <strong>Signature:</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <t t-call="asset_return_report.asset_return_report_footer"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

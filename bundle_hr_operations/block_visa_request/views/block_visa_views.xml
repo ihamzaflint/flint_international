@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Block Visa Request Form View -->
+    <record id="view_block_visa_request_form" model="ir.ui.view">
+        <field name="name">block.visa.request.form</field>
+        <field name="model">block.visa.request</field>
+        <field name="arch" type="xml">
+            <form string="Block Visa Request">
+                <header>
+                    <button name="action_submit" string="Submit" type="object" 
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_approve" string="Approve" type="object" 
+                            class="oe_highlight" invisible="state != 'submitted'"
+                            groups="block_visa_request.group_visa_manager"/>
+                    <button name="action_reject" string="Reject" type="object" 
+                            invisible="state != 'submitted'"
+                            groups="block_visa_request.group_visa_manager"/>
+                    <button name="action_cancel" string="Cancel" type="object" 
+                            invisible="state not in ('draft', 'submitted')"/>
+                    <field name="state" widget="statusbar" 
+                           statusbar_visible="draft,submitted,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Company Information">
+                            <field name="company_id" options="{'no_create': True}"/>
+                            <field name="cr_number"/>
+                            <field name="cr_expiry_date"/>
+                            <field name="operating_license"/>
+                            <field name="operating_license_expiry"/>
+                            <field name="contact_person"/>
+                            <field name="contact_number"/>
+                        </group>
+                        <group string="Project Information">
+                            <field name="project_name"/>
+                            <field name="project_duration"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="total_visas_requested"/>
+                            <field name="available_quota"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Job Categories">
+                            <field name="job_category_ids">
+                                <tree editable="bottom">
+                                    <field name="job_title"/>
+                                    <field name="number_of_positions"/>
+                                    <field name="minimum_salary"/>
+                                    <field name="qualification"/>
+                                    <field name="experience_years"/>
+                                    <field name="nationality_preference" widget="many2many_tags"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Saudization Details">
+                            <group>
+                                <group>
+                                    <field name="total_employees"/>
+                                    <field name="saudi_employees"/>
+                                    <field name="saudization_percentage"/>
+                                </group>
+                                <group>
+                                    <field name="saudization_plan"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Documents">
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Block Visa Request Tree View -->
+    <record id="view_block_visa_request_tree" model="ir.ui.view">
+        <field name="name">block.visa.request.tree</field>
+        <field name="model">block.visa.request</field>
+        <field name="arch" type="xml">
+            <tree string="Block Visa Requests" decoration-info="state == 'draft'" 
+                  decoration-warning="state == 'submitted'"
+                  decoration-success="state == 'approved'" 
+                  decoration-danger="state == 'rejected'">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="project_name"/>
+                <field name="total_visas_requested"/>
+                <field name="start_date"/>
+                <field name="saudization_percentage"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Block Visa Request Search View -->
+    <record id="view_block_visa_request_search" model="ir.ui.view">
+        <field name="name">block.visa.request.search</field>
+        <field name="model">block.visa.request</field>
+        <field name="arch" type="xml">
+            <search string="Block Visa Requests">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="project_name"/>
+                <field name="cr_number"/>
+                <separator/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Submitted" name="submitted" domain="[('state','=','submitted')]"/>
+                <filter string="Approved" name="approved" domain="[('state','=','approved')]"/>
+                <filter string="Rejected" name="rejected" domain="[('state','=','rejected')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_state" context="{'group_by':'state'}"/>
+                    <filter string="Company" name="group_by_company" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_block_visa_request" model="ir.actions.act_window">
+        <field name="name">Block Visa Requests</field>
+        <field name="res_model">block.visa.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_block_visa_request_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first block visa request
+            </p>
+        </field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_block_visa_root" 
+              name="Block Visa" 
+              sequence="10"/>
+
+    <menuitem id="menu_block_visa_request" 
+              name="Requests" 
+              parent="menu_block_visa_root" 
+              action="action_block_visa_request" 
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Header -->
+    <template id="service_ticket_header_button" inherit_id="website.navbar_nav" name="Service Ticket Button">
+        <xpath expr="//ul[@id='top_menu']" position="inside">
+            <li class="nav-item">
+                <a href="/my/helpdesk/ticket/create" class="nav-link">Service Ticket</a>
+            </li>
+        </xpath>
+    </template>
+</odoo>

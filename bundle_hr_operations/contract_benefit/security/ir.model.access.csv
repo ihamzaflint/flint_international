@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_itq_hr_contract_benefit_user,itq.hr.contract.benefit,model_itq_hr_contract_benefit,base.group_user,1,0,0,0
+access_itq_hr_contract_benefit_officer,itq.hr.contract.benefit,model_itq_hr_contract_benefit,hr.group_hr_user,1,1,1,1
+access_itq_hr_contract_benefit_depart_manager,itq.hr.contract.benefit,model_itq_hr_contract_benefit,itq_hr_base.group_hr_department_manager,1,1,1,1

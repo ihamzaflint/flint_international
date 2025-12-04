@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_payslip_detail_report_custom" model="ir.actions.report">
+        <field name="name">Payslip Details</field>
+        <field name="model">hr.payslip</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_payroll_report.report_payslip_detail_custom</field>
+        <field name="print_report_name">'Payslip Detail - %s' % (object.employee_id.name)</field>
+        <field name="binding_model_id" ref="hr_payroll.model_hr_payslip"/>
+        <field name="binding_type">report</field>
+        <!-- Erase fields to avoid double PDF posting -->
+        <field name="attachment"></field>
+        <field name="attachment_use" eval="False"/>
+    </record>
+
+    <template id="report_payslip_detail_custom">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black;
+                            }
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black;
+                            }
+                            .padding_left{
+                                padding-left:5px;
+                            }
+                            .padding_right{
+                                padding-right:5px;
+                            }
+                        </style>
+                        <div class="header">
+                            <div class="row">
+                                <table width="100%">
+                                    <tr>
+                                        <t t-if="o.is_mea_payslip">
+                                            <td width="50%"><img
+                                                t-if="res_company.x_mealogo"
+                                                 t-att-src="image_data_uri(res_company.x_mealogo)"
+                                                style="height:150px;width:400px;"/>
+                                            </td>
+                                            <td width="50%"></td>
+                                        </t>
+                                        <t t-if="not o.is_mea_payslip">
+                                            <td width="50%"><img
+                                                t-if="res_company.logo"
+                                                 t-att-src="image_data_uri(res_company.logo)"
+                                                style="height:150px;width:400px;"/>
+                                            </td>
+                                            <td width="50%"></td>
+                                        </t>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" class="border_top border_left" style="text-align:center;"><b>Emp ID</b></td>
+                                <td width="40%" class="border_top border_left" style="text-align:center;"><b>Name of the Employee</b></td>
+                                <td width="15%" class="border_top border_left" style="text-align:center;"><b>Dept</b></td>
+                                <td width="10%" class="border_top border_left" style="text-align:center;"><b>Days</b></td>
+                                <td width="15%" class="border_top border_left border_right" style="text-align:center;"><b>Start Date</b></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_top border_left" style="text-align:center;"><b><span t-esc="o.employee_id.registration_number"/></b></td>
+                                <td width="40%" class="border_top border_left" style="text-align:center;"><b><span t-esc="o.employee_id.name"/></b></td>
+                                <td width="15%" class="border_top border_left" style="text-align:center;"><b><span t-esc="o.employee_id.department_id.name"/></b></td>
+                                <td width="10%" class="border_top border_left" style="text-align:center;"></td>
+                                <td width="15%" class="border_top border_left border_right" style="text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="border_top border_left border_bottom" style="text-align:center;"><span t-esc="o.employee_id.identification_id"/></td>
+                                <td width="40%" class="border_top border_left border_bottom" style="text-align:center;"><span t-esc="o.employee_id.bank_account_id.acc_number"/></td>
+                                <td width="25%" colspan="2" class="border_top border_left border_bottom" style="text-align:center;"><span t-esc="o.employee_id.bank_account_id.bank_id.name"/></td>
+                                <td width="15%" class="border_top border_left border_right border_bottom" style="text-align:center;"></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
+                                <t t-if="line.category_id.code == 'BASIC'">
+                                    <tr>
+                                        <td width="20%" class="padding_left border_top border_left border_bottom"><span t-esc="line.name['en_US']"/></td>
+                                        <td width="40%" class="padding_right border_top border_left border_bottom" style="text-align:right;"><span t-esc="line.total"/></td>
+                                        <td width="15%" class="border_top border_left border_bottom" style="text-align:center;"><span t-esc="o.company_id.currency_id.name"/></td>
+                                        <td width="10%" class="border_top border_left border_bottom"></td>
+                                        <td width="15%" class="border_top border_left border_right border_bottom"></td>
+                                    </tr>
+                                </t>
+                                <t t-if="line.category_id.code == 'ALW'">
+                                    <tr>
+                                        <td width="20%" class="border_bottom border_left padding_left"><span t-esc="line.name"/></td>
+                                        <td width="40%" class="border_bottom border_left padding_right" style="text-align:right;"><span t-esc="line.total"/></td>
+                                        <td width="15%" class="border_bottom border_left" style="text-align:center;"><span t-esc="o.company_id.currency_id.name"/></td>
+                                        <td width="10%" class="border_bottom border_left"></td>
+                                        <td width="15%" class="border_left border_bottom border_right"></td>
+                                    </tr>
+                                </t>
+                                <t t-if="line.category_id.code == 'GROSS'">
+                                    <tr>
+                                        <td width="20%" class="border_bottom border_left padding_left"><b><span t-esc="line.name"/></b></td>
+                                        <td width="40%" class="border_bottom border_left padding_right" style="text-align:right;"><b><span t-esc="line.total"/></b></td>
+                                        <td width="15%" class="border_bottom border_left" style="text-align:center;"><b><span t-esc="o.company_id.currency_id.name"/></b></td>
+                                        <td width="10%" class="border_bottom border_left"></td>
+                                        <td width="15%" class="border_left border_bottom border_right"></td>
+                                    </tr>
+                                </t>
+                            </span>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" colspan="5" class="border_bottom border_left padding_left border_right border_top"><b>Deductions</b></td>
+                            </tr>
+                            <t t-set="total_ded" t-value="0.0"/>
+                            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
+                                <t t-if="line.category_id.code == 'DED'">
+                                    <tr>
+                                        <td width="20%" class="border_bottom border_left padding_left"><span t-esc="line.name"/></td>
+                                        <td width="40%" class="border_bottom border_left padding_right" style="text-align:right;"><span t-esc="line.total"/></td>
+                                        <t t-set="total_ded" t-value="total_ded + line.total"/>
+                                        <td width="15%" class="border_bottom border_left" style="text-align:center;"><span t-esc="o.company_id.currency_id.name"/></td>
+                                        <td width="10%" class="border_bottom border_left"></td>
+                                        <td width="15%" class="border_left border_bottom border_right"></td>
+                                    </tr>
+                                </t>
+                            </span>
+                            <tr>
+                                <td width="20%" class="border_bottom border_left padding_left"><b>Total Deductions</b></td>
+                                <td width="40%" class="border_bottom border_left padding_right" style="text-align:right;"><span t-esc="total_ded"/></td>
+                                <td width="15%" class="border_bottom border_left" style="text-align:center;"><span t-esc="o.company_id.currency_id.name"/></td>
+                                <td width="10%" class="border_bottom border_left"></td>
+                                <td width="15%" class="border_left border_bottom border_right"></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="5"><br/></td>
+                            </tr>
+                            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
+                                <t t-if="line.category_id.code == 'NET'">
+                                    <tr>
+                                        <td width="20%" class="border_bottom border_left padding_left border_top"><b><span t-esc="line.name"/></b></td>
+                                        <td width="40%" class="border_bottom border_left padding_right border_top" style="text-align:right;"><b><span t-esc="line.total"/></b></td>
+                                        <td width="15%" class="border_bottom border_left border_top" style="text-align:center;"><b><span t-esc="o.company_id.currency_id.name"/></b></td>
+                                        <td width="10%" class="border_bottom border_left border_top"></td>
+                                        <td width="15%" class="border_left border_bottom border_right border_top"></td>
+                                    </tr>
+                                </t>
+                            </span>
+                            <tr>
+                                <td width="100%" colspan="5"><br/></td>
+                            </tr>
+                            <tr>
+                                <td width="100%" colspan="5" class="border_bottom border_left padding_left border_right border_top"><b>Employer Other Contributions</b></td>
+                            </tr>
+                            <span t-foreach="o.line_ids" t-as="line">
+                                <t t-if="line.category_id.code == 'COMP'">
+                                    <tr>
+                                        <td width="20%" class="border_bottom border_left padding_left"><span t-esc="line.name"/></td>
+                                        <td width="40%" class="border_bottom border_left padding_right" style="text-align:right;"><span t-esc="line.total"/></td>
+                                        <td width="15%" class="border_bottom border_left" style="text-align:center;"><span t-esc="o.company_id.currency_id.name"/></td>
+                                        <td width="10%" class="border_bottom border_left"></td>
+                                        <td width="15%" class="border_left border_bottom border_right"></td>
+                                    </tr>
+                                </t>
+                            </span>
+                        </table>
+                        <br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td style="text-align:center;"><b>Note: </b>This is system generated does not required signatures</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"><b>Printed on :</b><span t-esc="datetime.datetime.today().strftime('%d/%b/%Y %H:%M:%S')"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

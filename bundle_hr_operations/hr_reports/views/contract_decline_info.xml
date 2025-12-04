@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Form View-->
+    <record id="view_contract_decline_form" model="ir.ui.view">
+        <field name="name">contract.decline.form</field>
+        <field name="model">contract.decline</field>
+        <field name="arch" type="xml">
+            <form string="Contract Decline">
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="btn-success"
+                            invisible="state in ['draft','confirm']"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-secondary"
+                            invisible="state in ['confirm']"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="state in ['confirm']"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_decline_tree" model="ir.ui.view">
+        <field name="name">contract.decline.tree</field>
+        <field name="model">contract.decline</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_contract_decline" model="ir.actions.act_window">
+        <field name="name">Contract Decline</field>
+        <field name="res_model">contract.decline</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

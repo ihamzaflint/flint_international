@@ -1,0 +1,206 @@
+<odoo>
+
+    <template id="report_mobilty_entry_permit_female_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                            .border_left{
+                                border-collapse:collapse;
+                                border-left:1px solid black !important;
+                            }
+                            .border_right{
+                                border-collapse:collapse;
+                                border-right:1px solid black !important;
+                            }
+                            .border_top{
+                                border-collapse:collapse;
+                                border-top:1px solid black !important;
+                            }
+                            .border_bottom{
+                                border-collapse:collapse;
+                                border-bottom:1px solid black !important;
+                            }
+                        </style>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" style="text-align:center;">
+                                    Contractor Access ID request Form
+                                </td>
+                                <td width="50%" style="text-align:center;">
+                                    نموذج طلب إصدار بطاقة دخول للمقاولين
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" class="border_left border_right border_top border_bottom" style="padding-left:5px;">
+                                    To whom it may concern / <span style="border-bottom:1px dotted black;" t-esc="o.address_to_whom"/>
+                                </td>
+                                <td width="50%" class="border_right border_top border_bottom" style="text-align:right;padding-right:5px;">
+                                    الي من يهمه الامر / <span style="border-bottom:1px dotted black;" t-esc="o.address_to_whom_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    We inform you that we: <span style="border-bottom:1px dotted black;" t-esc="o.comm_reg_number_name"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                   نحيطكم علما نحن شركة: <span style="border-bottom:1px dotted black;" t-esc="o.comm_reg_number_name_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Commercial registration number: <span style="border-bottom:1px dotted black;" t-esc="o.commerical_registration_no"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    سجل تجاري: <span style="border-bottom:1px dotted black;" t-esc="o.commerical_registration_no"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Employee : <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.name"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                   بأن الموظفة: <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Identity ID: <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.identification_id"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                   وتحمل بطاقة/اقامة رقم: <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.identification_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Work with us as : <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.muqeem_profession"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                   تعمل لدينا بمهنة: <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.profession_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Nationality : <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.name"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    الجنسية: <span style="border-bottom:1px dotted black;" t-esc="o.employee_id.country_id.country_name_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Contract No : <span style="border-bottom:1px dotted black;" t-esc="o.contract_no"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    رقم العقد: <span style="border-bottom:1px dotted black;" t-esc="o.contract_no"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom" style="padding-left:5px;">
+                                    Contract Validity date: <span t-esc="o.contract_validity_date"/>
+                                </td>
+                                <td width="50%" class="border_right border_bottom" style="text-align:right;padding-right:5px;">
+                                    صالح الي تاريخ: <span t-esc="o.contract_validity_date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right" style="padding-left:5px;">
+                                    Work description:
+                                </td>
+                                <td width="50%" class="border_right" style="text-align:right;padding-right:5px;">
+                                    وصف العمل:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right">
+                                    We seek your support to issue Mobily ID for him to access the building and do his work. Thank you very much.
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right">
+                                    نأمل منكم إصدار بطاقة للوصول الي مواقع موبايلي حسب نموذج اصدار اذن دخول والقيام بعمله ولكم جزيل الشكر والتقدير.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" class="border_left border_right border_bottom"><br/></td>
+                                <td width="50%" class="border_right border_bottom"></td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    We confirm to return Mobily ID card upon completion of the job under this contract or contract expiry OR the expiry of the staff service under this contract.
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    نتعهد بإعادة بطاقة موبايلي عند انتهاء العمل بموجب هذا العقد نهايته أو انتهاء خدمة الموظفه على هذا العقد.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    Authorized
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    المصرح له
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    Name: <span t-esc="o.authorised_emp_id.name"/>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    الاسم: <span t-esc="o.authorised_emp_id.muqeem_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    Job title: <span t-esc="o.authorised_emp_id.job_id.name"/>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    المسمى الوظيفي: <span t-esc="o.authorised_emp_id.job_id.name_arabic"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    signature:
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    التوقيع:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    Date: <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    التاريخ: <span t-esc="datetime.datetime.today().date()"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" style="padding-left:5px;" class="border_left border_right border_bottom">
+                                    Stamp
+                                </td>
+                                <td width="50%" style="text-align:right;padding-right:5px;" class="border_right border_bottom">
+                                    الختم:
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_mobily_entry_permit_female" model="ir.actions.report">
+        <field name="name">Mobily Entry Permit Female</field>
+        <field name="model">hr.template.report.wiz</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scs_hr_reports.report_mobilty_entry_permit_female_template</field>
+        <field name="print_report_name">'Mobily Entry Permit'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

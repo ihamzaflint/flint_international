@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_move_form_supply_inherit_flint" model="ir.ui.view">
+            <field name="name">view.move.form.supply</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <field name="ref" position="after">
+                    <field name="internal_ref" required="move_type in ['out_invoice', 'out_refund']"/>
+                </field>
+                <div name="journal_div" position="after">
+                    <field invisible="move_type == 'entry'" name="contract_no"/>
+                </div>
+                <xpath expr="//field[@name='tax_totals']" position="after">
+                    <field invisible="move_type == 'entry'" name="adjustment_amount_calc"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+                    <field name="arabic_label"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='name']" position="after">
+                    <field name="arabic_label" optional="hide"/>
+                </xpath>
+                <xpath expr="//field[@name='to_check']" position="after">
+                     <field name="x_mea_invoice"/>
+                    <field name="period_of_supply" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherited_account_move_tree_view" model="ir.ui.view">
+            <field name="name">inherited.account.move.tree.view</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="field[@name='activity_ids']" position="after">
+                    <field name="period_of_supply" string="Old Period of Suuply" invisible="0" optional="hide"/>
+                </xpath>
+                <field name="name" position="after">
+                    <field name="internal_ref" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_filter_view_inherit" model="ir.ui.view">
+            <field name="name">account.invoice.select.view</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="attributes">
+                    <attribute name="filter_domain">
+                        ['|', '|', '|', '|', '|', ('name', 'ilike', self), ('invoice_origin', 'ilike', self),
+                         ('ref', 'ilike', self), ('payment_reference', 'ilike', self), ('partner_id', 'child_of', self),
+                         ('internal_ref', 'ilike', self)]</attribute></field></field>
+        </record>
+    </data>
+</odoo>
