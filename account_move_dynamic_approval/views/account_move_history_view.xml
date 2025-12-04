@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_approval_history_form_view" model="ir.ui.view">
+        <field name="name">purchase.order.approval.history.form.view</field>
+        <field name="model">account.move.approval.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="status" widget="statusbar"/>
+                        </group>
+                        <group>
+                            <field name="action_date"/>
+                            <field name="account_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+    <record id="purchase_order_approval_history_tree_view" model="ir.ui.view">
+        <field name="name">purchase.order.approval.history.tree.view</field>
+        <field name="model">account.move.approval.history</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="status" widget="statusbar"/>
+                <field name="action_date"/>
+                <field name="account_id" optional="hide"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="purchase_order_approval_history_act_window" model="ir.actions.act_window">
+        <field name="name">Purchase Order Approval History</field>
+        <field name="res_model">account.move.approval.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+
+
+
+

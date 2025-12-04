@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_move_form_dynamic_approval_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.dynamic.approval.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='invoice_tab']" position="after">
+                <page name="approvers" string="Approvers">
+                    <field name="dynamic_approve_request_ids" readonly="1">
+                        <tree editable="bottom">
+                            <field name="sequence"/>
+                            <field name="user_id"/>
+                            <field name="group_id"/>
+                            <field name="approve_date"/>
+                            <field name="approve_note"/>
+                            <field name="reject_date"/>
+                            <field name="reject_reason"/>
+                            <field name="status"/>
+                        </tree></field>
+                </page>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <field invisible="1" name="appear_recall_button"/>
+                <field invisible="1" name="dynamic_approve_pending_group"/>
+                <field invisible="1" name="is_dynamic_approval_requester"/>
+                <button class="btn-primary" invisible="state not in ('draft', 'sent') or is_dynamic_approval_requester == False" name="action_dynamic_approval_request" string="Request Approval" type="object"/>
+                <button class="btn-primary" invisible="dynamic_approve_pending_group == False or state == 'cancel'" name="%(base_dynamic_approval.approve_dynamic_approval_wizard_action)d" string="Approve" type="action"/>
+                <button invisible="state != 'under_approval' or (dynamic_approve_pending_group == False and state == 'under_approval')" name="%(base_dynamic_approval.reject_dynamic_approval_wizard_action)d" string="Reject" type="action"/>
+                <button invisible="state != 'under_approval' or appear_recall_button == False" name="%(base_dynamic_approval.recall_dynamic_approval_wizard_action)d" string="Recall" type="action"/>
+            </xpath>
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">
+                    draft,sent,under_approval,approved,posted</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_post'][1]" position="attributes">
+                <attribute name="invisible">state != 'approved' or is_dynamic_approval_requester == False</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_post'][2]" position="attributes">
+                <attribute name="invisible">state != 'approved' or is_dynamic_approval_requester == False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="attributes">
+                <attribute name="readonly">state not in ('draft', 'sent', 'to approve')</attribute>
+            </xpath>
+            <xpath expr="//page[@name='other_info']" position="after">
+                <group name="technical">
+                    <field groups="base.group_no_one" name="dynamic_approval_id" widget="selection"/>
+                    <field groups="base.group_no_one" name="approve_requester_id"/>
+                </group>
+            </xpath>
+</field>
+    </record>
+</odoo>
