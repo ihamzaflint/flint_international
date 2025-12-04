@@ -3,33 +3,25 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - master  # Trigger workflow on staging branch
+      - master
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Add server to known_hosts
+      - name: Deploy Odoo addons
         run: |
-          ssh-keyscan -H 192.168.120.145 >> ~/.ssh/known_hosts
+          set -e
+          echo "Stopping Odoo service..."
+          sudo systemctl stop flint_international.service
 
-      - name: Deploy to server
-        run: |
-          ssh -o StrictHostKeyChecking=no flint_international@192.168.120.145 << 'EOF'
-            set -e  # Stop if any command fails
-            cd /home/flint_international/Programming/Odoo/odoo_17/env/flint_international/addons
-            sudo systemctl stop flint_international.service
-            git pull origin staging
-            sudo systemctl start flint_international.service
-          EOF
-          
-          
+          echo "Pulling latest code..."
+          cd /home/flint_international/Programming/Odoo/odoo_17/env/flint_international/addons
+          git pull origin master
+
+          echo "Starting Odoo service..."
+          sudo systemctl start flint_international.service
